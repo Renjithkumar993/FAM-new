@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FAM-new/static/css/main.b0d83f00.css",
-    "main.js": "/FAM-new/static/js/main.ca19aba0.js",
+    "main.css": "/FAM-new/static/css/main.c8253ae4.css",
+    "main.js": "/FAM-new/static/js/main.526ccd11.js",
     "static/js/453.ee1e62f1.chunk.js": "/FAM-new/static/js/453.ee1e62f1.chunk.js",
     "static/media/c10.jpg": "/FAM-new/static/media/c10.89449e629a9f7e6b483c.jpg",
     "static/media/a3.jpg": "/FAM-new/static/media/a3.f6816bc4b9f2f0716d35.jpg",
@@ -16,7 +16,7 @@
     "static/media/Events-Calendar-kentiko-banner.jpg": "/FAM-new/static/media/Events-Calendar-kentiko-banner.d3599c751fac0a8a35ea.jpg",
     "static/media/flat_750x_075_f-pad_750x1000_f8f8f8.u2__1_-removebg-preview.png": "/FAM-new/static/media/flat_750x_075_f-pad_750x1000_f8f8f8.u2__1_-removebg-preview.5c94f0e4f4acc2dba27f.png",
     "static/media/c5.jpg": "/FAM-new/static/media/c5.842374a1cbb65142cf20.jpg",
-    "static/media/424906607_371211172391747__n.jpg": "/FAM-new/static/media/424906607_371211172391747_2532641992234494639_n.42028fa04033a1879333.jpg",
+    "static/media/logofam.jpg": "/FAM-new/static/media/logofam.42028fa04033a1879333.jpg",
     "static/media/istockphoto-1438238504-612x612.jpg": "/FAM-new/static/media/istockphoto-1438238504-612x612.61f305b8102c871ea753.jpg",
     "static/media/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg": "/FAM-new/static/media/flat,750x,075,f-pad,750x1000,f8f8f8.u2.70800367014bf70edf3d.jpg",
     "static/media/team.jpg": "/FAM-new/static/media/team.4e6c1d67fb8fa00fbd2c.jpg",
@@ -26,12 +26,12 @@
     "static/media/c3.jpg": "/FAM-new/static/media/c3.ee393dc2e823ddaaccc4.jpg",
     "static/media/logo.svg": "/FAM-new/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/FAM-new/index.html",
-    "main.b0d83f00.css.map": "/FAM-new/static/css/main.b0d83f00.css.map",
-    "main.ca19aba0.js.map": "/FAM-new/static/js/main.ca19aba0.js.map",
+    "main.c8253ae4.css.map": "/FAM-new/static/css/main.c8253ae4.css.map",
+    "main.526ccd11.js.map": "/FAM-new/static/js/main.526ccd11.js.map",
     "453.ee1e62f1.chunk.js.map": "/FAM-new/static/js/453.ee1e62f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b0d83f00.css",
-    "static/js/main.ca19aba0.js"
+    "static/css/main.c8253ae4.css",
+    "static/js/main.526ccd11.js"
   ]
 }
