@@ -96,12 +96,12 @@
     position: relative;
     line-height: 1.8;
   }
-  
   .stat-item ul li::before {
     content: '✔';
     position: absolute;
     left: 0;
-    color: #e63946;
+    color: #fd081c !important; /* Ensures the color is red */
     font-size: 1.3rem;
   }
+  
   

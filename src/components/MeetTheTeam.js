@@ -35,7 +35,7 @@ const MeetTheTeam = () => {
           variants={containerVariants}
           className="section-header"
         >
-          <motion.h2 className="section-title1">Meet the Current Admins</motion.h2>
+          <motion.h2 className="section-title1"> Current Admins</motion.h2>
           <motion.p className="section-description">
             Our team is composed of talented individuals dedicated to making our project a success.
           </motion.p>

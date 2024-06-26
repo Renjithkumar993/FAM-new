@@ -6,11 +6,11 @@ import './MissionVision.css';
 
 const MissionVision = () => {
   const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   const { ref: imageRef, inView: imageInView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   return (

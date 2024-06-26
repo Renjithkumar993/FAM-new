@@ -1,6 +1,6 @@
 /* src/components/MeetTheTeam.css */
 .meet-the-team-section {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(to right, #ff6347, #000000); 
     color: #fff;
     padding: 60px 20px;
     border-radius: 15px;

@@ -22,7 +22,7 @@ const MovingToFredericton = () => {
 
   return (
     <motion.div
-      className="moving-to-fredericton-container"
+      className="moving-to-fredericton-container" id='move'
       variants={containerVariants}
       initial="hidden"
       animate="visible"

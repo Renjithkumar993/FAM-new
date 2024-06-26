@@ -1,6 +1,7 @@
+/* src/components/Gallery.css */
 .gallery-section {
-    background: #f0f4f8;
-    color: #333;
+    background: #222;
+    color: #fff;
     padding: 60px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,24 +15,50 @@
   .animated-heading {
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
-    color: #ff1e00;
+    color: white;
+    text-align: left;
+  }
+  
+  .gallery-container {
+    position: relative;
+  }
+  
+  .gallery-scroll {
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
+  
+  .gallery-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .gallery-scroll::-webkit-scrollbar-thumb {
+    background: #ff1e00;
+    border-radius: 10px;
+  }
+  
+  .gallery-scroll::-webkit-scrollbar-track {
+    background: #333;
   }
   
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
   }
   
   .gallery-item {
-    overflow: hidden;
+    min-width: 200px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
   }
   
   .gallery-item:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
   .gallery-image {
@@ -39,5 +66,5 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 15px;
   }
-  

@@ -5,7 +5,7 @@ import './AboutUs.css';
 
 const AboutUs = () => {
   return (
-    <div className="about-us-section">
+    <div className="about-us-section" id='about'>
       <Container>
         <Row className="align-items-center">
           <Col md={6} className="image-col">
@@ -39,7 +39,6 @@ const AboutUs = () => {
                 be a part of our community. Join us as we cherish our traditions,
                 share our stories, and create beautiful memories together.
               </p>
-              <Button variant="danger" className="read-more-btn mb-2">Read More</Button>
             </div>
           </Col>
         </Row>

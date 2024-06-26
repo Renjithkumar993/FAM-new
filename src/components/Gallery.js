@@ -1,3 +1,4 @@
+// src/components/Gallery.js
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
@@ -14,7 +15,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="gallery-section">
+    <div className="gallery-section" id='gallery'>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -31,18 +32,22 @@ const Gallery = () => {
             Our Gallery
           </motion.h2>
         </motion.div>
-        <div className="gallery-grid">
-          {loadedImages.map((image, index) => (
-            <motion.div
-              key={index}
-              className="gallery-item"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <img src={image} alt={`Gallery Image ${index + 1}`} className="gallery-image" />
-            </motion.div>
-          ))}
+        <div className="gallery-container">
+          <div className="gallery-scroll">
+            <div className="gallery-grid">
+              {loadedImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="gallery-item"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <img src={image} alt={`Gallery Image ${index + 1}`} className="gallery-image" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </div>
