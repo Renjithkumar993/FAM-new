@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import './ContactUs.css';
-import logoImage from '../images/424906607_371211172391747_2532641992234494639_n.jpg'; // Adjust the path to your image
+import logoImage from '../images/logofam.jpg'; // Adjust the path to your image
 
 const ContactUs = () => {
   const { ref: leftRef, inView: leftInView } = useInView({

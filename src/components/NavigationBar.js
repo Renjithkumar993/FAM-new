@@ -2,7 +2,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-scroll';
-import logo from '../images/424906607_371211172391747_2532641992234494639_n.jpg'; // Adjust the path to your logo image
+import logo from '../images/logofam.jpg'; // Adjust the path to your logo image
 
 const NavigationBar = () => {
   return (
