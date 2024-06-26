@@ -49,7 +49,7 @@ const UpcomingEvents = () => {
   };
 
   return (
-    <div className="upcoming-events-section">
+    <div className="upcoming-events-section1" id='news'>
       <Container>
         <motion.div
           initial={{ opacity: 0 }}

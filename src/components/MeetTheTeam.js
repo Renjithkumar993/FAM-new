@@ -1,3 +1,4 @@
+// src/components/MeetTheTeam.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
@@ -25,7 +26,7 @@ const MeetTheTeam = () => {
   };
 
   return (
-    <div className="meet-the-team-section">
+    <div className="meet-the-team-section" id='meet'>
       <Container>
         <motion.div
           initial="hidden"
@@ -34,7 +35,7 @@ const MeetTheTeam = () => {
           variants={containerVariants}
           className="section-header"
         >
-          <motion.h2 className="section-title">Meet the Current Admins</motion.h2>
+          <motion.h2 className="section-title1">Meet the Current Admins</motion.h2>
           <motion.p className="section-description">
             Our team is composed of talented individuals dedicated to making our project a success.
           </motion.p>

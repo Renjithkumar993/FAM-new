@@ -14,7 +14,7 @@ const ContactUs = () => {
   });
 
   return (
-    <div className="contact-us-section">
+    <div className="contact-us-section" id='contact'>
       <Container>
         <Row className="align-items-center">
           <Col md={6} className={`left-col ${leftInView ? 'animate' : ''}`} ref={leftRef}>

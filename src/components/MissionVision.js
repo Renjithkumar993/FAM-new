@@ -14,7 +14,7 @@ const MissionVision = () => {
   });
 
   return (
-    <div className="mission-vision-section">
+    <div className="mission-vision-section" id='mission'>
       <Container>
         <Row className="align-items-center">
           <Col md={6} ref={textRef} className={`text-container ${textInView ? 'animate' : ''}`}>

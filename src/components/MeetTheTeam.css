@@ -1,39 +1,31 @@
+/* src/components/MeetTheTeam.css */
 .meet-the-team-section {
-    background: url('../images/team.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff;
     padding: 60px 20px;
     border-radius: 15px;
     text-align: center;
     position: relative;
     z-index: 1;
-  }
-  
-  .meet-the-team-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
-    z-index: -1;
-    border-radius: 15px;
+    overflow: hidden;
   }
   
   .section-header {
     margin-bottom: 40px;
   }
   
-  .section-title {
+  .section-title1 {
     font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
-    color: #ff1100;
+    color: white;
     margin-bottom: 20px;
+    text-transform: uppercase;
   }
   
   .section-description {
     font-size: 1.2rem;
-    color: #ddd;
+    color: #eee;
+    margin-bottom: 40px;
   }
   
   .team-member {
@@ -41,22 +33,57 @@
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .team-member:hover {
     transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
   }
   
   .member-info h3 {
     font-size: 1.5rem;
-    color: #ff0000;
+    color: #fff;
     margin-bottom: 10px;
   }
   
   .member-info p {
     font-size: 1rem;
     color: #ddd;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .team-member {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .section-title, .section-description {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .section-title::after, .section-description::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50px;
+    background-color: #fff;
+    border-radius: 5px;
   }
   

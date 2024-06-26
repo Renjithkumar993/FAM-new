@@ -16,7 +16,7 @@ const NavigationBar = () => {
           <Nav.Link as={Link} to="home" smooth={true} duration={500}>Home</Nav.Link>
           <Nav.Link as={Link} to="about" smooth={true} duration={500}>About Us</Nav.Link>
           <Nav.Link as={Link} to="gallery" smooth={true} duration={500}>Gallery</Nav.Link>
-          <Nav.Link as={Link} to="events" smooth={true} duration={500}>Events</Nav.Link>
+          <Nav.Link as={Link} to="news" smooth={true} duration={500}>Events</Nav.Link>
           <Nav.Link as={Link} to="team" smooth={true} duration={500}>Team</Nav.Link>
           <Nav.Link as={Link} to="contact" smooth={true} duration={500}>Contact Us</Nav.Link>
         </Nav>

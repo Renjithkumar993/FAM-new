@@ -8,7 +8,7 @@ import "./LandingPage.css"
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
+    <div className="landing-page" id='home'>
       <Carousel>
         <Carousel.Item>
           <div className="carousel-image-container">
