@@ -1,24 +1,41 @@
 import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
+import NavigationBar from './components/NavigationBar';
+import LandingPage from './components/Landingpage';
+
+
+const handleScroll = () => {
+  const navbar = document.querySelector('.navbar-custom');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+};
+
+
+
 
 function App() {
+
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+   
+   <NavigationBar />
+   <LandingPage />
+   
+    </>
+
+
   );
 }
 
