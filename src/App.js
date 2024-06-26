@@ -4,6 +4,14 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import LandingPage from './components/Landingpage';
+import AboutUs from './components/AboutUs';
+import MissionVision from './components/MissionVision';
+import MovingToFredericton from './components/MovingToFredericton';
+import ContactUs from './components/ContactUs';
+import UpcomingEvents from './components/UpcomingEvents';
+import Gallery from './components/Gallery';
+import MeetTheTeam from './components/MeetTheTeam';
+import ScrollProgressBar from './components/ScrollProgressBar'; 
 
 
 const handleScroll = () => {
@@ -29,9 +37,18 @@ function App() {
   }, []);
   return (
     <>
-   
+     <div className="scroll-container">
    <NavigationBar />
    <LandingPage />
+   <AboutUs />
+   <MissionVision />
+   <MovingToFredericton />
+   <ContactUs />
+   <UpcomingEvents />
+   <Gallery />
+   <MeetTheTeam />
+   </div>
+   <ScrollProgressBar />
    
     </>
 

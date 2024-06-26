@@ -1,0 +1,78 @@
+/* src/components/LandingPage.css */
+.landing-page {
+    position: relative;
+  }
+  
+  .carousel-image-container {
+    position: relative;
+  }
+  
+  .carousel-image-container img {
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+  .carousel-image-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 1;
+  }
+  
+  .caption-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    max-width: 600px;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .caption-content .badge {
+    background-color: #dc3545;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .caption-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .caption-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .caption-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .caption-content .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  .carousel-caption {
+    top: 20%;
+    bottom: auto;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  

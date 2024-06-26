@@ -1,0 +1,22 @@
+.scroll-progress-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 35px;
+    z-index: 1000; /* Ensure it's above other content */
+    width: 80px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+  }
+  
+  /* Optional: Customize the progress bar colors */
+  .CircularProgressbar-path {
+    stroke: #ff1100; /* Progress bar color */
+  }
+  
+  .CircularProgressbar-trail {
+    stroke: #f0f0f0; /* Background color */
+  }
+  
+  .CircularProgressbar-text {
+    fill: #01010e; /* Text color */
+  }
+  
