@@ -1,15 +1,17 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import aboutImage from '../images/famaboutus.png'; // Adjust the path to your image
 import './AboutUs.css';
 
 const AboutUs = () => {
+  console.log(aboutImage); // Log the image path to ensure it's being imported correctly
+
   return (
     <div className="about-us-section" id='about'>
       <Container>
         <Row className="align-items-center">
           <Col md={6} className="image-col">
-            <div className="image-container">
+            <div className="image-container1">
               <img src={aboutImage} alt="About Us" className="about-image" />
               <div className="overlay">
                 <div className="play-button">
