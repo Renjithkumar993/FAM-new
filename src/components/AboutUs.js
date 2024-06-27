@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import aboutImage from '../images/a1.jpg'; // Adjust the path to your image
+import aboutImage from '../images/famaboutus.png'; // Adjust the path to your image
 import './AboutUs.css';
 
 const AboutUs = () => {

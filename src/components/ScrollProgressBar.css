@@ -13,10 +13,10 @@
   }
   
   .CircularProgressbar-trail {
-    stroke: #f0f0f0; /* Background color */
+    stroke: #f30d0d; /* Background color */
   }
   
   .CircularProgressbar-text {
-    fill: #01010e; /* Text color */
+    fill: #0f0ff3; /* Text color */
   }
   

@@ -1,7 +1,7 @@
 /* src/components/Gallery.css */
 .gallery-section {
-    background: #222;
-    color: #fff;
+    background: linear-gradient(to right, #f7f7f7, #eaeaea);
+    color: black !important ;
     padding: 60px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,7 @@
   .animated-heading {
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
-    color: white;
+    color: rgb(8, 0, 0);
     text-align: left;
   }
   

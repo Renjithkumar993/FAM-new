@@ -1,6 +1,6 @@
 /* src/components/UpcomingEvents.css */
 .upcoming-events-section {
-    background: #222; 
+    background: linear-gradient(to right, #1e1e1e, #2e2e2e);
     color: #fff;
     padding: 60px 20px;
     text-align: center;
@@ -9,16 +9,31 @@
   }
   
   .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    font-weight: bold;
+    font-size: 2.5rem; /* Match the font size */
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block; /* Add inline-block to make the pseudo-element position relative to the h2 */
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 50px; /* Match the width */
+    height: 3px; /* Match the height */
+    background: #e63946; /* Match the background color */
+    position: absolute;
+    bottom: -10px; /* Match the position */
+    left: 0; /* Match the position */
+    background: #e63946 !important; /* Ensure the background color is applied */
+    width: 50px !important; /* Ensure the width is applied */
+    height: 3px !important; /* Ensure the height is applied */
   }
   
   .event-card {
     overflow: hidden;
     border: none;
     border-radius: 15px;
-    background: #2e2a3b;
+    background: #333;
     color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -48,25 +63,25 @@
   
   .card-subtitle {
     font-size: 1rem;
-    color: #110101;
+    color: #bbb;
   }
   
   .card-text {
     font-size: 1rem;
-    color: #0f0101;
+    color: #ddd;
   }
   
   .register-button {
     font-size: 1rem;
     padding: 10px 20px;
     border-radius: 30px;
-    background: #ff4757;
+    background: #e63946;
     color: #fff;
     border: none;
     transition: background 0.3s;
   }
   
   .register-button:hover {
-    background: #e84118;
+    background: #c53030;
   }
   

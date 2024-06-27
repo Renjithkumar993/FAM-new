@@ -1,7 +1,6 @@
 /* src/components/MeetTheTeam.css */
 .meet-the-team-section {
     background: linear-gradient(to right, #ff6347, #000000); 
-    color: #fff;
     padding: 60px 20px;
     border-radius: 15px;
     text-align: center;
@@ -14,13 +13,35 @@
     margin-bottom: 40px;
   }
   
-  .section-title1 {
-    font-size: 2.5rem;
-    font-family: 'Poppins', sans-serif;
-    color: white;
+  /* .section-title1 { */
+    /* font-size: 2.5rem; */
+    /* font-family: 'Poppins', sans-serif; */
+    /* color: rgb(19, 1, 1); */
+    /* margin-bottom: 20px; */
+    /* text-transform: uppercase; */
+  /* } */
+
+
+  .section-title1 h2 {
+    font-size: 3.5rem;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    position: relative;
   }
+    
+  .section-title1 h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #e63946;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
+
+
+
+
   
   .section-description {
     font-size: 1.2rem;

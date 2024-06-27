@@ -29,7 +29,7 @@ const Gallery = () => {
             transition={{ duration: 1, delay: 0.5 }}
             className="animated-heading"
           >
-            Our Gallery
+            OUR GALLERY
           </motion.h2>
         </motion.div>
         <div className="gallery-container">

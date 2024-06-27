@@ -21,7 +21,7 @@ const ContactUs = () => {
             <img src={logoImage} alt="Association Logo" className="img-fluid logo-image" />
           </Col>
           <Col md={6} className={`right-col ${rightInView ? 'animate' : ''}`} ref={rightRef}>
-            <h2>Contact Us</h2>
+            <h2>CONTACT US</h2>
             <p>Send us a quick message we will get back to You</p>
             <Form>
               <Form.Group controlId="formName">

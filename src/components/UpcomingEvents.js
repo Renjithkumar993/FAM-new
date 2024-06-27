@@ -46,7 +46,7 @@ const UpcomingEvents = () => {
               transition={{ duration: 1 }}
               className="section-title"
             >
-              Upcoming Events
+              UPCOMING EVENTS
             </motion.h2>
           </Col>
         </Row>

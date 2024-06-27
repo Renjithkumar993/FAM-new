@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import missionImage from '../images/fam-removebg-preview.png'; // Adjust the path to your image
 import './MissionVision.css';
@@ -14,7 +14,7 @@ const MissionVision = () => {
   });
 
   return (
-    <div className="mission-vision-section" id='mission'>
+    <div className="mission-vision-section" id="mission">
       <Container>
         <Row className="align-items-center">
           <Col md={6} ref={textRef} className={`text-container ${textInView ? 'animate' : ''}`}>
