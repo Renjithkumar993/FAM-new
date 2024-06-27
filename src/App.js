@@ -1,10 +1,8 @@
-import logo from './logo.svg';
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import EventPopup from './components/EventPopup';
 import NavigationBar from './components/NavigationBar';
-import LandingPage from './components/Landingpage';
+import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
 import AboutUs from './components/AboutUs';
 import MissionVision from './components/MissionVision';
 import MovingToFredericton from './components/MovingToFredericton';
@@ -12,8 +10,8 @@ import ContactUs from './components/ContactUs';
 import UpcomingEvents from './components/UpcomingEvents';
 import Gallery from './components/Gallery';
 import MeetTheTeam from './components/MeetTheTeam';
-import ScrollProgressBar from './components/ScrollProgressBar'; 
-
+import ScrollProgressBar from './components/ScrollProgressBar';
+import LandingPage from './components/LandingPage.js';
 
 const handleScroll = () => {
   const navbar = document.querySelector('.navbar-custom');
@@ -24,37 +22,42 @@ const handleScroll = () => {
   }
 };
 
-
-
-
 function App() {
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+
+    // Simulate a delay to show the loading screen
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust the delay as needed
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
     };
   }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <>
-     <div className="scroll-container">
-   <NavigationBar />
-   <LandingPage />
-   <AboutUs />
-   <MissionVision />
-   <MovingToFredericton />
-   <UpcomingEvents />
-   <Gallery />
-   <MeetTheTeam />
-   <ContactUs />
-   </div>
-   <ScrollProgressBar />
-   <EventPopup />
-   
+      <div className="scroll-container">
+        <NavigationBar />
+        <AboutUs />
+        <MissionVision />
+        <MovingToFredericton />
+        <UpcomingEvents />
+        <Gallery />
+        <MeetTheTeam />
+        <ContactUs />
+      </div>
+      <ScrollProgressBar />
+      <EventPopup />
     </>
-
-
   );
 }
 
