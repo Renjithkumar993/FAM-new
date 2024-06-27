@@ -1,4 +1,3 @@
-// src/components/NavigationBar.js
 import React, { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-scroll';
@@ -31,13 +30,13 @@ const NavigationBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link as={Link} to="home" smooth={true} duration={500} onClick={handleLinkClick}>Home</Nav.Link>
-            <Nav.Link as={Link} to="about" smooth={true} duration={500} onClick={handleLinkClick}>About Us</Nav.Link>
-            <Nav.Link as={Link} to="gallery" smooth={true} duration={500} onClick={handleLinkClick}>Gallery</Nav.Link>
-            <Nav.Link as={Link} to="news" smooth={true} duration={500} onClick={handleLinkClick}>Events</Nav.Link>
-            <Nav.Link as={Link} to="team" smooth={true} duration={500} onClick={handleLinkClick}>Team</Nav.Link>
-            <Nav.Link as={Link} to="move" smooth={true} duration={500} onClick={handleLinkClick}>New to fredericton ?</Nav.Link>
-            <Nav.Link as={Link} to="contact" smooth={true} duration={500} onClick={handleLinkClick}>Contact Us</Nav.Link>
+            <Nav.Link as={Link} to="home" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Home</Nav.Link>
+            <Nav.Link as={Link} to="about" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>About Us</Nav.Link>
+            <Nav.Link as={Link} to="gallery" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Gallery</Nav.Link>
+            <Nav.Link as={Link} to="news" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Events</Nav.Link>
+            <Nav.Link as={Link} to="meet" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Team</Nav.Link>
+            <Nav.Link as={Link} to="move" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>New to Fredericton?</Nav.Link>
+            <Nav.Link as={Link} to="contact" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Contact Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </div>

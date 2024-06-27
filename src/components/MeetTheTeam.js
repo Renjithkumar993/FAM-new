@@ -1,4 +1,3 @@
-// src/components/MeetTheTeam.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
@@ -14,19 +13,19 @@ const teamMembers = [
   { name: 'Renjith Rajakumar', role: 'Director' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } },
+};
+
 const MeetTheTeam = () => {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } }
-  };
-
   return (
-    <div className="meet-the-team-section" id='meet'>
+    <div className="meet-the-team-section" id="meet">
       <Container>
         <motion.div
           initial="hidden"
@@ -35,10 +34,7 @@ const MeetTheTeam = () => {
           variants={containerVariants}
           className="section-header"
         >
-          <motion.h2 className="section-title1"> Current Admins</motion.h2>
-          <motion.p className="section-description">
-            Our team is composed of talented individuals dedicated to making our project a success.
-          </motion.p>
+          <h2 className="section-title">CURRENT ADMINS</h2>
         </motion.div>
         <Row>
           {teamMembers.map((member, index) => (

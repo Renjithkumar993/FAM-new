@@ -1,45 +1,108 @@
 .moving-to-fredericton-container {
-    background: linear-gradient(to right, #f7f7f7, #eaeaea);  /* Light background color */
-    color: #333;
-    padding: 60px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .left-content iframe {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+  background: linear-gradient(to right, #f7f7f7, #eaeaea);  /* Light background color */
+  color: #333;
+  padding: 60px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+.left-content iframe {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-content {
+  text-align: left;
+  padding: 20px;
+}
+
+.right-content h2 {
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: bold;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.right-content h2::before {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: red;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.typed-text {
+  color: red;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid red; /* Adjust cursor color */
+  white-space: nowrap;
+  animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: red; }
+}
+
+.right-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.custom-button {
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-buttons .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.social-buttons .btn-facebook {
+  background: #3b5998; /* Facebook blue */
+  border: none;
+}
+
+.social-buttons .btn-whatsapp {
+  background: #25d366; /* WhatsApp green */
+  border: none;
+}
+
+.social-buttons .btn-download {
+  background: red; /* Red for download guide */
+  border: none;
+}
+
+.social-buttons .btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
   .right-content {
-    text-align: left;
-    padding: 20px;
+    text-align: center;
   }
-  
-  .right-content h2 {
-    font-size: 2.5rem;
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  
-  .right-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-  
   .social-buttons .btn {
-    font-size: 1rem;
-    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 10px;
   }
-  
-  @media (max-width: 768px) {
-    .right-content {
-      text-align: center;
-    }
-    .social-buttons .btn {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  }
-  
+}

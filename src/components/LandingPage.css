@@ -1,108 +1,102 @@
-/* src/components/LandingPage.css */
 .landing-page {
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
-  }
-  
-  .carousel-caption-wrapper {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .caption-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .caption-content .badge {
-    background-color: #dc3545;
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
-  
-  .caption-content h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .caption-content h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .caption-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .caption-content .btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
-  
-  .carousel-caption {
-    top: 20%;
-    bottom: auto;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 40px, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  .animated-svg {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-  }
-  
-  .animated-circle {
-    fill: none;
-    stroke: #dc3545;
-    stroke-width: 5;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 283;
-    animation: dash 2s ease-in-out forwards;
-  }
-  
-  .animated-rect {
-    fill: none;
-    stroke: #dc3545;
-    stroke-width: 5;
-    stroke-dasharray: 320;
-    stroke-dashoffset: 320;
-    animation: dash 2s ease-in-out forwards;
-  }
-  
-  .animated-polygon {
-    fill: none;
-    stroke: #dc3545;
-    stroke-width: 5;
-    stroke-dasharray: 260;
-    stroke-dashoffset: 260;
-    animation: dash 2s ease-in-out forwards;
-  }
-  
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+}
+
+.carousel-caption-wrapper {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.caption-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.text-box {
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent background for readability */
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.caption-content .badge {
+  background-color: #dc3545;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.caption-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff; /* White text color */
+}
+
+.caption-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; /* White text color */
+}
+
+.caption-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff; /* White text color */
+}
+
+.caption-content .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.carousel-caption {
+  top: 20%;
+  bottom: auto;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+
+.fam-hero {
+  color: red !important;
+}

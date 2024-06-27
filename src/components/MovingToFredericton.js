@@ -22,7 +22,8 @@ const MovingToFredericton = () => {
 
   return (
     <motion.div
-      className="moving-to-fredericton-container" id='move'
+      className="moving-to-fredericton-container"
+      id="move"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -54,16 +55,18 @@ const MovingToFredericton = () => {
               initial="hidden"
               animate="visible"
             >
-              <h2 className='mt-3'>Planning to move to Fredericton?</h2>
+              <h2 className="mt-3">
+                Planning to move to <span className="typed-text">FREDERICTON</span>
+              </h2>
               <p>We have a helpful document to guide you through.</p>
-              <Button variant="info" className="rounded-pill" href="path_to_your_document.pdf" download>
+              <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
                 <FaFileDownload className="mr-1" /> Download Guide
               </Button>
               <div className="social-buttons mt-4">
-                <Button variant="primary" className="mr-3 rounded-pill" href="#" target="_blank">
+                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="#" target="_blank">
                   <FaFacebook className="mr-1" /> Join Facebook Group
                 </Button>
-                <Button variant="success" className="rounded-pill" href="#" target="_blank">
+                <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
                   <FaWhatsapp className="mr-1" /> Join WhatsApp Group
                 </Button>
               </div>

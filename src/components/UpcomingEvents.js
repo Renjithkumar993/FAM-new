@@ -1,24 +1,20 @@
-// src/components/UpcomingEvents.js
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import './UpcomingEvents.css';
-import image1 from '../images/a1.jpg';
-import image2 from '../images/a2.jpg';
+
+// Import all images from the ../events/ folder
+const importAll = (r) => r.keys().map(r);
+const images = importAll(require.context('../events', false, /\.(png|jpe?g|svg)$/));
 
 const events = [
   {
     title: "Family Picnic",
     date: "August 28, 2024",
     description: "A fun-filled day with games, activities, and delicious food at our family picnic.",
-    image: image1,
+    image: images[0],
   },
-  {
-    title: "Onam Celebration",
-    date: "September 14, 2024",
-    description: "Join us for a vibrant celebration of Onam with traditional dances, music, and a grand feast.",
-    image: image2,
-  },
+  // Add more events as needed
 ];
 
 const cardVariants = {
@@ -44,7 +40,7 @@ const UpcomingEvents = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className="section-title"
+              className="section-title1"
             >
               UPCOMING EVENTS
             </motion.h2>
@@ -60,15 +56,10 @@ const UpcomingEvents = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 variants={cardVariants}
               >
-                <Card className="h-100">
-                  <Card.Img variant="top" src={event.image} alt={event.title} className="event-image"/>
-                  <Card.Body className="d-flex flex-column">
-                    <Card.Title className="mt-2">{event.title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{event.date}</Card.Subtitle>
-                    <Card.Text>{event.description}</Card.Text>
-                    <Button variant="danger" className="mt-auto register-button">Register</Button>
-                  </Card.Body>
-                </Card>
+                <div className="image-container">
+                  <img src={event.image} alt={event.title} className="event-image"/>
+                  <Button variant="danger" className="register-button">Register</Button>
+                </div>
               </motion.div>
             </Col>
           ))}

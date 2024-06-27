@@ -1,110 +1,93 @@
-/* src/components/MeetTheTeam.css */
 .meet-the-team-section {
-    background: linear-gradient(to right, #ff6347, #000000); 
-    padding: 60px 20px;
-    border-radius: 15px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
-  
-  .section-header {
-    margin-bottom: 40px;
-  }
-  
-  /* .section-title1 { */
-    /* font-size: 2.5rem; */
-    /* font-family: 'Poppins', sans-serif; */
-    /* color: rgb(19, 1, 1); */
-    /* margin-bottom: 20px; */
-    /* text-transform: uppercase; */
-  /* } */
+  background: linear-gradient(to right, #1f1f1f, #333333); /* Dark gradient background */
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff; /* White text color for contrast */
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  position: relative;
+  color: white; 
+}
+
+.section-title::after {
+  content: '';
+
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #e63946 !important; /* Red underline */
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 
-  .section-title1 h2 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    position: relative;
-  }
-    
-  .section-title1 h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #e63946;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-  }
+.team-member {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.team-member:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
 
+.member-info h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
 
+.member-info p {
+  font-size: 1rem;
+  color: #ddd;
+}
 
-  
-  .section-description {
-    font-size: 1.2rem;
-    color: #eee;
-    margin-bottom: 40px;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
-  
-  .team-member {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    transition: transform 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  50% {
+    transform: translateY(-10px);
   }
-  
-  .team-member:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
+  100% {
+    transform: translateY(0px);
   }
-  
-  .member-info h3 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .member-info p {
-    font-size: 1rem;
-    color: #ddd;
-  }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  
-  .team-member {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  .section-title, .section-description {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-  }
-  
-  .section-title::after, .section-description::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    height: 3px;
-    width: 50px;
-    background-color: #fff;
-    border-radius: 5px;
-  }
-  
+}
+
+.team-member {
+  animation: float 3s ease-in-out infinite;
+}
+
+.section-title, .section-description {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.section-title::after, .section-description::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 50px;
+  background-color: #fff;
+  border-radius: 5px;
+}

@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
+import EventPopup from './components/EventPopup';
 import NavigationBar from './components/NavigationBar';
 import LandingPage from './components/Landingpage';
 import AboutUs from './components/AboutUs';
@@ -43,12 +44,13 @@ function App() {
    <AboutUs />
    <MissionVision />
    <MovingToFredericton />
-   <ContactUs />
    <UpcomingEvents />
    <Gallery />
    <MeetTheTeam />
+   <ContactUs />
    </div>
    <ScrollProgressBar />
+   <EventPopup />
    
     </>
 

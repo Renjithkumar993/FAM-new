@@ -9,14 +9,14 @@
   
   /* Optional: Customize the progress bar colors */
   .CircularProgressbar-path {
-    stroke: #ff1100; /* Progress bar color */
+    stroke: #0f0201 !important;  /* Progress bar color */
   }
   
   .CircularProgressbar-trail {
-    stroke: #f30d0d; /* Background color */
+    stroke: #f30d0d !important; /* Background color */
   }
   
   .CircularProgressbar-text {
-    fill: #0f0ff3; /* Text color */
+    fill:white!important; /* Text color */
   }
   

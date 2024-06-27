@@ -22,7 +22,7 @@ const ContactUs = () => {
           </Col>
           <Col md={6} className={`right-col ${rightInView ? 'animate' : ''}`} ref={rightRef}>
             <h2>CONTACT US</h2>
-            <p>Send us a quick message we will get back to You</p>
+            <p>Send us a quick message we will get back to you.</p>
             <Form>
               <Form.Group controlId="formName">
                 <Form.Label>Full Name *</Form.Label>
@@ -40,6 +40,15 @@ const ContactUs = () => {
                 Send Now
               </Button>
             </Form>
+            <div className="social-contact mt-4">
+              <p>Follow us on <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+              <p>Contact us at <a href="mailto:infofamnb@outlook.com">infofamnb@outlook.com</a></p>
+            </div>
+          </Col>
+        </Row>
+        <Row className="mt-4">
+          <Col>
+            <p className="copyright">© 2024 Fredericton Association of Malayalees. All rights reserved.</p>
           </Col>
         </Row>
       </Container>

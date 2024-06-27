@@ -1,90 +1,119 @@
 .contact-us-section {
-    background: linear-gradient(to right, #ff6347, #000000); /* Matching the dark theme from the image */
-    color: #fff;
-    padding: 60px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #ff6347, #000000);
+  color: #fff;
+  padding: 60px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  width: 80%; /* Set a specific width */
+  height: 80%; /* Set the same value as width to make it a circle */
+  border-radius: 50%; /* This makes the image round */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensure the image covers the entire area without distortion */
+  margin-bottom: 10px;
+}
+
+.right-col {
+  background: linear-gradient(to right, #1f1f1f, #333333); 
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-col h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.right-col h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #e63946;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.right-col p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.right-col .form-control {
+  background: #555;
+  color: #fff;
+  border: 1px solid #666;
+  margin-bottom: 15px; /* Add margin between form fields */
+  font-size: 1.2rem; /* Increase font size */
+  padding: 15px; /* Increase padding */
+}
+
+.right-col .form-control::placeholder {
+  color: #ccc;
+}
+
+.right-col .btn-warning {
+  background: red;
+  margin-top: 10px;
+  border: none;
+  font-size: 1.2rem; /* Increase font size */
+  padding: 12px 24px; /* Increase padding */
+}
+
+.right-col .btn-warning:hover {
+  background: #ff0022;
+}
+
+.social-contact {
+  margin-top: 20px;
+}
+
+.social-contact p {
+  margin: 0;
+}
+
+.social-contact a {
+  color:red;
+  text-decoration: none;
+}
+
+.social-contact a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .left-col, .right-col {
+    text-align: center;
   }
-  
-  .left-col {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .logo-image {
+    max-width: 60%;
   }
- .logo-image {
-   width: 80%; /* Set a specific width */
-   height: 80%; /* Set the same value as width to make it a circle */
-   border-radius: 50%; /* This makes the image round */
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   object-fit: cover; /* Ensure the image covers the entire area without distortion */
-   margin-bottom: 10px;
- }
-  
+
   .right-col {
-    background: #444;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
   }
-  
-
-  .right-col  h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    position: relative;
-  }
-    
-  .right-col  h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #e63946;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-  }
-
-
-
-  
-  .right-col p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-  
-  .right-col .form-control {
-    background: #555;
-    color: #fff;
-    border: 1px solid #666;
-  }
-  
-  .right-col .form-control::placeholder {
-    color: #ccc;
-  }
-  
-  .right-col .btn-warning {
-    background: #fb452d;
-    margin-top: 10px;
-    border: none;
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-  
-  .right-col .btn-warning:hover {
-    background: #ffa000;
-  }
-  
-  @media (max-width: 768px) {
-    .left-col, .right-col {
-      text-align: center;
-    }
-    .logo-image {
-      max-width: 60%;
-    }
-    .right-col {
-      margin-top: 20px;
-    }
-  }
-  
+}
