@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './MovingToFredericton.css';
+import image1 from '../images/fredericton/image1.jpg';
+import image2 from '../images/fredericton/image2.jpg';
+import image3 from '../images/fredericton/image3.jpg';
+import image4 from '../images/fredericton/image4.jpg';
+import image5 from '../images/fredericton/image5.jpg';
+
+const images = [image1, image2, image3, image4, image5];
+
+const shuffleArray = (array) => {
+  let newArray = array.slice();
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
 
 const MovingToFredericton = () => {
+  const [currentImages, setCurrentImages] = useState(images);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImages((prevImages) => shuffleArray(prevImages));
+    }, 3000); // Shuffle images every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1, delay: 0.3 } },
@@ -46,6 +71,23 @@ const MovingToFredericton = () => {
                 loading="lazy"
                 title="Google Map"
               ></iframe>
+              <h2 className="mt-4 text-center">
+                Planning to move to <span className="typed-text">FREDERICTON</span>
+              </h2>
+              <p className="text-center">We have a helpful document to guide you through.</p>
+              <div className="text-center">
+                <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
+                  <FaFileDownload className="mr-1" /> Download Guide
+                </Button>
+              </div>
+              <div className="social-buttons mt-4 text-center">
+                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="#" target="_blank">
+                  <FaFacebook className="mr-1" /> Join Facebook Group
+                </Button>
+                <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
+                  <FaWhatsapp className="mr-1" /> Join WhatsApp Group
+                </Button>
+              </div>
             </motion.div>
           </Col>
           <Col md={6}>
@@ -55,20 +97,15 @@ const MovingToFredericton = () => {
               initial="hidden"
               animate="visible"
             >
-              <h2 className="mt-3">
-                Planning to move to <span className="typed-text">FREDERICTON</span>
-              </h2>
-              <p>We have a helpful document to guide you through.</p>
-              <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
-                <FaFileDownload className="mr-1" /> Download Guide
-              </Button>
-              <div className="social-buttons mt-4">
-                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="#" target="_blank">
-                  <FaFacebook className="mr-1" /> Join Facebook Group
-                </Button>
-                <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
-                  <FaWhatsapp className="mr-1" /> Join WhatsApp Group
-                </Button>
+              <div className="image-grid">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`grid-item item-${index}`}
+                  >
+                    <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
+                  </div>
+                ))}
               </div>
             </motion.div>
           </Col>
