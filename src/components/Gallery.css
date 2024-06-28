@@ -11,7 +11,6 @@
 
 .animated-heading {
   font-size: 3rem;
-  font-family: 'Poppins', sans-serif;
   color: white !important;
   text-align: left;
 }
@@ -25,17 +24,13 @@
   padding-bottom: 20px;
 }
 
-.gallery-scroll::-webkit-scrollbar {
+::-webkit-scrollbar {
   height: 8px;
 }
 
-.gallery-scroll::-webkit-scrollbar-thumb {
-  background: #ff1e00 !important;
+::-webkit-scrollbar-thumb {
+  background: #dc3545 !important;
   border-radius: 10px;
-}
-
-.gallery-scroll::-webkit-scrollbar-track {
-  background: #e70a0a !important;
 }
 
 .gallery-grid {
@@ -70,8 +65,4 @@
 .center-image {
   transform: scale(1.1) !important;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4) !important;
-}
-
-.center-image .gallery-image {
-  border: 2px solid #e63946;
 }
