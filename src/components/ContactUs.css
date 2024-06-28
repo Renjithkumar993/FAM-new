@@ -69,7 +69,7 @@
 }
 
 .right-col .btn-warning {
-  background: red;
+  background:  #e63946;
   margin-top: 10px;
   border: none;
   font-size: 1.2rem; /* Increase font size */
@@ -89,7 +89,7 @@
 }
 
 .social-contact a {
-  color:red;
+  color :#e63946;
   text-decoration: none;
 }
 
