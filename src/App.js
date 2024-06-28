@@ -49,8 +49,9 @@ function App() {
         <NavigationBar />
         <LandingPage />
         <AboutUs />
-        <MissionVision />
         <MovingToFredericton />
+        <MissionVision />
+       
         <UpcomingEvents />
         <Gallery />
         <MeetTheTeam />

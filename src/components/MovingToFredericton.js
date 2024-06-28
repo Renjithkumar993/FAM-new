@@ -52,33 +52,38 @@ const MovingToFredericton = () => {
       initial="hidden"
       animate="visible"
     >
+      <h2 className="mt-4 text-center section-title2">
+        Planning to move to <span className='typed-text'>FREDERICTON</span>
+      </h2>
       <Container>
         <Row className="align-items-center">
-        <Col md={6}>
-   <motion.div
-     className="right-content"
-     variants={rightContentVariants}
-     initial="hidden"
-     animate="visible"
-   >
-     <div className="image-grid">
-       {currentImages.map((image, index) => (
-         <div
-           key={index}
-           className={`grid-item item-${index}`}
-         >
-           <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
-         </div>
-       ))}
-     </div>
-   </motion.div>
- </Col>
+          <Col md={6}>
+            <motion.div
+              className="right-content"
+              variants={rightContentVariants}
+              initial="hidden"
+              animate="visible"
+              viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
+            >
+              <div className="image-grid">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`grid-item item-${index}`}
+                  >
+                    <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </Col>
           <Col md={6}>
             <motion.div
               className="left-content"
               variants={leftContentVariants}
               initial="hidden"
               animate="visible"
+              viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.6697494024043!2d-66.650224384504!3d45.96358992967899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4caae6ad24e65e55%3A0xb551e71e732b6ce8!2sFredericton%2C%20NB%2C%20Canada!5e0!3m2!1sen!2sin!4v1625049946572!5m2!1sen!2sin"
@@ -89,10 +94,7 @@ const MovingToFredericton = () => {
                 loading="lazy"
                 title="Google Map"
               ></iframe>
-              <h2 className="mt-4 text-center">
-                Planning to move to <span className="typed-text">FREDERICTON</span>
-              </h2>
-              <p className="text-center">We have a helpful document to guide you through.</p>
+              <p className="text-center mt-3">We have a helpful document to guide you through.</p>
               <div className="text-center">
                 <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
                   <FaFileDownload className="mr-1" /> Download Guide

@@ -14,18 +14,18 @@ const teamMembers = [
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1, staggerChildren: 0.3 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } },
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const MeetTheTeam = () => {
   return (
-    <div className="meet-the-team-section" id="meet">
+    <div className="section meet-the-team-section" id="meet">
       <Container>
         <motion.div
           initial="hidden"
@@ -34,11 +34,11 @@ const MeetTheTeam = () => {
           variants={containerVariants}
           className="section-header"
         >
-          <h2 className="section-title">CURRENT ADMINS</h2>
+          <h2 className="section-title2">CURRENT ADMINS </h2>
         </motion.div>
-        <Row>
+        <Row className="team-row">
           {teamMembers.map((member, index) => (
-            <Col md={4} key={index}>
+            <Col xs={12} sm={6} md={4} key={index} className="mb-4">
               <motion.div
                 className="team-member"
                 initial="hidden"
@@ -46,6 +46,7 @@ const MeetTheTeam = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 variants={itemVariants}
               >
+                <div className="member-photo"></div>
                 <div className="member-info">
                   <h3>{member.name}</h3>
                   <p>{member.role}</p>

@@ -59,7 +59,7 @@ const UpcomingEvents = () => {
                 className="event-card"
                 initial="offscreen"
                 whileInView="onscreen"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
                 variants={cardVariants}
               >
                 <div className="image-container">

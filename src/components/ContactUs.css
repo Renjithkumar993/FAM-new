@@ -3,6 +3,12 @@
   color: #fff;
   padding: 60px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+
+
+.contactushead{
+  font-weight: bold !important;
 }
 
 .left-col {
@@ -21,7 +27,7 @@
 }
 
 .right-col {
-  background: linear-gradient(to right, #1f1f1f, #333333); 
+  background: transparent; 
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

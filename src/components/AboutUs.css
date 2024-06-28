@@ -1,6 +1,6 @@
 .about-us-section {
-  background: linear-gradient(to right, #1f1f1f, #333333); 
-  color: #fff;
+  background: linear-gradient(to right, #f7f7f7, #eaeaea);
+  color: black;
   padding: 60px 20px;
   position: relative;
 }
@@ -52,9 +52,10 @@
 }
 
 .about-text h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
   position: relative;
+  font-weight: bold !important;
 }
 
 .about-text h2::after {

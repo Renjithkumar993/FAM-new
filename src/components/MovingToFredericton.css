@@ -157,3 +157,24 @@
     margin: 5px;
   }
 }
+
+
+.section-title2 {
+  font-size: 3rem; /* Larger font size */
+  margin-bottom: 40px; /* More spacing below */
+  position: relative;
+  font-weight: bold;
+  color:black; 
+}
+
+.section-title2::after {
+  content: '';
+  display: block;
+  width: 80px !important;
+  height: 5px !important;
+  background: #e63946 !important;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
