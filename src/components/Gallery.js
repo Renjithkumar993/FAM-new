@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { Link as ScrollLink, Element } from 'react-scroll';
+import { Link as  Element } from 'react-scroll';
 import './Gallery.css';
 
 const importAll = (r) => r.keys().map(r);

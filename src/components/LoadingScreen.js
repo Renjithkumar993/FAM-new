@@ -5,7 +5,7 @@ import './LoadingScreen.css';
 const LoadingScreen = () => {
   return (
     <div className="loading-screen">
-      <img src={logo} alt="Loading..." className="loading-logo" />
+      <img src={logo} alt="Loading..." className="loading-logo" /> 
     </div>
   );
 };

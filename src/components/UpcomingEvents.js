@@ -9,10 +9,16 @@ const images = importAll(require.context('../events', false, /\.(png|jpe?g|svg)$
 
 const events = [
   {
-    title: "Family Picnic",
-    date: "August 28, 2024",
+    title: "Onam Celebration",
+    date: "September 14, 2024",
     description: "A fun-filled day with games, activities, and delicious food at our family picnic.",
     image: images[0],
+  },
+  {
+    title: "Onam Celebration",
+    date: "September 14, 2024",
+    description: "A fun-filled day with games, activities, and delicious food at our family picnic.",
+    image: images[1],
   },
   // Add more events as needed
 ];

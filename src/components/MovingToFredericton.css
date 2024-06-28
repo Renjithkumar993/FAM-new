@@ -99,30 +99,27 @@
   margin: 10px;
   border-radius: 15px;
   overflow: hidden;
-  width: 200px;  /* Fixed width */
-  height: 200px; /* Fixed height */
+  width: 250px;  /* Fixed width */
+  height: 250px; /* Fixed height */
   transition: transform 0.5s ease-in-out;
 }
 
 .image-grid .grid-item.item-0 {
-  border-radius: 50%; /* Circle shape */
+  border-radius: 15px; /* Circle shape */
 }
 
 .image-grid .grid-item.item-1 {
-  border-radius: 15px; /* Square shape */
+  border-radius: 50%; /* Square shape */
 }
 
 .image-grid .grid-item.item-2 {
-  border-radius: 25% / 50%; /* Ellipse shape */
+  border-radius: 50%; /* Ellipse shape */
 }
 
 .image-grid .grid-item.item-3 {
   border-radius: 15px; /* Square shape */
 }
 
-.image-grid .grid-item.item-4 {
-  border-radius: 50%; /* Circle shape */
-}
 
 .image-grid .grid-item img {
   width: 100%;

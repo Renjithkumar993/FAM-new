@@ -9,7 +9,7 @@
   }
   
   .navbar-custom.scrolled {
-    background-color: black !important;
+    background: linear-gradient(to right, #1f1f1f, #333333) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
@@ -28,7 +28,7 @@
   }
   
   .navbar-custom .navbar-logo:hover {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.4) rotate(360deg);
   }
   
   .navbar-custom .navbar-nav .nav-link {
@@ -39,12 +39,14 @@
     padding: 0.5rem 0;
     transition: color 0.3s, transform 0.3s;
     font-size: 1.2rem; /* Increase font size for a more modern look */
+    
   }
   
   .navbar-custom .navbar-nav .nav-link:hover,
   .navbar-custom .navbar-nav .nav-link.active {
     color: #ff6347;
-    transform: translateY(-3px);
+    transform: translateY(-10px);
+    cursor: pointer;
   }
   
   .navbar-custom .navbar-nav .nav-link::after {

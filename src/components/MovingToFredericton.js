@@ -7,9 +7,8 @@ import image1 from '../images/fredericton/image1.jpg';
 import image2 from '../images/fredericton/image2.jpg';
 import image3 from '../images/fredericton/image3.jpg';
 import image4 from '../images/fredericton/image4.jpg';
-import image5 from '../images/fredericton/image5.jpg';
 
-const images = [image1, image2, image3, image4, image5];
+const images = [image1, image2, image3, image4];
 
 const shuffleArray = (array) => {
   let newArray = array.slice();
@@ -55,6 +54,25 @@ const MovingToFredericton = () => {
     >
       <Container>
         <Row className="align-items-center">
+        <Col md={6}>
+   <motion.div
+     className="right-content"
+     variants={rightContentVariants}
+     initial="hidden"
+     animate="visible"
+   >
+     <div className="image-grid">
+       {currentImages.map((image, index) => (
+         <div
+           key={index}
+           className={`grid-item item-${index}`}
+         >
+           <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
+         </div>
+       ))}
+     </div>
+   </motion.div>
+ </Col>
           <Col md={6}>
             <motion.div
               className="left-content"
@@ -87,25 +105,6 @@ const MovingToFredericton = () => {
                 <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
                   <FaWhatsapp className="mr-1" /> Join WhatsApp Group
                 </Button>
-              </div>
-            </motion.div>
-          </Col>
-          <Col md={6}>
-            <motion.div
-              className="right-content"
-              variants={rightContentVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <div className="image-grid">
-                {currentImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`grid-item item-${index}`}
-                  >
-                    <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
-                  </div>
-                ))}
               </div>
             </motion.div>
           </Col>

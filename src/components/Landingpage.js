@@ -89,6 +89,8 @@ const LandingPage = () => {
         </Carousel.Item>
       </Carousel>
     </div>
+
+   
   );
 };
 

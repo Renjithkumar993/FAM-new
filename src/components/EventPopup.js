@@ -14,7 +14,7 @@ const EventPopup = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
-    }, 1000); // Show the image popup 1 second after page load
+    }, 2000); // Show the image popup 1 second after page load
 
     return () => clearTimeout(timer);
   }, []);
