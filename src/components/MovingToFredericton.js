@@ -7,6 +7,7 @@ import image1 from '../images/fredericton/image1.jpg';
 import image2 from '../images/fredericton/image2.jpg';
 import image3 from '../images/fredericton/image3.jpg';
 import image4 from '../images/fredericton/image4.jpg';
+import FullWidthImage from './FullWidthImage';
 
 const images = [image1, image2, image3, image4];
 
@@ -94,7 +95,9 @@ const MovingToFredericton = () => {
     </motion.div>
   </Col>
         </Row>
+       
       </Container>
+      <FullWidthImage />
     </motion.div>
   );
 };

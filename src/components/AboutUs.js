@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import aboutImage from '../images/famaboutus.png'; // Adjust the path to your image
 import './AboutUs.css';
-import FullWidthImage from './FullWidthImage';
+
 
 const AboutUs = () => {
   return (
@@ -12,7 +12,7 @@ const AboutUs = () => {
           <Col md={6} className="image-col">
             <div className="image-container1">
               <img src={aboutImage} alt="About Us" className="about-image" />
-              <div className="overlay">
+              <div className="overlay1">
                 <div className="play-button">
                   <i className="fas fa-play"></i>
                 </div>
@@ -40,7 +40,6 @@ const AboutUs = () => {
                 be a part of our community. Join us as we cherish our traditions,
                 share our stories, and create beautiful memories together.
               </p>
-              <Button variant="danger" className="mt-4">Join Us</Button>
             </div>
           </Col>
         </Row>
@@ -59,7 +58,7 @@ const AboutUs = () => {
           </Col>
         </Row>
       </Container>
-      <FullWidthImage />
+
     </div>
   );
 };
