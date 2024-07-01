@@ -1,3 +1,5 @@
+/* LandingPage.css */
+
 .landing-page {
   position: relative;
   overflow: hidden;
@@ -23,6 +25,7 @@
   justify-content: center;
   text-align: center;
   z-index: 2;
+  padding: 0 20px;
 }
 
 .caption-content {
@@ -32,6 +35,7 @@
   padding: 20px;
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease-out;
 }
 
 .text-box {
@@ -47,21 +51,21 @@
 }
 
 .caption-content h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #fff;
 }
 
 .caption-content h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 20px;
   color: #fff;
 }
 
 .caption-content p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 20px;
   color: #fff;
 }
@@ -80,6 +84,29 @@
   bottom: auto;
 }
 
+@media (max-width: 768px) {
+  .caption-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .caption-content h1 {
+    font-size: 2rem;
+  }
+
+  .caption-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .caption-content p {
+    font-size: 0.9rem;
+  }
+
+  .caption-content .btn {
+    font-size: 0.9rem;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -89,8 +116,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate {
-  animation: fadeInUp 1s ease-out;
 }

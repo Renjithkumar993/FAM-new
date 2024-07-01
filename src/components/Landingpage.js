@@ -27,7 +27,7 @@ const LandingPage = () => {
                   timeout={500}
                   classNames="fade"
                 >
-                  <div className="caption-content animate">
+                  <div className="caption-content">
                     <div className="text-box">
                       <span className="badge">Hello</span>
                       <h1>Welcome to  <span className='fam-hero'> FAM</span></h1>
@@ -50,7 +50,7 @@ const LandingPage = () => {
                   timeout={500}
                   classNames="fade"
                 >
-                  <div className="caption-content animate">
+                  <div className="caption-content">
                     <div className="text-box">
                       <span className="badge">Hello</span>
                       <h1>We Do Picnics</h1>
@@ -73,7 +73,7 @@ const LandingPage = () => {
                   timeout={500}
                   classNames="fade"
                 >
-                  <div className="caption-content animate">
+                  <div className="caption-content">
                     <div className="text-box">
                       <span className="badge">Hello</span>
                       <h1>Bring Your Ideas</h1>
@@ -89,8 +89,6 @@ const LandingPage = () => {
         </Carousel.Item>
       </Carousel>
     </div>
-
-   
   );
 };
 
