@@ -1,5 +1,5 @@
 .gallery-section {
-  background: linear-gradient(to right, #f7f7f7, #eaeaea);
+  background: black;
   padding: 60px 20px;
   text-align: center;
 }
@@ -14,7 +14,7 @@
   position: relative;
   display: inline-block;
   font-weight: bold;
-  color: black; 
+  color:white; 
 }
 
 .animated-heading::after {
