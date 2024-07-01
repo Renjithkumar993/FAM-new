@@ -1,5 +1,5 @@
 .upcoming-events-section {
-  background: black; /* Darker gradient background */
+  background: white; /* Darker gradient background */
   color: #fff;
   padding: 80px 20px; /* Increased padding for more spacing */
   text-align: center;
@@ -11,7 +11,7 @@
   position: relative;
   display: inline-block;
   font-weight: bold;
-  color:white; 
+  color:black; 
 }
 
 .section-title1::after {

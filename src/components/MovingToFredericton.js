@@ -60,7 +60,7 @@ const MovingToFredericton = () => {
       </motion.h2>
       <Container>
         <Row className="align-items-center">
-        <Col md={6}>
+        <Col md={12}>
     <motion.div
       className="left-content"
       variants={leftContentVariants}
@@ -77,7 +77,7 @@ const MovingToFredericton = () => {
         loading="lazy"
         title="Google Map"
       ></iframe>
-      <p className="text-center mt-3 text-white">We have a helpful document to guide you through.</p>
+      <p className="text-center mt-3 text-black">We have a helpful document to guide you through.</p>
       <div className="text-center">
         <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
           <FaFileDownload className="mr-1" /> Download Guide
@@ -93,27 +93,6 @@ const MovingToFredericton = () => {
       </div>
     </motion.div>
   </Col>
-          <Col md={6}>
-            <motion.div
-              className="right-content"
-              variants={rightContentVariants}
-              initial="hidden"
-              animate="visible"
-              viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
-            >
-              <div className="image-grid">
-                {currentImages.map((image, index) => (
-                  <motion.div
-                    key={index}
-                    className={`grid-item item-${index}`}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </Col>
         </Row>
       </Container>
     </motion.div>

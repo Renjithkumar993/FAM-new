@@ -1,5 +1,5 @@
 .gallery-section {
-  background: black;
+  background: white;
   padding: 60px 20px;
   text-align: center;
 }
@@ -14,7 +14,7 @@
   position: relative;
   display: inline-block;
   font-weight: bold;
-  color:white; 
+  color:black; 
 }
 
 .animated-heading::after {

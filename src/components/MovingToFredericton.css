@@ -1,8 +1,7 @@
 .moving-to-fredericton-container {
-  background: black; /* Gradient background */
-  color: #fff;  /* White text color */
-  padding: 60px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white; /* Gradient background */
+  color:black;  /* White text color */
+  padding-bottom: 80px;
   overflow-x: hidden;
 }
 
@@ -156,5 +155,5 @@
   margin-bottom: 40px; /* More spacing below */
   position: relative;
   font-weight: bold;
-  color: #fff !important; 
+  color: black!important; 
 }

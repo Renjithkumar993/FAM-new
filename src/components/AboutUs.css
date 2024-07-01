@@ -1,6 +1,6 @@
 .about-us-section {
-  background:black;
-  color: white;
+  background: white;
+  color: black;
   padding: 60px 20px;
   position: relative;
 }
@@ -41,6 +41,7 @@
   margin-bottom: 20px;
   position: relative;
   font-weight: bold !important;
+  padding-top: 10px;
 }
 
 .about-text h2::after {
