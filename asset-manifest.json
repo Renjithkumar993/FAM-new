@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FAM-new/static/css/main.f4b648d3.css",
-    "main.js": "/FAM-new/static/js/main.2bb95e04.js",
+    "main.css": "/FAM-new/static/css/main.11bb2f77.css",
+    "main.js": "/FAM-new/static/js/main.bbba4a5b.js",
     "static/js/453.ee1e62f1.chunk.js": "/FAM-new/static/js/453.ee1e62f1.chunk.js",
     "static/media/MISSIONBG1.mp4": "/FAM-new/static/media/MISSIONBG1.861efcadb8a180657533.mp4",
     "static/media/c10.jpg": "/FAM-new/static/media/c10.89449e629a9f7e6b483c.jpg",
@@ -17,7 +17,7 @@
     "static/media/a2.jpg": "/FAM-new/static/media/a2.1335fe8d0bc2eb829bdf.jpg",
     "static/media/pexels-abhijithprakashan-13937264.jpg": "/FAM-new/static/media/pexels-abhijithprakashan-13937264.69488f8fef0db1f81379.jpg",
     "static/media/fam-removebg-preview.png": "/FAM-new/static/media/fam-removebg-preview.a0a4c5639dec798f0bbf.png",
-    "static/media/EVEnt1 copy.jpeg": "/FAM-new/static/media/EVEnt1 copy.bbf319b6592088488bf1.jpeg",
+    "static/media/culture.png": "/FAM-new/static/media/culture.5789300ad9ad5dfbde82.png",
     "static/media/EVEnt1.jpeg": "/FAM-new/static/media/EVEnt1.bbf319b6592088488bf1.jpeg",
     "static/media/image1.jpg": "/FAM-new/static/media/image1.1576e6e5f2ef2b9565a6.jpg",
     "static/media/Events-Calendar-kentiko-banner.jpg": "/FAM-new/static/media/Events-Calendar-kentiko-banner.d3599c751fac0a8a35ea.jpg",
@@ -34,12 +34,12 @@
     "static/media/image3.jpg": "/FAM-new/static/media/image3.ee393dc2e823ddaaccc4.jpg",
     "static/media/heroimage2.jpeg": "/FAM-new/static/media/heroimage2.a0de0450b027e63cdee3.jpeg",
     "index.html": "/FAM-new/index.html",
-    "main.f4b648d3.css.map": "/FAM-new/static/css/main.f4b648d3.css.map",
-    "main.2bb95e04.js.map": "/FAM-new/static/js/main.2bb95e04.js.map",
+    "main.11bb2f77.css.map": "/FAM-new/static/css/main.11bb2f77.css.map",
+    "main.bbba4a5b.js.map": "/FAM-new/static/js/main.bbba4a5b.js.map",
     "453.ee1e62f1.chunk.js.map": "/FAM-new/static/js/453.ee1e62f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4b648d3.css",
-    "static/js/main.2bb95e04.js"
+    "static/css/main.11bb2f77.css",
+    "static/js/main.bbba4a5b.js"
   ]
 }
