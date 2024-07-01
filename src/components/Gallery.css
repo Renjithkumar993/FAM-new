@@ -1,7 +1,6 @@
 .gallery-section {
   background: linear-gradient(to right, #f7f7f7, #eaeaea);
   padding: 60px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -40,7 +39,8 @@
 }
 
 ::-webkit-scrollbar {
-  height: 5px;
+  height: 2px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -58,7 +58,6 @@
 .gallery-item {
   min-width: 200px;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff;
   cursor: pointer;
@@ -79,5 +78,4 @@
 
 .center-image {
   transform: scale(1.1) !important;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4) !important;
 }

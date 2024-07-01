@@ -1,13 +1,14 @@
 .moving-to-fredericton-container {
-  background: linear-gradient(to right, #f7f7f7, #eaeaea);  /* Light background color */
-  color: #333;
+  background: black; /* Gradient background */
+  color: #fff;  /* White text color */
   padding: 60px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
 }
 
 .left-content iframe {
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .left-content {
@@ -23,7 +24,7 @@
 
 .right-content h2 {
   font-size: 2.5rem;
-  color: black;
+  color: #fff;
   margin-bottom: 30px;
   font-weight: bold;
   position: relative;
@@ -31,12 +32,21 @@
 }
 
 .typed-text {
-  color: #dc3545;
+  color: red; /* Gold color */
   font-weight: bold;
   overflow: hidden;
-  border-right: 0.15em solid #dc3545; /* Adjust cursor color */
   white-space: nowrap;
   animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+.blinking-question {
+  animation: blink 1.5s step-end infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 @keyframes typing {
@@ -46,7 +56,7 @@
 
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: red; }
+  50% { border-color: #ffd700; }
 }
 
 .right-content p {
@@ -102,33 +112,16 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.image-grid .grid-item.item-0 {
-  border-radius: 15px; /* Circle shape */
-}
-
-.image-grid .grid-item.item-1 {
-  border-radius: 50%; /* Square shape */
-}
-
-.image-grid .grid-item.item-2 {
-  border-radius: 50%; /* Ellipse shape */
-}
-
-.image-grid .grid-item.item-3 {
-  border-radius: 15px; /* Square shape */
-}
-
-
 .image-grid .grid-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition:
-  transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.image-grid .grid-item.active img {
+.image-grid .grid-item:hover img {
   transform: scale(1.1);
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {
@@ -154,27 +147,14 @@
   .image-grid .grid-item {
     width: 120px;
     height: 120px;
-    margin: 5px;
+    
   }
 }
-
 
 .section-title2 {
   font-size: 3rem; /* Larger font size */
   margin-bottom: 40px; /* More spacing below */
   position: relative;
   font-weight: bold;
-  color:black; 
-}
-
-.section-title2::after {
-  content: '';
-  display: block;
-  width: 80px !important;
-  height: 5px !important;
-  background: #e63946 !important;
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
+  color: #fff !important; 
 }

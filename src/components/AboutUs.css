@@ -1,6 +1,6 @@
 .about-us-section {
-  background: linear-gradient(to right, #f7f7f7, #eaeaea);
-  color: black;
+  background:black;
+  color: white;
   padding: 60px 20px;
   position: relative;
 }
@@ -21,21 +21,6 @@
   animation: floatImage 5s infinite ease-in-out;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
 .image-container:hover .overlay {
   opacity: 1;
 }
@@ -45,11 +30,11 @@
   font-size: 50px;
 }
 
-.about-text {
-  max-width: 700px;
-  margin-left: 20px;
-  margin-top: 10px;
-}
+/* .about-text { */
+  /* max-width: 700px; */
+  /* margin-left: 20px; */
+  /* margin-top: 10px; */
+/* } */
 
 .about-text h2 {
   font-size: 3rem;
@@ -98,4 +83,11 @@
   left: 0;
   color: #fd081c !important; /* Ensures the color is red */
   font-size: 1.3rem;
+}
+
+img.image-fluid {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }

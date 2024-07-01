@@ -9,7 +9,7 @@
   }
   
   .navbar-custom.scrolled {
-    background: linear-gradient(to right, #1f1f1f, #333333) !important;
+    background: black!important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
@@ -32,7 +32,7 @@
   }
   
   .navbar-custom .navbar-nav .nav-link {
-    color: #fff; /* Set a default text color */
+    color: white; /* Set a default text color */
     position: relative;
     font-weight: bold;
     margin: 0 1rem;

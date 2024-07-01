@@ -11,7 +11,7 @@ import UpcomingEvents from './components/UpcomingEvents';
 import Gallery from './components/Gallery';
 import MeetTheTeam from './components/MeetTheTeam';
 import ScrollProgressBar from './components/ScrollProgressBar';
-import LandingPage from './components/LandingPage.js';
+import LandingPage from './components/Landingpage.js';
 
 const handleScroll = () => {
   const navbar = document.querySelector('.navbar-custom');
@@ -54,11 +54,11 @@ function App() {
        
         <UpcomingEvents />
         <Gallery />
-        <MeetTheTeam />
+        {/* <MeetTheTeam /> */}
         <ContactUs />
       </div>
       <ScrollProgressBar />
-      <EventPopup />
+      {/* <EventPopup /> */}
     </>
   );
 }

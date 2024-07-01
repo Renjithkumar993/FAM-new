@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './MovingToFredericton.css';
 import image1 from '../images/fredericton/image1.jpg';
 import image2 from '../images/fredericton/image2.jpg';
@@ -44,6 +44,9 @@ const MovingToFredericton = () => {
     visible: { x: 0, transition: { type: 'spring', duration: 1, delay: 0.5 } },
   };
 
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 0.7], [0.5, 1]);
+
   return (
     <motion.div
       className="moving-to-fredericton-container"
@@ -52,11 +55,44 @@ const MovingToFredericton = () => {
       initial="hidden"
       animate="visible"
     >
-      <h2 className="mt-4 text-center section-title2">
-        Planning to move to <span className='typed-text'>FREDERICTON</span>
-      </h2>
+      <motion.h2 className="mt-4 text-center section-title2" style={{ scale }}>
+        Planning to move to <span className='typed-text'>FREDERICTON<span className="blinking-question">?</span></span>
+      </motion.h2>
       <Container>
         <Row className="align-items-center">
+        <Col md={6}>
+    <motion.div
+      className="left-content"
+      variants={leftContentVariants}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.6697494024043!2d-66.650224384504!3d45.96358992967899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4caae6ad24e65e55%3A0xb551e71e732b6ce8!2sFredericton%2C%20NB%2C%20Canada!5e0!3m2!1sen!2sin!4v1625049946572!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        title="Google Map"
+      ></iframe>
+      <p className="text-center mt-3 text-white">We have a helpful document to guide you through.</p>
+      <div className="text-center">
+        <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
+          <FaFileDownload className="mr-1" /> Download Guide
+        </Button>
+      </div>
+      <div className="social-buttons mt-4 text-center">
+        <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="#" target="_blank">
+          <FaFacebook className="mr-1" /> Join Facebook Group
+        </Button>
+        <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
+          <FaWhatsapp className="mr-1" /> Join WhatsApp Group
+        </Button>
+      </div>
+    </motion.div>
+  </Col>
           <Col md={6}>
             <motion.div
               className="right-content"
@@ -67,46 +103,14 @@ const MovingToFredericton = () => {
             >
               <div className="image-grid">
                 {currentImages.map((image, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className={`grid-item item-${index}`}
+                    whileHover={{ scale: 1.05 }}
                   >
                     <img src={image} alt={`Fredericton ${index}`} className="fixed-size-image" />
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </motion.div>
-          </Col>
-          <Col md={6}>
-            <motion.div
-              className="left-content"
-              variants={leftContentVariants}
-              initial="hidden"
-              animate="visible"
-              viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
-            >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.6697494024043!2d-66.650224384504!3d45.96358992967899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4caae6ad24e65e55%3A0xb551e71e732b6ce8!2sFredericton%2C%20NB%2C%20Canada!5e0!3m2!1sen!2sin!4v1625049946572!5m2!1sen!2sin"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                title="Google Map"
-              ></iframe>
-              <p className="text-center mt-3">We have a helpful document to guide you through.</p>
-              <div className="text-center">
-                <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
-                  <FaFileDownload className="mr-1" /> Download Guide
-                </Button>
-              </div>
-              <div className="social-buttons mt-4 text-center">
-                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="#" target="_blank">
-                  <FaFacebook className="mr-1" /> Join Facebook Group
-                </Button>
-                <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
-                  <FaWhatsapp className="mr-1" /> Join WhatsApp Group
-                </Button>
               </div>
             </motion.div>
           </Col>

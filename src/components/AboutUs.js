@@ -1,15 +1,14 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import aboutImage from '../images/famaboutus.png'; // Adjust the path to your image
 import './AboutUs.css';
+import FullWidthImage from './FullWidthImage';
 
 const AboutUs = () => {
-  console.log(aboutImage); // Log the image path to ensure it's being imported correctly
-
   return (
     <div className="about-us-section" id='about'>
       <Container>
-        <Row className="align-items-center">
+        <Row className="align-items-center mb-5">
           <Col md={6} className="image-col">
             <div className="image-container1">
               <img src={aboutImage} alt="About Us" className="about-image" />
@@ -41,6 +40,7 @@ const AboutUs = () => {
                 be a part of our community. Join us as we cherish our traditions,
                 share our stories, and create beautiful memories together.
               </p>
+              <Button variant="danger" className="mt-4">Join Us</Button>
             </div>
           </Col>
         </Row>
@@ -59,6 +59,7 @@ const AboutUs = () => {
           </Col>
         </Row>
       </Container>
+      <FullWidthImage />
     </div>
   );
 };

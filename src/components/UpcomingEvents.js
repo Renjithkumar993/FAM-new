@@ -14,12 +14,6 @@ const events = [
     description: "A fun-filled day with games, activities, and delicious food at our family picnic.",
     image: images[0],
   },
-  {
-    title: "Onam Celebration",
-    date: "September 14, 2024",
-    description: "A fun-filled day with games, activities, and delicious food at our family picnic.",
-    image: images[1],
-  },
   // Add more events as needed
 ];
 
