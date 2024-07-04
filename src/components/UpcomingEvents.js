@@ -1,21 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './UpcomingEvents.css';
-
-// Import all images from the ../events/ folder
-const importAll = (r) => r.keys().map(r);
-const images = importAll(require.context('../events', false, /\.(png|jpe?g|svg)$/));
-
-const events = [
-  {
-    title: "Onam Celebration",
-    date: "September 14, 2024",
-    description: "A fun-filled day with games, activities, and delicious food at our family picnic.",
-    image: images[0],
-  },
-  // Add more events as needed
-];
+import eventsData from '../config/events.json';
+import loadImages from '../helpers/loadImages';
 
 const cardVariants = {
   offscreen: { y: 100, opacity: 0 },
@@ -30,7 +19,25 @@ const cardVariants = {
   },
 };
 
+// Load all images dynamically
+const images = loadImages(require.context('../images/events', false, /\.(png|jpe?g|svg)$/));
+
 const UpcomingEvents = () => {
+  const navigate = useNavigate();
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const updatedEvents = eventsData.map(event => ({
+      ...event,
+      image: images[event.image.replace('images/events/', '')]
+    }));
+    setEvents(updatedEvents);
+  }, []);
+
+  const handleRegister = (event) => {
+    navigate(`/event/${event.title.replace(/\s+/g, '-').toLowerCase()}`);
+  };
+
   return (
     <div className="upcoming-events-section" id="news">
       <Container>
@@ -53,12 +60,12 @@ const UpcomingEvents = () => {
                 className="event-card"
                 initial="offscreen"
                 whileInView="onscreen"
-                viewport={{ once: false, amount: 0.5 }} // Ensure triggerOnce is false
+                viewport={{ once: false, amount: 0.5 }}
                 variants={cardVariants}
               >
                 <div className="image-container">
                   <img src={event.image} alt={event.title} className="event-image"/>
-                  <Button variant="danger" className="register-button">Register</Button>
+                  <Button variant="danger" className="register-button" onClick={() => handleRegister(event)}>Register</Button>
                 </div>
               </motion.div>
             </Col>

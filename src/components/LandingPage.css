@@ -1,3 +1,4 @@
+/* LandingPage.css */
 .main-container {
   position: relative;
   height: 75vh;
@@ -27,13 +28,11 @@
   justify-content: center;
   align-items: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 
 .carousel-caption h1 {
   font-size: 3em;
   margin-bottom: 20px;
-  animation: bounceIn 1.5s ease forwards;
 }
 
 .carousel-caption .fam-hero {
@@ -44,19 +43,17 @@
 .carousel-caption h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  animation: fadeInLeft 1s ease forwards;
 }
 
 .carousel-caption p {
   font-size: 1.5em;
   margin-bottom: 20px;
-  animation: fadeInRight 1s ease forwards;
 }
 
 .carousel-caption button {
   font-size: 1.2em;
   padding: 10px 20px;
-  background-color: red;
+  background-color:  #e63946;
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -64,72 +61,6 @@
 
 .carousel-caption button:hover {
   background-color: darkred;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes bounceIn {
-  from, 20%, 40%, 60%, 80%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
-
-  0% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-
-  20% {
-    transform: scale3d(1.1, 1.1, 1.1);
-  }
-
-  40% {
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-
-  60% {
-    opacity: 1;
-    transform: scale3d(1.03, 1.03, 1.03);
-  }
-
-  80% {
-    transform: scale3d(0.97, 0.97, 0.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
-  }
 }
 
 @keyframes textGlow {
@@ -162,15 +93,15 @@
 
 @media (max-width: 576px) {
   .carousel-caption h1 {
-    font-size: 1.5em;
+    font-size: 2.7em;
   }
 
   .carousel-caption h2 {
-    font-size: 1em;
+    font-size: 1.7em;
   }
 
   .carousel-caption p {
-    font-size: 0.9em;
+    font-size: 1.3em;
   }
 
   .carousel-caption button {
@@ -181,15 +112,15 @@
 
 @media (max-width: 480px) {
   .carousel-caption h1 {
-    font-size: 3em;
+    font-size: 2.5em;
   }
 
   .carousel-caption h2 {
-    font-size: 2.1em;
+    font-size: 1.5em;
   }
 
   .carousel-caption p {
-    font-size: 1.5em;
+    font-size: 1.1em;
   }
 
   .carousel-caption button {

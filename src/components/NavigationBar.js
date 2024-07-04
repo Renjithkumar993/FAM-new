@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink, animateScroll as scroll, scroller } from 'react-scroll';
+import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../images/logofam.jpg';
 import './Navbar.css';
 
 const NavigationBar = () => {
   const [expanded, setExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleToggle = () => {
     setExpanded(!expanded);
@@ -24,16 +27,37 @@ const NavigationBar = () => {
         setScrolled(false);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  const handleNavClick = (id) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
+    setTimeout(() => {
+      scroller.scrollTo(id, {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart',
+        offset: -70,
+      });
+    }, 100);
+  };
+
+  const isTransparent = location.pathname === '/';
+
   return (
-    <Navbar expand="lg" className={`navbar-custom fixed-top ${scrolled ? 'scrolled' : ''}`} expanded={expanded}>
+    <Navbar
+      expand="lg"
+      className={`navbar-custom fixed-top ${scrolled || !isTransparent ? 'scrolled' : ''}`}
+      expanded={expanded}
+    >
       <div className="container">
-        <Navbar.Brand href="/" className="navbar-brand-custom">
+        <Navbar.Brand as={RouterLink} to="/" className="navbar-brand-custom">
           <img src={logo} alt="FAM Logo" className="navbar-logo" />
         </Navbar.Brand>
         <Navbar.Toggle 
@@ -44,14 +68,61 @@ const NavigationBar = () => {
           <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto"> {/* Changed from mx-auto to ml-auto */}
-            <Nav.Link as={Link} to="home" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Home</Nav.Link>
-            <Nav.Link as={Link} to="about" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>About Us</Nav.Link>
-            <Nav.Link as={Link} to="gallery" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Gallery</Nav.Link>
-            <Nav.Link as={Link} to="news" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Events</Nav.Link>
-            <Nav.Link as={Link} to="meet" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Team</Nav.Link>
-            <Nav.Link as={Link} to="move" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>New to Fredericton?</Nav.Link>
-            <Nav.Link as={Link} to="contact" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>Contact Us</Nav.Link>
+          <Nav className="ml-auto">
+            <Nav.Link
+              as={RouterLink}
+              to="/"
+              onClick={() => {
+                handleLinkClick();
+                if (location.pathname === '/') {
+                  scroll.scrollToTop();
+                } else {
+                  navigate('/');
+                }
+              }}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                handleLinkClick();
+                handleNavClick('about');
+              }}
+            >
+              About Us
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                handleLinkClick();
+                handleNavClick('gallery');
+              }}
+            >
+              Gallery
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                handleLinkClick();
+                handleNavClick('news');
+              }}
+            >
+              Events
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                handleLinkClick();
+                handleNavClick('move');
+              }}
+            >
+              New to Fredericton?
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                handleLinkClick();
+                handleNavClick('contact');
+              }}
+            >
+              Contact Us
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </div>

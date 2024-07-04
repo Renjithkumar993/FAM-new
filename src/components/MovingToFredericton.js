@@ -3,13 +3,8 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './MovingToFredericton.css';
-import image1 from '../images/fredericton/image1.jpg';
-import image2 from '../images/fredericton/image2.jpg';
-import image3 from '../images/fredericton/image3.jpg';
-import image4 from '../images/fredericton/image4.jpg';
 import FullWidthImage from './FullWidthImage';
 
-const images = [image1, image2, image3, image4];
 
 const shuffleArray = (array) => {
   let newArray = array.slice();
@@ -21,14 +16,7 @@ const shuffleArray = (array) => {
 };
 
 const MovingToFredericton = () => {
-  const [currentImages, setCurrentImages] = useState(images);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImages((prevImages) => shuffleArray(prevImages));
-    }, 3000); // Shuffle images every 3 seconds
-    return () => clearInterval(interval);
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { Link as  Element } from 'react-scroll';
+import { Link as Element } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import './Gallery.css';
 
+// Function to import all images from a directory
 const importAll = (r) => r.keys().map(r);
-const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../images/galleryimages', false, /\.(png|jpe?g|svg)$/));
 
 const Gallery = () => {
   const [loadedImages, setLoadedImages] = useState([]);
@@ -26,7 +28,7 @@ const Gallery = () => {
   }, [scrollPosition, images.length]);
 
   const handleClick = (image) => {
-    window.open(image, '_blank');
+    window.open(image.default || image, '_blank');
   };
 
   return (
@@ -60,12 +62,15 @@ const Gallery = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     onClick={() => handleClick(image)}
                   >
-                    <img src={image} alt={`Gallery Image ${index + 1}`} className="gallery-image" />
+                    <img src={image.default || image} alt={`Gallery Image ${index + 1}`} className="gallery-image" />
                   </motion.div>
                 ))}
               </div>
             </div>
           </div>
+          <Link to="/gallery">
+            <Button variant="danger" className="view-all-button">View All</Button>
+          </Link>
         </Container>
       </div>
     </Element>

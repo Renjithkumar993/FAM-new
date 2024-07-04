@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import TextTransition, { presets } from 'react-text-transition';
 import missionImage from '../images/fam-removebg-preview.png'; // Adjust the path to your image
-import './MissionVision.css';
 import missionbg from '../images/MISSIONBG1.mp4'; // Adjust the path to your video
+import './MissionVision.css';
+import data from "../config/missionvission.json"; // Directly import the JSON data
 
 const TEXTS = ['MISSION', 'VISION'];
 
 const MissionVision = () => {
   const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   const { ref: imageRef, inView: imageInView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const intervalId = setInterval(() => {
       setIndex(index => (index + 1) % TEXTS.length);
     }, 3000);
     return () => clearInterval(intervalId);
   }, []);
+
+  const missionVisionData = data.missionVision; // Directly use imported data
 
   return (
     <div className="mv-section" id="mission">
@@ -41,16 +44,13 @@ const MissionVision = () => {
               OUR <span className="highlight-text"><TextTransition springConfig={presets.gentle}>{TEXTS[index]}</TextTransition></span>
             </h2>
             <p>
-              <i className="fas fa-bullseye"></i> Our mission is to foster a vibrant and supportive community that celebrates
-              Malayalam culture and heritage, while promoting inclusiveness and cultural exchange.
+              <i className="fas fa-bullseye"></i> {missionVisionData.mission}
             </p>
             <h2>
               OUR <span className="highlight-text"><TextTransition springConfig={presets.gentle}>{TEXTS[(index + 1) % TEXTS.length]}</TextTransition></span>
             </h2>
             <p>
-              <i className="fas fa-eye"></i> Our vision is to be a leading cultural organization that preserves and promotes
-              the rich heritage of Kerala, and serves as a hub for cultural, social, and educational
-              activities for the Malayalee community in Fredericton.
+              <i className="fas fa-eye"></i> {missionVisionData.vision}
             </p>
           </Col>
           <Col md={6} ref={imageRef} className={`mv-image-col ${imageInView ? 'animate' : ''}`}>

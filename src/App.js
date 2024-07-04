@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Element } from 'react-scroll';
 import './App.css';
 import EventPopup from './components/EventPopup';
 import NavigationBar from './components/NavigationBar';
-import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
+import LoadingScreen from './components/LoadingScreen';
 import AboutUs from './components/AboutUs';
 import MissionVision from './components/MissionVision';
 import MovingToFredericton from './components/MovingToFredericton';
 import ContactUs from './components/ContactUs';
 import UpcomingEvents from './components/UpcomingEvents';
 import Gallery from './components/Gallery';
-import MeetTheTeam from './components/MeetTheTeam';
+import GalleryPage from './components/pages/GalleryPage';
+import EventDetail from './components/pages/EventDetail'; // Correct import
 import ScrollProgressBar from './components/ScrollProgressBar';
 import LandingPage from './components/Landingpage.js';
-
+import Sponsor from './components/Sponsor.js';
+import ScrollToTop from '../src/helpers/ScrollToTop.js'
 const handleScroll = () => {
   const navbar = document.querySelector('.navbar-custom');
   if (window.scrollY > 50) {
@@ -28,10 +32,9 @@ function App() {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
-    // Simulate a delay to show the loading screen
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust the delay as needed
+    }, 2000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -44,22 +47,29 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
+      <ScrollToTop />
       <div className="scroll-container">
         <NavigationBar />
-        <LandingPage />
-        <AboutUs />
-        <MovingToFredericton />
-        <MissionVision />
-       
-        <UpcomingEvents />
-        <Gallery />
-        {/* <MeetTheTeam /> */}
-        <ContactUs />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Element name="home" id="home"><LandingPage /></Element>
+              <Element name="about" id="about"><AboutUs /></Element>
+              <Element name="move" id="move"><MovingToFredericton /></Element>
+              <Element name="mission" id="mission"><MissionVision /></Element>
+              <Element name="news" id="news"><UpcomingEvents /></Element>
+              {/* <Element name="sponsor" id="sponsor"><Sponsor /></Element> */}
+              <Element name="gallery" id="gallery"><Gallery /></Element>
+              <Element name="contact" id="contact"><ContactUs /></Element>
+            </>
+          } />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/event/:eventName" element={<EventDetail />} />
+        </Routes>
       </div>
       <ScrollProgressBar />
-      {/* <EventPopup /> */}
-    </>
+    </Router>
   );
 }
 

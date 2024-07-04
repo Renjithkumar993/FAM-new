@@ -1,0 +1,60 @@
+/* Sponsor.css */
+.sponsor-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .sponsor-header {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .sponsor-intro {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .sponsor-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sponsor-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .sponsor-logo {
+    object-fit: contain;
+  }
+  
+  .sponsor-list {
+    font-size: 1em;
+    color: #666;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sponsor-list li {
+    margin-bottom: 10px;
+  }
+  
+  .sponsor-contact a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .sponsor-contact a:hover {
+    text-decoration: underline;
+  }
+  
