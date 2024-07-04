@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { Element, scroller } from 'react-scroll';
 import './App.css';
-import EventPopup from './components/EventPopup';
 import NavigationBar from './components/NavigationBar';
 import LoadingScreen from './components/LoadingScreen';
 import AboutUs from './components/AboutUs';
@@ -14,18 +13,8 @@ import Gallery from './components/Gallery';
 import GalleryPage from './components/pages/GalleryPage';
 import EventDetail from './components/pages/EventDetail';
 import ScrollProgressBar from './components/ScrollProgressBar';
-import LandingPage from './components/Landingpage.js';
-import Sponsor from './components/Sponsor.js';
-import ScrollToTop from './helpers/ScrollToTop.js';
-
-const handleScroll = () => {
-  const navbar = document.querySelector('.navbar-custom');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-};
+import LandingPage from './components/Landingpage';
+import ScrollToTop from './helpers/ScrollToTop';
 
 const Home = () => (
   <>
@@ -34,7 +23,6 @@ const Home = () => (
     <Element name="move" id="move"><MovingToFredericton /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
     <Element name="news" id="news"><UpcomingEvents /></Element>
-    {/* <Element name="sponsor" id="sponsor"><Sponsor /></Element> */}
     <Element name="gallery" id="gallery"><Gallery /></Element>
     <Element name="contact" id="contact"><ContactUs /></Element>
   </>
@@ -54,7 +42,7 @@ const AppWrapper = () => {
     }
   }, [location.pathname]);
 
-  return <App />;
+  return <Home />;
 };
 
 function App() {
@@ -79,12 +67,11 @@ function App() {
 
   return (
     <Router>
-   
-      <div className="scroll-container">
       <ScrollToTop />
+      <div className="scroll-container">
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<AppWrapper />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/event/:eventName" element={<EventDetail />} />
         </Routes>
@@ -95,3 +82,12 @@ function App() {
 }
 
 export default App;
+
+const handleScroll = () => {
+  const navbar = document.querySelector('.navbar-custom');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+};
