@@ -17,7 +17,7 @@
   }
   
   .CircularProgressbar-text {
-    fill: white !important; /* Text color */
+    fill: rgb(245, 6, 6) !important; /* Text color */
     font-size: 20px !important;
   }
   

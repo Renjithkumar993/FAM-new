@@ -16,7 +16,8 @@ import EventDetail from './components/pages/EventDetail'; // Correct import
 import ScrollProgressBar from './components/ScrollProgressBar';
 import LandingPage from './components/Landingpage.js';
 import Sponsor from './components/Sponsor.js';
-import ScrollToTop from '../src/helpers/ScrollToTop.js'
+import ScrollToTop from './helpers/ScrollToTop.js';
+
 const handleScroll = () => {
   const navbar = document.querySelector('.navbar-custom');
   if (window.scrollY > 50) {
