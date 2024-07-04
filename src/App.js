@@ -79,8 +79,9 @@ function App() {
 
   return (
     <Router>
-      <ScrollToTop />
+   
       <div className="scroll-container">
+      <ScrollToTop />
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Home />} />
