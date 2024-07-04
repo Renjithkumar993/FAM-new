@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
@@ -50,7 +50,7 @@ function App() {
       <ScrollToTop />
       <div className="scroll-container">
         <NavigationBar />
-
+        
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
