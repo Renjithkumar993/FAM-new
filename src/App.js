@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
@@ -50,20 +50,9 @@ function App() {
       <ScrollToTop />
       <div className="scroll-container">
         <NavigationBar />
-        
+
         <Routes>
-          <Route path="/" element={
-            <>
-              <Element name="home" id="home"><LandingPage /></Element>
-              <Element name="about" id="about"><AboutUs /></Element>
-              <Element name="move" id="move"><MovingToFredericton /></Element>
-              <Element name="mission" id="mission"><MissionVision /></Element>
-              <Element name="news" id="news"><UpcomingEvents /></Element>
-              {/* <Element name="sponsor" id="sponsor"><Sponsor /></Element> */}
-              <Element name="gallery" id="gallery"><Gallery /></Element>
-              <Element name="contact" id="contact"><ContactUs /></Element>
-            </>
-          } />
+          <Route path="/" element={<MainPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/event/:eventName" element={<EventDetail />} />
         </Routes>
@@ -72,5 +61,18 @@ function App() {
     </Router>
   );
 }
+
+const MainPage = () => (
+  <>
+    <Element name="home" id="home"><LandingPage /></Element>
+    <Element name="about" id="about"><AboutUs /></Element>
+    <Element name="move" id="move"><MovingToFredericton /></Element>
+    <Element name="mission" id="mission"><MissionVision /></Element>
+    <Element name="news" id="news"><UpcomingEvents /></Element>
+    {/* <Element name="sponsor" id="sponsor"><Sponsor /></Element> */}
+    <Element name="gallery" id="gallery"><Gallery /></Element>
+    <Element name="contact" id="contact"><ContactUs /></Element>
+  </>
+);
 
 export default App;
