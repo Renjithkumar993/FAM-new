@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { Element, scroller } from 'react-scroll';
+import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { Element } from 'react-scroll';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import LoadingScreen from './components/LoadingScreen';
@@ -28,23 +28,6 @@ const Home = () => (
   </>
 );
 
-const AppWrapper = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === '/') {
-      scroller.scrollTo('home', {
-        duration: 0,
-        delay: 0,
-        smooth: 'easeInOutQuart',
-        offset: -70,
-      });
-    }
-  }, [location.pathname]);
-
-  return <Home />;
-};
-
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -71,7 +54,7 @@ function App() {
       <div className="scroll-container">
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<AppWrapper />} />
+          <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/event/:eventName" element={<EventDetail />} />
         </Routes>
