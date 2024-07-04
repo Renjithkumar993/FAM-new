@@ -70,24 +70,29 @@ const NavigationBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link
-              as={RouterLink}
-              to="/"
-              onClick={() => {
-                handleLinkClick();
-                if (location.pathname === '/') {
-                  scroller.scrollTo('home', {
-                    duration: 0,
-                    delay: 0,
-                    smooth: 'easeInOutQuart',
-                    offset: -70,
-                  });
-                } else {
-                  navigate('/');
-                }
-              }}
-            >
-              Home
-            </Nav.Link>
+   onClick={() => {
+     handleLinkClick();
+     handleNavClick('home');
+   }}
+ >
+   home
+ </Nav.Link>
+            <Nav.Link
+   onClick={() => {
+     handleLinkClick();
+     handleNavClick('gallery');
+   }}
+ >
+   Gallery
+ </Nav.Link>
+            <Nav.Link
+   onClick={() => {
+     handleLinkClick();
+     handleNavClick('gallery');
+   }}
+ >
+   Gallery
+ </Nav.Link>
             <Nav.Link
               onClick={() => {
                 handleLinkClick();
