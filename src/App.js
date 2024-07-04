@@ -53,8 +53,9 @@ function App() {
       <ScrollToTop />
       <div className="scroll-container">
         <NavigationBar />
+        <Home />
         <Routes>
-          <Route path="/" element={<Home />} />
+          
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/event/:eventName" element={<EventDetail />} />
         </Routes>
