@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
@@ -13,20 +13,17 @@ import Gallery from './components/Gallery';
 import GalleryPage from './components/pages/GalleryPage';
 import EventDetail from './components/pages/EventDetail';
 import ScrollProgressBar from './components/ScrollProgressBar';
-import LandingPage from './components/Landingpage';
-import ScrollToTop from './helpers/ScrollToTop';
+import LandingPage from './components/Landingpage.js';
+import ScrollToTop from '../src/helpers/ScrollToTop.js';
 
-const Home = () => (
-  <>
-    <Element name="home" id="home"><LandingPage /></Element>
-    <Element name="about" id="about"><AboutUs /></Element>
-    <Element name="move" id="move"><MovingToFredericton /></Element>
-    <Element name="mission" id="mission"><MissionVision /></Element>
-    <Element name="news" id="news"><UpcomingEvents /></Element>
-    <Element name="gallery" id="gallery"><Gallery /></Element>
-    <Element name="contact" id="contact"><ContactUs /></Element>
-  </>
-);
+const handleScroll = () => {
+  const navbar = document.querySelector('.navbar-custom');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+};
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -53,9 +50,22 @@ function App() {
       <ScrollToTop />
       <div className="scroll-container">
         <NavigationBar />
-        <Home />
+
         <Routes>
-          
+          <Route
+            path="/"
+            element={
+              <>
+                <Element name="home" id="home"><LandingPage /></Element>
+                <Element name="about" id="about"><AboutUs /></Element>
+                <Element name="move" id="move"><MovingToFredericton /></Element>
+                <Element name="mission" id="mission"><MissionVision /></Element>
+                <Element name="news" id="news"><UpcomingEvents /></Element>
+                <Element name="gallery" id="gallery"><Gallery /></Element>
+                <Element name="contact" id="contact"><ContactUs /></Element>
+              </>
+            }
+          />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/event/:eventName" element={<EventDetail />} />
         </Routes>
@@ -66,12 +76,3 @@ function App() {
 }
 
 export default App;
-
-const handleScroll = () => {
-  const navbar = document.querySelector('.navbar-custom');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-};
