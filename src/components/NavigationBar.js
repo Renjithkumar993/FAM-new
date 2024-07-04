@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { Link as ScrollLink, animateScroll as scroll, scroller } from 'react-scroll';
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 import logo from '../images/logofam.jpg';
 import './Navbar.css';
 
@@ -75,7 +75,12 @@ const NavigationBar = () => {
               onClick={() => {
                 handleLinkClick();
                 if (location.pathname === '/') {
-                  scroll.scrollToTop();
+                  scroller.scrollTo('home', {
+                    duration: 0,
+                    delay: 0,
+                    smooth: 'easeInOutQuart',
+                    offset: -70,
+                  });
                 } else {
                   navigate('/');
                 }
