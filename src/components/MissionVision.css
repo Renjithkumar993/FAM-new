@@ -58,8 +58,7 @@
 
 .mv-statistics {
   margin-top: 40px;
-  padding: 20px 0;
-  background: #e63946; /* Red background for the numbers section */
+  padding: 20px 0; /* Red background for the numbers section */
   color: white; /* Set the text color to white */
   border-radius: 15px;
   display: flex;
@@ -112,11 +111,11 @@
   }
 
   .mv-text-container h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .mv-text-container p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   .mv-read-more-btn {
@@ -125,7 +124,7 @@
   }
 
   .mv-stat-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.9rem;
   }
 
   .mv-stat-item p {

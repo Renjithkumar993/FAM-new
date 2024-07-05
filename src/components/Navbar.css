@@ -10,7 +10,7 @@
 }
 
 .navbar-custom.scrolled {
-  background-color: rgba(0, 0, 0, 0.8) !important;
+  background-color: black!important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
