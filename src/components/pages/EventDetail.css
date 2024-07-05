@@ -1,25 +1,42 @@
-/* src/components/EventDetail.css */
-
-.event-detail-section {
-  margin-top: 100px;
+.event-detail-container {
+  margin-top: 50px;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+}
+
+.event-detail-card, .register-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
 
-.event-detail-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+.event-detail-header {
+  background-color: #343a40;
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 20px;
+  text-align: center;
 }
 
 .event-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #343a40;
+  margin: 0;
+}
+
+.event-image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
@@ -27,17 +44,18 @@
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
+  margin-top: 20px;
 }
 
 .map-container {
   margin-top: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .register-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #343a40;
   margin-bottom: 20px;
@@ -46,7 +64,7 @@
 
 .form-container {
   margin-top: 30px;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -59,11 +77,11 @@
 
 @media (max-width: 768px) {
   .event-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .register-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .responsive-iframe {
@@ -73,7 +91,7 @@
 
 @media (max-width: 576px) {
   .event-title {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .event-details {
@@ -81,7 +99,7 @@
   }
 
   .register-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .responsive-iframe {
