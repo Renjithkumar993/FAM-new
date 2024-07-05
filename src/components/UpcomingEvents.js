@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './UpcomingEvents.css';
 import eventsData from '../config/events.json';
-import loadImages from '../helpers/loadImages';
+import loadImages from "../helpers/loadImages";
 
 const cardVariants = {
   offscreen: { y: 100, opacity: 0 },

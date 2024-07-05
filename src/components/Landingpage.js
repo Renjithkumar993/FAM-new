@@ -29,11 +29,14 @@ export default function LandingPage() {
       <Carousel fade interval={5000} pause={false} className='custom-carousel'>
         {carouselItems.map((image, index) => (
           <Carousel.Item key={index}>
-            <img
-              className='d-block w-100 carousel-image'
-              src={image.default || image} // Check for default export
-              alt={`Slide ${index + 1}`}
-            />
+            <div className="zoom-container">
+              <img
+                className='d-block w-100 carousel-image'
+                src={image.default || image} // Check for default export
+                alt={`Slide ${index + 1}`}
+              />
+              <div className="overlay"></div>
+            </div>
             <Carousel.Caption className='carousel-caption'>
               {Array(3).fill().map((_, animIndex) => {
                 const animation = data.animations[getAnimationIndex(index, animIndex)];
