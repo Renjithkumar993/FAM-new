@@ -6,6 +6,9 @@ import './AboutUsPage.css';
 import aboutImage1 from '../../images/fredericton/image1.jpg'; // Replace with your image path
 import aboutImage2 from '../../images/fredericton/image4.jpg'; // Replace with your image path
 import data from "../../config/aboutus.json"; // Directly import the JSON data
+import Footer from '../Footer';
+import FFullWidthimage from "../FullWidthImage"
+import FullWidthImage from '../FullWidthImage';
 
 const AboutUsPage = () => {
   return (
@@ -65,6 +68,8 @@ const AboutUsPage = () => {
           </Col>
         </Row>
       </Container>
+      <FullWidthImage />
+      <Footer />
     </div>
   );
 };

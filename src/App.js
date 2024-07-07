@@ -14,6 +14,7 @@ import Footer from './components/Footer.js';
 import AboutUsPage from "./components/pages/AboutUsPage.js"
 import EventSection from './components/pages/EventSection.js';
 import ContactUs from './components/pages/ContactUs.js';
+import EventDetail from './components/EventDetail.js';
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/aboutus" element={<AboutUsPage />} />
           <Route path="/events" element={<EventSection />} />
+          <Route path="/events/:eventId" element={<EventDetail />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </div>

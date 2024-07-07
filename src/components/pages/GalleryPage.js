@@ -6,7 +6,7 @@ import HeaderCarousel from '../HeaderCarousel';
 import Footer from '../Footer';
 
 const importAll = (r) => r.keys().map(r);
-const images = importAll(require.context('../../images/galleryimages', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../../images/galleryimages', false, /\.(png|jpe?g|svg|JPG)$/));
 
 const GalleryPage = () => {
   return (
