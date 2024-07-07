@@ -14,14 +14,14 @@ const ContactUs = () => {
   });
 
   return (
-    <div className="contact-us-section" id='contact'>
+    <div className="contact-us-section mt-5 mb-5" id='contact'>
       <Container>
         <Row className="align-items-center">
           <Col md={6} className={`left-col ${leftInView ? 'animate' : ''}`} ref={leftRef}>
             <img src={logoImage} alt="Association Logo" className="img-fluid logo-image" />
           </Col>
           <Col md={6} className={`right-col ${rightInView ? 'animate' : ''}`} ref={rightRef}>
-            <h2 className='contactushead'>CONTACT US</h2>
+            <h2 className='contactushead text-center'>SAY HELLO</h2>
             <p>Send us a quick message we will get back to you.</p>
             <Form>
               <Form.Group controlId="formName">
@@ -40,15 +40,7 @@ const ContactUs = () => {
                 Send Now
               </Button>
             </Form>
-            <div className="social-contact mt-4">
-              <p>Follow us on <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></p>
-              <p>Contact us at <a href="mailto:infofamnb@outlook.com">infofamnb@outlook.com</a></p>
-            </div>
-          </Col>
-        </Row>
-        <Row className="mt-4">
-          <Col>
-            <p className="copyright">© 2024 Fredericton Association of Malayalees. All rights reserved.</p>
+           
           </Col>
         </Row>
       </Container>

@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Link as ScrollLink, animateScroll as scroll, scroller } from 'react-scroll';
+import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Container, Box, Button } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../images/logofam.jpg';
 import './Navbar.css';
 
+const pages = ['Home', 'About Us', 'Gallery', 'Events', 'New to Fredericton?', 'Contact Us'];
+
 const NavigationBar = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [anchorElNav, setAnchorElNav] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  const handleToggle = () => {
-    setExpanded(!expanded);
-  };
-
-  const handleLinkClick = () => {
-    setExpanded(false);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,99 +28,76 @@ const NavigationBar = () => {
     };
   }, []);
 
-  const handleNavClick = (id) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-    }
-    setTimeout(() => {
-      scroller.scrollTo(id, {
-        duration: 800,
-        delay: 0,
-        smooth: 'easeInOutQuart',
-        offset: -70,
-      });
-    }, 100);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
   };
 
-  const isTransparent = location.pathname === '/';
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
-    <Navbar
-      expand="lg"
-      className={`navbar-custom fixed-top ${scrolled || !isTransparent ? 'scrolled' : ''}`}
-      expanded={expanded}
-    >
-      <div className="container">
-        <Navbar.Brand as={RouterLink} to="/" className="navbar-brand-custom">
-          <img src={logo} alt="FAM Logo" className="navbar-logo" />
-        </Navbar.Brand>
-        <Navbar.Toggle 
-          aria-controls="basic-navbar-nav" 
-          className="navbar-toggler-custom" 
-          onClick={handleToggle}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link
-              as={RouterLink}
-              to="/"
-              onClick={() => {
-                handleLinkClick();
-                if (location.pathname === '/') {
-                  scroll.scrollToTop();
-                } else {
-                  navigate('/');
-                }
-              }}
+    <AppBar position="fixed" className={`navbar-custom ${scrolled ? 'scrolled' : ''}`}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component={RouterLink}
+            to="/"
+            className="navbar-brand-custom"
+          >
+            <img src={logo} alt="FAM Logo" className="navbar-logo" />
+            FAM
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                component={RouterLink}
+                to={`/${page.replace(/\s+/g, '').toLowerCase()}`}
+                className="navbar-link"
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
+            <IconButton
+              size="large"
+              aria-label="menu"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
             >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                handleLinkClick();
-                handleNavClick('about');
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
               }}
-            >
-              About Us
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                handleLinkClick();
-                handleNavClick('gallery');
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
               }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
             >
-              Gallery
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                handleLinkClick();
-                handleNavClick('news');
-              }}
-            >
-              Events
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                handleLinkClick();
-                handleNavClick('move');
-              }}
-            >
-              New to Fredericton?
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                handleLinkClick();
-                handleNavClick('contact');
-              }}
-            >
-              Contact Us
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </div>
-    </Navbar>
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu} component={RouterLink} to={`/${page.replace(/\s+/g, '').toLowerCase()}`}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 

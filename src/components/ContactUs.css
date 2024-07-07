@@ -1,10 +1,4 @@
-.contact-us-section {
-  background:black;
-  color: #fff;
-  padding: 60px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-}
+
 
 
 .contactushead{
@@ -26,33 +20,12 @@
   margin-bottom: 10px;
 }
 
-.right-col {
-  background: transparent; 
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .right-col h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   position: relative;
 }
 
-.right-col h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: #e63946;
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
 .right-col p {
   font-size: 1.2rem;
@@ -61,14 +34,6 @@
   text-align: center;
 }
 
-.right-col .form-control {
-  background: #555;
-  color: #fff;
-  border: 1px solid #666;
-  margin-bottom: 15px; /* Add margin between form fields */
-  font-size: 1.2rem; /* Increase font size */
-  padding: 15px; /* Increase padding */
-}
 
 .right-col .form-control::placeholder {
   color: #ccc;

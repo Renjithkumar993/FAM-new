@@ -9,7 +9,7 @@ import data from '../config/landingpage.json';
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../images/heroimages', false, /\.(png|jpe?g|svg)$/));
 
-export default function LandingPage() {
+export default function LandingPage({ height = '75vh', pageTitle = '', showBackButton = false }) {
   const [carouselItems, setCarouselItems] = useState([]);
 
   useEffect(() => {
@@ -25,19 +25,21 @@ export default function LandingPage() {
   };
 
   return (
-    <div className='main-container'>
+    <div className='main-container' style={{ height }}>
       <Carousel fade interval={5000} pause={false} className='custom-carousel'>
         {carouselItems.map((image, index) => (
           <Carousel.Item key={index}>
-            <div className="zoom-container">
+            <div className="zoom-container" style={{ height }}>
               <img
                 className='d-block w-100 carousel-image'
                 src={image.default || image} // Check for default export
                 alt={`Slide ${index + 1}`}
+                style={{ height }}
               />
               <div className="overlay"></div>
             </div>
             <Carousel.Caption className='carousel-caption'>
+              {pageTitle && <h1>{pageTitle}</h1>}
               {Array(3).fill().map((_, animIndex) => {
                 const animation = data.animations[getAnimationIndex(index, animIndex)];
                 return (
@@ -66,6 +68,9 @@ export default function LandingPage() {
           </Carousel.Item>
         ))}
       </Carousel>
+      {showBackButton && (
+        <Button href="/" variant="outline-light" className="back-to-home-button">Back to Home</Button>
+      )}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import './GalleryPage.css';
+import HeaderCarousel from '../HeaderCarousel';
 
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../../images/galleryimages', false, /\.(png|jpe?g|svg)$/));
@@ -9,21 +10,16 @@ const images = importAll(require.context('../../images/galleryimages', false, /\
 const GalleryPage = () => {
   return (
     <div className="gallery-page">
+     <HeaderCarousel height="40vh" pageTitle="GALLERY" />
+      
       <Container>
+   
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="section-title"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="animated-heading text-black mt-5"
-          >
-            GALLERY
-          </motion.h2>
         </motion.div>
         <div className="gallery-grid">
           {images.map((image, index) => (
