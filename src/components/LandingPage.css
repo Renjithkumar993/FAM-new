@@ -67,7 +67,6 @@
 
 .carousel-caption button {
   font-size: 1.2em;
-  padding: 10px 20px;
   background-color:  #e63946;
   border: none;
   border-radius: 5px;
@@ -78,17 +77,6 @@
   background-color: darkred;
 }
 
-.back-to-home-button {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 1.2em;
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #0d6efd;
-  border: none;
-  transition: background-color 0.3s ease;
-}
 
 .back-to-home-button:hover {
   background-color: #0a58ca;

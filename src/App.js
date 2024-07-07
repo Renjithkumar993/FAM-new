@@ -14,40 +14,18 @@ import Footer from './components/Footer.js';
 import AboutUsPage from "./components/pages/AboutUsPage.js"
 import EventSection from './components/pages/EventSection.js';
 import ContactUs from './components/pages/ContactUs.js';
-
-const handleScroll = () => {
-  const navbar = document.querySelector('.navbar-custom');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-};
-
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
 
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
-    };
-  }, []);
 
-  if (loading) {
-    return <LoadingScreen />;
-  }
 
   return (
     <Router>
       <ScrollToTop />
       <div className="scroll-container">
+      {/* <TopBar/ > */}
         <NavigationBar />
         
         <Routes>
@@ -66,6 +44,7 @@ function App() {
 const MainPage = () => (
   <>
     <Element name="home" id="home"><LandingPage /></Element>
+    
     <Element name="about" id="about"><AboutUs /></Element>
     {/* <Element name="move" id="move"><MovingToFredericton /></Element> */}
     <Element name="mission" id="mission"><MissionVision /></Element>

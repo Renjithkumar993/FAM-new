@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import './GalleryPage.css';
 import HeaderCarousel from '../HeaderCarousel';
+import Footer from '../Footer';
 
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../../images/galleryimages', false, /\.(png|jpe?g|svg)$/));
@@ -36,6 +37,7 @@ const GalleryPage = () => {
           ))}
         </div>
       </Container>
+      <Footer />
     </div>
   );
 };
