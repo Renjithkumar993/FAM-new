@@ -9,6 +9,7 @@ import data from "../../config/aboutus.json"; // Directly import the JSON data
 import Footer from '../Footer';
 import FFullWidthimage from "../FullWidthImage"
 import FullWidthImage from '../FullWidthImage';
+import MeerTheTeam from "../MeetTheTeam"
 
 const AboutUsPage = () => {
   return (
@@ -68,6 +69,7 @@ const AboutUsPage = () => {
           </Col>
         </Row>
       </Container>
+  
       <FullWidthImage />
       <Footer />
     </div>
