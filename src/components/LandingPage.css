@@ -55,6 +55,8 @@
 
 .landing-page .main-content .text-content h2 .highlight {
   color: #3182ce;
+
+
 }
 
 .landing-page .main-content .text-content p {
@@ -148,6 +150,7 @@
 .welcome-message {
   font-family: 'Pacifico', cursive;
   color: #0bc6e3;
+  font-weight: bold;
 }
 
 .highlight {

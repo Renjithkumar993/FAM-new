@@ -13,9 +13,9 @@ const LandingPage = () => {
               <h2 className="welcome-message">
                 <Typewriter
                   words={[
-                    'Welcome to FAM',
+                    'Welcome to FAM 🙏',
                     
-                    '🙏 Namaskaram'
+                    'Fredericton Association of Malayalees'
                   ]}
                   loop={0}
                   cursor

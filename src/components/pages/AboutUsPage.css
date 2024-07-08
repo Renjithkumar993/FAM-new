@@ -1,61 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 .about-us-page {
-    background: #f8f9fa;
-    color: #333;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
+  background: #f8f9fa;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.about-us-content {
+  padding: 60px 20px;
+  text-align: left;
+}
+
+.about-us-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0d6efd;
+}
+
+.about-us-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0d6efd;
+}
+
+.about-description p,
+.mission-description p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statistics {
+  margin-top: 20px;
+}
+
+.stat-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.stat-item ul li {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1.8;
+}
+
+.stat-item ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #0d6efd;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
   .about-us-content {
-    padding: 60px 20px;
-    text-align: left;
+    padding: 40px 10px;
   }
-  
+
   .about-us-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #0d6efd;
-  }
-  
-  .about-us-content h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
-    color: #0d6efd;
   }
-  
-  .about-description p, .mission-description p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    line-height: 1.8;
-    color: #555;
+
+  .about-us-content h2 {
+    font-size: 1.5rem;
   }
-  
-  .image-container {
-    text-align: center;
-    margin-bottom: 20px;
+
+  .about-description p,
+  .mission-description p {
+    font-size: 1rem;
   }
-  
-  
-  .statistics {
-    margin-top: 20px;
-  }
-  
-  .stat-item ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
+
   .stat-item ul li {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    padding-left: 25px;
-    position: relative;
-    line-height: 1.8;
+    font-size: 1.1rem;
   }
-  
-  .stat-item ul li::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: #0d6efd;
-    font-size: 1.3rem;
+}
+
+@media (max-width: 576px) {
+  .about-us-content {
+    padding: 30px 5px;
   }
-  
+
+  .about-us-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-us-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-description p,
+  .mission-description p {
+    font-size: 0.9rem;
+  }
+
+  .stat-item ul li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-content {
+    padding: 20px 5px;
+  }
+
+  .about-us-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-us-content h2 {
+    font-size: 1rem;
+  }
+
+  .about-description p,
+  .mission-description p {
+    font-size: 0.8rem;
+  }
+
+  .stat-item ul li {
+    font-size: 0.9rem;
+  }
+}

@@ -7,16 +7,20 @@ import aboutImage1 from '../../images/fredericton/image1.jpg'; // Replace with y
 import aboutImage2 from '../../images/fredericton/image4.jpg'; // Replace with your image path
 import data from "../../config/aboutus.json"; // Directly import the JSON data
 import Footer from '../Footer';
-import FFullWidthimage from "../FullWidthImage"
 import FullWidthImage from '../FullWidthImage';
-import MeerTheTeam from "../MeetTheTeam"
+import { useMediaQuery } from 'react-responsive';
 
 const AboutUsPage = () => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   return (
     <div className="about-us-page">
       <HeaderCarousel height="40vh" pageTitle="ABOUT US" />
       <Container className="about-us-content">
         <Row className="mb-4">
+          <Col>
+            <h1>About Us</h1>
+          </Col>
         </Row>
         <Row>
           <Col md={6}>
@@ -30,10 +34,6 @@ const AboutUsPage = () => {
             <div className="image-container">
               <img src={aboutImage1} alt="About Us" className="about-image" />
             </div>
-          </Col>
-        </Row>
-        <Row className="mt-5">
-          <Col md={12} className="text-center">
           </Col>
         </Row>
         <Row className="statistics mt-4">
