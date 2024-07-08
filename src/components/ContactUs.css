@@ -40,7 +40,7 @@
 }
 
 .right-col .btn-warning {
-  background:  #e63946;
+  background:  #0bc6e3;
   margin-top: 10px;
   border: none;
   font-size: 1.2rem; /* Increase font size */
@@ -48,7 +48,7 @@
 }
 
 .right-col .btn-warning:hover {
-  background: #ff0022;
+  background: #0bc6e3;
 }
 
 .social-contact {
