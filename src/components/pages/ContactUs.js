@@ -10,7 +10,7 @@ import Footer from '../Footer';
 const ContactUs = () => {
   return (
     <div className="contact-us-section">
-      <HeaderCarousel height="40vh" pageTitle="CONTACT US" />
+      <HeaderCarousel height="40vh" pageTitle="Contact Us" />
       <Container>
         <ContactUsbox />
         

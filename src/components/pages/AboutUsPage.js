@@ -15,12 +15,12 @@ const AboutUsPage = () => {
 
   return (
     <div className="about-us-page">
-      <HeaderCarousel height="40vh" pageTitle="ABOUT US" />
+      <HeaderCarousel height="40vh" pageTitle="About Us" />
       <Container className="about-us-content">
         <Row className="mb-4">
-          <Col>
-            <h1>About Us</h1>
-          </Col>
+          
+          
+          
         </Row>
         <Row>
           <Col md={6}>

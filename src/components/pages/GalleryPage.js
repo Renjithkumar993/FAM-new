@@ -11,7 +11,7 @@ const images = importAll(require.context('../../images/galleryimages', false, /\
 const GalleryPage = () => {
   return (
     <div className="gallery-page">
-     <HeaderCarousel height="40vh" pageTitle="GALLERY" />
+     <HeaderCarousel height="40vh" pageTitle="Our Gallery" />
       
       <Container>
    

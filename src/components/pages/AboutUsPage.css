@@ -2,8 +2,8 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 .about-us-page {
-  background: #f8f9fa;
-  color: #333;
+  background: white;
+  color: black !important;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -130,10 +130,10 @@
 
   .about-description p,
   .mission-description p {
-    font-size: 0.8rem;
+    font-size:0.9em;
   }
 
   .stat-item ul li {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }

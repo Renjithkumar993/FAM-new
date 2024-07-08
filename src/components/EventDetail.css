@@ -1,6 +1,6 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
   }
@@ -12,39 +12,52 @@ body {
   }
   
   .event-title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 20px;
   }
   
   .event-description {
     font-size: 1.2rem;
     color: #666;
+    margin-bottom: 20px;
   }
   
-  .iframe-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .event-card {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .event-card .card-title {
+  .event-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
     color: #007bff;
+  }
+  
+  .event-info p, .event-info ul {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .event-info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .event-info ul li {
+    margin-bottom: 10px;
+  }
+  
+  .event-register h2 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 15px;
   }
   
   .iframe-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-top: 100%; /* 16:9 Aspect Ratio */
+  }
+  
+  .full-height {
+    height: 600px; /* Adjust as necessary for your layout */
   }
   
   .responsive-iframe {
@@ -56,18 +69,39 @@ body {
     border: none;
   }
   
-  @media (max-width: 767.98px) {
-    .iframe-container {
-      padding-top: 100%; /* Adjust the aspect ratio for smaller screens */
-    }
+  .map-full-width {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
   
+  .map-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: #007bff;
+  }
+  
+  @media (max-width: 767.98px) {
     .event-title {
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   
     .event-description {
       font-size: 1rem;
+    }
+  
+    .event-info h2, .event-register h2 {
+      font-size: 1.5rem;
+    }
+  
+    .event-info p, .event-info ul {
+      font-size: 1rem;
+    }
+  
+    .full-height {
+      height: 400px; /* Adjust for smaller screens */
     }
   
     .event-detail {

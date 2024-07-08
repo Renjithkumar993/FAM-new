@@ -9,7 +9,6 @@ import HeaderCarousel from '../HeaderCarousel';
 import loadImages from "../../helpers/loadImages";
 import Footer from '../Footer';
 
-// Load all images dynamically
 const images = loadImages(require.context('../../images/events', false, /\.(png|jpe?g|svg)$/));
 
 const EventSection = () => {
@@ -21,7 +20,7 @@ const EventSection = () => {
   useEffect(() => {
     const updatedEvents = eventsData.map((event, index) => ({
       ...event,
-      id: index, // Use the index as the unique ID
+      id: index,
       image: images[event.image.replace('images/events/', '')]
     }));
     setEvents(updatedEvents);
@@ -50,8 +49,9 @@ const EventSection = () => {
     <div className="event-page">
       <HeaderCarousel height="40vh" pageTitle="OUR EVENTS" />
       <Container className="event-section">
-        <Row className="text-center mb-5">
+        <Row className="text-center mb-4">
           <Col>
+            <h1 className="section-title">Upcoming Events</h1>
           </Col>
         </Row>
         <Row className="mb-4 filter-row">
@@ -99,7 +99,7 @@ const EventSection = () => {
         </Row>
         <Row className="justify-content-center">
           {filteredEvents.map((event, index) => (
-            <Col md={10} className="mb-5" key={index}>
+            <Col md={10} lg={8} className="mb-5" key={index}>
               <motion.div
                 className="event-card"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -111,12 +111,12 @@ const EventSection = () => {
                   <Col md={4} className="event-image-container">
                     <img src={event.image} alt={event.title} className="event-image" />
                     <div className="event-date">
-                      <span>{event.date}</span>
+                      <span>{new Date(event.date).toLocaleDateString()}</span>
                     </div>
                   </Col>
                   <Col md={8} className="event-details">
                     <h3>{event.title}</h3>
-                    <p><strong>Date:</strong> {event.date}</p>
+                    <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
                     <p><strong>Time:</strong> {event.time}</p>
                     <p><strong>Location:</strong> {event.location}</p>
                     <p>{event.description}</p>

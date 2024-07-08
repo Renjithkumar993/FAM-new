@@ -44,7 +44,7 @@
   margin-bottom: 20px;
 }
 
-.about-description p {
+.about-text p {
   font-size: 1.2rem;
   margin-bottom: 20px;
   line-height: 1.8;
@@ -67,6 +67,10 @@
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .about-us-section {
+    padding: 50px 10px;
+  }
+
   .about-text h1 {
     font-size: 2.5rem;
   }
@@ -75,11 +79,17 @@
     font-size: 1.5rem;
   }
 
-  .about-description p {
+  .about-text p {
     font-size: 1rem;
   }
 
   .image-container {
     max-width: 100%;
+    border-radius: 0;
+  }
+
+  .about-image {
+    height: 100vh;
+    object-fit: cover;
   }
 }

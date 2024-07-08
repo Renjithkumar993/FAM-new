@@ -55,8 +55,6 @@
 
 .landing-page .main-content .text-content h2 .highlight {
   color: #3182ce;
-
-
 }
 
 .landing-page .main-content .text-content p {
@@ -67,6 +65,7 @@
 .landing-page .main-content .text-content .button-group {
   display: flex;
   gap: 20px;
+  justify-content: center; /* Ensure buttons are centered horizontally */
 }
 
 .landing-page .main-content .text-content .button-group button {
@@ -84,7 +83,7 @@
 }
 
 .landing-page .main-content .text-content .button-group .primary-btn:hover {
-  background-color:#0bc6a5;
+  background-color: #0bc6a5;
 }
 
 .landing-page .main-content .text-content .button-group .secondary-btn {
@@ -127,6 +126,16 @@
   .landing-page .main-content .text-content p {
     font-size: 0.9em;
   }
+
+  .landing-page .main-content .text-content .button-group {
+    justify-content: center; /* Center buttons horizontally */
+    flex-direction: row; /* Ensure buttons are side by side */
+  }
+
+  .landing-page .main-content .text-content .button-group button {
+    width: auto; /* Remove any width constraints */
+    margin-bottom: 10px; /* Add space between vertically stacked buttons if needed */
+  }
 }
 
 .landing-page .sloped-bottom {
@@ -161,9 +170,3 @@
   0%, 100% { transform: rotate(0deg); }
   50% { transform: rotate(-15deg); }
 }
-
-/* .welcome-message::after {
-  content: ' 🙏';
-  display: inline-block;
-  animation: namaskaram 1.5s infinite;
-} */

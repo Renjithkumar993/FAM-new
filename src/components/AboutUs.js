@@ -7,7 +7,7 @@ import data from "../config/aboutus.json"; // Directly import the JSON data
 
 const AboutUs = () => {
   const { ref: aboutRef, inView: aboutInView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 
@@ -15,7 +15,7 @@ const AboutUs = () => {
     <section className={`about-us-section ${aboutInView ? 'animate' : ''}`} ref={aboutRef} id='about'>
       <Container>
         <Row className="align-items-center">
-          <Col md={6}>
+          <Col md={6} className="order-2 order-md-1">
             <div className="about-text">
               <h1>Malayalee Community Group</h1>
               <h2>Celebrating Malayalam Culture in Fredericton, Canada</h2>
@@ -25,7 +25,7 @@ const AboutUs = () => {
               <Button variant="outline-dark mb-5">Get in touch</Button>
             </div>
           </Col>
-          <Col md={6}>
+          <Col md={6} className="order-1 order-md-2">
             <div className="image-container">
               <img src={aboutImage} alt="About Us" className="about-image" />
             </div>

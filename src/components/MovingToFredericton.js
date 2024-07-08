@@ -4,6 +4,8 @@ import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './MovingToFredericton.css';
 import FullWidthImage from './FullWidthImage';
+import HeaderCarousel from './HeaderCarousel';
+import Footer from './Footer';
 
 
 const shuffleArray = (array) => {
@@ -37,6 +39,9 @@ const MovingToFredericton = () => {
   const scale = useTransform(scrollYProgress, [0, 0.7], [0.5, 1]);
 
   return (
+    <>
+    <HeaderCarousel height="40vh" pageTitle="New in Fredericton ," />
+ 
     <motion.div
       className="moving-to-fredericton-container"
       id="move"
@@ -87,6 +92,8 @@ const MovingToFredericton = () => {
       </Container>
       <FullWidthImage />
     </motion.div>
+    <Footer />
+    </>
   );
 };
 

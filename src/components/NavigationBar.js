@@ -6,12 +6,12 @@ import logo from '../images/logofam.jpg';
 import './Navbar.css';
 
 const pages = [
-  { name: 'Home', icon: faHome },
-  { name: 'About Us', icon: faInfoCircle },
-  { name: 'Gallery', icon: faImages },
-  { name: 'Events', icon: faCalendarAlt },
-  { name: 'New to Fredericton?', icon: faMapMarkerAlt },
-  { name: 'Contact Us', icon: faEnvelope },
+  { name: 'Home', icon: faHome, path: '/' },
+  { name: 'About Us', icon: faInfoCircle, path: '/aboutus' },
+  { name: 'Gallery', icon: faImages, path: '/gallery' },
+  { name: 'Events', icon: faCalendarAlt, path: '/events' },
+  { name: 'New to Fredericton?', icon: faMapMarkerAlt, path: '/newtofredericton' },
+  { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
 ];
 
 const NavigationBar = () => {
@@ -49,7 +49,7 @@ const NavigationBar = () => {
         <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
           {pages.map((page) => (
             <li key={page.name} className="nav-item">
-              <RouterLink to={`/${page.name.replace(/\s+/g, '').toLowerCase()}`} className="nav-links" onClick={() => setMenuOpen(false)}>
+              <RouterLink to={page.path} className="nav-links" onClick={() => setMenuOpen(false)}>
                 <FontAwesomeIcon icon={page.icon} className="nav-icon" />
                 {page.name}
               </RouterLink>
