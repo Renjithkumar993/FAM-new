@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
+import { Typewriter } from 'react-simple-typewriter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HeaderCarousel.css';
 
@@ -28,7 +29,17 @@ const HeaderCarousel = ({ height = '40vh', pageTitle }) => {
               />
               <div className="overlay"></div>
               <Carousel.Caption className='carousel-caption'>
-                {pageTitle && <h1>{pageTitle}</h1>}
+                {pageTitle && (
+                  <h1>
+                    <Typewriter
+                      words={[pageTitle]}
+                      loop={false}
+                      cursor
+                      cursorStyle='_'
+                      typeSpeed={100}
+                    />
+                  </h1>
+                )}
               </Carousel.Caption>
             </div>
           </Carousel.Item>

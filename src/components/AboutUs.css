@@ -34,7 +34,7 @@
 /* Text Styles */
 .about-text h1 {
   font-size: 3rem;
-  color: #1a73e8;
+  color: #0bc6e3;
   margin-bottom: 20px;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .about-text .btn-outline-dark:hover {
-  background-color: #000;
+  background-color: #0bc6e3;
   color: #fff;
 }
 

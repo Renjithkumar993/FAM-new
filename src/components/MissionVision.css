@@ -38,7 +38,7 @@
 }
 
 .highlight-text {
-  color: #e63946;
+  color: #0bc6e3;
 }
 
 .mv-read-more-btn {
@@ -46,14 +46,14 @@
   font-size: 1.1rem;
   margin-top: 20px;
   border-radius: 30px;
-  background-color: #e63946;
+  background-color: #0bc6e3;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .mv-read-more-btn:hover {
-  background-color: #ff6347;
+  background-color: #0bc6e3;
 }
 
 .mv-statistics {
