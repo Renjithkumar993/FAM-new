@@ -1,25 +1,32 @@
 /* Navbar.css */
+body.menu-open {
+  overflow: hidden;
+}
+
 .navbar-custom {
-  background-color: #1a202c;
+  background: linear-gradient(135deg, #28a745, #218838);
   transition: background-color 0.3s, box-shadow 0.3s;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
 }
-
 .navbar-custom.scrolled {
-  background-color: #1a202c;
+  background: linear-gradient(135deg, #28a745, #218838);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+
 .navbar-container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  margin: auto;
-  padding: 0 50px;
 }
 
 .navbar-brand-custom {
@@ -57,6 +64,7 @@
   display: none;
   font-size: 2rem;
   color: white;
+  cursor: pointer;
 }
 
 .nav-menu {
@@ -64,6 +72,8 @@
   align-items: center;
   list-style: none;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
@@ -71,7 +81,7 @@
 }
 
 .nav-links {
-  color: #0bc6e3;
+  color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
@@ -89,46 +99,45 @@
   margin-right: 8px;
 }
 
-@media screen and (max-width: 960px) {
-  .navbar-container {
-    padding: 0 30px;
-  }
+.nav-menu-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
 
+@media screen and (max-width: 960px) {
   .menu-icon {
     display: block;
-    cursor: pointer;
   }
 
   .nav-menu {
-    display: flex;
     flex-direction: column;
-    width: 100%;
-    height: calc(100vh - 80px);
+    align-items: center;
+    background: linear-gradient(135deg, #28a745, #218838);
     position: absolute;
     top: 80px;
-    left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
-    background: #1a202c;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 999;
   }
 
   .nav-menu.active {
-    background: #1a202c;
-    left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
+    max-height: 400px; /* Adjust based on content height */
   }
 
   .nav-item {
     width: 100%;
+    text-align: center;
   }
 
   .nav-links {
-    text-align: center;
-    padding: 2rem;
+    display: block;
+    padding: 1rem 0;
     width: 100%;
-    display: table;
+    font-size: 1.2rem;
   }
 
   .navbar-logo {
@@ -138,5 +147,24 @@
 
   .navbar-title {
     font-size: 1.2rem;
+  }
+
+  body.menu-open .main-content {
+    margin-top: 400px; /* Adjust based on menu height */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-links {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .nav-menu.active {
+    max-height: 300px; /* Adjust based on content height */
+  }
+
+  body.menu-open .main-content {
+    margin-top: 300px; /* Adjust based on menu height */
   }
 }

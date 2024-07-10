@@ -20,7 +20,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="scroll-container">
+  
         <NavigationBar />
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -31,8 +31,6 @@ const App = () => {
           <Route path="/newtofredericton" element={<MovingToFredericton />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
-      </div>
-      <ScrollProgressBar />
     </Router>
   );
 };

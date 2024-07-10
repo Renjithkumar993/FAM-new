@@ -38,7 +38,7 @@
 }
 
 .highlight-text {
-  color: #0bc6e3;
+  color:#259c44;
 }
 
 .mv-read-more-btn {
@@ -46,7 +46,7 @@
   font-size: 1.1rem;
   margin-top: 20px;
   border-radius: 30px;
-  background-color: #0bc6e3;
+  background-color: #259c44;
   color: white;
   border: none;
   transition: background-color 0.3s ease;

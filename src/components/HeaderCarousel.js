@@ -17,7 +17,7 @@ const HeaderCarousel = ({ height = '40vh', pageTitle }) => {
 
   return (
     <div className='header-carousel' style={{ height }}>
-      <Carousel fade interval={5000} pause={false} className='custom-carousel'>
+      <Carousel fade interval={5000} pause={false} controls={false} indicators={false} className='custom-carousel'>
         {carouselItems.map((image, index) => (
           <Carousel.Item key={index}>
             <div className="zoom-container" style={{ height }}>

@@ -47,12 +47,9 @@ const EventSection = () => {
 
   return (
     <div className="event-page">
-      <HeaderCarousel height="40vh" pageTitle="OUR EVENTS" />
+      <HeaderCarousel height="40vh" pageTitle="Our Events" />
       <Container className="event-section">
         <Row className="text-center mb-4">
-          <Col>
-            <h1 className="section-title">Upcoming Events</h1>
-          </Col>
         </Row>
         <Row className="mb-4 filter-row">
           <Col md={6}>

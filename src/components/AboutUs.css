@@ -1,12 +1,12 @@
 /* General Styles */
 .about-us-section {
-  background: #ffffff;
+  background: #f9f9f9;
   color: #333;
   padding: 100px 20px;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease-out;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .about-us-section.animate {
@@ -34,13 +34,15 @@
 /* Text Styles */
 .about-text h1 {
   font-size: 3rem;
-  color: #0bc6e3;
+  background: linear-gradient(135deg, #28a745, #218838);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
 }
 
 .about-text h2 {
   font-size: 2rem;
-  color: #000;
+  color: #333;
   margin-bottom: 20px;
 }
 
@@ -55,13 +57,13 @@
   margin-top: 20px;
   padding: 10px 30px;
   border-radius: 5px;
-  border: 2px solid #000;
+  border: 2px solid #333;
   font-size: 1.2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .about-text .btn-outline-dark:hover {
-  background-color: #0bc6e3;
+  background-color: #28a745;
   color: #fff;
 }
 
@@ -89,7 +91,7 @@
   }
 
   .about-image {
-    height: 100vh;
+    height: auto;
     object-fit: cover;
   }
 }

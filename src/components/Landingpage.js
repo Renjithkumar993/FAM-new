@@ -1,5 +1,4 @@
 import React from 'react';
-import { Typewriter } from 'react-simple-typewriter';
 import './LandingPage.css';
 import sampleImage from '../images/Screenshot_2024-07-07_170027-removebg-preview.png'; // Replace with your image path
 
@@ -11,30 +10,22 @@ const LandingPage = () => {
           <main className="main-content mt-5">
             <div className="text-content">
               <h2 className="welcome-message">
-                <Typewriter
-                  words={[
-                    'Welcome to FAM 🙏',
-                    
-                    'Fredericton Association of Malayalees'
-                  ]}
-                  loop={0}
-                  cursor
-                  cursorStyle='_'
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={1000}
-                />
+                Welcome to <span className="highlight">FAM</span>
+                <span className="wave">👋</span>
               </h2>
-              <p>Fredericton Association of Malayalees (FAM)
-              A registered non-profit organization - society act established in 2021Bring Your Ideas
-Join Us in Making a Difference
-We welcome your suggestions and participation in our activities.
-We Do Picnics
-Cultural Festival Celebrations
-Bringing together the community with vibrant cultural events.</p>
-              <div className="button-group">
-                <button className="primary-btn">About Us</button>
-                <button className="secondary-btn">Learn more</button>
+              <div className="left-aligned-content">
+                <p>Fredericton Association of Malayalees (FAM)
+                A registered non-profit organization - society act established in 2021.
+                Bring Your Ideas
+                Join Us in Making a Difference.
+                We welcome your suggestions and participation in our activities.
+                We Do Picnics
+                Cultural Festival Celebrations.
+                Bringing together the community with vibrant cultural events.</p>
+                <div className="button-group">
+                  <button className="primary-btn">About Us</button>
+                  <button className="secondary-btn">Learn more</button>
+                </div>
               </div>
             </div>
             <div className="image-content">

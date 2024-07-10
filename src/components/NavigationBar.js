@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faImages, faCalendarAlt, faMapMarkerAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faInfoCircle, faImages, faCalendarAlt, faMapMarkerAlt, faEnvelope, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/logofam.jpg';
 import './Navbar.css';
 
@@ -33,18 +33,27 @@ const NavigationBar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }, [menuOpen]);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <nav className={`navbar-custom ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar-custom ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <div className="navbar-container">
         <RouterLink to="/" className="navbar-brand-custom">
           <img src={logo} alt="FAM Logo" className={`navbar-logo ${scrolled ? 'scrolled-logo' : ''}`} />
+          <span className={`navbar-title ${scrolled ? 'scrolled-title' : ''}`}></span>
         </RouterLink>
         <div className="menu-icon" onClick={toggleMenu}>
-          <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
         </div>
         <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
           {pages.map((page) => (
