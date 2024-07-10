@@ -20,24 +20,25 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-  
-        <NavigationBar />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/aboutus" element={<AboutUsPage />} />
-          <Route path="/events" element={<EventSection />} />
-          <Route path="/events/:eventId" element={<EventDetail />} />
-          <Route path="/newtofredericton" element={<MovingToFredericton />} />
-          <Route path="/contactus" element={<ContactUs />} />
-        </Routes>
+      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/aboutus" element={<AboutUsPage />} />
+        <Route path="/events" element={<EventSection />} />
+        <Route path="/events/:eventId" element={<EventDetail />} />
+        <Route path="/newtofredericton" element={<MovingToFredericton />} />
+        <Route path="/contactus" element={<ContactUs />} />
+      </Routes>
     </Router>
   );
 };
 
 const MainPage = () => (
   <>
+  
     <Element name="home" id="home"><LandingPage /></Element>
+  
     <Element name="about" id="about"><AboutUs /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
     <Footer />

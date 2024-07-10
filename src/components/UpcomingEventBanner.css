@@ -1,0 +1,51 @@
+.upcoming-event-banner {
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .upcoming-event-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .upcoming-event-banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .upcoming-event-banner .event-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .upcoming-event-banner {
+      text-align: center;
+    }
+  
+    .upcoming-event-banner .event-image {
+      margin-top: 20px;
+    }
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-body p {
+    font-size: 1.2rem;
+  }
+  
+  .modal-body ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .modal-body ul li {
+    margin-bottom: 5px;
+  }
+  
