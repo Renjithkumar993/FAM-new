@@ -1,11 +1,56 @@
-/* src/components/MissionVision.css */
-
 .mv-section {
   padding: 60px 20px;
   background: #1a202c; /* Set the background color to black */
   color: #fff; /* Set the text color to white */
   position: relative;
   overflow: hidden;
+}
+
+.mv-notification-container {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.mv-notification {
+  background: linear-gradient(250deg, #28a745, #218838);;
+  color: white !important;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out, slideIn 1s ease-out;
+}
+
+.mv-register-btn {
+  margin-top: 10px;
+  background-color: #259c44;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.mv-register-btn:hover {
+  background-color: #0bc6e3;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .mv-image-container {
@@ -56,15 +101,6 @@
   background-color: #0bc6e3;
 }
 
-.mv-statistics {
-  margin-top: 40px;
-  padding: 20px 0; /* Red background for the numbers section */
-  color: white; /* Set the text color to white */
-  border-radius: 15px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
 
 .mv-stat-item {
   color: white;
@@ -130,4 +166,10 @@
   .mv-stat-item p {
     font-size: 0.9rem;
   }
+}
+
+
+.notification-hilight{
+  font-size: larger;
+  font-weight: bolder;
 }

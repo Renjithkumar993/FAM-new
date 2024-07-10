@@ -6,7 +6,6 @@ import NavigationBar from './components/NavigationBar';
 import AboutUs from './components/AboutUs';
 import MissionVision from './components/MissionVision';
 import GalleryPage from './components/pages/GalleryPage';
-import ScrollProgressBar from './components/ScrollProgressBar';
 import ScrollToTop from './helpers/ScrollToTop';
 import Footer from './components/Footer';
 import AboutUsPage from './components/pages/AboutUsPage';
@@ -15,6 +14,7 @@ import ContactUs from './components/pages/ContactUs';
 import EventDetail from './components/EventDetail';
 import MovingToFredericton from './components/MovingToFredericton';
 import LandingPage from "./components/Landingpage"
+import UpcomingEvent from './components/UpcomingEvent';
 
 const App = () => {
   return (
@@ -41,6 +41,7 @@ const MainPage = () => (
   
     <Element name="about" id="about"><AboutUs /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
+    <UpcomingEvent />
     <Footer />
   </>
 );

@@ -11,18 +11,10 @@ const LandingPage = () => {
             <div className="text-content">
               <h2 className="welcome-message">
                 Welcome to <span className="highlight">FAM</span>
-                <span className="wave">👋</span>
               </h2>
               <div className="left-aligned-content">
-                <p>Fredericton Association of Malayalees (FAM)
-                A registered non-profit organization - society act established in 2021.
-                Bring Your Ideas
-                Join Us in Making a Difference.
-                We welcome your suggestions and participation in our activities.
-                We Do Picnics
-                Cultural Festival Celebrations.
-                Bringing together the community with vibrant cultural events.</p>
-                <div className="button-group">
+                <p>Fredericton Association of Malayalees (FAM) is a registered non-profit organization established under the Society Act in 2021. We are dedicated to bringing together the Malayalee community in Fredericton through vibrant cultural events and activities. We welcome your ideas and participation as we strive to make a positive impact in our community. Join us for picnics, cultural festival celebrations, and other exciting events that foster unity and celebrate our rich cultural heritage</p>
+                <div className="button-group ">
                   <button className="primary-btn">About Us</button>
                   <button className="secondary-btn">Learn more</button>
                 </div>

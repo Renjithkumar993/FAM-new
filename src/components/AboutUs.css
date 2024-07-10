@@ -1,12 +1,18 @@
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+
+
 .about-us-section {
-  background: #f9f9f9;
-  color: #333;
+  background: white;
+  color: black !important;
   padding: 100px 20px;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease-out;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .about-us-section.animate {
@@ -34,15 +40,16 @@
 /* Text Styles */
 .about-text h1 {
   font-size: 3rem;
-  background: linear-gradient(135deg, #28a745, #218838);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
-}
+color: #28a745;
+margin-bottom: 20px;
+  font-family: 'Pacifico', cursive;
+
+ }
+
 
 .about-text h2 {
   font-size: 2rem;
-  color: #333;
+  color: black;
   margin-bottom: 20px;
 }
 
@@ -50,14 +57,14 @@
   font-size: 1.2rem;
   margin-bottom: 20px;
   line-height: 1.8;
-  color: #555;
+  color: black;
 }
 
 .about-text .btn-outline-dark {
   margin-top: 20px;
   padding: 10px 30px;
   border-radius: 5px;
-  border: 2px solid #333;
+  border: 2px solid #28a745;
   font-size: 1.2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

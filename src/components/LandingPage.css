@@ -5,7 +5,7 @@
   font-family: 'Raleway', sans-serif;
   line-height: 1.6;
   color: #fff;
-  background: linear-gradient(135deg, #28a745, #218838) !important;
+  background: #1a202c !important;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -14,13 +14,13 @@
 
 .landing-page .full-width-background {
   width: 100%;
-  background-color: linear-gradient(135deg, #28a745, #218838);
+  background-color: #1a202c;
   padding: 0;
   margin: 0;
 }
 
 .landing-page header {
-  background-color: #2d3748;
+  background-color: #1a202c;
   padding: 20px 0;
   text-align: center;
 }
@@ -57,11 +57,6 @@
   font-family: 'Pacifico', cursive;
 }
 
-.landing-page .main-content .text-content h2 .wave {
-  display: inline-block;
-  animation: wave-animation 1.5s infinite;
-  transform-origin: 70% 70%;
-}
 
 @keyframes wave-animation {
   0%, 100% {
@@ -77,15 +72,10 @@
   margin-bottom: 20px;
 }
 
-.landing-page .main-content .text-content .button-group {
-  display: flex;
-  gap: 20px;
-  justify-content: flex-start; /* Align buttons to the left */
-}
-
 .landing-page .main-content .text-content .button-group button {
   font-size: 1em;
   padding: 10px 20px;
+  margin:5px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -156,7 +146,7 @@
 .landing-page .sloped-bottom {
   position: relative;
   height: 50px;
-  background-color: linear-gradient(135deg, #959d97, #536b58) !important;
+  background-color: #1a202c!important;
 }
 
 .landing-page .sloped-bottom::after {
@@ -175,8 +165,11 @@
   font-family: 'Pacifico', cursive;
   color: #dbdfe5;
   font-weight: bold;
+  text-align: left;
 }
 
 .highlight {
-  color: #010101; /* Adjust color to match the theme */
+  color:#218838;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
 }

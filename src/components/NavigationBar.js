@@ -8,7 +8,6 @@ import './Navbar.css';
 const pages = [
   { name: 'Home', icon: faHome, path: '/' },
   { name: 'About Us', icon: faInfoCircle, path: '/aboutus' },
-  { name: 'Gallery', icon: faImages, path: '/gallery' },
   { name: 'Events', icon: faCalendarAlt, path: '/events' },
   { name: 'New to Fredericton?', icon: faMapMarkerAlt, path: '/newtofredericton' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },

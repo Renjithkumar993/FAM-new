@@ -10,7 +10,7 @@ const Footer = () => {
           <Col md={4}>
             <div className="footer-widget">
               <h3>About Us</h3>
-              <p>Fredericton Association Of Malayalees is a non-profit, non-political, non-religious association for promoting the cultural and social activities of Malayalees in Halifax.</p>
+              <p>Fredericton Association Of Malayalees is a non-profit, non-political, non-religious association for promoting the cultural and social activities of Malayalees in Fredericton.</p>
             </div>
           </Col>
           <Col md={4}>
