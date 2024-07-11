@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-
 .about-us-page {
   background: white;
   color: black !important;
-
   font-family: 'Raleway', sans-serif;
-
-  
 }
 
 .about-us-content {
@@ -25,11 +21,12 @@
 .about-us-content h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #ff5f6d;
+  color: #6372ff;
 }
 
 .about-description p,
-.mission-description p {
+.mission-description p,
+.mission-vision p {
   font-size: 1.2rem;
   margin-bottom: 20px;
   line-height: 1.8;
@@ -69,8 +66,53 @@
   content: '✔';
   position: absolute;
   left: 0;
-  color: #ff5f6d;
+  color: #6372ff;
   font-size: 1.3rem;
+}
+
+.mission-vision {
+  text-align: left;
+}
+
+.mission-vision h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #6372ff;
+  text-align: left;
+}
+
+.animate {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 1s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -87,7 +129,8 @@
   }
 
   .about-description p,
-  .mission-description p {
+  .mission-description p,
+  .mission-vision p {
     font-size: 1rem;
   }
 
@@ -110,7 +153,8 @@
   }
 
   .about-description p,
-  .mission-description p {
+  .mission-description p,
+  .mission-vision p {
     font-size: 0.9rem;
   }
 
@@ -133,8 +177,9 @@
   }
 
   .about-description p,
-  .mission-description p {
-    font-size:0.9em;
+  .mission-description p,
+  .mission-vision p {
+    font-size: 0.9rem;
   }
 
   .stat-item ul li {

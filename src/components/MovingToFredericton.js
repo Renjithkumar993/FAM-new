@@ -40,6 +40,7 @@ const MovingToFredericton = () => {
 
   return (
     <>
+
  
     <motion.div
       className="moving-to-fredericton-container"

@@ -4,12 +4,16 @@ import { useInView } from 'react-intersection-observer';
 import aboutImage from '../images/famaboutus.png'; // Adjust the path to your image
 import './AboutUs.css';
 import data from "../config/aboutus.json"; // Directly import the JSON data
+import { useNavigate } from 'react-router-dom'; 
 
 const AboutUs = () => {
   const { ref: aboutRef, inView: aboutInView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  
+  const navigate = useNavigate(); // Initialize navigate
 
   return (
     <section className={`about-us-section ${aboutInView ? 'animate' : ''}`} ref={aboutRef} id='about'>
@@ -22,7 +26,7 @@ const AboutUs = () => {
               {data.about.description.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
-              <Button variant="outline-dark mb-5">Get in touch</Button>
+              <Button variant="outline-dark mb-5" onClick={() => navigate('/contactus')}>Get in touch</Button>
             </div>
           </Col>
           <Col md={6} className="order-1 order-md-2">

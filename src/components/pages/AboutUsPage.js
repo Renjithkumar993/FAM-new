@@ -5,39 +5,46 @@ import HeaderCarousel from '../HeaderCarousel';
 import './AboutUsPage.css';
 import aboutImage1 from '../../images/fredericton/image1.jpg'; // Replace with your image path
 import aboutImage2 from '../../images/fredericton/image4.jpg'; // Replace with your image path
-import data from "../../config/aboutus.json"; // Directly import the JSON data
+import aboutData from "../../config/aboutus.json"; // Directly import the JSON data
+import missionVisionData from "../../config/missionvission.json"; // Import mission and vision data
 import Footer from '../Footer';
 import FullWidthImage from '../FullWidthImage';
+import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from 'react-responsive';
 
 const AboutUsPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  const [ref1, inView1] = useInView({ triggerOnce: false });
+  const [ref2, inView2] = useInView({ triggerOnce: false });
+  const [ref3, inView3] = useInView({ triggerOnce: false });
+  const [ref4, inView4] = useInView({ triggerOnce: false });
+
   return (
     <div className="about-us-page">
       <Container className="about-us-content">
-        <Row className="mb-4">
-          
-          
-          
+        <Row className={`mb-4 ${inView1 ? 'animate' : ''}`} ref={ref1}>
+        
+        
+        
         </Row>
         <Row>
-          <Col md={6}>
+          <Col md={6} className={`${inView2 ? 'animate' : ''}`} ref={ref2}>
             <div className="about-description">
-              {data.about.description.map((paragraph, index) => (
+              {aboutData.about.description.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
           </Col>
-          <Col md={6}>
+          <Col md={6} className={`${inView2 ? 'animate' : ''}`} ref={ref2}>
             <div className="image-container">
               <img src={aboutImage1} alt="About Us" className="about-image" />
             </div>
           </Col>
         </Row>
         <Row className="statistics mt-4">
-          {data.about.statistics.map((stat, index) => (
-            <Col md={6} key={index} className="stat-item">
+          {aboutData.about.statistics.map((stat, index) => (
+            <Col md={6} key={index} className={`stat-item ${inView3 ? 'animate' : ''}`} ref={ref3}>
               <ul>
                 {stat.list.map((item, idx) => (
                   <li key={idx}>{item}</li>
@@ -47,12 +54,12 @@ const AboutUsPage = () => {
           ))}
         </Row>
         <Row className="mt-5">
-          <Col md={6}>
+          <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
             <div className="image-container">
               <img src={aboutImage2} alt="Activities" className="about-image" />
             </div>
           </Col>
-          <Col md={6}>
+          <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
             <div className="mission-description">
               <h2>Fredericton Association of Malayalees</h2>
               <p>
@@ -67,8 +74,22 @@ const AboutUsPage = () => {
             </div>
           </Col>
         </Row>
+        <Row className="mt-5">
+          <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
+            <div className="mission-vision">
+              <h2>Our Mission</h2>
+              <p>{missionVisionData.missionVision.mission}</p>
+            </div>
+          </Col>
+          <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
+            <div className="mission-vision">
+              <h2>Our Vision</h2>
+              <p>{missionVisionData.missionVision.vision}</p>
+            </div>
+          </Col>
+        </Row>
       </Container>
-  
+
       <FullWidthImage />
       <Footer />
     </div>

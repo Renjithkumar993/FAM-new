@@ -21,9 +21,6 @@
 
 
 
-
-
-
 .main-content {
   display: flex;
   align-items: center;
@@ -60,7 +57,7 @@
 }
 
 .highlight {
-  color: #ff5f6d;
+  color: #6372ff ;
 }
 
 .left-aligned-content p {
@@ -85,12 +82,12 @@
 }
 
 .button-group .primary-btn {
-  background: #ff5f6d;
+  background: #6372ff ;
   color: #fff;
 }
 
 .button-group .primary-btn:hover {
-  background-color: rgb(240, 21, 21);
+  background-color: rgb(34, 99, 230);
 }
 
 .button-group .secondary-btn {

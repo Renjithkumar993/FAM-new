@@ -40,7 +40,7 @@
 /* Text Styles */
 .about-text h1 {
   font-size: 3rem;
-color:#ff5f6d;
+color:#6372ff ;
 margin-bottom: 20px;
 font-weight: bold;
  }
@@ -63,13 +63,13 @@ font-weight: bold;
   margin-top: 20px;
   padding: 10px 30px;
   border-radius: 5px;
-  border: 2px solid #ff5f6d;
+  border: 2px solid #6372ff ;
   font-size: 1.2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .about-text .btn-outline-dark:hover {
-  background-color: #28a745;
+  background-color: #4455ef ;
   color: #fff;
 }
 

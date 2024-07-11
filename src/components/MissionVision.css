@@ -64,7 +64,7 @@
 }
 
 .highlight-text {
-  color:#ff5f6d;
+  color:#6372ff ;
 }
 
 .mv-read-more-btn {
@@ -72,14 +72,14 @@
   font-size: 1.1rem;
   margin-top: 20px;
   border-radius: 30px;
-  background-color: #ff5f6d;
+  background-color: #6372ff ;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .mv-read-more-btn:hover {
-  background-color: rgb(240, 21, 21);
+  background-color: rgb(53, 44, 222);
 }
 
 

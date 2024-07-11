@@ -7,6 +7,7 @@ import missionImage from '../images/fam-removebg-preview.png'; // Adjust the pat
 import './MissionVision.css';
 import data from "../config/missionvission.json"; // Directly import the JSON data
 import onamImage from "../images/fredericton/download.jpeg"
+import { useNavigate } from 'react-router-dom';
 
 const TEXTS = ['MISSION', 'VISION'];
 
@@ -23,6 +24,7 @@ const MissionVision = () => {
     triggerOnce: false,
   });
 
+  const navigate = useNavigate(); // Initialize navigate
   const [index, setIndex] = useState(0);
   const [startCount, setStartCount] = useState(false);
   const [daysLeft, setDaysLeft] = useState(0);
@@ -87,7 +89,7 @@ const MissionVision = () => {
             <p>
               {missionVisionData.vision}
             </p>
-            <button className="mv-read-more-btn mb-4">Read More</button>
+            <button className="mv-read-more-btn mb-4" onClick={() => navigate('/aboutus')}>Read More</button>
           </Col>
         </Row>
       </Container>

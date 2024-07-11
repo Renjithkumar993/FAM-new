@@ -15,7 +15,7 @@
 .upcoming-event-heading {
   font-size: 3.5rem;
   margin: 20px 0;
-  color: #ff5f6d;
+  color: #6372ff ;
 }
 
 
@@ -62,7 +62,7 @@
 }
 
 .stat-box {
-  background: rgba(17, 5, 5, 0.2);
+  background: rgba(52, 93, 208, 0.2);
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -74,26 +74,26 @@
 .stat-box h3 {
   font-size: 1.8rem;
   margin: 5px;
-  color: white;
+  color: #6372ff;
   font-weight: bold;
 }
 
 .stat-box p {
   font-size: 1rem;
-  color: white;
+  color: #6372ff;
 }
 
 .mv-register-btn {
   font-size: 1.2rem;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #ff5f6d;
+  background-color: #6372ff ;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .mv-register-btn:hover {
-  background-color: #ff4c4c;
+  background-color: #3766e9;
 }
 
 @media (max-width: 768px) {
@@ -180,5 +180,5 @@
 .event-image-container {
   flex: 1;
   overflow: hidden;
-  max-width: 400px;
+  max-width: 300px;
 }
