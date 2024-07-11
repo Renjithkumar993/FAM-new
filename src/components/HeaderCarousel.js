@@ -57,13 +57,14 @@ const HeaderCarousel = ({ height = '40vh', pageTitle }) => {
         variant="h2"
         className='page-title mt-5'
         sx={{
-          fontFamily: 'Pacifico, cursive',
-          fontSize: { xs: '3em', sm: '2.5em', md: '3em', lg: '4em' },
+         
+          fontSize: { xs: '2em', sm: '2.5em', md: '3em', lg: '4em' },
           fontWeight: 300,
           zIndex: 2,
         }}
       >
         <Typewriter
+
           words={[pageTitle]}
           loop={false}
           cursor

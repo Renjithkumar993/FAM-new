@@ -3,6 +3,8 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import moment from 'moment-timezone';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 import './EventSection.css';
 import eventsData from '../../config/events.json';
 import HeaderCarousel from '../HeaderCarousel';
@@ -10,6 +12,14 @@ import loadImages from "../../helpers/loadImages";
 import Footer from '../Footer';
 
 const images = loadImages(require.context('../../images/events', false, /\.(png|jpe?g|svg)$/));
+
+const iconMapping = {
+  conference: 'fas fa-chalkboard-teacher',
+  webinar: 'fas fa-video',
+  workshop: 'fas fa-tools',
+  social: 'fas fa-users',
+  // Add more mappings as necessary
+};
 
 const EventSection = () => {
   const navigate = useNavigate();
@@ -48,7 +58,7 @@ const EventSection = () => {
   }).sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <div className="event-page">
+    <div className="event-section-page">
       <Container className="event-section">
         <Row className="filter-row mb-4 mt-5">
           <Col md={6}>
@@ -70,15 +80,18 @@ const EventSection = () => {
         </Row>
         <VerticalTimeline>
           {filteredEvents.map((event, index) => {
-            const eventDate = new Date(event.date);
+            const eventDate = moment(event.date).tz('UTC').format('MMMM D, YYYY');
             const isOpen = event.isOpen;
+            const eventIcon = iconMapping[event.type] || 'fas fa-calendar-alt';
 
             return (
               <VerticalTimelineElement
                 key={index}
-                date={eventDate.toLocaleDateString()}
+                date={eventDate}
                 iconStyle={{ background: isOpen ? 'green' : 'gray', color: 'white' }}
-                icon={<i className="fas fa-calendar-alt"></i>}
+                icon={<i className={eventIcon}></i>}
+                contentStyle={{ borderRadius: '15px' }}  // Add border radius to content box
+                dateClassName="custom-date"
               >
                 <h3 className="vertical-timeline-element-title">{event.title}</h3>
                 <h4 className="vertical-timeline-element-subtitle">{event.location}</h4>
@@ -88,7 +101,7 @@ const EventSection = () => {
                   <p><strong>Price:</strong> Adults - {event.price.adults}, Children - {event.price.children}, Kids - {event.price.kids}</p>
                 </div>
                 <Button
-                 className='registrationButton'
+                 className='registrationButton '
                   variant={isOpen ? "success" : "danger"}
                   disabled={!isOpen}
                   onClick={() => handleRegister(event.id, isOpen)}

@@ -6,106 +6,89 @@ body {
 }
 
 .event-detail {
-  margin-top: 50px;
-}
-
-.event-card {
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .event-title {
+  font-size: 2.5rem;
   font-weight: bold;
   color: #343a40;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.event-description {
+.event-date-time {
+  font-size: 1.2rem;
   color: #666;
   margin-bottom: 20px;
 }
 
-.section-title {
-  color: #007bff;
+.event-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.event-info h3 {
+  font-size: 1.5rem;
   margin-bottom: 15px;
-}
-
-.event-detail-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.event-detail-item svg {
-  margin-right: 8px;
   color: #007bff;
 }
 
-.event-price-list {
+.event-info p,
+.event-info ul {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.event-info ul {
   list-style-type: none;
   padding: 0;
 }
 
-.event-price-list li {
-  display: flex;
-  align-items: center;
+.event-info ul li {
   margin-bottom: 10px;
 }
 
-.event-price-list li svg {
-  margin-right: 8px;
-  color: #007bff;
-}
-
-.event-register {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #f8f9fa;
-  border-left: 1px solid #ddd;
-  padding: 20px;
-}
-
-.register-container {
-  width: 100%;
-}
-
-.register-button {
-  font-size: 1.2rem;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
+.event-register h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
 .map-container {
-  margin-top: 50px;
-  padding: 20px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  margin-top: 20px;
 }
 
 .map-title {
   text-align: center;
+  font-size: 1.8rem;
+  margin: 20px 0;
   color: #007bff;
+}
+
+.event-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.event-detail-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
   margin-bottom: 20px;
 }
 
-.map-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
+.event-detail-box h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-.map-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
+.event-detail-box p {
+  font-size: 1.2rem;
 }
 
 @media (max-width: 767.98px) {
@@ -118,29 +101,17 @@ body {
     font-size: 1rem;
   }
 
-  .section-title {
-    font-size: 1.5rem;
+  .event-info h3,
+  .event-register h2 {
+    font-size: 1.2rem;
   }
 
-  .event-detail-item,
-  .event-price-list li {
+  .event-info p,
+  .event-info ul {
     font-size: 1rem;
-  }
-
-  .register-button {
-    font-size: 1rem;
-  }
-
-  .event-register {
-    border-left: none;
-    padding-left: 0;
   }
 
   .event-detail {
     padding: 10px;
-  }
-
-  .map-container {
-    margin-top: 20px;
   }
 }

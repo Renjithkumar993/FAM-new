@@ -40,10 +40,9 @@
 /* Text Styles */
 .about-text h1 {
   font-size: 3rem;
-color: #28a745;
+color:#ff5f6d;
 margin-bottom: 20px;
-  font-family: 'Pacifico', cursive;
-
+font-weight: bold;
  }
 
 
@@ -64,7 +63,7 @@ margin-bottom: 20px;
   margin-top: 20px;
   padding: 10px 30px;
   border-radius: 5px;
-  border: 2px solid #28a745;
+  border: 2px solid #ff5f6d;
   font-size: 1.2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

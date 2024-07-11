@@ -13,10 +13,9 @@
 }
 
 .upcoming-event-heading {
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   margin: 20px 0;
-  color: #1a202c;
-  font-family: 'Pacifico', cursive;
+  color: #ff5f6d;
 }
 
 
@@ -74,13 +73,14 @@
 
 .stat-box h3 {
   font-size: 1.8rem;
-  margin-bottom: 5px;
-  color: #fff;
+  margin: 5px;
+  color: white;
+  font-weight: bold;
 }
 
 .stat-box p {
   font-size: 1rem;
-  color: #fff;
+  color: white;
 }
 
 .mv-register-btn {

@@ -56,3 +56,14 @@
   display: none; /* Remove the image from the timeline element */
 }
 
+.custom-date {
+  
+  padding: 5px 10px;
+  border-radius: 10px; /* Rounded corners for the date box */
+  color: red;
+  font-weight: bold;
+}
+
+.registrationButton {
+  display: block;
+}
