@@ -6,7 +6,7 @@
   font-family: 'Raleway', sans-serif;
   line-height: 1.6;
   color: #fff;
-  background-color: #1a202c !important;
+  background-color: #405D72 !important;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -15,13 +15,13 @@
 
 .landing-page .full-width-background {
   width: 100%;
-  background-color: #1a202c;
+  background-color:  #405D72 ;
   padding: 0;
   margin: 0;
 }
 
 .landing-page header {
-  background-color: #2d3748;
+  background-color:  #405D72 ;
   padding: 20px 0;
   text-align: center;
 }

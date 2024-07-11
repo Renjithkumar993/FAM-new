@@ -40,7 +40,6 @@ const MovingToFredericton = () => {
 
   return (
     <>
-    <HeaderCarousel height="40vh" pageTitle="New in Fredericton ," />
  
     <motion.div
       className="moving-to-fredericton-container"

@@ -15,7 +15,6 @@ const AboutUsPage = () => {
 
   return (
     <div className="about-us-page">
-      <HeaderCarousel height="40vh" pageTitle="About Us" />
       <Container className="about-us-content">
         <Row className="mb-4">
           

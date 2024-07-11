@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-.header-carousel {
+.header-container {
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .custom-carousel .carousel-item {
@@ -31,23 +32,28 @@
   z-index: 1;
 }
 
-.carousel-caption {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  width: 80%;
+.custom-breadcrumb {
+  margin-bottom: 1rem;
+  position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
-.carousel-caption h1 {
-  font-family: 'Pacifico', cursive;
-  font-size: 4em;
-  font-weight: 300;
-  margin-bottom: 20px;
-  color: #259c44;
+.custom-breadcrumb .MuiBreadcrumbs-separator {
+  color: white;
+}
+
+.custom-breadcrumb .MuiTypography-root {
+  color: black;
+}
+
+.page-title {
+  color: white;
+  z-index: 2;
+  position: relative;
+  margin-top: 100px;
 }
 
 @keyframes zoom {
@@ -56,23 +62,5 @@
   }
   100% {
     transform: scale(1.1);
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel-caption h1 {
-    font-size: 3em;
-  }
-}
-
-@media (max-width: 576px) {
-  .carousel-caption h1 {
-    font-size: 2.5em;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-caption h1 {
-    font-size: 2em;
   }
 }

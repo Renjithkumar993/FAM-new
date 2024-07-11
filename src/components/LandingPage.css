@@ -5,107 +5,117 @@
   font-family: 'Raleway', sans-serif;
   line-height: 1.6;
   color: #fff;
-  background: #1a202c !important;
+  background: #1a202c;
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
 }
 
-.landing-page .full-width-background {
+.full-width-background {
   width: 100%;
   background-color: #1a202c;
   padding: 0;
   margin: 0;
 }
 
-.landing-page header {
-  background-color: #1a202c;
-  padding: 20px 0;
-  text-align: center;
-}
 
-.landing-page header h1 {
-  color: #fff;
-  font-size: 2em;
-}
 
-.landing-page .main-content {
+
+
+
+.main-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 60px 20px; 
   position: relative;
   overflow: hidden;
-  background-color: linear-gradient(135deg, #959d97, #536b58) !important;
   width: 100%;
-  margin: 0 auto;
 }
 
-.landing-page .main-content .text-content {
+.text-content {
   flex: 1;
   text-align: center; /* Center align heading */
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 1s ease-in-out;
 }
 
-.landing-page .main-content .left-aligned-content {
+.text-content.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.left-aligned-content {
   text-align: left; /* Left align paragraph and buttons */
 }
 
-.landing-page .main-content .text-content h2 {
+.welcome-message {
   font-size: 3em;
   margin-bottom: 20px;
-  font-family: 'Pacifico', cursive;
+  color: #dbdfe5;
+  font-weight: bold;
+  text-align: left;
 }
 
-
-@keyframes wave-animation {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
+.highlight {
+  color: #ff5f6d;
 }
 
-.landing-page .main-content .text-content p {
+.left-aligned-content p {
   font-size: 1.2em;
   margin-bottom: 20px;
 }
 
-.landing-page .main-content .text-content .button-group button {
+.button-group {
+ 
+  
+  gap: 10px;
+}
+
+.button-group button {
   font-size: 1em;
   padding: 10px 20px;
-  margin:5px;
+  margin: 5px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.landing-page .main-content .text-content .button-group .primary-btn {
-  background: linear-gradient(135deg, #28a745, #218838);
+.button-group .primary-btn {
+  background: #ff5f6d;
   color: #fff;
 }
 
-.landing-page .main-content .text-content .button-group .primary-btn:hover {
-  background-color: #0bc6a5;
+.button-group .primary-btn:hover {
+  background-color: rgb(240, 21, 21);
 }
 
-.landing-page .main-content .text-content .button-group .secondary-btn {
+.button-group .secondary-btn {
   background-color: #4a5568;
   color: #fff;
 }
 
-.landing-page .main-content .text-content .button-group .secondary-btn:hover {
+.button-group .secondary-btn:hover {
   background-color: #2d3748;
 }
 
-.landing-page .main-content .image-content {
+.image-content {
   flex: 1;
   padding-left: 40px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1s ease-in-out;
 }
 
-.landing-page .main-content .image-content img {
+.image-content.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.image-content img {
   width: 100%;
   border-radius: 10px;
   transform: rotateY(10deg) scale(1.1);
@@ -114,42 +124,42 @@
 }
 
 @media (max-width: 768px) {
-  .landing-page .main-content {
+  .main-content {
     flex-direction: column;
     text-align: center;
   }
 
-  .landing-page .main-content .image-content {
+  .image-content {
     padding-left: 0;
     margin-top: 20px;
   }
 
-  .landing-page .main-content .text-content h2 {
+  .text-content h2 {
     font-size: 2em;
   }
 
-  .landing-page .main-content .text-content p {
+  .left-aligned-content p {
     font-size: 0.9em;
   }
 
-  .landing-page .main-content .text-content .button-group {
+  .button-group {
     justify-content: center; /* Center buttons horizontally */
     flex-direction: row; /* Ensure buttons are side by side */
   }
 
-  .landing-page .main-content .text-content .button-group button {
+  .button-group button {
     width: auto; /* Remove any width constraints */
     margin-bottom: 10px; /* Add space between vertically stacked buttons if needed */
   }
 }
 
-.landing-page .sloped-bottom {
+.sloped-bottom {
   position: relative;
   height: 50px;
   background-color: #1a202c!important;
 }
 
-.landing-page .sloped-bottom::after {
+.sloped-bottom::after {
   content: '';
   display: block;
   position: absolute;
@@ -159,17 +169,4 @@
   height: 0;
   border-left: 100vw solid transparent;
   border-bottom: 50px solid white;
-}
-
-.welcome-message {
-  font-family: 'Pacifico', cursive;
-  color: #dbdfe5;
-  font-weight: bold;
-  text-align: left;
-}
-
-.highlight {
-  color:#218838;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 60px;
 }

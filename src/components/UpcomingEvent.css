@@ -3,9 +3,9 @@
 
 .mv-notification-container {
   padding: 20px;
-  background: linear-gradient(135deg, #28a745, #218838);
+  background: #F3F5F8;
   color: #fff;
-  min-height: 100vh; /* Ensuring the container takes the full height of the viewport */
+  min-height: 87vh; /* Ensuring the container takes the full height of the viewport */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,9 +13,9 @@
 }
 
 .upcoming-event-heading {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   margin: 20px 0;
-  color: #fff;
+  color: #1a202c;
   font-family: 'Pacifico', cursive;
 }
 
@@ -38,7 +38,7 @@
 
 .event-title {
   font-size: 2rem;
-  color: white;
+  color: #1a202c;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -50,7 +50,7 @@
 
 .event-date {
   font-size: 1.5rem;
-  color: white;
+  color: rgb(240, 21, 21);
   margin-bottom: 20px;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .stat-box {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(17, 5, 5, 0.2);
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -176,4 +176,9 @@
     font-size: 0.9rem;
     padding: 6px 12px;
   }
+}
+.event-image-container {
+  flex: 1;
+  overflow: hidden;
+  max-width: 400px;
 }

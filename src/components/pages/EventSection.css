@@ -1,61 +1,58 @@
-.event-page {
+.event-section-page {
   background: #f8f9fa;
   color: #333;
   position: relative;
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
+  padding-bottom: 50px;
 }
 
-.filter-row .form-group {
-  margin-bottom: 15px;
-}
-
-.event-card {
-  display: flex;
+.event-section-page .filter-row .form-control {
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.event-card:hover {
-  transform: translateY(-5px);
+.event-section-page .vertical-timeline::before {
+  background: #000; /* Change timeline line color to black */
 }
 
-.event-image-container {
-  flex: 1;
-  overflow: hidden;
-  max-width: 300px;
+.event-section-page .vertical-timeline-element--work {
+  border-color: rgb(33, 150, 243);
 }
 
-.event-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.event-section-page .vertical-timeline-element--education {
+  border-color: rgb(233, 30, 99);
 }
 
-.event-details {
-  flex: 2;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.event-details h3 {
+.event-section-page .vertical-timeline-element-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: #333;
 }
 
-.event-details p {
+.event-section-page .vertical-timeline-element-subtitle {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.event-section-page .vertical-timeline-element p {
   margin: 5px 0;
   color: #666;
 }
 
-.event-details p i {
-  margin-right: 8px;
+.event-section-page .event-additional-details {
+  margin: 10px 0;
 }
+
+.event-section-page .vertical-timeline-element button {
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.event-section-page .event-timeline-image {
+  display: none; /* Remove the image from the timeline element */
+}
+

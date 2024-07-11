@@ -4,7 +4,7 @@ body.menu-open {
 }
 
 .navbar-custom {
-  background: linear-gradient(135deg, #28a745, #218838);
+  background: #1a202c;
   transition: background-color 0.3s, box-shadow 0.3s;
   position: fixed;
   width: 100%;
@@ -15,7 +15,7 @@ body.menu-open {
   padding: 0 20px;
 }
 .navbar-custom.scrolled {
-  background: linear-gradient(135deg, #28a745, #218838);
+  background: #1a202c;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 

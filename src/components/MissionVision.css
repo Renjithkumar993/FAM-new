@@ -11,25 +11,6 @@
   margin-bottom: 30px;
 }
 
-.mv-notification {
-  background: linear-gradient(250deg, #28a745, #218838);;
-  color: white !important;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  animation: fadeIn 2s ease-in-out, slideIn 1s ease-out;
-}
-
-.mv-register-btn {
-  margin-top: 10px;
-  background-color: #259c44;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  color: white;
-  transition: background-color 0.3s ease;
-}
 
 .mv-register-btn:hover {
   background-color: #0bc6e3;
@@ -83,7 +64,7 @@
 }
 
 .highlight-text {
-  color:#259c44;
+  color:#ff5f6d;
 }
 
 .mv-read-more-btn {
@@ -91,14 +72,14 @@
   font-size: 1.1rem;
   margin-top: 20px;
   border-radius: 30px;
-  background-color: #259c44;
+  background-color: #ff5f6d;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .mv-read-more-btn:hover {
-  background-color: #0bc6e3;
+  background-color: rgb(240, 21, 21);
 }
 
 

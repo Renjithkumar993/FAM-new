@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { FiFilter } from 'react-icons/fi';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 import './EventSection.css';
 import eventsData from '../../config/events.json';
 import HeaderCarousel from '../HeaderCarousel';
@@ -25,8 +26,10 @@ const EventSection = () => {
     setEvents(updatedEvents);
   }, []);
 
-  const handleRegister = (eventId) => {
-    navigate(`/events/${eventId}`);
+  const handleRegister = (eventId, isOpen) => {
+    if (isOpen) {
+      navigate(`/events/${eventId}`);
+    }
   };
 
   const handleYearChange = (e) => {
@@ -42,31 +45,60 @@ const EventSection = () => {
     const yearMatches = filterYear === 'all' || eventDate.getFullYear().toString() === filterYear;
     const monthMatches = filterMonth === 'all' || (eventDate.getMonth() + 1).toString() === filterMonth;
     return yearMatches && monthMatches;
-  });
+  }).sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div className="event-page">
-      <HeaderCarousel height="40vh" pageTitle="Our Events" />
       <Container className="event-section">
-        <Row className="filter-row mb-4">
+        <Row className="filter-row mb-4 mt-5">
+          <Col md={6}>
+            <Form.Control as="select" value={filterYear} onChange={handleYearChange}>
+              <option value="all">All Years</option>
+              {[...new Set(events.map(event => new Date(event.date).getFullYear()))].map(year => (
+                <option key={year} value={year}>{year}</option>
+              ))}
+            </Form.Control>
+          </Col>
+          <Col md={6}>
+            <Form.Control as="select" value={filterMonth} onChange={handleMonthChange}>
+              <option value="all">All Months</option>
+              {Array.from({ length: 12 }, (_, i) => (
+                <option key={i + 1} value={i + 1}>{new Date(0, i).toLocaleString('default', { month: 'long' })}</option>
+              ))}
+            </Form.Control>
+          </Col>
         </Row>
-        <Row className="justify-content-center">
-          {filteredEvents.map((event, index) => (
-            <Col md={12} className="mb-4" key={index}>
-              <div className="event-card" onClick={() => handleRegister(event.id)}>
-                <div className="event-image-container">
-                  <img src={event.image} alt={event.title} className="event-image" />
+        <VerticalTimeline>
+          {filteredEvents.map((event, index) => {
+            const eventDate = new Date(event.date);
+            const isOpen = event.isOpen;
+
+            return (
+              <VerticalTimelineElement
+                key={index}
+                date={eventDate.toLocaleDateString()}
+                iconStyle={{ background: isOpen ? 'green' : 'gray', color: 'white' }}
+                icon={<i className="fas fa-calendar-alt"></i>}
+              >
+                <h3 className="vertical-timeline-element-title">{event.title}</h3>
+                <h4 className="vertical-timeline-element-subtitle">{event.location}</h4>
+                <p>{event.details}</p>
+                <div className="event-additional-details">
+                  <p><strong>Time:</strong> {event.time}</p>
+                  <p><strong>Price:</strong> Adults - {event.price.adults}, Children - {event.price.children}, Kids - {event.price.kids}</p>
                 </div>
-                <div className="event-details">
-                  <h3>{event.title}</h3>
-                  <p><i className="fas fa-calendar-alt"></i> {new Date(event.date).toLocaleDateString()}</p>
-                  <p><i className="fas fa-map-marker-alt"></i> {event.location}</p>
-                  <p>{event.description}</p>
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
+                <Button
+                 className='registrationButton'
+                  variant={isOpen ? "success" : "danger"}
+                  disabled={!isOpen}
+                  onClick={() => handleRegister(event.id, isOpen)}
+                >
+                  {isOpen ? "Register" : "Registration Closed"}
+                </Button>
+              </VerticalTimelineElement>
+            );
+          })}
+        </VerticalTimeline>
       </Container>
       <Footer />
     </div>
