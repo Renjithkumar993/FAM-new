@@ -7,7 +7,6 @@ import moment from 'moment-timezone';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 import './EventSection.css';
 import eventsData from '../../config/events.json';
-import HeaderCarousel from '../HeaderCarousel';
 import loadImages from "../../helpers/loadImages";
 import Footer from '../Footer';
 

@@ -5,18 +5,16 @@ import Countdown from 'react-countdown';
 import events from '../config/events.json';
 import loadImages from '../helpers/loadImages';
 import './UpcomingEvent.css';
-import image1 from "../images/fredericton/upcoming.png"
+import image1 from "../images/fredericton/upcoming.png";
+import moment from 'moment-timezone';
 
 const images = loadImages(require.context('../images/events', false, /\.(png|jpe?g|svg|jpeg)$/));
 
 const UpcomingEvent = () => {
   const event = events[0]; // Assuming the first event is the upcoming event
   const { title, description, date, image } = event;
+  const eventDate = moment.tz(date, 'UTC');
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -52,26 +50,15 @@ const UpcomingEvent = () => {
           <img src={images[image.replace('images/events/', '')]} alt={title} className="event-image img-fluid" />
         </Col>
         <Col xs={12} md={6} className="event-info">
-        <Row className="justify-content-center">
-   <Col xs={12} className="text-center">
-   
-   
-   
-   <img src={image1} alt={title} className="img-fluid" />
-  
-   
-   
-   
-   
-   
-   
-   
-   </Col>
- </Row>
+          <Row className="justify-content-center">
+            <Col xs={12} className="text-center">
+              <img src={image1} alt={title} className="img-fluid upcomingbanner" />
+            </Col>
+          </Row>
           <h4 className="event-title">{title}</h4>
           <p className="event-description">{description}</p>
-          <h5 className="event-date">{formatDate(date)}</h5>
-          <Countdown date={new Date(date)} renderer={countdownRenderer} />
+          <h5 className="event-date">{eventDate.format('MMMM D, YYYY')}</h5>
+          <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
           <Button className="mv-register-btn mt-3" variant="primary">Register</Button>
         </Col>
       </Row>
