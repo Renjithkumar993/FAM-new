@@ -17,7 +17,6 @@ const iconMapping = {
   webinar: 'fas fa-video',
   workshop: 'fas fa-tools',
   social: 'fas fa-users',
-  // Add more mappings as necessary
 };
 
 const EventSection = () => {
