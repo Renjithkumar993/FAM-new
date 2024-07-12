@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Alert, Row, Col, Button, Container } from 'react-bootstrap';
 import { Typewriter } from 'react-simple-typewriter';
 import Countdown from 'react-countdown';
 import events from '../config/events.json';
 import loadImages from '../helpers/loadImages';
 import './UpcomingEvent.css';
-import onamImage from "../images/fredericton/onam.png"
+import image1 from "../images/fredericton/upcoming.png"
 
-const images = loadImages(require.context('../images/events', false, /\.(png|jpe?g|svg)$/));
+const images = loadImages(require.context('../images/events', false, /\.(png|jpe?g|svg|jpeg)$/));
 
 const UpcomingEvent = () => {
   const event = events[0]; // Assuming the first event is the upcoming event
@@ -47,51 +47,34 @@ const UpcomingEvent = () => {
 
   return (
     <Container fluid className="mv-notification-container">
-      <Row className="justify-content-center">
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <Row className="align-items-center justify-content-center">
+        <Col xs={12} md={6} className="event-image-container">
+          <img src={images[image.replace('images/events/', '')]} alt={title} className="event-image img-fluid" />
+        </Col>
+        <Col xs={12} md={6} className="event-info">
+        <Row className="justify-content-center">
+   <Col xs={12} className="text-center">
+   
+   
+   
+   <img src={image1} alt={title} className="img-fluid" />
+  
+   
+   
+   
+   
+   
+   
+   
+   </Col>
+ </Row>
+          <h4 className="event-title">{title}</h4>
+          <p className="event-description">{description}</p>
+          <h5 className="event-date">{formatDate(date)}</h5>
+          <Countdown date={new Date(date)} renderer={countdownRenderer} />
+          <Button className="mv-register-btn mt-3" variant="primary">Register</Button>
+        </Col>
       </Row>
-        <Row className="align-items-center justify-content-center">
-          <Col xs={12} md={6} className="event-image-container">
-            <img src={images[image.replace('images/events/', '')]} alt={title} className="event-image img-fluid" />
-          </Col>
-          <Col xs={12} md={6} className="event-info">
-          <Col xs={12} className="text-center">
-   <h2 className="upcoming-event-heading">
-     <Typewriter
-       words={['Our Upcoming Event']}
-       loop={false}
-       cursor
-       cursorStyle="_"
-       typeSpeed={70}
-       deleteSpeed={50}
-       delaySpeed={1000}
-     />
-   </h2>
- </Col>
-            <h4 className="event-title">{title}</h4>
-            <p className="event-description">{description}</p>
-            
-            <h5 className="event-date">{formatDate(date)}</h5>
-            <Countdown date={new Date(date)} renderer={countdownRenderer} />
-            <Button className="mv-register-btn mt-3" variant="primary">Register</Button>
-        
-          </Col>
-          
-        </Row>
-        
-    
     </Container>
   );
 };

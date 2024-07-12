@@ -17,24 +17,23 @@ import LandingPage from './components/Landingpage';
 import UpcomingEvent from './components/UpcomingEvent';
 import HeaderCarousel from './components/HeaderCarousel';
 import Loading from './components/Loading';
-import ImageSlider from './components/ImageSlider';
 
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  // useEffect(() => {
     // Simulate loading delay
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // Adjust the delay as needed
+    // const timer = setTimeout(() => {
+      // setLoading(false);
+    // }, 3000); // Adjust the delay as needed
 
-    return () => clearTimeout(timer);
-  }, []);
+    // return () => clearTimeout(timer);
+  // }, []);
 
-  if (loading) {
-    return <Loading loading={loading} />;
-  }
+  // if (loading) {
+    // return <Loading loading={loading} />;
+  // }
 
   return (
     <Router>
@@ -57,7 +56,7 @@ const MainPage = () => (
   <>
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="about" id="about"><AboutUs /></Element>
-    <ImageSlider />
+   
     <Element name="mission" id="mission"><MissionVision /></Element>
     <UpcomingEvent />
     <Footer />
