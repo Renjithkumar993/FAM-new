@@ -17,6 +17,7 @@ import LandingPage from './components/Landingpage';
 import UpcomingEvent from './components/UpcomingEvent';
 import HeaderCarousel from './components/HeaderCarousel';
 import Loading from './components/Loading';
+import ImageSlider from './components/ImageSlider';
 
 
 const App = () => {
@@ -56,6 +57,7 @@ const MainPage = () => (
   <>
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="about" id="about"><AboutUs /></Element>
+    <ImageSlider />
     <Element name="mission" id="mission"><MissionVision /></Element>
     <UpcomingEvent />
     <Footer />
