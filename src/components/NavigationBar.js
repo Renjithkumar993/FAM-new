@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faInfoCircle, faImages, faCalendarAlt, faMapMarkerAlt, faEnvelope, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import logo from '../images/logofam.jpg';
+
 import './Navbar.css';
 
 const pages = [
@@ -12,7 +12,7 @@ const pages = [
   { name: 'New to Fredericton?', icon: faMapMarkerAlt, path: '/newtofredericton' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
 ];
-
+const logo =`${process.env.PUBLIC_URL}/images/logofam.jpg`;
 const NavigationBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

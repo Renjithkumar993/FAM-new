@@ -3,8 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderCarousel from '../HeaderCarousel';
 import './AboutUsPage.css';
-import aboutImage1 from '../../images/fredericton/image1.jpg'; // Replace with your image path
-import aboutImage2 from '../../images/fredericton/image4.jpg'; // Replace with your image path
 import aboutData from "../../config/aboutus.json"; // Directly import the JSON data
 import missionVisionData from "../../config/missionvission.json"; // Import mission and vision data
 import Footer from '../Footer';
@@ -20,7 +18,12 @@ const AboutUsPage = () => {
   const [ref3, inView3] = useInView({ triggerOnce: false });
   const [ref4, inView4] = useInView({ triggerOnce: false });
 
+  const aboutImage1 = `${process.env.PUBLIC_URL}/images/fredericton/image1.jpg`;
+  const aboutImage2 = `${process.env.PUBLIC_URL}/images/fredericton/image4.jpg`;
+
   return (
+    <>
+ 
     <div className="about-us-page">
       <Container className="about-us-content">
         <Row className={`mb-4 ${inView1 ? 'animate' : ''}`} ref={ref1}>
@@ -90,9 +93,12 @@ const AboutUsPage = () => {
         </Row>
       </Container>
 
-      <FullWidthImage />
-      <Footer />
+      
+      
     </div>
+    <FullWidthImage />
+    <Footer />
+    </>
   );
 };
 

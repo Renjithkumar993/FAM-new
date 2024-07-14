@@ -7,17 +7,24 @@ import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HeaderCarousel.css';
 
-// Function to import all images from a directory
-const importAll = (r) => r.keys().map(r);
-const images = importAll(require.context('../images/heroimages', false, /\.(png|jpe?g|svg)$/));
+// Import images manually
+
+
+
 
 const HeaderCarousel = ({ height = '40vh', pageTitle }) => {
   const [carouselItems, setCarouselItems] = useState([]);
 
   useEffect(() => {
-    setCarouselItems(images);
+    // Set the imported images into the carousel items
+    setCarouselItems([image1, image2, image3]);
   }, []);
 
+
+
+const image1 = `${process.env.PUBLIC_URL}/images/heroimages/image1.jpg`;
+const image2 = `${process.env.PUBLIC_URL}/images/heroimages/image2.jpg`;
+const image3 = `${process.env.PUBLIC_URL}/images/heroimages/image3.jpg`;
   return (
     <>
       <Helmet>
@@ -52,7 +59,7 @@ const HeaderCarousel = ({ height = '40vh', pageTitle }) => {
               <div className="zoom-container" style={{ height }}>
                 <img
                   className="d-block w-100 carousel-image"
-                  src={image.default || image}
+                  src={image}
                   alt={`Slide ${index + 1}`}
                   style={{ height }}
                 />

@@ -1,8 +1,11 @@
 import React from 'react';
 import './FullWidthImage.css';
-import culture from "../images/herosection/culture.png"; // Adjust the path to your image
+
+
 
 const FullWidthImage = () => {
+const culture = `${process.env.PUBLIC_URL}/images/herosection/culture.png`
+
   return (
     <div className="full-width-image-container">
       <img src={culture} alt="Culture" className="full-width-image" />

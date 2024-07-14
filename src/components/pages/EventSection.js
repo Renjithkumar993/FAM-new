@@ -7,10 +7,7 @@ import moment from 'moment-timezone';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 import './EventSection.css';
 import eventsData from '../../config/events.json';
-import loadImages from "../../helpers/loadImages";
 import Footer from '../Footer';
-
-const images = loadImages(require.context('../../images/events', false, /\.(png|jpe?g|svg)$/));
 
 const iconMapping = {
   conference: 'fas fa-chalkboard-teacher',
@@ -29,7 +26,6 @@ const EventSection = () => {
     const updatedEvents = eventsData.map((event, index) => ({
       ...event,
       id: index,
-      image: images[event.image.replace('images/events/', '')]
     }));
     setEvents(updatedEvents);
   }, []);

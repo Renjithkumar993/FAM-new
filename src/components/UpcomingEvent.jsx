@@ -3,13 +3,9 @@ import { Alert, Row, Col, Button, Container } from 'react-bootstrap';
 import { Typewriter } from 'react-simple-typewriter';
 import Countdown from 'react-countdown';
 import events from '../config/events.json';
-import loadImages from '../helpers/loadImages';
 import './UpcomingEvent.css';
-import image1 from "../images/fredericton/upcoming.png";
 import moment from 'moment-timezone';
 import { useNavigate } from 'react-router-dom';
-
-const images = loadImages(require.context('../images/events', false, /\.(png|jpe?g|svg|jpeg)$/));
 
 const UpcomingEvent = () => {
   const [updatedEvents, setUpdatedEvents] = useState([]);
@@ -26,9 +22,12 @@ const UpcomingEvent = () => {
   if (updatedEvents.length === 0) {
     return <div>Loading...</div>;
   }
+const image1 = `${process.env.PUBLIC_URL}/images/fredericton/upcoming.png`
+const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`
+
 
   const event = updatedEvents[0]; // Assuming the first event is the upcoming event
-  const { id, title, description, date, image, isOpen } = event;
+  const { id, title, description, date, isOpen } = event;
   const eventDate = moment.tz(date, 'UTC');
 
   const formatDate = (dateString) => {
@@ -73,7 +72,7 @@ const UpcomingEvent = () => {
     <Container fluid className="mv-notification-container">
       <Row className="align-items-center justify-content-center">
         <Col xs={12} md={6} className="event-image-container">
-          <img src={images[image.replace('images/events/', '')]} alt={title} className="event-image img-fluid" />
+          <img src={onamImage} alt={title} className="event-image img-fluid" />
         </Col>
         <Col xs={12} md={6} className="event-info">
           <Row className="justify-content-center">

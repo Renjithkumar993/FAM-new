@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
-import aboutImage from '../images/famaboutus.png'; // Adjust the path to your image
 import './AboutUs.css';
 import data from "../config/aboutus.json"; // Directly import the JSON data
 import { useNavigate } from 'react-router-dom'; 
@@ -12,7 +11,7 @@ const AboutUs = () => {
     threshold: 0.1,
   });
 
-  
+  const aboutImage = `${process.env.PUBLIC_URL}/images/heroimage.png`; // Fixed the path by removing the extra `}`
   const navigate = useNavigate(); // Initialize navigate
 
   return (

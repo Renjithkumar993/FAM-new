@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Alert, Button } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import TextTransition, { presets } from 'react-text-transition';
-import CountUp from 'react-countup';
-import missionImage from '../images/fam-removebg-preview.png'; // Adjust the path to your image
+
 import './MissionVision.css';
 import data from "../config/missionvission.json"; // Directly import the JSON data
-import onamImage from "../images/fredericton/download.jpeg"
 import { useNavigate } from 'react-router-dom';
 
 const TEXTS = ['MISSION', 'VISION'];
@@ -23,6 +21,11 @@ const MissionVision = () => {
   const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: false,
   });
+
+
+const missionImage =`${process.env.PUBLIC_URL}/images/fam-removebg-preview.png`;
+const onamImage =`${process.env.PUBLIC_URL}/images/fredericton/download.jpeg`;
+
 
   const navigate = useNavigate(); // Initialize navigate
   const [index, setIndex] = useState(0);

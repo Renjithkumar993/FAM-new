@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import './ContactUs.css';
-import logoImage from '../images/logofam.jpg'; // Adjust the path to your image
 
 const ContactUs = () => {
   const { ref: leftRef, inView: leftInView } = useInView({
@@ -12,6 +11,9 @@ const ContactUs = () => {
   const { ref: rightRef, inView: rightInView } = useInView({
     triggerOnce: true,
   });
+
+  const logoImage =`${process.env.PUBLIC_URL}/images/logofam.jpg`;
+
 
   return (
     <div className="contact-us-section mt-5 mb-5" id='contact'>

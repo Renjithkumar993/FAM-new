@@ -2,7 +2,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
-import sampleImage from '../images/Screenshot_2024-07-07_170027-removebg-preview.png'; // Replace with your image path
+ // Replace with your image path
 import FullWidthImage from './FullWidthImage';
 
 const LandingPage = () => {
@@ -16,6 +16,8 @@ const LandingPage = () => {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+const sampleImage = `${process.env.PUBLIC_URL}/images/Screenshot_2024-07-07_170027-removebg-preview.png`;
 
   return (
     <div className="landing-page">
