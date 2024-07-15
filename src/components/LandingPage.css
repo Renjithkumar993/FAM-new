@@ -4,7 +4,7 @@
 .landing-page {
   font-family: 'Raleway', sans-serif;
   line-height: 1.6;
-  color: #fff;
+  color: black;
   background: #1a202c;
   margin: 0;
   padding: 0;
@@ -12,20 +12,25 @@
   overflow-x: hidden;
 }
 
-.full-width-background {
+.hero-section {
   width: 100%;
-  background-color: #1a202c;
-  padding: 0;
-  margin: 0;
+  height: 75vh;
+  background: black;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .main-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 60px 20px;
+  justify-content: center;
   flex-direction: column;
   text-align: center;
+  color: white;
 }
 
 .text-content {
@@ -43,12 +48,12 @@
 .welcome-message {
   font-size: 4.5em;
   margin-bottom: 10px;
-  color: #dbdfe5;
+  color:  #ff6341;
   font-weight: bold;
 }
 
 .highlight {
-  color: #6372ff;
+  color: #ff6341;
 }
 
 .subtitle {
@@ -73,12 +78,12 @@
 }
 
 .button-group .primary-btn {
-  background: #6372ff;
+  background: #ff6341;
   color: #fff;
 }
 
 .button-group .primary-btn:hover {
-  background-color: rgb(34, 99, 230);
+  background-color: #f03e07;
 }
 
 .image-content {
@@ -153,23 +158,7 @@
   background-color: #2d3748;
 }
 
-.sloped-bottom {
-  position: relative;
-  height: 50px;
-  background-color: #1a202c!important;
-}
 
-.sloped-bottom::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  border-left: 100vw solid transparent;
-  border-bottom: 50px solid white;
-}
 
 @media (max-width: 768px) {
   .main-content {

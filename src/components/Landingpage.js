@@ -2,7 +2,6 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
- // Replace with your image path
 import FullWidthImage from './FullWidthImage';
 
 const LandingPage = () => {
@@ -17,11 +16,11 @@ const LandingPage = () => {
     }
   };
 
-const sampleImage = `${process.env.PUBLIC_URL}/images/Screenshot_2024-07-07_170027-removebg-preview.png`;
+  const backgroundImage= `${process.env.PUBLIC_URL}/images/heroimages/c8.jpg`;
 
   return (
     <div className="landing-page">
-      <div className="full-width-background">
+        <div className="hero-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="container">
           <main className="main-content mt-5">
             <div className={`text-content ${textInView ? 'slide-in-left' : ''}`} ref={textRef}>
@@ -38,33 +37,12 @@ const sampleImage = `${process.env.PUBLIC_URL}/images/Screenshot_2024-07-07_1700
                 </div>
               </div>
             </div>
-      
-         
-         
           </main>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          </div>
-          <FullWidthImage />
         </div>
-        <div className="sloped-bottom"></div>
+        
       </div>
    
+    </div>
   );
 };
 

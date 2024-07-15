@@ -21,7 +21,7 @@ const AboutUs = () => {
           <Col md={6} className="order-2 order-md-1">
             <div className="about-text">
               <h1>Malayalee Community Group</h1>
-              <h2>Celebrating Malayalam Culture in Fredericton, Canada</h2>
+              <h2>Celebrating Kerala Culture in Fredericton, Canada</h2>
               {data.about.description.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}

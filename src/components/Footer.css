@@ -20,7 +20,7 @@
     position: absolute;
     width: 50px;
     height: 2px;
-    background: #6372ff;
+    background: #ff6341;
     left: 0;
     bottom: 0;
   }
@@ -41,7 +41,7 @@
   }
   
   .footer-links a:hover {
-    color: #0bc6e3;
+    color: #ff6341;
   }
   
   .footer-bottom {

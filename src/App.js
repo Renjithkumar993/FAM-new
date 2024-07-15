@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
+import "./Typography.css"
 import NavigationBar from './components/NavigationBar';
 import AboutUs from './components/AboutUs';
 import MissionVision from './components/MissionVision';
@@ -16,7 +17,11 @@ import LandingPage from './components/Landingpage';
 import UpcomingEvent from './components/UpcomingEvent';
 import HeaderCarousel from './components/HeaderCarousel';
 import Loading from './components/Loading';
-import { Helmet } from 'react-helmet';
+import PageWrapper from './components/PageWrapper';
+import HelmetWrapper from './components/HelmetWrapper';
+import JoinPage from './components/pages/JoinPage';
+import JoinComponent from './components/JoinComponent';
+import joinPage from './components/pages/JoinPage';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -37,38 +42,36 @@ const App = () => {
     <Router>
       <ScrollToTop />
       <NavigationBar />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/aboutus" element={<PageWrapper pageTitle="About Us" Component={AboutUsPage} />} />
-        <Route path="/events" element={<PageWrapper pageTitle="Events" Component={EventSection} />} />
-        <Route path="/events/:eventId" element={<PageWrapper pageTitle="Event Details" Component={EventDetail} />} />
-        <Route path="/newtofredericton" element={<PageWrapper pageTitle="Moving to Fredericton" Component={MovingToFredericton} />} />
-        <Route path="/contactus" element={<PageWrapper pageTitle="Contact Us" Component={ContactUs} />} />
-      </Routes>
+      <PageWrapper>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
+          <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
+          <Route path="/events/:eventId" element={<PageWithHelmet pageTitle="Event Details" Component={EventDetail} />} />
+          <Route path="/newtofredericton" element={<PageWithHelmet pageTitle="Moving to Fredericton" Component={MovingToFredericton} />} />
+          <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
+          <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
+        </Routes>
+      </PageWrapper>
     </Router>
   );
 };
 
 const MainPage = () => (
   <>
-    <Helmet>
-      <title>Welcome to FAM - Fredericton Association of Malayalees</title>
-      <meta name="description" content="FAM is a non-profit organization celebrating Malayalam culture in Fredericton, Canada. Join us for cultural events, festivals, and social gatherings." />
-    </Helmet>
+    <HelmetWrapper pageTitle="Welcome to FAM - Fredericton Association of Malayalees" description="FAM is a non-profit organization celebrating Malayalam culture in Fredericton, Canada. Join us for cultural events, festivals, and social gatherings." />
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="about" id="about"><AboutUs /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
+    <JoinComponent />
     <UpcomingEvent />
     <Footer />
   </>
 );
 
-const PageWrapper = ({ pageTitle, Component }) => (
+const PageWithHelmet = ({ pageTitle, Component }) => (
   <>
-    <Helmet>
-      <title>{pageTitle} - Fredericton Association of Malayalees</title>
-      <meta name="description" content={`Learn more about ${pageTitle} at the Fredericton Association of Malayalees.`} />
-    </Helmet>
+    <HelmetWrapper pageTitle={`${pageTitle} - Fredericton Association of Malayalees`} description={`Learn more about ${pageTitle} at the Fredericton Association of Malayalees.`} />
     <HeaderCarousel pageTitle={pageTitle} />
     <Component />
   </>

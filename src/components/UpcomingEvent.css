@@ -3,7 +3,7 @@
 
 .mv-notification-container {
   padding: 20px;
-  background: #F3F5F8;
+  background: white;
   color: #fff;
   min-height: 87vh; /* Ensuring the container takes the full height of the viewport */
   display: flex;
@@ -15,7 +15,7 @@
 .upcoming-event-heading {
   font-size: 3.5rem;
   margin: 20px 0;
-  color: #6372ff ;
+  color: #ff6341 ;
   font-weight: bold;
 }
 
@@ -75,26 +75,26 @@
 .stat-box h3 {
   font-size: 1.8rem;
   margin: 5px;
-  color: #6372ff;
+  color: #ff6341;
   font-weight: bold;
 }
 
 .stat-box p {
   font-size: 1rem;
-  color: #6372ff;
+  color: #ff6341;
 }
 
 .mv-register-btn {
   font-size: 1.2rem;
   padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #6372ff ;
+  border-radius: 15px;
+  background-color: #ff6341;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .mv-register-btn:hover {
-  background-color: #3766e9;
+  background-color: #ed4924;
 }
 
 @media (max-width: 768px) {

@@ -1,44 +1,15 @@
 .mv-section {
   padding: 60px 20px;
-  background: #1a202c; /* Set the background color to black */
-  color: #fff; /* Set the text color to white */
+  background: white;
+  color: black;
   position: relative;
   overflow: hidden;
-}
-
-.mv-notification-container {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-
-.mv-register-btn:hover {
-  background-color: #0bc6e3;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 
 .mv-image-container {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .mv-mission-image {
@@ -48,7 +19,7 @@
 }
 
 .mv-text-container {
-  color: white;
+  color: black;
 }
 
 .mv-text-container h2 {
@@ -64,7 +35,7 @@
 }
 
 .highlight-text {
-  color:#6372ff ;
+  color: #ff6341;
 }
 
 .mv-read-more-btn {
@@ -72,7 +43,7 @@
   font-size: 1.1rem;
   margin-top: 20px;
   border-radius: 30px;
-  background-color: #6372ff ;
+  background-color: #ff6341;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
@@ -81,7 +52,6 @@
 .mv-read-more-btn:hover {
   background-color: rgb(53, 44, 222);
 }
-
 
 .mv-stat-item {
   color: white;
@@ -147,10 +117,4 @@
   .mv-stat-item p {
     font-size: 0.9rem;
   }
-}
-
-
-.notification-hilight{
-  font-size: larger;
-  font-weight: bolder;
 }
