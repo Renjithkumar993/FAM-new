@@ -26,11 +26,13 @@ const WhatWeDo = () => {
           {
             x: -150,
             opacity: 0,
+         
           },
           {
             x: 0,
             opacity: 1,
             duration: 1,
+  
             ease: 'power3.out',
             scrollTrigger: {
               trigger: card,

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
-import "./Typography.css"
+import './Typography.css';
 import NavigationBar from './components/NavigationBar';
 import AboutUs from './components/AboutUs';
 import MissionVision from './components/MissionVision';
@@ -15,29 +15,27 @@ import EventDetail from './components/EventDetail';
 import MovingToFredericton from './components/MovingToFredericton';
 import LandingPage from './components/Landingpage';
 import UpcomingEvent from './components/UpcomingEvent';
-import HeaderCarousel from './components/HeaderCarousel';
 import Loading from './components/Loading';
 import PageWrapper from './components/PageWrapper';
 import HelmetWrapper from './components/HelmetWrapper';
 import JoinPage from './components/pages/JoinPage';
 import JoinComponent from './components/JoinComponent';
-import joinPage from './components/pages/JoinPage';
 import WhatWeDo from './components/WhatWeDo';
+import Breadcrumbs from './components/Breadcrumbs';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  // Uncomment this if you want to simulate a loading delay
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000); // Adjust the delay as needed
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // if (loading) {
-  //   return <Loading loading={loading} />;
-  // }
+  if (loading) {
+    return <Loading loading={loading} />;
+  }
 
   return (
     <Router>
@@ -46,11 +44,11 @@ const App = () => {
       <PageWrapper>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
-          <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
-          <Route path="/events/:eventId" element={<PageWithHelmet pageTitle="Event Details" Component={EventDetail} />} />
-          <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
-          <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
+          <Route path="/aboutus" element={<PageLayout pageTitle="About Us" Component={AboutUsPage} />} />
+          <Route path="/events" element={<PageLayout pageTitle="Events" Component={EventSection} />} />
+          <Route path="/events/:eventId" element={<PageLayout pageTitle="Event Detail" Component={EventDetail} />} />
+          <Route path="/contactus" element={<PageLayout pageTitle="Contact Us" Component={ContactUs} />} />
+          <Route path="/joinus" element={<PageLayout pageTitle="Join Us" Component={JoinPage} />} />
         </Routes>
       </PageWrapper>
     </Router>
@@ -59,7 +57,11 @@ const App = () => {
 
 const MainPage = () => (
   <>
-    <HelmetWrapper pageTitle="Welcome to FAM - Fredericton Association of Malayalees" description="FAM is a non-profit organization celebrating Malayalam culture in Fredericton, Canada. Join us for cultural events, festivals, and social gatherings." />
+    <HelmetWrapper 
+      pageTitle="Welcome to FAM - Fredericton Association of Malayalees" 
+      description="FAM is a non-profit organization celebrating Malayalam culture in Fredericton, Canada. Join us for cultural events, festivals, and social gatherings." 
+    />
+    
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="about" id="about"><AboutUs /></Element>
     <WhatWeDo />
@@ -71,10 +73,12 @@ const MainPage = () => (
   </>
 );
 
-const PageWithHelmet = ({ pageTitle, Component }) => (
+const PageLayout = ({ pageTitle, Component }) => (
   <>
-    <HelmetWrapper pageTitle={`${pageTitle} - Fredericton Association of Malayalees`} description={`Learn more about ${pageTitle} at the Fredericton Association of Malayalees.`} />
-    <HeaderCarousel pageTitle={pageTitle} />
+    <HelmetWrapper 
+      pageTitle={`${pageTitle} - Fredericton Association of Malayalees`} 
+      description={`Learn more about ${pageTitle} at the Fredericton Association of Malayalees.`} 
+    />
     <Component />
   </>
 );

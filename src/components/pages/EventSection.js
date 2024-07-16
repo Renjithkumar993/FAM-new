@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -8,6 +8,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome C
 import './EventSection.css';
 import eventsData from '../../config/events.json';
 import Footer from '../Footer';
+import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
+import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
 
 const iconMapping = {
   conference: 'fas fa-chalkboard-teacher',
@@ -53,7 +55,17 @@ const EventSection = () => {
 
   return (
     <div className="event-section-page">
+      <HelmetWrapper 
+        pageTitle="Events - Fredericton Association of Malayalees" 
+        description="Explore upcoming events at the Fredericton Association of Malayalees." 
+      />
       <Container className="event-section">
+        <Breadcrumbs /> {/* Add Breadcrumbs here */}
+        <h1 className="event-heading">Our Events</h1>
+        <Alert variant="info" className="membership-alert">
+          <h4>FAM – Membership</h4>
+          <p>Make sure you take full advantage of all the membership benefits available! As a new member, you can contest/participate in the election process to choose the office bearers for FAM. Also, you can avail 10% discount on booking all events conducted by FAM.</p>
+        </Alert>
         <Row className="filter-row mb-4 mt-5">
           <Col md={6}>
             <Form.Control as="select" value={filterYear} onChange={handleYearChange}>
@@ -95,7 +107,7 @@ const EventSection = () => {
                   <p><strong>Price:</strong> Adults - {event.price.adults}, Children - {event.price.children}, Kids - {event.price.kids}</p>
                 </div>
                 <Button
-                 className='registrationButton '
+                  className='registrationButton'
                   variant={isOpen ? "success" : "danger"}
                   disabled={!isOpen}
                   onClick={() => handleRegister(event.id, isOpen)}

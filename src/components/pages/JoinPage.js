@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Breadcrumbs from '../Breadcrumbs';
 
 const JoinPageWrapper = styled(motion.div)`
     max-width: 800px;
@@ -71,11 +72,15 @@ const JoinPage = () => {
     };
 
     return (
+        <>
+       
         <JoinPageWrapper
+        
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
         >
+            <Breadcrumbs />
             <Title
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -122,6 +127,7 @@ const JoinPage = () => {
                 Register Now
             </RegisterButton>
         </JoinPageWrapper>
+        </>
     );
 };
 

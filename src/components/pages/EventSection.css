@@ -1,9 +1,9 @@
 .event-section-page {
-  background: #f8f9fa;
-  color: #333;
+  background: white;
   position: relative;
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
+  padding-top: 30px;
 }
 
 .event-section-page .filter-row .form-control {

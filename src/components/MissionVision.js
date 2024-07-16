@@ -60,9 +60,9 @@ const MissionVision = () => {
                     loop={true}
                     cursor
                     cursorStyle="_"
-                    typeSpeed={100}
+                    typeSpeed={50}
                     deleteSpeed={50}
-                    delaySpeed={1000}
+                    delaySpeed={2000}
                   />
                 </span>
               </h2>
