@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
-import TextTransition, { presets } from 'react-text-transition';
+import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import './MissionVision.css';
 import data from "../config/missionvission.json";
@@ -24,7 +24,7 @@ const MissionVision = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setIndex(index => (index + 1) % TEXTS.length);
-    }, 3000);
+    }, 5000); // Change the word every 5 seconds
     return () => clearInterval(intervalId);
   }, []);
 
@@ -54,11 +54,31 @@ const MissionVision = () => {
               transition={{ duration: 0.5 }}
             >
               <h2>
-                OUR <span className="highlight-text"><TextTransition springConfig={presets.gentle}>{TEXTS[index]}</TextTransition></span>
+                OUR <span className="highlight-text">
+                  <Typewriter
+                    words={['MISSION']}
+                    loop={true}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={100}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+                </span>
               </h2>
               <p>{missionVisionData.mission}</p>
               <h2>
-                OUR <span className="highlight-text"><TextTransition springConfig={presets.gentle}>{TEXTS[(index + 1) % TEXTS.length]}</TextTransition></span>
+                OUR <span className="highlight-text">
+                  <Typewriter
+                    words={['VISION']}
+                    loop={true}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={100}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+                </span>
               </h2>
               <p>{missionVisionData.vision}</p>
               <button className="mv-read-more-btn mb-4" onClick={() => navigate('/aboutus')}>Read More</button>

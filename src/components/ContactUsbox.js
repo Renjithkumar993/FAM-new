@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
-import './ContactUs.css';
+import './ContactUsbox.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
-const ContactUs = () => {
+const ContactUsbox = () => {
   const { ref: leftRef, inView: leftInView } = useInView({
     triggerOnce: true,
   });
@@ -12,37 +14,28 @@ const ContactUs = () => {
     triggerOnce: true,
   });
 
-  const logoImage =`${process.env.PUBLIC_URL}/images/logofam.jpg`;
-
+  const logoImage = `${process.env.PUBLIC_URL}/images/logofam.jpg`;
 
   return (
-    <div className="contact-us-section mt-5 mb-5" id='contact'>
+    <div className="contact-us-section mt-5" id="contact">
       <Container>
         <Row className="align-items-center">
           <Col md={6} className={`left-col ${leftInView ? 'animate' : ''}`} ref={leftRef}>
             <img src={logoImage} alt="Association Logo" className="img-fluid logo-image" />
           </Col>
           <Col md={6} className={`right-col ${rightInView ? 'animate' : ''}`} ref={rightRef}>
-            <h2 className='contactushead text-center'>SAY HELLO</h2>
-            <p>Send us a quick message we will get back to you.</p>
-            <Form>
-              <Form.Group controlId="formName">
-                <Form.Label>Full Name *</Form.Label>
-                <Form.Control type="text" placeholder="Full Name *" />
-              </Form.Group>
-              <Form.Group controlId="formEmail">
-                <Form.Label>Email address *</Form.Label>
-                <Form.Control type="email" placeholder="Email Address *" />
-              </Form.Group>
-              <Form.Group controlId="formMessage">
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={3} placeholder="Your Message..." />
-              </Form.Group>
-              <Button variant="warning" type="submit" className="rounded-pill">
-                Send Now
-              </Button>
-            </Form>
-           
+            <h2 className="contactushead text-center">Get in Touch</h2>
+            <p className="contact-info text-center">
+              The best way to contact us is via email at{' '}
+              <a href="mailto:info@famnb.ca" className="contact-link">info@famnb.ca</a>.
+              <br />
+              We update regularly on Facebook. Join us there!
+            </p>
+            <div className="social-links text-center">
+              <a href="https://www.facebook.com/famnb" className="facebook-link" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebookF} /> Follow us on Facebook
+              </a>
+            </div>
           </Col>
         </Row>
       </Container>
@@ -50,4 +43,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUsbox;

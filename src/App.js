@@ -22,6 +22,7 @@ import HelmetWrapper from './components/HelmetWrapper';
 import JoinPage from './components/pages/JoinPage';
 import JoinComponent from './components/JoinComponent';
 import joinPage from './components/pages/JoinPage';
+import WhatWeDo from './components/WhatWeDo';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,6 @@ const App = () => {
           <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
           <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
           <Route path="/events/:eventId" element={<PageWithHelmet pageTitle="Event Details" Component={EventDetail} />} />
-          <Route path="/newtofredericton" element={<PageWithHelmet pageTitle="Moving to Fredericton" Component={MovingToFredericton} />} />
           <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
           <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
         </Routes>
@@ -62,7 +62,9 @@ const MainPage = () => (
     <HelmetWrapper pageTitle="Welcome to FAM - Fredericton Association of Malayalees" description="FAM is a non-profit organization celebrating Malayalam culture in Fredericton, Canada. Join us for cultural events, festivals, and social gatherings." />
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="about" id="about"><AboutUs /></Element>
+    <WhatWeDo />
     <Element name="mission" id="mission"><MissionVision /></Element>
+    <MovingToFredericton />
     <JoinComponent />
     <UpcomingEvent />
     <Footer />

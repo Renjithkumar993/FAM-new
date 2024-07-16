@@ -4,7 +4,6 @@ import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './MovingToFredericton.css';
 import FullWidthImage from './FullWidthImage';
-import HeaderCarousel from './HeaderCarousel';
 import Footer from './Footer';
 
 
@@ -92,7 +91,6 @@ const MovingToFredericton = () => {
       </Container>
       <FullWidthImage />
     </motion.div>
-    <Footer />
     </>
   );
 };

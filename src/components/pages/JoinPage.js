@@ -1,131 +1,128 @@
 // src/JoinPage.js
-
 import React from 'react';
-import { Container, Typography, Button, Card, CardContent, Grid, Avatar, Box, Paper } from '@mui/material';
-import { styled } from '@mui/system';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const HeroSection = styled('div')(({ theme }) => ({
-  backgroundImage: 'url(https://source.unsplash.com/random)',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  height: '60vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'white',
-  textAlign: 'center',
-  padding: theme.spacing(4),
-  position: 'relative',
-  '&::after': {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  '& h1, & h2': {
-    position: 'relative',
-  },
-}));
+const JoinPageWrapper = styled(motion.div)`
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    text-align: center;
+`;
 
-const testimonialData = [
-  {
-    name: 'John Doe',
-    role: 'Member',
-    image: 'https://via.placeholder.com/150',
-    text: 'Joining FAM has been a wonderful experience. It feels like home away from home.',
-  },
-  {
-    name: 'Jane Smith',
-    role: 'Member',
-    image: 'https://via.placeholder.com/150',
-    text: 'FAM events are always well-organized and fun. I’ve met so many amazing people here.',
-  },
-];
+const Title = styled(motion.h2)`
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #ff6341; /* Changed to match the button color */
+`;
+
+const Description = styled(motion.p)`
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+`;
+
+const BenefitsList = styled(motion.ul)`
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #333;
+
+    li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        
+        &:before {
+            content: '✔️';
+            color: #ff6341;
+            margin-right: 10px;
+        }
+    }
+`;
+
+const RegisterButton = styled(motion.button)`
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background: #ff6341; /* Changed button color */
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px #aaa, -5px -5px 15px #fff;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: #eb4823; /* Changed hover color */
+    }
+`;
 
 const JoinPage = () => {
-  return (
-    <Container>
-      <HeroSection>
-        <Typography variant="h1" component="h1">
-          Join Fredericton Association of Malayalees
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Connect, Celebrate, and Grow with Our Community
-        </Typography>
-      </HeroSection>
+    const handleRegisterClick = () => {
+        window.location.href = 'https://example.com/register'; // Replace with your actual registration URL
+    };
 
-      <Box my={4}>
-        <Typography variant="h2" gutterBottom>
-          Who We Are
-        </Typography>
-        <Typography paragraph>
-          The Fredericton Association of Malayalees (FAM) is a vibrant community of Malayalee families and individuals in Fredericton. We aim to promote the rich cultural heritage of Kerala through various events and activities.
-        </Typography>
-
-        <Typography variant="h2" gutterBottom>
-          What We Do
-        </Typography>
-        <Typography paragraph>
-          We organize cultural events, festivals, and community gatherings that showcase the traditions, art, and cuisine of Kerala. We also provide a support network for newcomers and foster a sense of community among members.
-        </Typography>
-
-        <Typography variant="h2" gutterBottom>
-          What You Get
-        </Typography>
-        <Typography paragraph>
-          As a member of FAM, you will enjoy exclusive access to our events, networking opportunities, and a platform to connect with fellow Malayalees. You'll also receive regular updates and newsletters about upcoming activities and community news.
-        </Typography>
-
-        <Button variant="contained" color="primary" size="large" fullWidth>
-          Register Now
-        </Button>
-      </Box>
-
-      <Box my={4}>
-        <Typography variant="h2" gutterBottom>
-          Testimonials
-        </Typography>
-        <Grid container spacing={4}>
-          {testimonialData.map((testimonial, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card>
-                <CardContent>
-                  <Box display="flex" alignItems="center" mb={2}>
-                    <Avatar src={testimonial.image} alt={testimonial.name} />
-                    <Box ml={2}>
-                      <Typography variant="h6">
-                        {testimonial.name}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary">
-                        {testimonial.role}
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Typography variant="body1">
-                    {testimonial.text}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-      <Box my={4}>
-        <Paper elevation={3} sx={{ padding: 3 }}>
-          <Typography variant="h2" gutterBottom>
-            Contact Us
-          </Typography>
-          <Typography paragraph>
-            Have questions? Feel free to reach out to us at <a href="mailto:contact@fam.com">contact@fam.com</a>.
-          </Typography>
-        </Paper>
-      </Box>
-    </Container>
-  );
+    return (
+        <JoinPageWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+        >
+            <Title
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+            >
+                Fredericton Association of Malayalees
+            </Title>
+            <Description
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+            >
+                Welcome to the Fredericton Association of Malayalees (FAM)! We are a vibrant community of Malayalees residing in Fredericton, dedicated to promoting our rich culture, heritage, and values.
+            </Description>
+            <Description
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+            >
+                By becoming a member, you can enjoy numerous benefits including:
+            </Description>
+            <BenefitsList
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+            >
+                <li>Participate in cultural events and festivals</li>
+                <li>Network with other members of the community</li>
+                <li>Access to community support and resources</li>
+                <li>Opportunities for volunteering and community service</li>
+            </BenefitsList>
+            <Description
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.0, duration: 0.6 }}
+            >
+                Join us today and be a part of our growing family!
+            </Description>
+            <RegisterButton
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleRegisterClick}
+            >
+                Register Now
+            </RegisterButton>
+        </JoinPageWrapper>
+    );
 };
 
 export default JoinPage;

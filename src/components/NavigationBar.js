@@ -9,7 +9,6 @@ const pages = [
   { name: 'Home', icon: faHome, path: '/' },
   { name: 'About Us', icon: faInfoCircle, path: '/aboutus' },
   { name: 'Events', icon: faCalendarAlt, path: '/events' },
-  { name: 'New to Fredericton?', icon: faMapMarkerAlt, path: '/newtofredericton' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
 ];
 
@@ -59,7 +58,7 @@ fontSize: '2rem'}} >
             ))}
             <Button
               component={RouterLink}
-              to="/join"
+              to="/joinus"
               variant="contained"
               sx={{
                 ml: 2,
@@ -94,7 +93,7 @@ fontSize: '2rem'}} >
               <ListItemText primary={page.name} />
             </ListItem>
           ))}
-          <ListItem button component={RouterLink} to="/join" onClick={toggleMenu} sx={{ '&:hover': { backgroundColor: '#ff5722', color: 'white' } }}>
+          <ListItem button component={RouterLink} to="/joinus" onClick={toggleMenu} sx={{ '&:hover': { backgroundColor: '#ff5722', color: 'white' } }}>
             <ListItemIcon sx={{ color: 'inherit' }}>
               <FontAwesomeIcon icon={faEnvelope} />
             </ListItemIcon>

@@ -1,9 +1,4 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
-}
+
 
 .event-detail {
   max-width: 1200px;
@@ -51,9 +46,10 @@ body {
   margin-bottom: 10px;
 }
 
-.event-register h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+.register-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .map-container {
@@ -76,7 +72,7 @@ body {
 }
 
 .event-detail-box {
-  background: #f8f9fa;
+
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -101,8 +97,7 @@ body {
     font-size: 1rem;
   }
 
-  .event-info h3,
-  .event-register h2 {
+  .event-info h3 {
     font-size: 1.2rem;
   }
 
@@ -113,5 +108,9 @@ body {
 
   .event-detail {
     padding: 10px;
+  }
+
+  .register-buttons {
+    flex-direction: column;
   }
 }
