@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from 'react-responsive';
 import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
 import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
+import JoinComponent from '../JoinComponent';
 
 const AboutUsPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -31,13 +32,13 @@ const AboutUsPage = () => {
       <div className="about-us-page">
         <Container className="about-us-content">
           <Breadcrumbs /> {/* Add Breadcrumbs here */}
-          <Row className={`mb-4 ${inView1 ? 'animate' : ''}`} ref={ref1}>
+          <Row className={`mb-1 ${inView1 ? 'animate' : ''}`} ref={ref1}>
             <Col>
               <h1 className="about-heading">About Fredericton Association of Malayalees</h1>
             </Col>
           </Row>
-          <Row>
-            <Col md={6} className={`${inView2 ? 'animate' : ''}`} ref={ref2}>
+          <Row className='align-items-center'>
+            <Col md={6} className={`${inView2 ? 'animate' : 'align-items-center'}`} ref={ref2}>
               <div className="about-description">
                 {aboutData.about.description.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
@@ -50,7 +51,7 @@ const AboutUsPage = () => {
               </div>
             </Col>
           </Row>
-          <Row className="statistics mt-4">
+          <Row className="statistics mt-4 ">
             {aboutData.about.statistics.map((stat, index) => (
               <Col md={6} key={index} className={`stat-item ${inView3 ? 'animate' : ''}`} ref={ref3}>
                 <ul>
@@ -61,7 +62,7 @@ const AboutUsPage = () => {
               </Col>
             ))}
           </Row>
-          <Row className="mt-5">
+          <Row className="mt-5 align-items-center">
             <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
               <div className="image-container">
                 <img src={aboutImage2} alt="Activities" className="about-image" />
@@ -98,6 +99,7 @@ const AboutUsPage = () => {
           </Row>
         </Container>
       </div>
+      <JoinComponent />
       <FullWidthImage />
       <Footer />
     </>

@@ -20,8 +20,7 @@ import PageWrapper from './components/PageWrapper';
 import HelmetWrapper from './components/HelmetWrapper';
 import JoinPage from './components/pages/JoinPage';
 import JoinComponent from './components/JoinComponent';
-import WhatWeDo from './components/WhatWeDo';
-import Breadcrumbs from './components/Breadcrumbs';
+import Gallery from './components/pages/Gallery';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -49,6 +48,7 @@ const App = () => {
           <Route path="/events/:eventId" element={<PageLayout pageTitle="Event Detail" Component={EventDetail} />} />
           <Route path="/contactus" element={<PageLayout pageTitle="Contact Us" Component={ContactUs} />} />
           <Route path="/joinus" element={<PageLayout pageTitle="Join Us" Component={JoinPage} />} />
+          <Route path="/gallery" element={<PageLayout pageTitle="Gallery" Component={Gallery} />} />
         </Routes>
       </PageWrapper>
     </Router>
@@ -63,9 +63,10 @@ const MainPage = () => (
     />
     
     <Element name="home" id="home"><LandingPage /></Element>
-    <Element name="about" id="about"><AboutUs /></Element>
+    {/* <Element name="about" id="about"><AboutUs /></Element> */}
     <Element name="mission" id="mission"><MissionVision /></Element>
     <MovingToFredericton />
+
     <JoinComponent />
     <UpcomingEvent />
     <Footer />

@@ -71,7 +71,7 @@ const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`
   return (
     <Container fluid className="mv-notification-container">
       <Row className="align-items-center justify-content-center">
-        <Col xs={12} md={6} className="event-image-container">
+        <Col xs={12} md={6} className="event-image-container order-1 order-md-2">
           <img src={onamImage} alt={title} className="event-image img-fluid" />
         </Col>
         <Col xs={12} md={6} className="event-info">
@@ -85,7 +85,7 @@ const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`
           <h5 className="event-date">{eventDate.format('MMMM D, YYYY')}</h5>
           <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
           <Button
-            className="mv-register-btn mt-3"
+            className="mv-register-btn mt-3 mb-3"
             variant="primary"
             onClick={() => handleRegister(id, isOpen)}
           >

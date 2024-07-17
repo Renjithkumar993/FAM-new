@@ -1,8 +1,8 @@
-// src/JoinPage.js
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Breadcrumbs from '../Breadcrumbs';
+import JoinPageModal from '../JoinPageModal'; // Import the JoinPageModal component
 
 const JoinPageWrapper = styled(motion.div)`
     max-width: 800px;
@@ -67,66 +67,66 @@ const RegisterButton = styled(motion.button)`
 `;
 
 const JoinPage = () => {
-    const handleRegisterClick = () => {
-        window.location.href = 'https://example.com/register'; // Replace with your actual registration URL
-    };
+    const [showModal, setShowModal] = useState(false);
+    const handleClose = () => setShowModal(false);
+    const handleShow = () => setShowModal(true);
 
     return (
         <>
-       
-        <JoinPageWrapper
-        
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-        >
-            <Breadcrumbs />
-            <Title
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+            <JoinPageWrapper
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
             >
-                Fredericton Association of Malayalees
-            </Title>
-            <Description
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-            >
-                Welcome to the Fredericton Association of Malayalees (FAM)! We are a vibrant community of Malayalees residing in Fredericton, dedicated to promoting our rich culture, heritage, and values.
-            </Description>
-            <Description
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-            >
-                By becoming a member, you can enjoy numerous benefits including:
-            </Description>
-            <BenefitsList
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-            >
-                <li>Participate in cultural events and festivals</li>
-                <li>Network with other members of the community</li>
-                <li>Access to community support and resources</li>
-                <li>Opportunities for volunteering and community service</li>
-            </BenefitsList>
-            <Description
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.0, duration: 0.6 }}
-            >
-                Join us today and be a part of our growing family!
-            </Description>
-            <RegisterButton
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleRegisterClick}
-            >
-                Register Now
-            </RegisterButton>
-        </JoinPageWrapper>
+                <Breadcrumbs />
+                <Title
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                    Fredericton Association of Malayalees
+                </Title>
+                <Description
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                    Welcome to the Fredericton Association of Malayalees (FAM)! We are a vibrant community of Malayalees residing in Fredericton, dedicated to promoting our rich culture, heritage, and values.
+                </Description>
+                <Description
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                >
+                    By becoming a member, you can enjoy numerous benefits including:
+                </Description>
+                <BenefitsList
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                >
+                    <li>Participate in cultural events and festivals</li>
+                    <li>Network with other members of the community</li>
+                    <li>Access to community support and resources</li>
+                    <li>Opportunities for volunteering and community service</li>
+                </BenefitsList>
+                <Description
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.0, duration: 0.6 }}
+                >
+                    Join us today and be a part of our growing family!
+                </Description>
+                <RegisterButton
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={handleShow}
+                >
+                    Join Now
+                </RegisterButton>
+            </JoinPageWrapper>
+            {/* Include the JoinPageModal component */}
+            <JoinPageModal open={showModal} handleClose={handleClose} />
         </>
     );
 };

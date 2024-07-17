@@ -13,21 +13,14 @@ const LandingPage = () => {
   const { ref: textRef, inView: textInView } = useInView({ triggerOnce: false });
   const navigate = useNavigate();
   const [imageIndex, setImageIndex] = useState(0);
-  const [nextImageIndex, setNextImageIndex] = useState(1);
-  const [animationClass, setAnimationClass] = useState('');
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAnimationClass('animate');
-      setTimeout(() => {
-        setImageIndex(nextImageIndex);
-        setNextImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setAnimationClass('');
-      }, 2000);
+      setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 10000); // Change image every 10 seconds
 
     return () => clearInterval(interval);
-  }, [nextImageIndex]);
+  }, []);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
@@ -39,14 +32,14 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <div className="hero-section">
-        <div
-          className="hero-image current-image"
-          style={{ backgroundImage: `url(${images[imageIndex]})` }}
-        />
-        <div
-          className={`hero-image next-image ${animationClass}`}
-          style={{ backgroundImage: `url(${images[nextImageIndex]})` }}
-        />
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`hero-image ${index === imageIndex ? 'visible' : ''}`}
+            style={{ backgroundImage: `url(${image})` }}
+          />
+        ))}
+        <div className="overlay"></div>
         <main className="main-content mt-5">
           <div className={`text-content ${textInView ? 'slide-in-left' : ''}`} ref={textRef}>
             <h2 className="welcome-message mt-5">
@@ -63,6 +56,9 @@ const LandingPage = () => {
             </div>
           </div>
         </main>
+      </div>
+      <div id="about">
+        <AboutUs />
       </div>
     </div>
   );

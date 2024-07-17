@@ -12,7 +12,7 @@ const AboutUs = () => {
     threshold: 0.1,
   });
 
-  const aboutImage = `${process.env.PUBLIC_URL}/images/heroimage.png`; // Fixed the path by removing the extra `}`
+  const aboutImage = `${process.env.PUBLIC_URL}/images/fredericton/aboutus.png`; // Fixed the path by removing the extra `}`
   const navigate = useNavigate(); // Initialize navigate
 
   return (
@@ -29,8 +29,9 @@ const AboutUs = () => {
               <Button variant="outline-dark mb-5" onClick={() => navigate('/contactus')}>Get in touch</Button>
             </div>
           </Col>
-          <Col xs={12} md={6} className="order-1 order-md-2">
-            <WhatWeDo />
+          <Col xs={12} md={6} className="order-2 order-md-1">
+                      
+ <img src={aboutImage} alt="Mission and Vision" className="mv-mission-image img-fluid" />
           </Col>
         </Row>
       </Container>

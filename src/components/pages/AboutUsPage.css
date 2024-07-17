@@ -4,17 +4,16 @@
 .about-us-page {
   background: white;
   color: black !important;
-  padding: 10px 20px;
+  padding: 20px;
 }
 
 .about-us-content {
-  padding: 60px 20px;
+  padding: 20px;
   text-align: left;
 }
 
 .about-us-content h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
   color: #ff6341;
 }
 
@@ -57,7 +56,7 @@
 .stat-item ul li {
   font-size: 1.3rem;
   margin-bottom: 10px;
-  padding-left: 25px;
+  padding-left: 35px;
   position: relative;
   line-height: 1.8;
 }
@@ -66,7 +65,9 @@
   content: '✔';
   position: absolute;
   left: 0;
-  color: #ff6341;
+  right: 5;
+  padding-right: 10px;
+  color: #ff6341 !important;
   font-size: 1.3rem;
 }
 

@@ -36,17 +36,7 @@ const MissionVision = () => {
     <div className="mv-section" id="mission">
       <Container>
         <Row className="align-items-center">
-          <Col md={6} ref={imageRef}>
-            <motion.div
-              className="mv-image-container"
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: imageInView ? 0 : -100, opacity: imageInView ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <img src={missionImage} alt="Mission and Vision" className="mv-mission-image img-fluid" />
-            </motion.div>
-          </Col>
-          <Col md={6} ref={textRef}>
+          <Col md={6} ref={textRef} >
             <motion.div
               className="mv-text-container"
               initial={{ x: 100, opacity: 0 }}
@@ -84,6 +74,16 @@ const MissionVision = () => {
               <button className="mv-read-more-btn mb-4" onClick={() => navigate('/aboutus')}>Read More</button>
             </motion.div>
           </Col>
+          <Col md={6} ref={imageRef}>
+   <motion.div
+     className="mv-image-container"
+     initial={{ x: -100, opacity: 0 }}
+     animate={{ x: imageInView ? 0 : -100, opacity: imageInView ? 1 : 0 }}
+     transition={{ duration: 0.5 }}
+   >
+     <img src={missionImage} alt="Mission and Vision" className="mv-mission-image img-fluid" />
+   </motion.div>
+ </Col>
         </Row>
       </Container>
     </div>

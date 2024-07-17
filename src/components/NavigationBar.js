@@ -1,37 +1,57 @@
-import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemIcon, ListItemText, Button, Box, Container } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faCalendarAlt, faMapMarkerAlt, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
-import "./NavigationBar.css"
+import { faHome, faInfoCircle, faCalendarAlt, faEnvelope, faBars, faImages } from '@fortawesome/free-solid-svg-icons';
+import './NavigationBar.css';
 
 const pages = [
   { name: 'Home', icon: faHome, path: '/' },
   { name: 'About Us', icon: faInfoCircle, path: '/aboutus' },
   { name: 'Events', icon: faCalendarAlt, path: '/events' },
+  { name: 'Gallery', icon: faImages, path: '/Gallery' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
+
 ];
 
 const logo = `${process.env.PUBLIC_URL}/images/logofam.jpg`;
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  return (
-    <div className='navbar-custom'>
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
 
-   
-    <AppBar position="fixed" sx={{ backgroundColor: 'white', color: 'black' ,fontWeight:"700",
-fontSize: '2rem'}} >
+  useEffect(() => {
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    } else {
+      setScrolled(true);
+    }
+  }, [location.pathname]);
+
+  return (
+    <AppBar position="fixed" className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} elevation={0}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
-              <img src={logo} alt="FAM Logo" style={{ height: '50px', width: '50px', borderRadius: '50%', marginRight: '10px' }} />
+              <img src={logo} alt="FAM Logo" className={`logo ${scrolled ? 'logo-scrolled' : ''}`} />
               <Typography variant="h6" component="div" sx={{ display: { xs: 'none', md: 'block' } }}>
                 {/* Add your title or logo text here */}
               </Typography>
@@ -45,10 +65,27 @@ fontSize: '2rem'}} >
                 to={page.path}
                 color="inherit"
                 sx={{
-                  mx: 1,
+                  mx: 1.5,
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold',
+                  color: scrolled ? '#ff5722' : '#ff5722',
+                  position: 'relative',
                   '&:hover': {
+                    backgroundColor: 'transparent',
+                    color: '#ff5722',
+                    '&::after': {
+                      width: '100%',
+                    },
+                  },
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    width: '0%',
+                    height: '2px',
+                    bottom: '-5px',
+                    left: '0',
                     backgroundColor: '#ff5722',
-                    color: 'white',
+                    transition: 'width 0.3s ease',
                   },
                 }}
                 startIcon={<FontAwesomeIcon icon={page.icon} />}
@@ -63,7 +100,9 @@ fontSize: '2rem'}} >
               sx={{
                 ml: 2,
                 backgroundColor: '#ff5722',
+                borderRadius: "25px",
                 color: 'white',
+                fontSize: '0.9rem',
                 '&:hover': {
                   backgroundColor: '#e64a19',
                 },
@@ -77,7 +116,7 @@ fontSize: '2rem'}} >
             color="inherit"
             aria-label="menu"
             onClick={toggleMenu}
-            sx={{ ml: 2, display: { md: 'none' } }}
+            sx={{ ml: 2, display: { md: 'none' }, fontSize: '2rem', color: '#ff5722' }}
           >
             <FontAwesomeIcon icon={faBars} />
           </IconButton>
@@ -102,7 +141,6 @@ fontSize: '2rem'}} >
         </List>
       </Drawer>
     </AppBar>
-    </div>
   );
 };
 

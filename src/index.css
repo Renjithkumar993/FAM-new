@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap');
 /* File: Typography.css */
-
+@import "~react-image-gallery/styles/css/image-gallery.css";
 body {
   font-family: 'Lato', sans-serif;
   line-height: 1.6;

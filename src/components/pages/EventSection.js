@@ -25,9 +25,9 @@ const EventSection = () => {
   const [filterMonth, setFilterMonth] = useState('all');
 
   useEffect(() => {
-    const updatedEvents = eventsData.map((event, index) => ({
+    const updatedEvents = eventsData.map((event) => ({
       ...event,
-      id: index,
+      eventId: event.title.replace(/\s+/g, '-').toLowerCase(),
     }));
     setEvents(updatedEvents);
   }, []);
@@ -68,7 +68,7 @@ const EventSection = () => {
         </Alert>
         <Row className="filter-row mb-4 mt-5">
           <Col md={6}>
-            <Form.Control as="select" value={filterYear} onChange={handleYearChange}>
+            <Form.Control as="select" value={filterYear} onChange={handleYearChange} className='mt-2' >
               <option value="all">All Years</option>
               {[...new Set(events.map(event => new Date(event.date).getFullYear()))].map(year => (
                 <option key={year} value={year}>{year}</option>
@@ -76,7 +76,7 @@ const EventSection = () => {
             </Form.Control>
           </Col>
           <Col md={6}>
-            <Form.Control as="select" value={filterMonth} onChange={handleMonthChange}>
+            <Form.Control as="select" value={filterMonth} onChange={handleMonthChange} className='mt-2'>
               <option value="all">All Months</option>
               {Array.from({ length: 12 }, (_, i) => (
                 <option key={i + 1} value={i + 1}>{new Date(0, i).toLocaleString('default', { month: 'long' })}</option>
@@ -104,13 +104,13 @@ const EventSection = () => {
                 <p>{event.details}</p>
                 <div className="event-additional-details">
                   <p><strong>Time:</strong> {event.time}</p>
-                  <p><strong>Price:</strong> Adults - {event.price.adults}, Children - {event.price.children}, Kids - {event.price.kids}</p>
+                
                 </div>
                 <Button
                   className='registrationButton'
                   variant={isOpen ? "success" : "danger"}
                   disabled={!isOpen}
-                  onClick={() => handleRegister(event.id, isOpen)}
+                  onClick={() => handleRegister(event.eventId, isOpen)}
                 >
                   {isOpen ? "Register" : "Registration Closed"}
                 </Button>

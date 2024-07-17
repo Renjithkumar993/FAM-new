@@ -22,10 +22,11 @@ const Breadcrumbs = () => {
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
         sx={{ 
-          padding: '10px 0',
-          fontSize: '1rem',
+         
+          fontSize: '0.8rem',
           display: 'flex',
           alignItems: 'center',
+      
         }}
       >
         <Link
@@ -35,7 +36,7 @@ const Breadcrumbs = () => {
           sx={{ 
             display: 'flex', 
             alignItems: 'center', 
-            fontSize: '1rem', 
+            fontSize: '0.8rem', 
             textDecoration: 'none', 
             padding: '6px 8px', 
             borderRadius: '4px', 
@@ -61,7 +62,7 @@ const Breadcrumbs = () => {
               sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                fontSize: '1rem',
+                fontSize: '0.8rem',
                 padding: '6px 8px',
                 borderRadius: '4px',
                 background: '#f0f0f0'
@@ -78,7 +79,7 @@ const Breadcrumbs = () => {
               sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                fontSize: '1rem',
+                fontSize: '0.8rem',
                 textDecoration: 'none', 
                 padding: '6px 8px', 
                 borderRadius: '4px',

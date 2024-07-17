@@ -6,7 +6,7 @@
 .about-us-section {
   background: white;
   color: black !important;
-  padding: 100px 20px;
+  padding: 0px 20px;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease-out;

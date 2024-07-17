@@ -1,7 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+/* NavigationBar.css */
+.navbar {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease;
+}
 
-.navbar-custom {
-  font-family: 'Open Sans', sans-serif;
-  
-  
+.navbar-scrolled {
+  background-color: white !important;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+.logo-scrolled {
+  height: 50px;
+  width: 50px;
+}
+
+.navbar button, .navbar .MuiIconButton-root {
+  color: white;
+  font-size: 1rem;
+}
+
+.navbar-scrolled button, .navbar-scrolled .MuiIconButton-root {
+  color: black;
+}
+
+.navbar button:hover, .navbar .MuiIconButton-root:hover {
+  background-color: transparent;
+  color: #ff5722;
+}
+
+.navbar button::after, .navbar .MuiIconButton-root::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ff5722;
+  transition: width 0.3s ease;
+}
+
+.navbar button:hover::after, .navbar .MuiIconButton-root:hover::after {
+  width: 100%;
+}
+
+.navbar .MuiIconButton-root {
+  font-size: 2rem; /* Increase size of the toggle bar icon */
+}
+
+@media (max-width: 768px) {
+  .navbar-scrolled {
+    background-color: white !important;
+  }
+
+  .navbar .MuiDrawer-paper {
+    background-color: white !important;
+  }
 }
