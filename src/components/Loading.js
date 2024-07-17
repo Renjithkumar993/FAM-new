@@ -5,7 +5,7 @@ import { HashLoader } from 'react-spinners';
 const Loading = ({ loading }) => {
   return (
     <div className="loading-container">
-      <HashLoader color="#36d7b7" loading={loading} size={50} />
+      <HashLoader color="#ff6341" loading={loading} size={100} />
     </div>
   );
 };

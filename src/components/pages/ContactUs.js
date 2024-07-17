@@ -11,7 +11,7 @@ import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
 
 const ContactUs = () => {
   return (
-    <div className="contact-us-section mt-4">
+    <div className="contact-us-section">
       <HelmetWrapper 
         pageTitle="Contact Us - Fredericton Association of Malayalees" 
         description="Get in touch with the Fredericton Association of Malayalees." 

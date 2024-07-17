@@ -64,7 +64,6 @@ const MainPage = () => (
     
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="about" id="about"><AboutUs /></Element>
-    <WhatWeDo />
     <Element name="mission" id="mission"><MissionVision /></Element>
     <MovingToFredericton />
     <JoinComponent />

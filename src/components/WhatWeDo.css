@@ -6,23 +6,7 @@
     background-color: #fff;
     margin: 0 auto;
   }
-  
-  .shuffle-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .shuffle-button:hover {
-    background-color: #0056b3;
-  }
-  
+
   .whatwedoo-cards {
     display: flex;
     flex-wrap: wrap;

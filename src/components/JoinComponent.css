@@ -1,7 +1,7 @@
 /* File: JoinComponent.css */
 
 .join-container {
-  background: #1c1c1c;
+  background: #EFAD03;
   color: #fff;
   padding: 40px;
   border-radius: 20px;
@@ -23,7 +23,7 @@ h1 {
   margin: 0;
   font-size: 28px;
   font-weight: bold;
-  color: #e95420;
+  color: black;
 }
 
 p {
