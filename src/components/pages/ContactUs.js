@@ -2,8 +2,6 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ContactUs.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ContactUsbox from '../ContactUsbox';
 import Footer from '../Footer';
 import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component

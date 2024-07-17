@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Row, Col, Button, Container } from 'react-bootstrap';
-import { Typewriter } from 'react-simple-typewriter';
+import {  Row, Col, Button, Container } from 'react-bootstrap';
 import Countdown from 'react-countdown';
 import events from '../config/events.json';
 import './UpcomingEvent.css';
@@ -28,12 +27,7 @@ const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`
 
   const event = updatedEvents[0]; // Assuming the first event is the upcoming event
   const { id, title, description, date, isOpen } = event;
-  const eventDate = moment.tz(date, 'UTC');
-
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
+  const eventDate = moment.tz(date, 'UTC')
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {

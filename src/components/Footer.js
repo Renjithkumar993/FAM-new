@@ -1,8 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Footer.css';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+
+  const navigate = useNavigate(); // Initialize navigate
+
   return (
     <footer className="footer-section">
       <Container>
@@ -17,16 +21,16 @@ const Footer = () => {
             <div className="footer-widget">
               <h3>Quick Links</h3>
               <ul className="footer-links">
-                <li><a href="#">Register</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Buy tickets</a></li>
+              <li><a onClick={() => navigate('/joinus')}>Register</a></li>
+              <li><a onClick={() => navigate('/aboutus')}>About</a></li>
+              <li><a onClick={() => navigate('/events')}>Buy Tickets</a></li>
               </ul>
             </div>
           </Col>
           <Col md={4}>
             <div className="footer-widget">
               <h3>Contact Us</h3>
-              <p>Email: <a href="mailto:operations@halifaxmalayaliassociation.com">fam-nb@outlook.com</a></p>
+              <p>Email: <a href="mailto:operations@halifaxmalayaliassociation.com">info@famnb.ca</a></p>
               <p>Address: Fredericton, NewBrunswick, Canada</p>
             </div>
           </Col>

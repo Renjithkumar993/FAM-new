@@ -5,7 +5,6 @@ import './Steps.css';
 import { useNavigate } from 'react-router-dom';
 import WhatWeDo from './WhatWeDo';
 import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Steps = () => {
   const { ref: stepRef, inView: stepInView } = useInView({
@@ -13,12 +12,7 @@ const Steps = () => {
     threshold: 0.1,
   });
 
-  const leftContentVariants = {
-    hidden: { x: '-100vw' },
-    visible: { x: 0, transition: { type: 'spring', duration: 1, delay: 0.5 } },
-  };
-
-  const navigate = useNavigate();
+const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf`
 
   return (
     <section className={`step-section ${stepInView ? 'animate' : ''}`} ref={stepRef} id="about">
@@ -42,15 +36,15 @@ const Steps = () => {
   
    <p className="text-center mt-3 text-black">We have a helpful document to guide you through.</p>
    <div className="text-center">
-     <Button variant="danger" className="rounded-pill custom-button" href="path_to_your_document.pdf" download>
-       <FaFileDownload className="mr-1" /> Download Guide
-     </Button>
+       <Button variant="danger" className="rounded-pill custom-button" href={docment} target="_blank" rel="noopener noreferrer">
+          <FaFileDownload className="mr-1" /> Open Guide
+        </Button>
    </div>
    <div className="social-buttons mt-4 text-center">
-     <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="#" target="_blank">
+     <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
        <FaFacebook className="mr-1" /> Join Facebook Group
      </Button>
-     <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="#" target="_blank">
+     <Button variant="success" className="rounded-pill custom-button btn-whatsapp" href="https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB" target="_blank">
        <FaWhatsapp className="mr-1" /> Join WhatsApp Group
      </Button>
 

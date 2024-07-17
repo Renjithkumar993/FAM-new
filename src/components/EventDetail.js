@@ -144,7 +144,7 @@ const EventDetail = () => {
   }
 
   const eventClosed = new Date(event.date) < new Date();
-  const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`;
+  const onamImage1 = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`;
   const eventDate = moment.tz(event.date, 'UTC');
 
   const breadcrumbs = [
@@ -169,10 +169,10 @@ const EventDetail = () => {
             )}
             <Row className="mb-4">
               <Col lg={6} className="event-image-container">
-                <img src={onamImage} alt={event.title} className="img-fluid event-image" />
+                <img src={onamImage1} alt={event.title} className="img-fluid event-image" />
               </Col>
               <Col lg={6}>
-                <h1 className="event-title">{event.title}</h1>
+                <h1 className="event-title-detail">{event.title}</h1>
                 <p className="event-date-time">
                   {eventDate.format('MMMM Do, YYYY')} - {event.time}
                 </p>
