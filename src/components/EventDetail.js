@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import moment from 'moment-timezone';
 import eventsData from '../config/events.json';
 import Footer from './Footer';
 import HelmetWrapper from './HelmetWrapper';
-import HomeIcon from '@mui/icons-material/Home';
-import EventIcon from '@mui/icons-material/Event';
 import Breadcrumbs from './Breadcrumbs';
 import ZeffyModal from './ZeffyModal';
 import { LocationOn } from '@mui/icons-material';
 import styled from 'styled-components'; // Import styled-components
-
 const EventDetailWrapper = styled.div`
   .event-detail {
     background-color: rgba(255, 255, 255, 0.9); /* semi-transparent background */
@@ -131,9 +127,8 @@ const EventDetailWrapper = styled.div`
   }
 `;
 
-const EventDetail = () => {
-  const { eventId } = useParams();
-  const event = eventsData.find(event => event.title.replace(/\s+/g, '-').toLowerCase() === eventId);
+const EventDetail = ({ eventId = 'FAMOnam2024' }) => {
+  const event = eventsData.find(event => event.title.replace(/[^\w]/g, '').toLowerCase() === eventId.toLowerCase());
 
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
@@ -148,8 +143,8 @@ const EventDetail = () => {
   const eventDate = moment.tz(event.date, 'UTC');
 
   const breadcrumbs = [
-    { href: "/", label: "Home", icon: HomeIcon },
-    { href: "/events", label: "Events", icon: EventIcon },
+    { href: "/", label: "Home" },
+    { href: "/events", label: "Events" },
     { label: event.title },
   ];
 

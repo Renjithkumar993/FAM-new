@@ -8,12 +8,9 @@ const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
 
-  const breadcrumbNameMap = {
-    '/aboutus': 'About Us',
-    '/events': 'Events',
-    '/events/Fam-onam-2024': 'FAM Onam 2024',
-    '/contactus': 'Contact Us',
-    '/joinus': 'Join Us',
+  const formatBreadcrumb = (value) => {
+    // Replace hyphens with spaces and capitalize each word
+    return value.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
   };
 
   return (
@@ -21,25 +18,23 @@ const Breadcrumbs = () => {
       <MUIBreadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
-        sx={{ 
-         
+        sx={{
           fontSize: '0.8rem',
           display: 'flex',
           alignItems: 'center',
-      
         }}
       >
         <Link
           color="inherit"
           to="/"
           component={RouterLink}
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            fontSize: '0.8rem', 
-            textDecoration: 'none', 
-            padding: '6px 8px', 
-            borderRadius: '4px', 
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '0.8rem',
+            textDecoration: 'none',
+            padding: '6px 8px',
+            borderRadius: '4px',
             background: '#f0f0f0',
             transition: 'background 0.3s',
             '&:hover': {
@@ -53,15 +48,15 @@ const Breadcrumbs = () => {
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join('/')}`;
           const isLast = index === pathnames.length - 1;
-          const breadcrumb = breadcrumbNameMap[to] || value.charAt(0).toUpperCase() + value.slice(1);
+          const breadcrumb = formatBreadcrumb(value);
 
           return isLast ? (
             <Typography
               color="textPrimary"
               key={to}
-              sx={{ 
-                display: 'flex', 
-                alignItems: 'center', 
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
                 fontSize: '0.8rem',
                 padding: '6px 8px',
                 borderRadius: '4px',
@@ -76,14 +71,14 @@ const Breadcrumbs = () => {
               to={to}
               component={RouterLink}
               key={to}
-              sx={{ 
-                display: 'flex', 
-                alignItems: 'center', 
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
                 fontSize: '0.8rem',
-                textDecoration: 'none', 
-                padding: '6px 8px', 
+                textDecoration: 'none',
+                padding: '6px 8px',
                 borderRadius: '4px',
-                background: '#f0f0f0', 
+                background: '#f0f0f0',
                 transition: 'background 0.3s',
                 '&:hover': {
                   background: '#e0e0e0',

@@ -27,14 +27,14 @@ const EventSection = () => {
   useEffect(() => {
     const updatedEvents = eventsData.map((event) => ({
       ...event,
-      eventId: event.title.replace(/\s+/g, '-').toLowerCase(),
+      eventId: event.title.replace(/[^\w]/g, '').toLowerCase(),
     }));
     setEvents(updatedEvents);
   }, []);
 
   const handleRegister = (eventId, isOpen) => {
     if (isOpen) {
-      navigate(`/events/${eventId}`);
+      navigate(`/events/FAMOnam2024`);
     }
   };
 
@@ -55,9 +55,9 @@ const EventSection = () => {
 
   return (
     <div className="event-section-page">
-      <HelmetWrapper 
-        pageTitle="Events - Fredericton Association of Malayalees" 
-        description="Explore upcoming events at the Fredericton Association of Malayalees." 
+      <HelmetWrapper
+        pageTitle="Events - Fredericton Association of Malayalees"
+        description="Explore upcoming events at the Fredericton Association of Malayalees."
       />
       <Container className="event-section">
         <Breadcrumbs /> {/* Add Breadcrumbs here */}
@@ -104,7 +104,6 @@ const EventSection = () => {
                 <p>{event.details}</p>
                 <div className="event-additional-details">
                   <p><strong>Time:</strong> {event.time}</p>
-                
                 </div>
                 <Button
                   className='registrationButton'
