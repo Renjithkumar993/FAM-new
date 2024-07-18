@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import './Typography.css';
@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/aboutus" element={<PageLayout pageTitle="About Us" Component={AboutUsPage} />} />
           <Route path="/events" element={<PageLayout pageTitle="Events" Component={EventSection} />} />
-          <Route path="/events/FAMOnam2024" element={<PageLayout pageTitle="Onam 2024 FAM" Component={EventDetail} />} />
+          <Route path="/events/:eventId" element={<PageLayout pageTitle="Onam 2024 FAM" Component={EventDetail} />} />
           <Route path="/contactus" element={<PageLayout pageTitle="Contact Us" Component={ContactUs} />} />
           <Route path="/joinus" element={<PageLayout pageTitle="Join Us" Component={JoinPage} />} />
           <Route path="/gallery" element={<PageLayout pageTitle="Gallery" Component={Gallery} />} />
@@ -60,7 +60,6 @@ const MainPage = () => (
     />
     
     <Element name="home" id="home"><LandingPage /></Element>
-    {/* <Element name="about" id="about"><AboutUs /></Element> */}
     <Element name="mission" id="mission"><MissionVision /></Element>
     <MovingToFredericton />
 
