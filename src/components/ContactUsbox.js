@@ -32,7 +32,7 @@ const ContactUsbox = () => {
               We update regularly on Facebook. Join us there!
             </p>
             <div className="social-links text-center">
-              <a href="https://www.facebook.com/famnb" className="facebook-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/profile.php?id=61552104893247" className="facebook-link" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebookF} /> Follow us on Facebook
               </a>
             </div>
