@@ -10,11 +10,12 @@ import EventIcon from '@mui/icons-material/Event';
 import Breadcrumbs from './Breadcrumbs';
 import ZeffyModal from './ZeffyModal';
 import { LocationOn } from '@mui/icons-material';
-import styled from 'styled-components'; // Import styled-components
+import styled from 'styled-components';
+import EventParticipationModal from './EventpartcipationModal';
 
 const EventDetailWrapper = styled.div`
   .event-detail {
-    background-color: rgba(255, 255, 255, 0.9); /* semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     padding: 20px;
   }
@@ -135,9 +136,14 @@ const EventDetail = () => {
   const { eventId } = useParams();
   const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
 
-  const [showModal, setShowModal] = useState(false);
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
+  const [showZeffyModal, setShowZeffyModal] = useState(false);
+  const [showParticipationModal, setShowParticipationModal] = useState(false);
+
+  const handleZeffyModalClose = () => setShowZeffyModal(false);
+  const handleZeffyModalShow = () => setShowZeffyModal(true);
+
+  const handleParticipationModalClose = () => setShowParticipationModal(false);
+  const handleParticipationModalShow = () => setShowParticipationModal(true);
 
   if (!event) {
     return <div>Event not found</div>;
@@ -200,10 +206,12 @@ const EventDetail = () => {
                 </div>
                 <div className="event-info">
                   <div className="register-buttons">
-                    <Button variant="success" onClick={handleShow}>
+                    <Button variant="success" onClick={handleZeffyModalShow}>
                       Register for Event
                     </Button>
-                    <Button variant="success" className="">Register for Performances</Button>
+                    <Button variant="success" onClick={handleParticipationModalShow}>
+                      Register for Performances
+                    </Button>
                   </div>
                 </div>
               </Col>
@@ -212,7 +220,8 @@ const EventDetail = () => {
         </EventDetailWrapper>
       </Container>
       <Footer />
-      <ZeffyModal open={showModal} handleClose={handleClose} />
+      <ZeffyModal open={showZeffyModal} handleClose={handleZeffyModalClose} />
+      <EventParticipationModal open={showParticipationModal} handleClose={handleParticipationModalClose} />
     </>
   );
 };
