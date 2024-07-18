@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import './Typography.css';
@@ -60,6 +60,7 @@ const MainPage = () => (
     />
     
     <Element name="home" id="home"><LandingPage /></Element>
+    {/* <Element name="about" id="about"><AboutUs /></Element> */}
     <Element name="mission" id="mission"><MissionVision /></Element>
     <MovingToFredericton />
 
