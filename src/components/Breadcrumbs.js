@@ -11,7 +11,7 @@ const Breadcrumbs = () => {
   const breadcrumbNameMap = {
     '/aboutus': 'About Us',
     '/events': 'Events',
-    '/events/0': 'FAM Onam 2024',
+    '/events/Fam-onam-2024': 'FAM Onam 2024',
     '/contactus': 'Contact Us',
     '/joinus': 'Join Us',
   };

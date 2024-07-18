@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {  Row, Col, Button, Container } from 'react-bootstrap';
+import { Row, Col, Button, Container } from 'react-bootstrap';
 import Countdown from 'react-countdown';
 import events from '../config/events.json';
 import './UpcomingEvent.css';
@@ -11,9 +11,9 @@ const UpcomingEvent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const updatedEventsData = events.map((event, index) => ({
+    const updatedEventsData = events.map((event) => ({
       ...event,
-      id: index,
+      eventId: event.title.replace(/\s+/g, '-').toLowerCase(),
     }));
     setUpdatedEvents(updatedEventsData);
   }, []);
@@ -21,13 +21,13 @@ const UpcomingEvent = () => {
   if (updatedEvents.length === 0) {
     return <div>Loading...</div>;
   }
-const image1 = `${process.env.PUBLIC_URL}/images/fredericton/upcoming.png`
-const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`
 
+  const image1 = `${process.env.PUBLIC_URL}/images/fredericton/upcoming.png`;
+  const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`;
 
   const event = updatedEvents[0]; // Assuming the first event is the upcoming event
-  const { id, title, description, date, isOpen } = event;
-  const eventDate = moment.tz(date, 'UTC')
+  const { eventId, title, description, date, isOpen } = event;
+  const eventDate = moment.tz(date, 'UTC');
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -75,13 +75,13 @@ const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`
             </Col>
           </Row>
           <h4 className="event-title">{title}</h4>
-          <p className="event-description">{description}</p>
+          <p className="event-description text-black">{description}</p>
           <h5 className="event-date">{eventDate.format('MMMM D, YYYY')}</h5>
           <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
           <Button
             className="mv-register-btn mt-3 mb-3"
             variant="primary"
-            onClick={() => handleRegister(id, isOpen)}
+            onClick={() => handleRegister(eventId, isOpen)}
           >
             Register
           </Button>

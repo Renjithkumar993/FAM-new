@@ -48,8 +48,6 @@ const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024
        <FaWhatsapp className="mr-1" /> Join WhatsApp Group
      </Button>
 
-
-
    </div>
               
             </div>

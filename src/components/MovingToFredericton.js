@@ -15,7 +15,7 @@ const MovingToFredericton = () => {
 
       <Steps />
       <Container>
-        <Row className="align-items-center">
+        <Row >
         <Col md={12}>
   </Col>
         </Row>

@@ -16,7 +16,6 @@ import MovingToFredericton from './components/MovingToFredericton';
 import LandingPage from './components/Landingpage';
 import UpcomingEvent from './components/UpcomingEvent';
 import Loading from './components/Loading';
-import PageWrapper from './components/PageWrapper';
 import HelmetWrapper from './components/HelmetWrapper';
 import JoinPage from './components/pages/JoinPage';
 import JoinComponent from './components/JoinComponent';
@@ -40,7 +39,6 @@ const App = () => {
     <Router>
       <ScrollToTop />
       <NavigationBar />
-      <PageWrapper>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/aboutus" element={<PageLayout pageTitle="About Us" Component={AboutUsPage} />} />
@@ -50,7 +48,6 @@ const App = () => {
           <Route path="/joinus" element={<PageLayout pageTitle="Join Us" Component={JoinPage} />} />
           <Route path="/gallery" element={<PageLayout pageTitle="Gallery" Component={Gallery} />} />
         </Routes>
-      </PageWrapper>
     </Router>
   );
 };
