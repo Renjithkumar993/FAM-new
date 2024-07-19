@@ -1,13 +1,16 @@
-/* File: Typography.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
+/* Apply base styles for the entire body */
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.4;
   color: inherit; /* Use the inherited color from the project */
+  margin: 0; /* Ensure no default margin */
+  padding: 0; /* Ensure no default padding */
+  box-sizing: border-box; /* Ensure consistent box-sizing model */
 }
 
+/* Apply styles to all heading elements */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   margin: 0 0 15px 0;
@@ -29,16 +32,30 @@ h3 {
   font-weight: 700;
 }
 
-h4, h5, h6 {
+h4 {
+  font-size: 1.75rem;
   font-weight: 700;
 }
 
+h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Apply styles to paragraph elements */
 p {
   font-size: 1rem;
   margin: 0 0 15px 0;
 }
 
+/* Apply styles to anchor elements */
 a {
+  font-family: 'Open Sans', sans-serif; /* Ensure consistency for links */
   color: inherit; /* Use the inherited color from the project */
   text-decoration: none;
   transition: color 0.3s ease;
@@ -48,6 +65,7 @@ a:hover {
   color: inherit; /* Use the inherited color from the project */
 }
 
+/* Apply styles to button elements */
 button {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
@@ -63,4 +81,9 @@ button {
 
 button:hover {
   background-color: inherit; /* Use the inherited background color */
+}
+
+/* Apply consistent box-sizing for all elements */
+*, *::before, *::after {
+  box-sizing: inherit;
 }

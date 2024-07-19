@@ -20,7 +20,7 @@ const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024
         <Row className="">
           <Col xs={12} md={6} className="order-2 order-md-1">
             <div className="step-text">
-              <h1>Get Involved With Us</h1>
+              <h1>Get Involved <span className='hilite-color'>With Us</span></h1>
               <h2>Join Our Vibrant Malayalee Community in Fredericton</h2>
               <iframe
    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.6697494024043!2d-66.650224384504!3d45.96358992967899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4caae6ad24e65e55%3A0xb551e71e732b6ce8!2sFredericton%2C%20NB%2C%20Canada!5e0!3m2!1sen!2sin!4v1625049946572!5m2!1sen!2sin"
@@ -52,7 +52,7 @@ const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024
               
             </div>
           </Col>
-          <Col xs={12} md={6} className="order-2 order-md-1">
+          <Col xs={12} md={6} className="order-1 order-md-1">
             <WhatWeDo />
           </Col>
         </Row>
