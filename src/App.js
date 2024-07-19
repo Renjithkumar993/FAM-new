@@ -8,6 +8,7 @@ import ScrollToTop from './helpers/ScrollToTop';
 import Footer from './components/Footer';
 import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
+import FacebookPageEmbed from './components/FacebookPageEmbed';
 
 const AboutUsPage = lazy(() => import('./components/pages/AboutUsPage'));
 const EventSection = lazy(() => import('./components/pages/EventSection'));
@@ -58,6 +59,9 @@ const MainPage = () => (
   <>
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
+    <FacebookPageEmbed 
+        pageUrl="https://www.facebook.com/profile.php?id=61552104893247"
+      />
     <MovingToFredericton />
     <JoinComponent />
     <UpcomingEvent />
