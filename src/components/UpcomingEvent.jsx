@@ -13,7 +13,7 @@ const UpcomingEvent = () => {
   useEffect(() => {
     const updatedEventsData = events.map((event) => ({
       ...event,
-      eventId: event.title.replace(/\s+/g, '-').toLowerCase(),
+      eventId: event.title.replace(/\s+/g, '').toLowerCase(),
     }));
     setUpdatedEvents(updatedEventsData);
   }, []);
