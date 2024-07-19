@@ -53,7 +53,6 @@ const WhatWeDo = () => {
   return (
     <Container>
     <div className="whatwedoo-container step-text" ref={containerRef}>
-      <h1>Engage with  <span className='hilite-color' >Us</span></h1>
       <div className="whatwedoo-cards">
         {cardData.map((card) => (
           <div className="card-wrapper" key={card.id}>

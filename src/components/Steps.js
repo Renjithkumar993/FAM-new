@@ -17,7 +17,7 @@ const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024
   return (
     <section className={`step-section ${stepInView ? 'animate' : ''}`} ref={stepRef} id="about">
       <Container>
-        <Row className="">
+        <Row className="mt-5">
           <Col xs={12} md={6} className="order-2 order-md-1">
             <div className="step-text">
               <h1>Get Involved <span className='hilite-color'>With Us</span></h1>
@@ -52,7 +52,7 @@ const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024
               
             </div>
           </Col>
-          <Col xs={12} md={6} className="order-1 order-md-1">
+          <Col xs={12} md={6} className="order-2 order-md-1">
             <WhatWeDo />
           </Col>
         </Row>
