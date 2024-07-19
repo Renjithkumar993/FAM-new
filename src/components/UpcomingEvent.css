@@ -4,8 +4,7 @@
 .mv-notification-container {
   padding: 20px;
   background: white;
-  color: #fff;
-  min-height: 87vh; /* Ensuring the container takes the full height of the viewport */
+  color: #fff; /* Ensuring the container takes the full height of the viewport */
   display: flex;
   flex-direction: column;
   justify-content: center;

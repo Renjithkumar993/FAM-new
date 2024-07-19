@@ -9,7 +9,7 @@ const JoinComponent = () => {
 
   return (
     <motion.div
-      className="join-container"
+      className="join-container mb-5"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -17,7 +17,7 @@ const JoinComponent = () => {
       onHoverEnd={() => controls.start({ scale: 1 })}
     >
       <div className="join-content">
-        <h1>Join the Fredericton Association of Malayalees today!</h1>
+        <h1 className='join-content-h1'>Join the Fredericton Association of Malayalees today!</h1>
         <p>Become a member and be part of our vibrant community.</p>
       </div>
       <motion.button

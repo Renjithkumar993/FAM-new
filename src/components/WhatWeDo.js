@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import './WhatWeDo.css';
+import { Container } from 'react-bootstrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +27,7 @@ const WhatWeDo = () => {
         gsap.fromTo(
           card,
           {
-            x: -150,
+            x: -250,
             opacity: 0,
           },
           {
@@ -50,8 +51,9 @@ const WhatWeDo = () => {
   );
 
   return (
+    <Container>
     <div className="whatwedoo-container step-text" ref={containerRef}>
-      <h1>What <span className='hilite-color' >We Do</span></h1>
+      <h1>Engage with  <span className='hilite-color' >Us</span></h1>
       <div className="whatwedoo-cards">
         {cardData.map((card) => (
           <div className="card-wrapper" key={card.id}>
@@ -66,6 +68,7 @@ const WhatWeDo = () => {
         ))}
       </div>
     </div>
+    </Container>
   );
 };
 

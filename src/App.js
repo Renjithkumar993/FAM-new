@@ -22,6 +22,7 @@ const JoinComponent = lazy(() => import('./components/JoinComponent'));
 const Gallery = lazy(() => import('./components/pages/Gallery'));
 const MissionVision = lazy(() => import('./components/MissionVision'));
 
+
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -59,12 +60,10 @@ const MainPage = () => (
   <>
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
-    <FacebookPageEmbed 
-        pageUrl="https://www.facebook.com/profile.php?id=61552104893247"
-      />
+    <FacebookPageEmbed />
+    <UpcomingEvent />
     <MovingToFredericton />
     <JoinComponent />
-    <UpcomingEvent />
     <Footer />
   </>
 );
