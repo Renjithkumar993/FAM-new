@@ -13,10 +13,8 @@ import { LocationOn } from '@mui/icons-material';
 import styled from 'styled-components';
 
 const EventDetailWrapper = styled.div`
-  padding: 30px;
-  background: #fff;
+  padding-top: 30px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
 `;
 
