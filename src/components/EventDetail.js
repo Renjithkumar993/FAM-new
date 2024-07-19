@@ -8,126 +8,130 @@ import HelmetWrapper from './HelmetWrapper';
 import HomeIcon from '@mui/icons-material/Home';
 import EventIcon from '@mui/icons-material/Event';
 import Breadcrumbs from './Breadcrumbs';
-import ZeffyModal from './ZeffyModal';
+import ModalComponent from './ModalComponent';
 import { LocationOn } from '@mui/icons-material';
 import styled from 'styled-components';
-import EventParticipationModal from './EventpartcipationModal';
 
 const EventDetailWrapper = styled.div`
-  .event-detail {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    padding: 20px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+`;
+
+const EventImageContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
   }
 
-  .event-title {
-    font-size: 2.5rem;
-    font-weight: bold;
+  &:hover:before {
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const EventTitle = styled.h1`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+`;
+
+const EventDateTime = styled.p`
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 20px;
+`;
+
+const LocationInfo = styled.p`
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  color: #555;
+
+  a {
     color: #007bff;
-    margin-bottom: 10px;
+    text-decoration: none;
+    margin-left: 8px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  .event-date-time {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
+  svg {
+    margin-right: 8px;
+  }
+`;
+
+const EventDescription = styled.div`
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
   }
 
-  .event-description,
-  .event-info p {
+  p {
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 20px;
   }
 
-  .event-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #343a40;
-  }
-
-  .event-info ul {
+  ul {
     list-style: none;
     padding: 0;
-  }
 
-  .event-info ul li {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    li {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
   }
+`;
 
-  .event-info a {
-    color: #007bff;
-    text-decoration: none;
-  }
+const RegisterButtons = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 
-  .event-info a:hover {
-    text-decoration: underline;
-  }
-
-  .register-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .register-buttons .btn {
+  .btn {
     flex: 1;
-    padding: 10px 15px;
+    padding: 12px 20px;
     font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-  }
+    background: linear-gradient(135deg, #ff6341, #ff9a41);
+    border: none;
+    color: #fff;
+    transition: background 0.3s ease;
 
-  .register-buttons .btn-danger:hover,
-  .register-buttons .btn-info:hover {
-    background-color: #0056b3;
-  }
-
-  .map-container {
-    margin-top: 30px;
-  }
-
-  .map-title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin: 20px 0;
-    color: #343a40;
-  }
-
-  .map-embed {
-    width: 100%;
-    height: 400px;
-    border: 0;
-    border-radius: 8px;
-  }
-
-  .location-info {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-  }
-
-  .location-info svg {
-    margin-right: 8px;
-  }
-
-  @media (max-width: 767.98px) {
-    .event-title {
-      font-size: 2rem;
-    }
-
-    .event-date-time,
-    .event-description,
-    .event-info p {
-      font-size: 1rem;
-    }
-
-    .event-info h3 {
-      font-size: 1.5rem;
-    }
-
-    .register-buttons {
-      flex-direction: column;
+    &:hover {
+      background: linear-gradient(135deg, #ff9a41, #ff6341);
     }
   }
 `;
@@ -136,21 +140,16 @@ const EventDetail = () => {
   const { eventId } = useParams();
   const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
 
-  const [showZeffyModal, setShowZeffyModal] = useState(false);
-  const [showParticipationModal, setShowParticipationModal] = useState(false);
+  const [modalType, setModalType] = useState(null);
 
-  const handleZeffyModalClose = () => setShowZeffyModal(false);
-  const handleZeffyModalShow = () => setShowZeffyModal(true);
-
-  const handleParticipationModalClose = () => setShowParticipationModal(false);
-  const handleParticipationModalShow = () => setShowParticipationModal(true);
+  const handleModalClose = () => setModalType(null);
+  const handleModalShow = (type) => setModalType(type);
 
   if (!event) {
     return <div>Event not found</div>;
   }
 
   const eventClosed = new Date(event.date) < new Date();
-  const onamImage1 = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`;
   const eventDate = moment.tz(event.date, 'UTC');
 
   const breadcrumbs = [
@@ -169,59 +168,68 @@ const EventDetail = () => {
           <div className="event-detail my-5">
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             {eventClosed && (
-              <Alert variant="warning" className="text-center">
+              <Alert variant="danger" className="text-center">
                 Event closed.
               </Alert>
             )}
             <Row className="mb-4">
               <Col lg={6} className="event-image-container">
-                <img src={onamImage1} alt={event.title} className="img-fluid event-image" />
+                <EventImageContainer>
+                  <img src={`${process.env.PUBLIC_URL}/images/events/${event.image}`} alt={event.title} />
+                </EventImageContainer>
               </Col>
               <Col lg={6}>
-                <h1 className="event-title-detail">{event.title}</h1>
-                <p className="event-date-time">
+                <EventTitle>{event.title}</EventTitle>
+                <EventDateTime>
                   {eventDate.format('MMMM Do, YYYY')} - {event.time}
-                </p>
-                <p className="location-info">
+                </EventDateTime>
+                <LocationInfo>
                   <LocationOn />
                   <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">{event.location}</a>
-                </p>
-                <div className="event-description">
+                </LocationInfo>
+                <EventDescription>
                   <h3>About Onam</h3>
-                  <p>
-                    Welcome to our joyous Onam celebration! Onam is Kerala's most beloved festival, a time of unity, prosperity, and cultural pride. At the heart of Onam is the legend of King Mahabali, a benevolent ruler whose spirit is said to visit Kerala during this time. Our festivities are a warm welcome to this beloved king and a showcase of the happiness and prosperity of our community.
-                  </p>
+                  <p>{event.description}</p>
                   <ul>
                     <li>Feast on our elaborate "Onam Sadhya," a sumptuous vegetarian banquet served on banana leaves.</li>
                     <li>Enjoy traditional folk songs and dances.</li>
                     <li>Marvel at intricate floral decorations known as "Athapookkalam" or "Onappookkalam".</li>
                     <li>Participate in cultural programs and games that bring our community together.</li>
                   </ul>
-                  <p>
-                    Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.
-                  </p>
-                  <p>
-                    Whether you're a longtime celebrant or new to Onam, we invite you to immerse yourself in the colors, flavors, and traditions of this special occasion. Join us in creating memories, strengthening bonds, and honoring our shared heritage. Happy Onam!
-                  </p>
-                </div>
-                <div className="event-info">
-                  <div className="register-buttons">
-                    <Button variant="success" onClick={handleZeffyModalShow}>
+                  <p>Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.</p>
+                </EventDescription>
+                <RegisterButtons>
+                  {event.formIframe ? (
+                    <Button onClick={() => handleModalShow('form')}>
                       Register for Event
                     </Button>
-                    <Button variant="success" onClick={handleParticipationModalShow}>
+                  ) : (
+                    <Button disabled>
+                      Form will be available soon
+                    </Button>
+                  )}
+                  {event.performanceIframe ? (
+                    <Button onClick={() => handleModalShow('performance')}>
                       Register for Performances
                     </Button>
-                  </div>
-                </div>
+                  ) : (
+                    <Button disabled>
+                      Form will be available soon
+                    </Button>
+                  )}
+                </RegisterButtons>
               </Col>
             </Row>
           </div>
         </EventDetailWrapper>
       </Container>
       <Footer />
-      <ZeffyModal open={showZeffyModal} handleClose={handleZeffyModalClose} />
-      <EventParticipationModal open={showParticipationModal} handleClose={handleParticipationModalClose} />
+      {event.formIframe && (
+        <ModalComponent open={modalType === 'form'} handleClose={handleModalClose} iframeSrc={event.formIframe} />
+      )}
+      {event.performanceIframe && (
+        <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
+      )}
     </>
   );
 };
