@@ -1,55 +1,112 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { FaFacebookF } from 'react-icons/fa';
 
 const Container = styled.div`
   width: 100%;
- height: 100vh; 
+  height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
 `;
 
-const Heading = styled.h1`
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
+const Card = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-width: 100%;
+  }
+`;
+
+const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4267b2;
+  padding: 20px;
+  color: #fff;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+const Description = styled.p`
+  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
 `;
 
 const IframeContainer = styled.div`
   width: 100%;
-  height: calc(100% - 60px); /* Full height minus heading height and padding */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
 
-  iframe {
+  .fb-page {
     width: 100%;
-    max-width: 750px;
-    height: 100%;
-    max-height: 679px;
-    border: none;
-    overflow: hidden;
   }
 `;
 
-const FacebookPostEmbed = ({ headingText }) => {
-  const iframeSrc = "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fcnhvWyd27HETe1fvExCKqcwR8iz4P3A8xNigkvXkUgMStpKJsQg3mS3Xoqpuxvl%26id%3D61552104893247&show_text=true&width=500";
+const FacebookPageEmbed = () => {
+  useEffect(() => {
+    // Load the Facebook SDK script
+    if (!document.getElementById('facebook-jssdk')) {
+      const script = document.createElement('script');
+      script.id = 'facebook-jssdk';
+      script.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    } else if (window.FB) {
+      window.FB.XFBML.parse();
+    }
+  }, []);
 
   return (
     <Container>
-      <Heading>{headingText}</Heading>
-      <IframeContainer>
-        <iframe
-          src={iframeSrc}
-          scrolling="no"
-          frameBorder="0"
-          allowFullScreen={true}
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          title="Facebook Post Embed"
-        ></iframe>
-      </IframeContainer>
+      <Card>
+        <LeftContainer>
+          <IconContainer>
+            <FaFacebookF size={50} />
+          </IconContainer>
+          <Description>Follow us on Facebook for more updates!</Description>
+        </LeftContainer>
+        <IframeContainer>
+          <div 
+            className="fb-page" 
+            data-href="https://www.facebook.com/profile.php?id=61552104893247" 
+            data-tabs="timeline" 
+            data-width="" 
+            data-height="" 
+            data-small-header="false" 
+            data-adapt-container-width="true" 
+            data-hide-cover="false" 
+            data-show-facepile="true">
+            <blockquote 
+              cite="https://www.facebook.com/profile.php?id=61552104893247" 
+              className="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/profile.php?id=61552104893247">Fredericton Association of Malayalees - FAM</a>
+            </blockquote>
+          </div>
+        </IframeContainer>
+      </Card>
     </Container>
   );
 };
 
-export default FacebookPostEmbed;
+export default FacebookPageEmbed;

@@ -61,9 +61,10 @@ const MainPage = () => (
     <Element name="home" id="home"><LandingPage /></Element>
     <Element name="mission" id="mission"><MissionVision /></Element>
     <FacebookPageEmbed />
-    <UpcomingEvent />
+ 
     <MovingToFredericton />
     <JoinComponent />
+    <UpcomingEvent />
     <Footer />
   </>
 );
