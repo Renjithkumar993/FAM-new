@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import './Steps.css';
-import { useNavigate } from 'react-router-dom';
 import WhatWeDo from './WhatWeDo';
 import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 

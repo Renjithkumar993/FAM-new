@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import {useScroll, useTransform } from 'framer-motion';
+import React  from 'react';
+import { Container, Row, Col} from 'react-bootstrap';
 import './MovingToFredericton.css';
 import FullWidthImage from './FullWidthImage';
 import Steps from './Steps';

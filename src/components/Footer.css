@@ -68,4 +68,19 @@
   .footer-social a:hover {
     color: #0bc6e3;
   }
+  .link-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+  }
+  
+  .link-button:hover,
+  .link-button:focus {
+    text-decoration: none;
+    color: #0056b3;
+  }
   

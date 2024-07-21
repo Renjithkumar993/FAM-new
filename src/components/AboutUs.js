@@ -4,7 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import './AboutUs.css';
 import data from "../config/aboutus.json"; // Directly import the JSON data
 import { useNavigate } from 'react-router-dom';
-import WhatWeDo from './WhatWeDo';
 
 const AboutUs = () => {
   const { ref: aboutRef, inView: aboutInView } = useInView({

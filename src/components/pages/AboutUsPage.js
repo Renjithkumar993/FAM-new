@@ -7,13 +7,12 @@ import missionVisionData from "../../config/missionvission.json"; // Import miss
 import Footer from '../Footer';
 import FullWidthImage from '../FullWidthImage';
 import { useInView } from 'react-intersection-observer';
-import { useMediaQuery } from 'react-responsive';
 import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
 import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
 import JoinComponent from '../JoinComponent';
 
 const AboutUsPage = () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+
 
   const [ref1, inView1] = useInView({ triggerOnce: false });
   const [ref2, inView2] = useInView({ triggerOnce: false });
