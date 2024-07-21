@@ -136,7 +136,8 @@ const RegisterButtons = styled.div`
 
 const EventDetail = () => {
   const { eventId } = useParams();
-  const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
+  const numericEventId = parseInt(eventId, 10);
+  const event = eventsData[numericEventId]; // Using 0-based index
 
   const [modalType, setModalType] = useState(null);
 
@@ -150,12 +151,6 @@ const EventDetail = () => {
   const eventClosed = new Date(event.date) < new Date();
   const eventDate = moment.tz(event.date, 'UTC');
 
-  const breadcrumbs = [
-    { href: "/", label: "Home", icon: HomeIcon },
-    { href: "/events", label: "Events", icon: EventIcon },
-    { label: event.title },
-  ];
-
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
 
   return (
@@ -164,7 +159,7 @@ const EventDetail = () => {
       <Container>
         <EventDetailWrapper>
           <div className="event-detail my-5">
-            <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <Breadcrumbs />
             {eventClosed && (
               <Alert variant="danger" className="text-center">
                 Event closed.
