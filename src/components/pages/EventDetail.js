@@ -136,8 +136,7 @@ const RegisterButtons = styled.div`
 
 const EventDetail = () => {
   const { eventId } = useParams();
-  const numericEventId = parseInt(eventId, 10);
-  const event = eventsData[numericEventId]; // Using 0-based index
+  const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
 
   const [modalType, setModalType] = useState(null);
 
@@ -150,6 +149,12 @@ const EventDetail = () => {
 
   const eventClosed = new Date(event.date) < new Date();
   const eventDate = moment.tz(event.date, 'UTC');
+
+ 
+ 
+ 
+ 
+ 
 
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
 

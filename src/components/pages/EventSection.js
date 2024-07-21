@@ -25,9 +25,9 @@ const EventSection = () => {
   const [filterMonth, setFilterMonth] = useState('all');
 
   useEffect(() => {
-    const updatedEvents = eventsData.map((event, index) => ({
+    const updatedEvents = eventsData.map((event) => ({
       ...event,
-      eventId: index , // Assign numeric ID based on index
+      eventId: event.title.replace(/\s+/g, '').toLowerCase(),
     }));
     setEvents(updatedEvents);
   }, []);
@@ -104,6 +104,7 @@ const EventSection = () => {
                 <p>{event.details}</p>
                 <div className="event-additional-details">
                   <p><strong>Time:</strong> {event.time}</p>
+                
                 </div>
                 <Button
                   className='registrationButton'
