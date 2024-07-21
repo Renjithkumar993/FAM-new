@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import './Typography.css';
 import NavigationBar from './components/NavigationBar';
@@ -47,40 +47,25 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-const App = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Loading loading={loading} />;
-  }
-
-  return (
-    <Router>
-      <ScrollToTop />
-      <NavigationBar />
-      <ErrorBoundary>
-        <Suspense fallback={<Loading loading={true} />}>
-          <Routes>
-            <Route path="/" element={<PageWithHelmet pageTitle="Welcome to FAM - Fredericton Association of Malayalees" Component={MainPage} />} />
-            <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
-            <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
-            <Route path="/events/:eventId" element={<PageWithHelmet pageTitle="Event Detail" Component={EventDetail} />} />
-            <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
-            <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
-            <Route path="/gallery" element={<PageWithHelmet pageTitle="Gallery" Component={Gallery} />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-    </Router>
-  );
-};
+const App = () => (
+  <div>
+    <ScrollToTop />
+    <NavigationBar />
+    <ErrorBoundary>
+      <Suspense fallback={<Loading loading={true} />}>
+        <Routes>
+          <Route path="/" element={<PageWithHelmet pageTitle="Welcome to FAM - Fredericton Association of Malayalees" Component={MainPage} />} />
+          <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
+          <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
+          <Route path="/events/:eventId" element={<PageWithHelmet pageTitle="Event Detail" Component={EventDetail} />} />
+          <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
+          <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
+          <Route path="/gallery" element={<PageWithHelmet pageTitle="Gallery" Component={Gallery} />} />
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
+  </div>
+);
 
 const MainPage = React.memo(() => (
   <>
