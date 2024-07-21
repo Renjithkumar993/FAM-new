@@ -14,7 +14,7 @@ import { Element } from 'react-scroll';
 const AboutUsPage = lazy(() => import('./components/pages/AboutUsPage'));
 const EventSection = lazy(() => import('./components/pages/EventSection'));
 const ContactUs = lazy(() => import('./components/pages/ContactUs'));
-const EventDetail = lazy(() => import('./components/EventDetail'));
+const EventDetail = lazy(() => import('./components/pages/EventDetail'));
 const MovingToFredericton = lazy(() => import('./components/MovingToFredericton'));
 const LandingPage = lazy(() => import('./components/Landingpage'));
 const UpcomingEvent = lazy(() => import('./components/UpcomingEvent'));

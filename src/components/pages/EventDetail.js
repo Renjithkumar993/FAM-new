@@ -1,77 +1,234 @@
-import React from 'react';
-import { Container, Row, Col, Image, Card, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import moment from 'moment-timezone';
 import eventsData from '../../config/events.json';
-import './EventDetail.css';
-import event1 from '../../images/events/EVEnt1.jpeg'; // Static import for the image
+import Footer from '../Footer';
+import HelmetWrapper from '../HelmetWrapper';
+import HomeIcon from '@mui/icons-material/Home';
+import EventIcon from '@mui/icons-material/Event';
+import Breadcrumbs from '../Breadcrumbs';
+import ModalComponent from '../ModalComponent';
+import { LocationOn } from '@mui/icons-material';
+import styled from 'styled-components';
+
+const EventDetailWrapper = styled.div`
+  padding-top: 30px;
+  border-radius: 15px;
+  margin-top: 50px;
+`;
+
+const EventImageContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const EventTitle = styled.h1`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+`;
+
+const EventDateTime = styled.p`
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 20px;
+`;
+
+const LocationInfo = styled.p`
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  color: #555;
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 8px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  svg {
+    margin-right: 8px;
+  }
+`;
+
+const EventDescription = styled.div`
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+  }
+`;
+
+const RegisterButtons = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+
+  .btn {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ff6341, #ff9a41);
+    border: none;
+    color: #fff;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #ff9a41, #ff6341);
+    }
+  }
+`;
 
 const EventDetail = () => {
-  const { eventName } = useParams();
-  const event = eventsData.find(event => event.title.replace(/\s+/g, '-').toLowerCase() === eventName);
+  const { eventId } = useParams();
+  const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
+
+  const [modalType, setModalType] = useState(null);
+
+  const handleModalClose = () => setModalType(null);
+  const handleModalShow = (type) => setModalType(type);
 
   if (!event) {
     return <div>Event not found</div>;
   }
 
-  const eventImage = event.title === "Onam Celebration" ? event1 : null; // Use static import
+  const eventClosed = new Date(event.date) < new Date();
+  const eventDate = moment.tz(event.date, 'UTC');
+
+  const breadcrumbs = [
+    { href: "/", label: "Home", icon: HomeIcon },
+    { href: "/events", label: "Events", icon: EventIcon },
+    { label: event.title },
+  ];
+
+  const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
 
   return (
-    <Container className="event-detail-container">
-      <Row className="justify-content-center my-5">
-        <Col md={8}>
-          <Card className="event-detail-card">
-            <Card.Header className="event-detail-header">
-              <h1 className="event-title">{event.title}</h1>
-            </Card.Header>
-            <Card.Body>
-              <Row>
-                <Col md={6} className="event-image-col">
-                  <Image src={eventImage} alt={event.title} fluid rounded className="event-detail-image" />
-                </Col>
-                <Col md={6}>
-                  <p><strong>Date:</strong> {event.date}</p>
-                  <p className="event-details">{event.details}</p>
-                  <div className="map-container">
-                    <iframe
-                      title="Event Location"
-                      src={event.mapIframe}
-                      width="100%"
-                      height="300"
-                      frameBorder="0"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      aria-hidden="false"
-                      tabIndex="0"
-                    ></iframe>
-                  </div>
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      <Row className="justify-content-center my-5">
-        <Col md={8}>
-          <Card className="register-card">
-            <Card.Body>
-              <h2 className="register-title">Register for the Event</h2>
-              <div className="form-container">
-                <iframe
-                  src={event.formIframe}
-                  width="100%"
-                  height="800"
-                  frameBorder="0"
-                  marginHeight="0"
-                  marginWidth="0"
-                  title="Event Registration Form"
-                  className="responsive-iframe"
-                >Loading…</iframe>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <HelmetWrapper pageTitle={event.title} description={`Details for ${event.title}`} />
+      <Container>
+        <EventDetailWrapper>
+          <div className="event-detail my-5">
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
+            {eventClosed && (
+              <Alert variant="danger" className="text-center">
+                Event closed.
+              </Alert>
+            )}
+            <Row className="mb-4">
+              <Col lg={6} className="event-image-container">
+                <EventImageContainer>
+                  <img src={`${process.env.PUBLIC_URL}/images/events/${event.image}`} alt={event.title} />
+                </EventImageContainer>
+              </Col>
+              <Col lg={6}>
+                <EventTitle>{event.title}</EventTitle>
+                <EventDateTime>
+                  {eventDate.format('MMMM Do, YYYY')} - {event.time}
+                </EventDateTime>
+                <LocationInfo>
+                  <LocationOn />
+                  <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">{event.location}</a>
+                </LocationInfo>
+                <EventDescription>
+                  <h3>About Onam</h3>
+                  <p>{event.description}</p>
+                  <ul>
+                    <li>Feast on our elaborate "Onam Sadhya," a sumptuous vegetarian banquet served on banana leaves.</li>
+                    <li>Enjoy traditional folk songs and dances.</li>
+                    <li>Marvel at intricate floral decorations known as "Athapookkalam" or "Onappookkalam".</li>
+                    <li>Participate in cultural programs and games that bring our community together.</li>
+                  </ul>
+                  <p>Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.</p>
+                </EventDescription>
+                <RegisterButtons>
+                  {event.formIframe ? (
+                    <Button onClick={() => handleModalShow('form')}>
+                      Register for Event
+                    </Button>
+                  ) : (
+                    <Button disabled>
+                      Form will be available soon
+                    </Button>
+                  )}
+                  {event.performanceIframe ? (
+                    <Button onClick={() => handleModalShow('performance')}>
+                      Register for Performances
+                    </Button>
+                  ) : (
+                    <Button disabled>
+                      Form will be available soon
+                    </Button>
+                  )}
+                </RegisterButtons>
+              </Col>
+            </Row>
+          </div>
+        </EventDetailWrapper>
+      </Container>
+      <Footer />
+      {event.formIframe && (
+        <ModalComponent open={modalType === 'form'} handleClose={handleModalClose} iframeSrc={event.formIframe} />
+      )}
+      {event.performanceIframe && (
+        <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
+      )}
+    </>
   );
 };
 
