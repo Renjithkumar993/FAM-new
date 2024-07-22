@@ -1,32 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Button, Container } from 'react-bootstrap';
 import Countdown from 'react-countdown';
-import events from '../config/events.json';
 import './UpcomingEvent.css';
 import moment from 'moment-timezone';
 import { useNavigate } from 'react-router-dom';
+import Loading from './Loading'; // Import your custom Loading component
 
 const UpcomingEvent = () => {
   const [updatedEvents, setUpdatedEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const updatedEventsData = events.map((event) => ({
-      ...event,
-      eventId: event.title.replace(/\s+/g, '').toLowerCase(),
-    }));
-    setUpdatedEvents(updatedEventsData);
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); 
+        if (!response.ok) {
+          throw new Error('Failed to fetch events');
+        }
+        const eventsData = await response.json();
+        const updatedEventsData = eventsData.map((event) => ({
+          ...event,
+          eventId: event.title.replace(/\s+/g, '').toLowerCase(),
+        }));
+        setUpdatedEvents(updatedEventsData);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
   }, []);
 
-  if (updatedEvents.length === 0) {
-    return <div>Loading...</div>;
+  if (loading) {
+    return <Loading />; // Use your custom Loading component
   }
 
-  const image1 = `${process.env.PUBLIC_URL}/images/fredericton/upcoming.png`;
-  const onamImage = `${process.env.PUBLIC_URL}/images/events/onam.jpeg`;
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
+  if (updatedEvents.length === 0) {
+    return <div>No upcoming events.</div>;
+  }
+
+  const UpcomingBanner = `${process.env.PUBLIC_URL}/images/events/upcoming-banner.png`;
   const event = updatedEvents[0]; // Assuming the first event is the upcoming event
-  const { eventId, title, description, date, isOpen } = event;
+  const { eventId, title, description, date, isOpen, image } = event;
   const eventDate = moment.tz(date, 'UTC');
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -58,7 +81,7 @@ const UpcomingEvent = () => {
 
   const handleRegister = (eventId, isOpen) => {
     if (isOpen) {
-      navigate(`/events/${eventId}`);
+      navigate(`/${eventId}`);
     }
   };
 
@@ -66,12 +89,12 @@ const UpcomingEvent = () => {
     <Container fluid className="mv-notification-container">
       <Row className="align-items-center justify-content-center">
         <Col xs={12} md={6} className="event-image-container order-1 order-md-2">
-          <img src={onamImage} alt={title} className="event-image img-fluid" />
+          <img src={image} alt={title} className="event-image img-fluid" />
         </Col>
         <Col xs={12} md={6} className="event-info">
           <Row className="justify-content-center">
             <Col xs={12} className="text-center">
-              <img src={image1} alt={title} className="img-fluid" />
+              <img src={UpcomingBanner} alt={title} className="img-fluid" />
             </Col>
           </Row>
           <h4 className="event-title">{title}</h4>

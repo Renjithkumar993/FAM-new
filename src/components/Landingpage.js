@@ -2,11 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
-import AboutUs from './AboutUs';
 
 const images = [
-  `${process.env.PUBLIC_URL}/images/heroimages/c8.jpg`,
-  `${process.env.PUBLIC_URL}/images/heroimages/c88.jpg`
+  `${process.env.PUBLIC_URL}/images/heroimages/Fredericton-Hero.jpg`,
+  `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.jpg`,
+  `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero1.jpg`
+];
+
+const texts = [
+  {
+    welcome: 'Welcome to FAM',
+    description: 'Fredericton Association of Malayalees (FAM) is a registered non-profit organization established under the Society Act in 2021.',
+    primaryBtn: { text: 'About Us', action: '/aboutus' },
+    secondaryBtn: { text: 'Learn more', action: '/aboutus' }
+  },
+  {
+    welcome: 'Join us for our events',
+    description: 'Explore our upcoming events and join us for a wonderful experience.',
+    primaryBtn: { text: 'Events', action: '/events' },
+    secondaryBtn: { text: 'More info', action: '/events' }
+  },
+  {
+    welcome: 'Be a part of our community',
+    description: 'Join us and be a part of a vibrant and supportive community.',
+    primaryBtn: { text: 'Join Now', action: '/join' },
+    secondaryBtn: { text: 'Learn more', action: '/join' }
+  }
 ];
 
 const LandingPage = () => {
@@ -17,17 +38,10 @@ const LandingPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000); // Change image every 10 seconds
+    }, 4000); // Change image every 10 seconds
 
     return () => clearInterval(interval);
   }, []);
-
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <div className="landing-page">
@@ -43,22 +57,23 @@ const LandingPage = () => {
         <main className="main-content mt-5">
           <div className={`text-content ${textInView ? 'slide-in-left' : ''}`} ref={textRef}>
             <h2 className="welcome-message mt-5">
-              Welcome to <span className="highlight">FAM</span>
+              {texts[imageIndex].welcome}
             </h2>
             <div className="left-aligned-content">
               <p>
-                Fredericton Association of Malayalees (FAM) is a registered non-profit organization established under the Society Act in 2021.
+                {texts[imageIndex].description}
               </p>
               <div className="button-group">
-                <button className="primary-btn" onClick={scrollToAbout}>About Us</button>
-                <button className="secondary-btn" onClick={() => navigate('/aboutus')}>Learn more</button>
+                <button className="primary-btn" onClick={() => navigate(texts[imageIndex].primaryBtn.action)}>
+                  {texts[imageIndex].primaryBtn.text}
+                </button>
+                <button className="secondary-btn" onClick={() => navigate(texts[imageIndex].secondaryBtn.action)}>
+                  {texts[imageIndex].secondaryBtn.text}
+                </button>
               </div>
             </div>
           </div>
         </main>
-      </div>
-      <div id="about">
-        <AboutUs />
       </div>
     </div>
   );

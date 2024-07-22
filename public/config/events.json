@@ -4,15 +4,10 @@
     "title": "FAM Onam 2024",
     "date": "2024-09-14",
     "description": "A fun-filled day with games, activities, and delicious food.",
-    "image": "onam.jpeg",
+    "image": "/images/events/onam.jpeg",
     "details": "Join us for a traditional Onam celebration with various activities including games, cultural performances, and a grand feast.",
     "time": "10:00 AM - 5:00 PM",
     "location": "Fredericton, NB",
-    "price": {
-      "adults": "$25",
-      "children": "$12",
-      "kids": "Free entry"
-    },
     "isOpen": true,
     "formIframe": "",
     "performanceIframe": ""

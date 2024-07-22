@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import moment from 'moment-timezone';
-import eventsData from '../../config/events.json';
-import Footer from '../Footer';
 import HelmetWrapper from '../HelmetWrapper';
-import HomeIcon from '@mui/icons-material/Home';
-import EventIcon from '@mui/icons-material/Event';
 import Breadcrumbs from '../Breadcrumbs';
 import ModalComponent from '../ModalComponent';
 import { LocationOn } from '@mui/icons-material';
 import styled from 'styled-components';
+import Loading from '../Loading'; // Import your Loading component
 
 const EventDetailWrapper = styled.div`
   padding-top: 30px;
@@ -136,12 +133,41 @@ const RegisterButtons = styled.div`
 
 const EventDetail = () => {
   const { eventId } = useParams();
-  const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
-
+  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [modalType, setModalType] = useState(null);
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); // Replace with your actual URL
+        if (!response.ok) {
+          throw new Error('Failed to fetch events');
+        }
+        const eventsData = await response.json();
+        const event = eventsData.find(event => event.title.replace(/\s+/g, '').toLowerCase() === eventId);
+        setEvent(event);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchEvent();
+  }, [eventId]);
 
   const handleModalClose = () => setModalType(null);
   const handleModalShow = (type) => setModalType(type);
+
+  if (loading) {
+    return <Loading />; // Use your custom Loading component
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   if (!event) {
     return <div>Event not found</div>;
@@ -149,13 +175,6 @@ const EventDetail = () => {
 
   const eventClosed = new Date(event.date) < new Date();
   const eventDate = moment.tz(event.date, 'UTC');
-
- 
- 
- 
- 
- 
-
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
 
   return (
@@ -173,7 +192,7 @@ const EventDetail = () => {
             <Row className="mb-4">
               <Col lg={6} className="event-image-container">
                 <EventImageContainer>
-                  <img src={`${process.env.PUBLIC_URL}/images/events/${event.image}`} alt={event.title} />
+                  <img src={`${event.image}`} alt={event.title} />
                 </EventImageContainer>
               </Col>
               <Col lg={6}>
@@ -221,7 +240,6 @@ const EventDetail = () => {
           </div>
         </EventDetailWrapper>
       </Container>
-      <Footer />
       {event.formIframe && (
         <ModalComponent open={modalType === 'form'} handleClose={handleModalClose} iframeSrc={event.formIframe} />
       )}

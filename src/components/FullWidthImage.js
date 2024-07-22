@@ -4,7 +4,7 @@ import './FullWidthImage.css';
 
 
 const FullWidthImage = () => {
-const culture = `${process.env.PUBLIC_URL}/images/herosection/culture.png`
+const culture = `${process.env.PUBLIC_URL}/images/heroimages/culture.png`
 
   return (
     <div className="full-width-image-container">

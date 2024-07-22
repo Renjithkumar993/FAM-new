@@ -1,11 +1,11 @@
-// src/components/Loading.js
 import React from 'react';
-import { HashLoader } from 'react-spinners';
+import { PropagateLoader} from 'react-spinners';
+import './Loading.css';
 
 const Loading = ({ loading }) => {
   return (
     <div className="loading-container">
-      <HashLoader color="#ff6341" loading={loading} size={100} />
+      <PropagateLoader color="#ff6341" loading={loading} size={30} />
     </div>
   );
 };

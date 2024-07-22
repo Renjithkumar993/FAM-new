@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaFacebookF } from 'react-icons/fa';
 import WaveBackground from './WaveBackground';
@@ -39,7 +39,7 @@ const Card = styled.div`
   }
   display: flex;
   flex-direction: column;
-  align-items: center; /* Ensures content is centered */
+  align-items: center;
   @media (max-width: 768px) {
     max-width: 90%;
   }
@@ -91,7 +91,7 @@ const IframeContainer = styled.div`
   border-top: 1px solid #eee;
   text-align: center;
   .fb-page {
-    margin: 0 auto; /* Centering the iframe */
+    margin: 0 auto;
   }
 `;
 
@@ -106,24 +106,45 @@ const LoadingIndicator = styled.div`
 
 const FacebookPageEmbed = () => {
   const [loading, setLoading] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+  const maxRetries = 3; // Max retries for loading the SDK
+
+  const loadFacebookSDK = useCallback(() => {
+    if (!document.getElementById('facebook-jssdk')) {
+      const script = document.createElement('script');
+      script.id = 'facebook-jssdk';
+      script.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        if (window.FB) {
+          window.FB.XFBML.parse();
+          setLoading(false);
+        } else if (retryCount < maxRetries) {
+          setRetryCount((prevCount) => prevCount + 1);
+        }
+      };
+      script.onerror = () => {
+        if (retryCount < maxRetries) {
+          setRetryCount((prevCount) => prevCount + 1);
+        }
+      };
+      document.body.appendChild(script);
+    } else if (window.FB) {
+      window.FB.XFBML.parse();
+      setLoading(false);
+    } else if (retryCount < maxRetries) {
+      setRetryCount((prevCount) => prevCount + 1);
+    }
+  }, [retryCount, maxRetries]);
 
   useEffect(() => {
-    const loadFacebookSDK = () => {
-      if (!document.getElementById('facebook-jssdk')) {
-        const script = document.createElement('script');
-        script.id = 'facebook-jssdk';
-        script.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0';
-        script.async = true;
-        script.defer = true;
-        script.onload = () => setLoading(false);
-        document.body.appendChild(script);
-      } else if (window.FB) {
-        window.FB.XFBML.parse();
-        setLoading(false);
-      }
-    };
-    loadFacebookSDK();
-  }, []);
+    if (retryCount < maxRetries) {
+      loadFacebookSDK();
+    } else {
+      setLoading(false); // Stop loading after max retries
+    }
+  }, [loadFacebookSDK, retryCount, maxRetries]);
 
   return (
     <>

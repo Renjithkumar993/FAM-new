@@ -125,7 +125,7 @@ const JoinPage = () => {
                     Join Now
                 </RegisterButton>
             </JoinPageWrapper>
-            {/* Include the JoinPageModal component */}
+       
             <JoinPageModal open={showModal} handleClose={handleClose} />
         </>
     );

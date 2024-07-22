@@ -32,6 +32,9 @@
 }
 
 .card-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -50,13 +53,14 @@
 }
 
 .card-description {
-  position: relative;
+  flex: 1;
   text-align: left;
 }
 
-.card-step {
-  font-size: 50px;
-  opacity: 0.7;
+.card-icon {
+  font-size: 80px;
+  margin-left: 20px;
+  color: white;
 }
 
 .card-description__title {
@@ -79,8 +83,8 @@
     padding: 15px;
   }
 
-  .card-step {
-    font-size: 40px;
+  .card-icon {
+    font-size: 60px;
   }
 
   .card-description__title {
@@ -97,8 +101,8 @@
     padding: 10px;
   }
 
-  .card-step {
-    font-size: 30px;
+  .card-icon {
+    font-size: 50px;
   }
 
   .card-description__title {
@@ -108,8 +112,4 @@
   .card-description p {
     font-size: 12px;
   }
-}
-
-.hilite-color{
-  color: #ff5722 !important;
 }

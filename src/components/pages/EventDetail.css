@@ -3,7 +3,6 @@
 .event-title-detail {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #ff6341; /* orange color */
   margin-bottom: 10px;
 }
 
@@ -16,14 +15,12 @@
 .event-description,
 .event-info p {
   font-size: 1.2rem;
-  color: #555;
   margin-bottom: 20px;
 }
 
 .event-info h3 {
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #343a40;
 }
 
 .event-info ul {

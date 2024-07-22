@@ -6,10 +6,9 @@ import 'react-vertical-timeline-component/style.min.css';
 import moment from 'moment-timezone';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 import './EventSection.css';
-import eventsData from '../../config/events.json';
-import Footer from '../Footer';
 import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
 import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
+import Loading from '../Loading'; // Import your Loading component
 
 const iconMapping = {
   conference: 'fas fa-chalkboard-teacher',
@@ -21,20 +20,45 @@ const iconMapping = {
 const EventSection = () => {
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [filterYear, setFilterYear] = useState('all');
   const [filterMonth, setFilterMonth] = useState('all');
 
   useEffect(() => {
-    const updatedEvents = eventsData.map((event) => ({
-      ...event,
-      eventId: event.title.replace(/\s+/g, '').toLowerCase(),
-    }));
-    setEvents(updatedEvents);
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); // Replace with your actual URL
+        if (!response.ok) {
+          throw new Error('Failed to fetch events');
+        }
+        const eventsData = await response.json();
+        const updatedEvents = eventsData.map((event) => ({
+          ...event,
+          eventId: event.title.replace(/\s+/g, '').toLowerCase(),
+        }));
+        setEvents(updatedEvents);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
   }, []);
+
+  if (loading) {
+    return <Loading />; // Use your custom Loading component
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   const handleRegister = (eventId, isOpen) => {
     if (isOpen) {
-      navigate(`/events/${eventId}`);
+      navigate(`/${eventId}`);
     }
   };
 
@@ -64,7 +88,7 @@ const EventSection = () => {
         <h1 className="event-heading">Our Events</h1>
         <Alert variant="info" className="membership-alert">
           <h4>FAM – Membership</h4>
-          <p>Make sure you take full advantage of all the membership benefits available! As a new member, you can contest/participate in the election process to choose the office bearers for FAM. Also, you can avail 10% discount on booking all events conducted by FAM.</p>
+          <p>Make sure you take full advantage of all the membership benefits available! As a new member, you can contest/participate in the election process to choose the office bearers for FAM. Also, you get discount on booking all events conducted by FAM.</p>
         </Alert>
         <Row className="filter-row mb-4 mt-5">
           <Col md={6}>
@@ -104,7 +128,6 @@ const EventSection = () => {
                 <p>{event.details}</p>
                 <div className="event-additional-details">
                   <p><strong>Time:</strong> {event.time}</p>
-                
                 </div>
                 <Button
                   className='registrationButton'
@@ -119,7 +142,6 @@ const EventSection = () => {
           })}
         </VerticalTimeline>
       </Container>
-      <Footer />
     </div>
   );
 };

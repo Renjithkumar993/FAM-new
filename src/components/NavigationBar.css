@@ -63,3 +63,16 @@
     background-color: white !important;
   }
 }
+
+button[href="/joinus"]:hover {
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}

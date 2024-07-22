@@ -2,14 +2,11 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ContactUs.css';
-import Footer from '../Footer';
 import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
 import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
 
 const ContactUs = () => {
-
-
-  const logofam =`${process.env.PUBLIC_URL}/images/logofam.jpg`; 
+  const logofam = `${process.env.PUBLIC_URL}/images/logofam.jpg`; 
   return (
     <div className="contact-us-page">
       <HelmetWrapper 
@@ -40,11 +37,22 @@ const ContactUs = () => {
               <div className="contact-info">
                 <p>Feel free to reach out to us with any questions or concerns. We are here to help!</p>
                 <p><strong>Email:</strong> <a href="mailto:info@famnb.ca" className="contact-link">info@famnb.ca</a></p>
-               
                 <p><strong>Address:</strong> Fredericton, NB</p>
               </div>
-              <div className="social-links">
-                <a href="https://facebook.com" className="facebook-link"><i className="fab fa-facebook"></i> Facebook</a>
+              <div className="facebook-page-plugin">
+                <div className="fb-page" 
+                     data-href="https://www.facebook.com/profile.php?id=61552104893247" 
+                     data-tabs="timeline" 
+                     data-width="500" 
+                     data-height="300" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true">
+                  <blockquote cite="https://www.facebook.com/profile.php?id=61552104893247" className="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/profile.php?id=61552104893247">Fredericton Association of Malayalees - FAM</a>
+                  </blockquote>
+                </div>
               </div>
             </Col>
           </Row>
@@ -60,10 +68,9 @@ const ContactUs = () => {
           tabIndex="0"
           frameBorder="0"
           style={{ border: 0 }}
+          title="Fredericton Association of Malayalees Location Map" // Added unique title for accessibility
         ></iframe>
       </div>
-      
-      <Footer />
     </div>
   );
 };

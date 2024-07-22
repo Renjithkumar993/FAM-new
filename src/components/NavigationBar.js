@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemIcon, ListItemText, Button, Box, Container } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faCalendarAlt, faEnvelope, faBars, faImages } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faInfoCircle, faCalendarAlt, faEnvelope, faBars, faImages, faUsers } from '@fortawesome/free-solid-svg-icons';
 import './NavigationBar.css';
 
 const pages = [
@@ -11,7 +11,7 @@ const pages = [
   { name: 'Events', icon: faCalendarAlt, path: '/events' },
   { name: 'Gallery', icon: faImages, path: '/Gallery' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
-
+  { name: 'Join Community', icon: faUsers, path: '/joinus' },
 ];
 
 const logo = `${process.env.PUBLIC_URL}/images/logofam.jpg`;
@@ -27,11 +27,7 @@ const NavigationBar = () => {
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 100) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
+    setScrolled(offset > 100);
   };
 
   useEffect(() => {
@@ -58,7 +54,7 @@ const NavigationBar = () => {
             </RouterLink>
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-            {pages.map((page) => (
+            {pages.slice(0, 5).map((page) => (
               <Button
                 key={page.name}
                 component={RouterLink}
@@ -68,7 +64,7 @@ const NavigationBar = () => {
                   mx: 1.5,
                   fontSize: '0.8rem',
                   fontWeight: 'bold',
-                  color: scrolled ? '#ff5722' : '#ff5722',
+                  color: scrolled ? 'black' : 'white',
                   position: 'relative',
                   '&:hover': {
                     backgroundColor: 'transparent',
@@ -103,10 +99,13 @@ const NavigationBar = () => {
                 borderRadius: "25px",
                 color: 'white',
                 fontSize: '0.9rem',
+                transition: 'transform 0.3s ease',
                 '&:hover': {
-                  backgroundColor: '#e64a19',
+                  backgroundColor: '#ff5722',
+                  transform: 'scale(1.1)',
                 },
               }}
+              startIcon={<FontAwesomeIcon icon={faUsers} />}
             >
               Join Community
             </Button>
@@ -132,12 +131,6 @@ const NavigationBar = () => {
               <ListItemText primary={page.name} />
             </ListItem>
           ))}
-          <ListItem button component={RouterLink} to="/joinus" onClick={toggleMenu} sx={{ '&:hover': { backgroundColor: '#ff5722', color: 'white' } }}>
-            <ListItemIcon sx={{ color: 'inherit' }}>
-              <FontAwesomeIcon icon={faEnvelope} />
-            </ListItemIcon>
-            <ListItemText primary="Join Community" />
-          </ListItem>
         </List>
       </Drawer>
     </AppBar>

@@ -16,7 +16,7 @@ const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024
   return (
     <section className={`step-section ${stepInView ? 'animate' : ''}`} ref={stepRef} id="about">
       <Container>
-        <Row className="mt-5">
+        <Row className="mt-5 align-items-center">
           <Col xs={12} md={6} className="order-2 order-md-1">
             <div className="step-text">
               <h1>Get Involved <span className='hilite-color'>With Us</span></h1>

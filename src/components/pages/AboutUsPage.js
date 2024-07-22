@@ -1,26 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AboutUsPage.css';
-import aboutData from "../../config/aboutus.json"; // Directly import the JSON data
-import missionVisionData from "../../config/missionvission.json"; // Import mission and vision data
-import Footer from '../Footer';
 import FullWidthImage from '../FullWidthImage';
 import { useInView } from 'react-intersection-observer';
-import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
-import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
+import Breadcrumbs from '../Breadcrumbs';
+import HelmetWrapper from '../HelmetWrapper';
 import JoinComponent from '../JoinComponent';
+import Loading from '../Loading'; // Ensure this is the correct path to your Loading component
 
 const AboutUsPage = () => {
-
+  const [aboutData, setAboutData] = useState(null);
+  const [missionVisionData, setMissionVisionData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const [ref1, inView1] = useInView({ triggerOnce: false });
   const [ref2, inView2] = useInView({ triggerOnce: false });
   const [ref3, inView3] = useInView({ triggerOnce: false });
   const [ref4, inView4] = useInView({ triggerOnce: false });
 
-  const aboutImage1 = `${process.env.PUBLIC_URL}/images/fredericton/image1.jpg`;
-  const aboutImage2 = `${process.env.PUBLIC_URL}/images/fredericton/image4.jpg`;
+
+
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const [aboutResponse, missionVisionResponse] = await Promise.all([
+          fetch(`${process.env.PUBLIC_URL}/config/aboutus.json`),
+          fetch(`${process.env.PUBLIC_URL}/config/missionvission.json`)
+        ]);
+
+        if (!aboutResponse.ok || !missionVisionResponse.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const aboutData = await aboutResponse.json();
+        const missionVisionData = await missionVisionResponse.json();
+
+        setAboutData(aboutData);
+        setMissionVisionData(missionVisionData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setError('Failed to load data');
+        setLoading(false);
+      }
+    };
+
+    fetchAboutData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  const aboutImage1 = `${process.env.PUBLIC_URL}/images/fredericton/Fredericton-image-1.jpg`;
+  const aboutImage2 = `${process.env.PUBLIC_URL}/images/fredericton/Fredericton-image-2.jpg`;
 
   return (
     <>
@@ -30,7 +69,7 @@ const AboutUsPage = () => {
       />
       <div className="about-us-page">
         <Container className="about-us-content">
-          <Breadcrumbs /> {/* Add Breadcrumbs here */}
+          <Breadcrumbs />
           <Row className={`mb-1 ${inView1 ? 'animate' : ''}`} ref={ref1}>
             <Col>
               <h1 className="about-heading">About Fredericton Association of Malayalees</h1>
@@ -100,7 +139,6 @@ const AboutUsPage = () => {
       </div>
       <JoinComponent />
       <FullWidthImage />
-      <Footer />
     </>
   );
 };
