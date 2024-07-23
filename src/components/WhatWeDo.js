@@ -1,57 +1,67 @@
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaCalendarAlt, FaHandsHelping, FaBell } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
+import { FaCalendarAlt, FaHandsHelping, FaBell, FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import './WhatWeDo.css';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const initialCardData = [
-  { id: 1, title: "Attend Events", description: "Join us at various cultural events, gatherings, and celebrations organized by the association.", icon: <FaCalendarAlt /> },
-  { id: 2, title: "Volunteer Opportunities", description: "Get involved by volunteering for different roles and activities within the association.", icon: <FaHandsHelping /> },
-  { id: 3, title: "Stay Connected", description: "Stay updated with the latest news, announcements, and activities by following our social media channels.", icon: <FaBell /> },
+  { id: 1, title: "Helpful Document", description: "We have a helpful document to guide you through.", icon: <FaFileDownload />, link: `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf`, color: '#d9534f' },
+  { id: 2, title: "Join Facebook Group", description: "Join our Facebook group to stay connected with the community.", icon: <FaFacebook />, link: "https://www.facebook.com/profile.php?id=61552104893247", color: '#3b5998' },
+  { id: 3, title: "Join WhatsApp Group", description: "Join our WhatsApp group for instant updates.", icon: <FaWhatsapp />, link: "https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB", color: '#25D366' }
 ];
 
-const colors = ['#e95420', '#0c9c84', '#d4a017', '#992828'];
+
+const colors = ['#d9534f', '#3b5998', '#25D366'];
+
 
 const WhatWeDo = () => {
   const containerRef = useRef(null);
   const [cardData] = useState(initialCardData);
 
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   useEffect(() => {
-    const cards = gsap.utils.toArray('.whatwedoo-card');
-    cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          x: -250,
-          opacity: 0,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          backgroundColor: colors[index % colors.length],
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'top 30%',
-            scrub: true,
-            markers: false,
+    if (inView) {
+      const cards = gsap.utils.toArray('.whatwedoo-card');
+      cards.forEach((card, index) => {
+        gsap.fromTo(
+          card,
+          {
+            x: -250,
+            opacity: 0,
           },
-        }
-      );
-    });
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            backgroundColor: colors[index % colors.length],
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 80%',
+              end: 'top 30%',
+              scrub: true,
+              markers: false,
+            },
+          }
+        );
+      });
+    }
 
     ScrollTrigger.refresh();
-  }, [cardData]);
+  }, [inView, cardData]);
 
   return (
     <Container>
       <div className="whatwedoo-container" ref={containerRef}>
-        <div className="whatwedoo-cards">
+        <div className="whatwedoo-cards" ref={ref}>
           {cardData.map((card) => (
             <div className="card-wrapper" key={card.id}>
               <div className="whatwedoo-card card-contents">
@@ -60,6 +70,19 @@ const WhatWeDo = () => {
                   <p>{card.description}</p>
                 </div>
                 <div className="card-icon">{card.icon}</div>
+                {card.link && (
+                  <div className="text-center mt-3">
+                    <Button 
+                      variant="primary" 
+                      href={card.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      style={{ backgroundColor: card.color }}
+                    >
+                      {card.icon} Open
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           ))}

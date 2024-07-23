@@ -97,3 +97,22 @@
   .hilite-color{
     color: #ff6341;
   }
+  .activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .activity-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .activity-icon {
+    margin-right: 15px;
+    width: 60px;
+    height: 60px;
+
+  }

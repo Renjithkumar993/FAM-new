@@ -9,7 +9,6 @@ import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
 import { Element } from 'react-scroll';
 
-
 const AboutUsPage = lazy(() => import('./components/pages/AboutUsPage'));
 const EventSection = lazy(() => import('./components/pages/EventSection'));
 const ContactUs = lazy(() => import('./components/pages/ContactUs'));
