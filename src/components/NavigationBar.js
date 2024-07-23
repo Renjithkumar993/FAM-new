@@ -9,7 +9,7 @@ const pages = [
   { name: 'Home', icon: faHome, path: '/' },
   { name: 'About Us', icon: faInfoCircle, path: '/aboutus' },
   { name: 'Events', icon: faCalendarAlt, path: '/events' },
-  { name: 'Gallery', icon: faImages, path: '/Gallery' },
+  { name: 'Gallery', icon: faImages, path: '/gallery' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
   { name: 'Join Community', icon: faUsers, path: '/joinus' },
 ];
@@ -33,12 +33,13 @@ const NavigationBar = () => {
   useEffect(() => {
     if (location.pathname === '/') {
       window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
     } else {
       setScrolled(true);
     }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [location.pathname]);
 
   return (

@@ -222,7 +222,7 @@ const EventDetail = () => {
                     </Button>
                   ) : (
                     <Button disabled>
-                      Form will be available soon
+                      Event Registration - available soon
                     </Button>
                   )}
                   {event.performanceIframe ? (
@@ -231,7 +231,7 @@ const EventDetail = () => {
                     </Button>
                   ) : (
                     <Button disabled>
-                      Form will be available soon
+                      Performance Registration - available soon
                     </Button>
                   )}
                 </RegisterButtons>

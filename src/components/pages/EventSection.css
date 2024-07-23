@@ -2,7 +2,6 @@
   background: white;
   position: relative;
   overflow: hidden;
-  font-family: 'Roboto', sans-serif;
   padding-top: 30px;
 }
 
@@ -24,12 +23,6 @@
 
 .event-section-page .vertical-timeline-element--education {
   border-color: rgb(233, 30, 99);
-}
-
-.event-section-page .vertical-timeline-element-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
 }
 
 .event-section-page .vertical-timeline-element-subtitle {

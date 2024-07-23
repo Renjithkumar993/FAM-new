@@ -14,7 +14,7 @@ const AboutUsPage = lazy(() => import('./components/pages/AboutUsPage'));
 const EventSection = lazy(() => import('./components/pages/EventSection'));
 const ContactUs = lazy(() => import('./components/pages/ContactUs'));
 const EventDetail = lazy(() => import('./components/pages/EventDetail'));
-const MovingToFredericton = lazy(() => import('./components/MovingToFredericton'));
+const Steps = lazy(() => import('./components/Steps'));
 const LandingPage = lazy(() => import('./components/Landingpage'));
 const UpcomingEvent = lazy(() => import('./components/UpcomingEvent'));
 const JoinPage = lazy(() => import('./components/pages/JoinPage'));
@@ -62,7 +62,7 @@ const MainPage = React.memo(() => {
         import('./components/AboutUs'),
         import('./components/MissionVision'),
         import('./components/FacebookPageEmbed'),
-        import('./components/MovingToFredericton'),
+        import('./components/Steps'),
         import('./components/JoinComponent'),
         import('./components/UpcomingEvent')
       ];
@@ -90,7 +90,7 @@ const MainPage = React.memo(() => {
         <Element name="about" id='about'><AboutUs /></Element>
         <Element name="mission" id="mission"><MissionVision /></Element>
         <FacebookPageEmbed />
-        <MovingToFredericton />
+        <Steps />
         <JoinComponent />
         <UpcomingEvent />
       </Suspense>
