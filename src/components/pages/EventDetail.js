@@ -5,26 +5,18 @@ import moment from 'moment-timezone';
 import HelmetWrapper from '../HelmetWrapper';
 import Breadcrumbs from '../Breadcrumbs';
 import ModalComponent from '../ModalComponent';
-import { LocationOn } from '@mui/icons-material';
+import { LocationOn, Event, AccessTime } from '@mui/icons-material';
 import styled from 'styled-components';
 import Loading from '../Loading';
-import "./EventDetail.css"
+import './EventDetail.css';
 
 const EventDetailWrapper = styled.div`
   padding-top: 30px;
   margin-top: 50px;
 `;
 
-
 const EventTitle = styled.h1`
-
   font-weight: bold;
-  margin-bottom: 20px;
-`;
-
-const EventDateTime = styled.p`
-  font-size: 1.2rem;
-  margin-bottom: 20px;
 `;
 
 const LocationInfo = styled.p`
@@ -43,21 +35,19 @@ const EventDescription = styled.div`
 `;
 
 const RegisterButtons = styled.div`
-  display: flex;
-  gap: 10px;
   margin-top: 20px;
 
   .btn {
-    flex: 1;
     padding: 12px 20px;
     font-size: 1.2rem;
     background: linear-gradient(135deg, #ff6341, #ff9a41);
     border: none;
     color: #fff;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 
     &:hover {
       background: linear-gradient(135deg, #ff9a41, #ff6341);
+      transform: translateY(-2px);
     }
   }
 `;
@@ -122,20 +112,25 @@ const EventDetail = () => {
             )}
             <Row className="mb-4">
               <Col lg={6} className="event-image-container">
-               
-                  <img className="event-image img-fluid" src={`${event.image}`} alt={event.title} />
-               
+                <img className="event-image img-fluid" src={`${event.image}`} alt={event.title} />
               </Col>
               <Col lg={6}>
-                <EventTitle>{event.title}</EventTitle>
-                <EventDateTime>
-                  {eventDate.format('MMMM Do, YYYY')} - {event.time}
-                </EventDateTime>
-                <LocationInfo>
+                <EventTitle className="event-title">{event.title}</EventTitle>
+                <div className="event-date-time">
+                  <div className="event-date">
+                    <Event />
+                    {eventDate.format('MMMM Do, YYYY')}
+                  </div>
+                  <div className="event-time">
+                    <AccessTime />
+                    {event.time}
+                  </div>
+                </div>
+                <LocationInfo className="location-info">
                   <LocationOn />
                   <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">{event.location}</a>
                 </LocationInfo>
-                <EventDescription>
+                <EventDescription className="event-description">
                   <h3>About the Event</h3>
                   <p>{event.details}</p>
                   {event.extraDetails && (
@@ -150,25 +145,31 @@ const EventDetail = () => {
                     </>
                   )}
                 </EventDescription>
-                <RegisterButtons>
-                  {event.formIframe ? (
-                    <Button onClick={() => handleModalShow('form')}>
-                      Register for Event
-                    </Button>
-                  ) : (
-                    <Button disabled>
-                      Event Registration - available soon
-                    </Button>
-                  )}
-                  {event.performanceIframe ? (
-                    <Button onClick={() => handleModalShow('performance')}>
-                      Register for Performances
-                    </Button>
-                  ) : (
-                    <Button disabled>
-                      Performance Registration - available soon
-                    </Button>
-                  )}
+                <RegisterButtons className="register-buttons">
+                  <Row>
+                    <Col xs={12} sm={6} className="mb-2">
+                      {event.formIframe ? (
+                        <Button block onClick={() => handleModalShow('form')}>
+                          Register for Event
+                        </Button>
+                      ) : (
+                        <Button block disabled>
+                          Event Registration - available soon
+                        </Button>
+                      )}
+                    </Col>
+                    <Col xs={12} sm={6}>
+                      {event.performanceIframe ? (
+                        <Button block onClick={() => handleModalShow('performance')}>
+                          Register for Performances
+                        </Button>
+                      ) : (
+                        <Button block disabled>
+                          Performance Registration - available soon
+                        </Button>
+                      )}
+                    </Col>
+                  </Row>
                 </RegisterButtons>
               </Col>
             </Row>

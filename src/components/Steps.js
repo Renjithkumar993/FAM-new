@@ -31,11 +31,11 @@ const Steps = () => {
                   <FaFileDownload className="mr-1" /> Open Guide
                 </Button>
               </div>
-              <div className="social-buttons mt-4 text-center d-flex justify-content-center">
-                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook" href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
-                  <FaFacebook className="mr-1" /> Join Facebook Group
+              <div className="social-buttons mt-2 text-center justify-content-center ">
+                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook " href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
+                  <FaFacebook className="mr-1 " /> Join Facebook Group
                 </Button>
-                <Button variant="success" className="rounded-pill custom-button btn-whatsapp " href="https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB" target="_blank">
+                <Button variant="success" className="rounded-pill custom-button btn-whatsapp mt-2 " href="https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB" target="_blank">
                   <FaWhatsapp className="mr-1 " /> Join WhatsApp Group
                 </Button>
               </div>
