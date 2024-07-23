@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import './Steps.css';
 import WhatWeDo from './WhatWeDo';
@@ -7,6 +7,15 @@ import FullWidthImage from './FullWidthImage';
 
 const Steps = () => {
   const docment = `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf`;
+
+  useEffect(() => {
+    // Ensure ScrollTrigger refresh to recalculate positions
+    setTimeout(() => {
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.refresh();
+      }
+    }, 100);
+  }, []);
 
   return (
     <section className="step-section" id="about">
@@ -32,7 +41,7 @@ const Steps = () => {
                 </Button>
               </div>
               <div className="social-buttons mt-2 text-center justify-content-center ">
-                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook " href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
+                <Button variant="primary" className="mr-3 rounded-pill custom-button btn-facebook mt-2 " href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
                   <FaFacebook className="mr-1 " /> Join Facebook Group
                 </Button>
                 <Button variant="success" className="rounded-pill custom-button btn-whatsapp mt-2 " href="https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB" target="_blank">
@@ -45,7 +54,6 @@ const Steps = () => {
             <WhatWeDo />
           </Col>
         </Row>
-      
       </Container>
       <FullWidthImage />
     </section>

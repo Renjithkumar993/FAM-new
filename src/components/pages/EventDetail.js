@@ -12,7 +12,6 @@ import './EventDetail.css';
 
 const EventDetailWrapper = styled.div`
   padding-top: 30px;
-  margin-top: 50px;
 `;
 
 const EventTitle = styled.h1`
@@ -103,7 +102,7 @@ const EventDetail = () => {
       <HelmetWrapper pageTitle={event.title} description={`Details for ${event.title}`} />
       <Container>
         <EventDetailWrapper>
-          <div className="event-detail my-5">
+          <div className="event-detail">
             <Breadcrumbs />
             {eventClosed && (
               <Alert variant="danger" className="text-center">

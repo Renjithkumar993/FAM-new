@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { FaCalendarAlt, FaHandsHelping, FaBell } from 'react-icons/fa';
 import './WhatWeDo.css';
 import { Container } from 'react-bootstrap';
@@ -20,35 +19,34 @@ const WhatWeDo = () => {
   const containerRef = useRef(null);
   const [cardData] = useState(initialCardData);
 
-  useGSAP(
-    () => {
-      const cards = gsap.utils.toArray('.whatwedoo-card');
-      cards.forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          {
-            x: -250,
-            opacity: 0,
+  useEffect(() => {
+    const cards = gsap.utils.toArray('.whatwedoo-card');
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        {
+          x: -250,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          backgroundColor: colors[index % colors.length],
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            end: 'top 30%',
+            scrub: true,
+            markers: false,
           },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            backgroundColor: colors[index % colors.length],
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 80%',
-              end: 'top 30%',
-              scrub: true,
-              markers: false,
-            },
-          }
-        );
-      });
-    },
-    { scope: containerRef }
-  );
+        }
+      );
+    });
+
+    ScrollTrigger.refresh();
+  }, [cardData]);
 
   return (
     <Container>
