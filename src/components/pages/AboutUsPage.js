@@ -3,24 +3,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AboutUsPage.css';
 import FullWidthImage from '../FullWidthImage';
-import { useInView } from 'react-intersection-observer';
 import Breadcrumbs from '../Breadcrumbs';
 import HelmetWrapper from '../HelmetWrapper';
 import JoinComponent from '../JoinComponent';
 import Loading from '../Loading'; // Ensure this is the correct path to your Loading component
+import { motion } from 'framer-motion';
 
 const AboutUsPage = () => {
   const [aboutData, setAboutData] = useState(null);
   const [missionVisionData, setMissionVisionData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const [ref1, inView1] = useInView({ triggerOnce: false });
-  const [ref2, inView2] = useInView({ triggerOnce: false });
-  const [ref3, inView3] = useInView({ triggerOnce: false });
-  const [ref4, inView4] = useInView({ triggerOnce: false });
-
-
 
   useEffect(() => {
     const fetchAboutData = async () => {
@@ -61,6 +54,16 @@ const AboutUsPage = () => {
   const aboutImage1 = `${process.env.PUBLIC_URL}/images/fredericton/Fredericton-image-1.jpg`;
   const aboutImage2 = `${process.env.PUBLIC_URL}/images/fredericton/Fredericton-image-2.jpg`;
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
+  };
+
   return (
     <>
       <HelmetWrapper 
@@ -70,69 +73,115 @@ const AboutUsPage = () => {
       <div className="about-us-page">
         <Container className="about-us-content">
           <Breadcrumbs />
-          <Row className={`mb-1 ${inView1 ? 'animate' : ''}`} ref={ref1}>
+          <Row className="mb-1">
             <Col>
-              <h1 className="about-heading">About Fredericton Association of Malayalees</h1>
+              <motion.h1 
+                className="about-heading"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ duration: 0.6 }}
+              >
+                About Fredericton Association of Malayalees
+              </motion.h1>
             </Col>
           </Row>
           <Row className='align-items-center'>
-            <Col md={6} className={`${inView2 ? 'animate' : 'align-items-center'}`} ref={ref2}>
-              <div className="about-description">
+            <Col md={6}>
+              <motion.div 
+                className="about-description"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ duration: 0.6 }}
+              >
                 {aboutData.about.description.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
-              </div>
+              </motion.div>
             </Col>
-            <Col md={6} className={`${inView2 ? 'animate' : ''}`} ref={ref2}>
-              <div className="image-container">
+            <Col md={6}>
+              <motion.div 
+                className="image-container"
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.6 }}
+              >
                 <img src={aboutImage1} alt="About Us" className="about-image" />
-              </div>
+              </motion.div>
             </Col>
           </Row>
-          <Row className="statistics mt-4 ">
+          <Row className="statistics mt-4">
             {aboutData.about.statistics.map((stat, index) => (
-              <Col md={6} key={index} className={`stat-item ${inView3 ? 'animate' : ''}`} ref={ref3}>
-                <ul>
-                  {stat.list.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
+              <Col md={6} key={index}>
+                <motion.div 
+                  className="stat-item"
+                  initial="hidden"
+                  animate="visible"
+                  variants={fadeInUp}
+                  transition={{ duration: 0.6 }}
+                >
+                  <ul>
+                    {stat.list.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </motion.div>
               </Col>
             ))}
           </Row>
           <Row className="mt-5 align-items-center">
-            <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
-              <div className="image-container">
+            <Col md={6}>
+              <motion.div 
+                className="image-container"
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.6 }}
+              >
                 <img src={aboutImage2} alt="Activities" className="about-image" />
-              </div>
+              </motion.div>
             </Col>
-            <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
-              <div className="mission-description">
+            <Col md={6}>
+              <motion.div 
+                className="mission-description"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ duration: 0.6 }}
+              >
                 <h2>Fredericton Association of Malayalees</h2>
-                <p>
-                  Through FAM (Fredericton Association of Malayalees), we unite and join hands to pass the culture on to generations. As a team, we conduct cultural activities, linguistic programs, festivals, charity activities, etc. FAM is a forum where we can meet, exchange views, and foster friendships.
-                </p>
-                <p>
-                  Malayalees in Fredericton are represented in FAM, which advocates for their wellbeing and cultural needs. With all our cooperative efforts, FAM pledges to keep our next generation abreast of our mother tongue, culture, and enriched heritage.
-                </p>
-                <p>
-                  We are open to collaborating and engaging with other cultural groups and ethnicities. Let us hold our hands to form a composite culture with every color and song to be felt and experienced in its original essence under a single umbrella.
-                </p>
-              </div>
+                {aboutData.about.additionalSection.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </motion.div>
             </Col>
           </Row>
           <Row className="mt-5">
-            <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
-              <div className="mission-vision">
+            <Col md={6}>
+              <motion.div 
+                className="mission-vision"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ duration: 0.6 }}
+              >
                 <h2>Our Mission</h2>
                 <p>{missionVisionData.missionVision.mission}</p>
-              </div>
+              </motion.div>
             </Col>
-            <Col md={6} className={`${inView4 ? 'animate' : ''}`} ref={ref4}>
-              <div className="mission-vision">
+            <Col md={6}>
+              <motion.div 
+                className="mission-vision"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ duration: 0.6 }}
+              >
                 <h2>Our Vision</h2>
                 <p>{missionVisionData.missionVision.vision}</p>
-              </div>
+              </motion.div>
             </Col>
           </Row>
         </Container>

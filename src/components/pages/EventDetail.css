@@ -1,90 +1,11 @@
-
-
-.event-title-detail {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.event-date-time {
-  font-size: 1.2rem;
-  color: black;
-  margin-bottom: 20px;
-}
-
-.event-description,
-.event-info p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.event-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
-
-.event-info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.event-info ul li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-.event-info a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.event-info a:hover {
-  text-decoration: underline;
-}
-
-.register-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.register-buttons .btn {
-  flex: 1;
-  padding: 10px 15px;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
-}
-
-.register-buttons .btn:hover {
-  background-color: #0056b3;
-}
-
-.location-info {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-}
-
-.location-info svg {
-  margin-right: 8px;
-}
-
-@media (max-width: 767.98px) {
-  .event-title {
-    font-size: 2rem;
+.event-image-container {
+    flex: 1;
+    overflow: hidden;
+    max-width: 500px;
   }
-
-  .event-date-time,
-  .event-description,
-  .event-info p {
-    font-size: 1rem;
+  .event-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-
-  .event-info h3 {
-    font-size: 1.5rem;
-  }
-
-  .register-buttons {
-    flex-direction: column;
-  }
-}

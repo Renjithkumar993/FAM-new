@@ -9,10 +9,10 @@
   }
   
   .footer-widget h3 {
-    margin-bottom: 20px;
+   
     position: relative;
     padding-bottom: 10px;
-    font-size: 1.2rem;
+
   }
   
   .footer-widget h3::after {

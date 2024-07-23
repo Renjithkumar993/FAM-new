@@ -7,108 +7,39 @@ import Breadcrumbs from '../Breadcrumbs';
 import ModalComponent from '../ModalComponent';
 import { LocationOn } from '@mui/icons-material';
 import styled from 'styled-components';
-import Loading from '../Loading'; // Import your Loading component
+import Loading from '../Loading';
+import "./EventDetail.css"
 
 const EventDetailWrapper = styled.div`
   padding-top: 30px;
-  border-radius: 15px;
   margin-top: 50px;
 `;
 
-const EventImageContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  &:hover:before {
-    opacity: 1;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 15px;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-`;
 
 const EventTitle = styled.h1`
-  font-size: 2.5rem;
+
   font-weight: bold;
-  color: #333;
   margin-bottom: 20px;
 `;
 
 const EventDateTime = styled.p`
   font-size: 1.2rem;
-  color: #777;
   margin-bottom: 20px;
 `;
 
 const LocationInfo = styled.p`
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  color: #555;
-
   a {
     color: #007bff;
     text-decoration: none;
-    margin-left: 8px;
 
     &:hover {
       text-decoration: underline;
     }
   }
-
-  svg {
-    margin-right: 8px;
-  }
 `;
 
 const EventDescription = styled.div`
-  margin-bottom: 20px;
-
-  h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 15px;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 20px;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 10px;
-    }
-  }
+  margin-top: 20px;
 `;
 
 const RegisterButtons = styled.div`
@@ -141,7 +72,7 @@ const EventDetail = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); // Replace with your actual URL
+        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`);
         if (!response.ok) {
           throw new Error('Failed to fetch events');
         }
@@ -162,7 +93,7 @@ const EventDetail = () => {
   const handleModalShow = (type) => setModalType(type);
 
   if (loading) {
-    return <Loading />; // Use your custom Loading component
+    return <Loading />;
   }
 
   if (error) {
@@ -191,9 +122,9 @@ const EventDetail = () => {
             )}
             <Row className="mb-4">
               <Col lg={6} className="event-image-container">
-                <EventImageContainer>
-                  <img src={`${event.image}`} alt={event.title} />
-                </EventImageContainer>
+               
+                  <img className="event-image img-fluid" src={`${event.image}`} alt={event.title} />
+               
               </Col>
               <Col lg={6}>
                 <EventTitle>{event.title}</EventTitle>
@@ -205,15 +136,19 @@ const EventDetail = () => {
                   <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">{event.location}</a>
                 </LocationInfo>
                 <EventDescription>
-                  <h3>About Onam</h3>
-                  <p>{event.description}</p>
-                  <ul>
-                    <li>Feast on our elaborate "Onam Sadhya," a sumptuous vegetarian banquet served on banana leaves.</li>
-                    <li>Enjoy traditional folk songs and dances.</li>
-                    <li>Marvel at intricate floral decorations known as "Athapookkalam" or "Onappookkalam".</li>
-                    <li>Participate in cultural programs and games that bring our community together.</li>
-                  </ul>
-                  <p>Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.</p>
+                  <h3>About the Event</h3>
+                  <p>{event.details}</p>
+                  {event.extraDetails && (
+                    <>
+                      <h3>Activities</h3>
+                      <ul>
+                        {event.extraDetails.activities.map((activity, index) => (
+                          <li key={index}>{activity}</li>
+                        ))}
+                      </ul>
+                      <p>{event.extraDetails.about}</p>
+                    </>
+                  )}
                 </EventDescription>
                 <RegisterButtons>
                   {event.formIframe ? (

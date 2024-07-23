@@ -3,8 +3,10 @@ import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { FaUserPlus } from 'react-icons/fa';
 import './JoinComponent.css';
+import { useNavigate } from 'react-router-dom';
 
 const JoinComponent = () => {
+  const navigate = useNavigate();
   const controls = useAnimation();
 
   return (
@@ -22,10 +24,12 @@ const JoinComponent = () => {
       </div>
       <motion.button
         className="join-signup-button"
+        onClick={() => navigate('/joinus')}
         whileHover={{ backgroundColor: "#d43f13", color: "#fff", scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         <FaUserPlus style={{ marginRight: '10px' }} /> Join Community
+        
       </motion.button>
     </motion.div>
   );

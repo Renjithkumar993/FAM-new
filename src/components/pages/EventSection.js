@@ -117,26 +117,35 @@ const EventSection = () => {
             return (
               <VerticalTimelineElement
                 key={index}
-                date={eventDate}
                 iconStyle={{ background: isOpen ? 'green' : 'gray', color: 'white' }}
                 icon={<i className={eventIcon}></i>}
-                contentStyle={{ borderRadius: '15px' }}  // Add border radius to content box
+                contentStyle={{ borderRadius: '15px', position: 'relative', padding: '20px' }}  // Add border radius to content box
                 dateClassName="custom-date"
               >
-                <h3 className="vertical-timeline-element-title">{event.title}</h3>
-                <h4 className="vertical-timeline-element-subtitle">{event.location}</h4>
-                <p>{event.details}</p>
-                <div className="event-additional-details">
-                  <p><strong>Time:</strong> {event.time}</p>
+                <div className="event-card-content">
+                  {event.image && (
+                    <div className="event-timeline-image">
+                      <img src={event.image} alt={event.title} className="timeline-image" />
+                    </div>
+                  )}
+                  <div className="event-card-details ">
+                    <h3 className="vertical-timeline-element-title">{event.title}</h3>
+                    <div className="event-additional-details">
+                      <p><i className="fas fa-calendar-alt"></i> <strong>Date:</strong> {eventDate}</p>
+                      <p><i className="fas fa-clock"></i> <strong>Time:</strong> {event.time}</p>
+                      <p><i className="fas fa-map-marker-alt"></i> <strong>Location:</strong> {event.location}</p>
+                    </div>
+                    <p>{event.details}</p>
+                    <Button
+                      className='registrationButton'
+                      variant={isOpen ? "success" : "danger"}
+                      disabled={!isOpen}
+                      onClick={() => handleRegister(event.eventId, isOpen)}
+                    >
+                      {isOpen ? "Register" : "Registration Closed"}
+                    </Button>
+                  </div>
                 </div>
-                <Button
-                  className='registrationButton'
-                  variant={isOpen ? "success" : "danger"}
-                  disabled={!isOpen}
-                  onClick={() => handleRegister(event.eventId, isOpen)}
-                >
-                  {isOpen ? "Register" : "Registration Closed"}
-                </Button>
               </VerticalTimelineElement>
             );
           })}

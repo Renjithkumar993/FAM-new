@@ -1,17 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-.mv-notification-container {
-  padding: 20px;
-  background: white;
-  color: #fff;
-  min-height: 87vh; /* Ensuring the container takes the full height of the viewport */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0px;
-}
-
 .upcoming-event-heading {
   font-size: 3.5rem;
   margin: 20px 0;

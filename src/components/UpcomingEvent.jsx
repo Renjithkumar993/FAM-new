@@ -4,7 +4,7 @@ import Countdown from 'react-countdown';
 import './UpcomingEvent.css';
 import moment from 'moment-timezone';
 import { useNavigate } from 'react-router-dom';
-import Loading from './Loading'; // Import your custom Loading component
+import Loading from './Loading'; 
 
 const UpcomingEvent = () => {
   const [updatedEvents, setUpdatedEvents] = useState([]);
@@ -36,7 +36,7 @@ const UpcomingEvent = () => {
   }, []);
 
   if (loading) {
-    return <Loading />; // Use your custom Loading component
+    return <Loading />; 
   }
 
   if (error) {

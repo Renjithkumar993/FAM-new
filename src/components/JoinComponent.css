@@ -37,8 +37,7 @@ p {
   padding: 15px 30px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
+
   display: flex;
   align-items: center;
   transition: all 0.3s ease;

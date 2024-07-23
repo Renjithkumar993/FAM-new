@@ -27,7 +27,7 @@
 
 .event-section-page .vertical-timeline-element-subtitle {
   margin-bottom: 10px;
-  color: #666;
+ 
 }
 
 .event-section-page .vertical-timeline-element p {
@@ -44,12 +44,32 @@
   border-radius: 20px;
 }
 
+.event-section-page .event-card-content {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 .event-section-page .event-timeline-image {
-  display: none; /* Remove the image from the timeline element */
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.event-section-page .timeline-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-section-page .event-card-details {
+  flex: 1;
+ 
 }
 
 .custom-date {
-  
   padding: 5px 10px;
   border-radius: 10px; /* Rounded corners for the date box */
   color: red;
@@ -59,8 +79,37 @@
 .registrationButton {
   display: block;
 }
-.event-heading{
-  color:#ff6341;
+
+.event-heading {
+  color: #ff6341;
   font-size: 2rem;
-margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .event-section-page .event-card-content {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .event-section-page .event-timeline-image {
+    margin-bottom: 20px;
+  }
+
+  .event-section-page .event-card-details {
+    text-align: start;
+  }
+}
+
+@media (max-width: 576px) {
+  .event-section-page .filter-row .form-control {
+    font-size: 0.875rem;
+    padding: 8px;
+  }
+
+  .event-section-page .event-timeline-image {
+    width: 80px;
+    height: 80px;
+  }
 }

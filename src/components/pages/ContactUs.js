@@ -38,21 +38,7 @@ const ContactUs = () => {
                 <p>Feel free to reach out to us with any questions or concerns. We are here to help!</p>
                 <p><strong>Email:</strong> <a href="mailto:info@famnb.ca" className="contact-link">info@famnb.ca</a></p>
                 <p><strong>Address:</strong> Fredericton, NB</p>
-              </div>
-              <div className="facebook-page-plugin">
-                <div className="fb-page" 
-                     data-href="https://www.facebook.com/profile.php?id=61552104893247" 
-                     data-tabs="timeline" 
-                     data-width="500" 
-                     data-height="300" 
-                     data-small-header="false" 
-                     data-adapt-container-width="true" 
-                     data-hide-cover="false" 
-                     data-show-facepile="true">
-                  <blockquote cite="https://www.facebook.com/profile.php?id=61552104893247" className="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/profile.php?id=61552104893247">Fredericton Association of Malayalees - FAM</a>
-                  </blockquote>
-                </div>
+          
               </div>
             </Col>
           </Row>
