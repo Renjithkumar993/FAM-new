@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import moment from 'moment-timezone';
 import HelmetWrapper from '../HelmetWrapper';
 import Breadcrumbs from '../Breadcrumbs';
-import ModalComponent from '../ModalComponent';
 import { LocationOn, Event, AccessTime } from '@mui/icons-material';
 import styled from 'styled-components';
-import Loading from '../Loading';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import './EventDetail.css';
+
+const ModalComponent = lazy(() => import('../ModalComponent'));
+const Loading = lazy(() => import('../Loading'));
 
 const EventDetailWrapper = styled.div`
   padding-top: 30px;
@@ -82,7 +85,11 @@ const EventDetail = () => {
   const handleModalShow = (type) => setModalType(type);
 
   if (loading) {
-    return <Loading />;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Loading />
+      </Suspense>
+    );
   }
 
   if (error) {
@@ -111,7 +118,12 @@ const EventDetail = () => {
             )}
             <Row className="mb-4">
               <Col lg={6} className="event-image-container">
-                <img className="event-image img-fluid" src={`${event.image}`} alt={event.title} />
+                <LazyLoadImage
+                  className="event-image img-fluid"
+                  src={`${event.image}`}
+                  alt={event.title}
+                  effect="blur"
+                />
               </Col>
               <Col lg={6}>
                 <EventTitle className="event-title">{event.title}</EventTitle>
@@ -177,10 +189,14 @@ const EventDetail = () => {
         </EventDetailWrapper>
       </Container>
       {event.formIframe && (
-        <ModalComponent open={modalType === 'form'} handleClose={handleModalClose} iframeSrc={event.formIframe} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ModalComponent open={modalType === 'form'} handleClose={handleModalClose} iframeSrc={event.formIframe} />
+        </Suspense>
       )}
       {event.performanceIframe && (
-        <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
+        </Suspense>
       )}
     </>
   );

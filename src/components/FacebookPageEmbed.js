@@ -146,6 +146,16 @@ const FacebookPageEmbed = () => {
     }
   }, [loadFacebookSDK, retryCount, maxRetries]);
 
+  useEffect(() => {
+    return () => {
+      // Cleanup script tag and FB SDK on unmount
+      const script = document.getElementById('facebook-jssdk');
+      if (script) {
+        script.remove();
+      }
+    };
+  }, []);
+
   return (
     <>
       <WaveBackground />

@@ -2,26 +2,43 @@ import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useInView } from 'react-intersection-observer';
-import { FaCalendarAlt, FaHandsHelping, FaBell, FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import './WhatWeDo.css';
 import { Container, Button } from 'react-bootstrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const initialCardData = [
-  { id: 1, title: "Helpful Document", description: "We have a helpful document to guide you through.", icon: <FaFileDownload />, link: `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf`, color: '#d9534f' },
-  { id: 2, title: "Join Facebook Group", description: "Join our Facebook group to stay connected with the community.", icon: <FaFacebook />, link: "https://www.facebook.com/profile.php?id=61552104893247", color: '#3b5998' },
-  { id: 3, title: "Join WhatsApp Group", description: "Join our WhatsApp group for instant updates.", icon: <FaWhatsapp />, link: "https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB", color: '#25D366' }
+  {
+    id: 1,
+    title: "Helpful Document",
+    description: "We have a helpful document to guide you through.",
+    icon: <FaFileDownload />,
+    link: `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf`,
+    color: '#d9534f'
+  },
+  {
+    id: 2,
+    title: "Join Facebook Group",
+    description: "Join our Facebook group to stay connected with the community.",
+    icon: <FaFacebook />,
+    link: "https://www.facebook.com/profile.php?id=61552104893247",
+    color: '#3b5998'
+  },
+  {
+    id: 3,
+    title: "Join WhatsApp Group",
+    description: "Join our WhatsApp group for instant updates.",
+    icon: <FaWhatsapp />,
+    link: "https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB",
+    color: '#25D366'
+  }
 ];
-
 
 const colors = ['#d9534f', '#3b5998', '#25D366'];
 
-
 const WhatWeDo = () => {
   const containerRef = useRef(null);
-  const [cardData] = useState(initialCardData);
-
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -54,15 +71,17 @@ const WhatWeDo = () => {
         );
       });
     }
-
     ScrollTrigger.refresh();
-  }, [inView, cardData]);
+    return () => {
+      ScrollTrigger.getAll().forEach(instance => instance.kill());
+    };
+  }, [inView]);
 
   return (
     <Container>
       <div className="whatwedoo-container" ref={containerRef}>
         <div className="whatwedoo-cards" ref={ref}>
-          {cardData.map((card) => (
+          {initialCardData.map((card) => (
             <div className="card-wrapper" key={card.id}>
               <div className="whatwedoo-card card-contents">
                 <div className="card-description">
@@ -72,11 +91,11 @@ const WhatWeDo = () => {
                 <div className="card-icon">{card.icon}</div>
                 {card.link && (
                   <div className="text-center mt-3">
-                    <Button 
-                      variant="primary" 
-                      href={card.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <Button
+                      variant="primary"
+                      href={card.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{ backgroundColor: card.color }}
                     >
                       {card.icon} Open

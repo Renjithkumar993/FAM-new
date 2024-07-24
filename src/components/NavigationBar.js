@@ -48,7 +48,7 @@ const NavigationBar = () => {
         <Toolbar disableGutters>
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
-              <img src={logo} alt="FAM Logo" className={`logo ${scrolled ? 'logo-scrolled' : ''}`} />
+            <img src={logo} alt="FAM Logo" className={`logo ${scrolled ? 'logo-scrolled' : ''}`} loading="lazy" />
               <Typography variant="h6" component="div" sx={{ display: { xs: 'none', md: 'block' } }}>
                 {/* Add your title or logo text here */}
               </Typography>
@@ -137,5 +137,6 @@ const NavigationBar = () => {
     </AppBar>
   );
 };
+
 
 export default NavigationBar;

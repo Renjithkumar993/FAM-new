@@ -7,9 +7,9 @@ const PageWithHelmet = ({ pageTitle, Component }) => {
     "@type": "Organization",
     "name": "Fredericton Association of Malayalees",
     "url": "https://famnb.ca",
-    "logo": "https://famnb.ca/favicon.ico",
+    "logo": "https://famnb.ca/images/logofam.jpg",
     "sameAs": [
-      "https://www.facebook.com/profile.php?id=61552104893247",
+      "https://www.facebook.com/profile.php?id=61552104893247"
     ]
   };
 
