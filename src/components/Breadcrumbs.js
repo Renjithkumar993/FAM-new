@@ -59,7 +59,7 @@ const Breadcrumbs = () => {
                 alignItems: 'center',
                 fontSize: '0.8rem',
                 padding: '6px 8px',
-                borderRadius: '10px',
+                borderRadius: '4px',
                 background: '#f0f0f0'
               }}
             >

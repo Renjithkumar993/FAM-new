@@ -99,7 +99,7 @@ const UpcomingEvent = () => {
           </Row>
           <h4 className="event-title">{title}</h4>
           <p className="event-description text-black">{description}</p>
-          <h5 className="event-date">{eventDate.format('MMMM D, YYYY')}</h5>
+          <h5 className="event-date-upcoming">{eventDate.format('MMMM D, YYYY')}</h5>
           <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
           <Button
             className="mv-register-btn mt-3 mb-3"

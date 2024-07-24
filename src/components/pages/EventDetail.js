@@ -132,6 +132,7 @@ const EventDetail = () => {
                 <EventDescription className="event-description">
                   <h3>About the Event</h3>
                   <p>{event.details}</p>
+                  <p>Learn more about Onam <a href="https://en.wikipedia.org/wiki/Onam" target="_blank" rel="noopener noreferrer">here</a>.</p>
                   {event.extraDetails && (
                     <>
                       <h3>Activities</h3>

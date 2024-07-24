@@ -18,6 +18,10 @@ const Gallery = () => {
           throw new Error('Network response was not ok');
         }
         const imageList = await response.json();
+        if (imageList.length === 0) {
+          setError('Gallery will be updated soon');
+          return;
+        }
         const imageObjects = imageList.map(image => ({
           original: `${process.env.PUBLIC_URL}/images/galleryimages/${image}`,
           thumbnail: `${process.env.PUBLIC_URL}/images/galleryimages/${image}`,
@@ -49,7 +53,17 @@ const Gallery = () => {
   }
 
   if (error) {
-    return <div className="error-message">{error}</div>;
+    return (
+      <div className="container Gallery-page">
+        <div className="mt-5">
+          <Breadcrumbs className="mt-5" />
+        </div>
+        <h1 className="event-heading">Our Gallery</h1>
+        <div className="error-message-container">
+          <div className="error-message">{error}</div>
+        </div>
+      </div>
+    );
   }
 
   return (
