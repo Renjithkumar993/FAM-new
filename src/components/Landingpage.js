@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 
-const image = `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.jpg`;
+const image = `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.avif`;
 
 const texts = [
   {

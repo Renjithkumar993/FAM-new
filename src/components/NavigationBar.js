@@ -14,7 +14,7 @@ const pages = [
   { name: 'Join Community', icon: faUsers, path: '/joinus' },
 ];
 
-const logo = `${process.env.PUBLIC_URL}/images/logofam.jpg`;
+const logo = `${process.env.PUBLIC_URL}/images/logofam.avif`;
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

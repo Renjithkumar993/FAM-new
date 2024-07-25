@@ -1,10 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import './Footer.css';
 import { useNavigate } from 'react-router-dom';
+import './Footer.css';
 
 const Footer = () => {
   const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
 
   return (
     <footer className="footer-section">
@@ -25,17 +29,17 @@ const Footer = () => {
               <h3>Quick Links</h3>
               <ul className="footer-links">
                 <li>
-                  <button onClick={() => navigate('/joinus')} className="link-button">
+                  <button onClick={() => handleNavigate('/joinus')} className="link-button">
                     Register
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigate('/aboutus')} className="link-button">
+                  <button onClick={() => handleNavigate('/aboutus')} className="link-button">
                     About
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigate('/events')} className="link-button">
+                  <button onClick={() => handleNavigate('/events')} className="link-button">
                     Buy Tickets
                   </button>
                 </li>
@@ -46,7 +50,7 @@ const Footer = () => {
             <div className="footer-widget">
               <h3>Contact Us</h3>
               <p>
-                Email: <a href="mailto:operations@halifaxmalayaliassociation.com">info@famnb.ca</a>
+                Email: <a href="mailto:info@famnb.ca">info@famnb.ca</a>
               </p>
               <p>Address: Fredericton, New Brunswick, Canada</p>
             </div>
@@ -56,13 +60,13 @@ const Footer = () => {
           <Col md={12} className="text-center">
             <p>© 2024 Fredericton Association Of Malayalees</p>
             <div className="footer-social">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
