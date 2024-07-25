@@ -61,7 +61,7 @@ const AdvertisingComponent = () => {
         <Container className="advertising-container" ref={ref}>
             <Row className="align-items-center justify-content-center text-center">
                 <Col xs={12} className="ad-label">
-                    Annual Sponsor
+                    Our Sponsor
                 </Col>
                 <Col xs="auto" className="image-col">
                     <img src={`${process.env.PUBLIC_URL}/images/sponsors/khaleel.jpg`} alt="Sponsor Image" className="sponsor-image" />

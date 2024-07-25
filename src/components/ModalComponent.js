@@ -28,10 +28,11 @@ const ModalComponent = ({ open, handleClose, iframeSrc }) => {
           sx={{ 
             position: 'absolute', 
             top: 8, 
-            left: 8, 
+            right: 8,  // Move the button to the right
             color: '#ff6341', // Orange color
             zIndex: 1,
-            fontSize: '2rem' // Make the button larger
+            fontSize: '2.5rem',
+            fontWeight:"bolder" // Make the button larger
           }}
           onClick={handleClose}
         >
@@ -45,6 +46,8 @@ const ModalComponent = ({ open, handleClose, iframeSrc }) => {
             border: 'none',
             margin: 0,
             padding: 0,
+            position: 'relative',
+            zIndex: 0, // Ensure the iframe is below the close button
           }}
           title="Modal Content"
         ></iframe>
