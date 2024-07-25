@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './LandingPage.css';
-import { VerticalAlignBottom } from '@mui/icons-material';
 
 const slides = [
   {
-    image: `${process.env.PUBLIC_URL}/images/heroimages/Fredericton-Hero.avif`,
+    image: `${process.env.PUBLIC_URL}/images/heroimages/Fredericton_Sunset_2021.avif`,
     welcome: 'Welcome to FAM',
     description: 'Fredericton Association of Malayalees (FAM) is a registered non-profit organization established under the Society Act in 2021.',
     primaryBtn: { text: 'About Us', action: '#about' },

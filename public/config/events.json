@@ -8,7 +8,7 @@
     "time": "10:00 AM - 5:00 PM",
     "location": "715 rue, Priestman St, Fredericton, NB E3B 5W7, Canada",
     "isOpen": true,
-    "formIframe": "",
+    "formIframe": "https://www.zeffy.com/ticketing/63199576-2e24-49e2-9fe1-499849096770",
     "performanceIframe": "",
     "extraDetails": {
       "about": "Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.",
@@ -26,7 +26,7 @@
     "description": "Celebrate the festive season with our combined Christmas and New Year party featuring music, dance, and a visit from Santa.",
     "image": "/images/events/famxmas.jpeg",
     "details": "Join us for a grand celebration of Christmas and New Year. Enjoy live music, dance performances, and a special visit from Santa Claus. The event will feature delicious holiday treats and a spectacular fireworks display to welcome the new year.",
-    "time": "6:00 PM - 1:00 AM",
+    "time": "1:00 PM - 9:00 PM",
     "location": "Fredericton, NB",
     "isOpen": false,
     "formIframe": "https://www.zeffy.com/embed/ticketing/12345678-9abc-def0-1234-56789abcdef0",

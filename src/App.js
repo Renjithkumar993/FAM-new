@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
 import { Element } from 'react-scroll';
+import AdvertisingComponent from './components/AdvertisingComponent';
 
 const AboutUsPage = lazy(() => import('./components/pages/AboutUsPage'));
 const EventSection = lazy(() => import('./components/pages/EventSection'));
@@ -85,7 +86,10 @@ const MainPage = React.memo(() => {
   return (
     <>
       <Suspense fallback={<Loading loading={true} />}>
+
+
         <Element name="home" id="home"><LandingPage /></Element>
+        <AdvertisingComponent />
         <Element name="about" id='about'><AboutUs /></Element>
         <Element name="mission" id="mission"><MissionVision /></Element>
         <FacebookPageEmbed />
@@ -101,6 +105,7 @@ const App = () => {
   return (
     <div>
       <ScrollToTop />
+
       <NavigationBar />
       <ErrorBoundary>
         <Suspense fallback={<Loading loading={true} />}>
