@@ -89,9 +89,10 @@ const MainPage = React.memo(() => {
 
 
         <Element name="home" id="home"><LandingPage /></Element>
-        <AdvertisingComponent />
+   
         <Element name="about" id='about'><AboutUs /></Element>
         <Element name="mission" id="mission"><MissionVision /></Element>
+        <AdvertisingComponent />
         <FacebookPageEmbed />
         <Steps />
         <JoinComponent />

@@ -51,9 +51,8 @@ const LandingPage = () => {
         showStatus={false}
         interval={4000}
         transitionTime={1000}
-        swipeable={false}
         emulateTouch={false}
-      
+        swipeable={false}
       >
         {slides.map((slide, index) => (
           <div key={index} className="carousel-slide" style={{ backgroundImage: `url(${slide.image})` }}>

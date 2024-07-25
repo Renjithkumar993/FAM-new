@@ -59,12 +59,17 @@ const AdvertisingComponent = () => {
 
     return (
         <Container className="advertising-container" ref={ref}>
-            <Row className="align-items-center justify-content-between">
-                <Col xs="12" className="ad-label text-center">
-                    Advertisement
+            <Row className="align-items-center justify-content-center text-center">
+                <Col xs={12} className="ad-label">
+                    Annual Sponsor
                 </Col>
                 <Col xs="auto" className="image-col">
                     <img src={`${process.env.PUBLIC_URL}/images/sponsors/khaleel.jpg`} alt="Sponsor Image" className="sponsor-image" />
+                </Col>
+                <Col xs="auto" className="image-col">
+                    <a href={adData.linkUrl} target="_blank" rel="noopener noreferrer">
+                        <img src={adData.imageUrl} alt={adData.altText} className="advertising-image img-fluid" />
+                    </a>
                 </Col>
                 <Col xs="auto" className="text-col">
                     <div className="advertising-text">
@@ -86,11 +91,6 @@ const AdvertisingComponent = () => {
                             )}
                         </div>
                     </div>
-                </Col>
-                <Col xs="auto" className="image-col">
-                    <a href={adData.linkUrl} target="_blank" rel="noopener noreferrer">
-                        <img src={adData.imageUrl} alt={adData.altText} className="advertising-image" />
-                    </a>
                 </Col>
                 <Col xs="auto" className="button-col">
                     <Button

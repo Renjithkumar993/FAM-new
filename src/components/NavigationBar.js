@@ -26,7 +26,7 @@ const NavigationBar = () => {
   };
 
   const handleScroll = () => {
-    setScrolled(window.scrollY > 100);
+    setScrolled(window.scrollY > 50);
   };
 
   useEffect(() => {
