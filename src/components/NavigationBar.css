@@ -1,4 +1,5 @@
-/* NavigationBar.css */
+
+
 .navbar {
   background-color: transparent !important;
   transition: background-color 0.3s ease;
@@ -51,7 +52,7 @@
 }
 
 .navbar .MuiIconButton-root {
-  font-size: 2rem; /* Increase size of the toggle bar icon */
+  font-size: 2rem;
 }
 
 @media (max-width: 768px) {

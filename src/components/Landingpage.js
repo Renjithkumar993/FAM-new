@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 
@@ -27,20 +26,18 @@ const texts = [
 ];
 
 const LandingPage = () => {
-  const { ref: textRef, inView: textInView } = useInView({ triggerOnce: false });
-  const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: false });
   const navigate = useNavigate();
   const [textIndex, setTextIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 4000); // Change text every 4 seconds
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const handlePrimaryButtonClick = (action) => {
+  const handlePrimaryButtonClick = useCallback((action) => {
     if (action.startsWith('#')) {
       const element = document.querySelector(action);
       if (element) {
@@ -49,19 +46,19 @@ const LandingPage = () => {
     } else {
       navigate(action);
     }
-  };
+  }, [navigate]);
 
   return (
     <div className="landing-page">
-      <div className="hero-section" ref={heroRef}>
+      <div className="hero-section">
         <div
-          className={`hero-image ${heroInView ? 'fixed' : ''}`}
+          className="hero-image"
           style={{ backgroundImage: `url(${image})` }}
         />
         <div className="overlay"></div>
-        <main className="main-content mt-5">
-          <div className={`text-content ${textInView ? 'slide-in-left' : ''}`} ref={textRef}>
-            <h2 className="welcome-message mt-5">
+        <main className="main-content">
+          <div className="text-content">
+            <h2 className="welcome-message">
               {texts[textIndex].welcome}
             </h2>
             <div className="left-aligned-content">
