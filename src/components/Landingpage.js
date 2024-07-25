@@ -52,6 +52,8 @@ const LandingPage = () => {
         showStatus={false}
         interval={4000}
         transitionTime={1000}
+        swipeable={false}
+        emulateTouch={false}
       
       >
         {slides.map((slide, index) => (
