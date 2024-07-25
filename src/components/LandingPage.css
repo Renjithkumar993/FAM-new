@@ -2,56 +2,37 @@
   position: relative;
 }
 
-.hero-section {
-  width: 100%;
-  height: 100vh;
+.carousel .carousel-slide {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
   background-size: cover;
   background-position: center;
+  height: 100vh;
 }
 
-.hero-image {
+
+.text-content {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-
-.main-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
   text-align: center;
-  color: white;
+  z-index: 2;
+  width: 100%;
   padding: 20px;
-  z-index: 3;
-}
-
-
-.welcome-message, .left-aligned-content p {
-  color: white;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8), 4px 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 .welcome-message {
   font-size: 4.5em;
   margin-bottom: 10px;
   font-weight: bold;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8), 4px 4px 8px rgba(0, 0, 0, 0.6);
 }
 
-.left-aligned-content p {
+.text-content p {
   font-size: 1.2em;
   margin: 10px 0;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8), 4px 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 @media (min-width: 1200px) {
@@ -59,7 +40,7 @@
     font-size: 6em;
   }
 
-  .left-aligned-content p {
+  .text-content p {
     font-size: 1.5em;
   }
 }
@@ -99,7 +80,7 @@
 }
 
 @media (max-width: 768px) {
-  .main-content {
+  .text-content {
     padding: 40px 20px;
   }
 
@@ -107,7 +88,7 @@
     font-size: 2em;
   }
 
-  .left-aligned-content p {
+  .text-content p {
     font-size: 1em;
   }
 }

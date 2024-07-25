@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import moment from 'moment-timezone';
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import './EventSection.css';
-import Breadcrumbs from '../Breadcrumbs'; // Import Breadcrumbs component
-import HelmetWrapper from '../HelmetWrapper'; // Import HelmetWrapper for SEO
-import Loading from '../Loading'; // Import your Loading component
+import Breadcrumbs from '../Breadcrumbs';
+import HelmetWrapper from '../HelmetWrapper'; 
+import Loading from '../Loading'; 
 
 const iconMapping = {
   conference: 'fas fa-chalkboard-teacher',
@@ -28,7 +28,7 @@ const EventSection = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); // Replace with your actual URL
+        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); 
         if (!response.ok) {
           throw new Error('Failed to fetch events');
         }

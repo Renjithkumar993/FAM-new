@@ -82,3 +82,10 @@
   text-decoration: none;
   color: #0056b3;
 }
+
+/* Ensure dimensions for images and icons */
+.footer-social a i {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}

@@ -1,23 +1,27 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './LandingPage.css';
+import { VerticalAlignBottom } from '@mui/icons-material';
 
-const image = `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.avif`;
-
-const texts = [
+const slides = [
   {
+    image: `${process.env.PUBLIC_URL}/images/heroimages/Fredericton-Hero.avif`,
     welcome: 'Welcome to FAM',
     description: 'Fredericton Association of Malayalees (FAM) is a registered non-profit organization established under the Society Act in 2021.',
     primaryBtn: { text: 'About Us', action: '#about' },
     secondaryBtn: { text: 'Learn more', action: '/aboutus' }
   },
   {
+    image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.avif`,
     welcome: 'Join us for our events',
     description: 'Explore our upcoming events and join us for a wonderful experience.',
     primaryBtn: { text: 'Events', action: '/events' },
     secondaryBtn: { text: 'More info', action: '/events' }
   },
   {
+    image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero1.avif`,
     welcome: 'Be a part of our community',
     description: 'Join us and be a part of a vibrant and supportive community.',
     primaryBtn: { text: 'Join Now', action: '/joinus' },
@@ -27,17 +31,8 @@ const texts = [
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [textIndex, setTextIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handlePrimaryButtonClick = useCallback((action) => {
+  const handlePrimaryButtonClick = (action) => {
     if (action.startsWith('#')) {
       const element = document.querySelector(action);
       if (element) {
@@ -46,37 +41,37 @@ const LandingPage = () => {
     } else {
       navigate(action);
     }
-  }, [navigate]);
+  };
 
   return (
     <div className="landing-page">
-      <div className="hero-section">
-        <div
-          className="hero-image"
-          style={{ backgroundImage: `url(${image})` }}
-        />
-        <div className="overlay"></div>
-        <main className="main-content">
-          <div className="text-content">
-            <h2 className="welcome-message">
-              {texts[textIndex].welcome}
-            </h2>
-            <div className="left-aligned-content">
-              <p>
-                {texts[textIndex].description}
-              </p>
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showThumbs={false}
+        showStatus={false}
+        interval={4000}
+        transitionTime={1000}
+      
+      >
+        {slides.map((slide, index) => (
+          <div key={index} className="carousel-slide" style={{ backgroundImage: `url(${slide.image})` }}>
+            <div className="overlay"></div>
+            <div className="text-content">
+              <h2 className="welcome-message">{slide.welcome}</h2>
+              <p>{slide.description}</p>
               <div className="button-group">
-                <button className="primary-btn" onClick={() => handlePrimaryButtonClick(texts[textIndex].primaryBtn.action)}>
-                  {texts[textIndex].primaryBtn.text}
+                <button className="primary-btn" onClick={() => handlePrimaryButtonClick(slide.primaryBtn.action)}>
+                  {slide.primaryBtn.text}
                 </button>
-                <button className="secondary-btn" onClick={() => navigate(texts[textIndex].secondaryBtn.action)}>
-                  {texts[textIndex].secondaryBtn.text}
+                <button className="secondary-btn" onClick={() => navigate(slide.secondaryBtn.action)}>
+                  {slide.secondaryBtn.text}
                 </button>
               </div>
             </div>
           </div>
-        </main>
-      </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
