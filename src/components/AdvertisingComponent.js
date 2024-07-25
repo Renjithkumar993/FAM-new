@@ -58,7 +58,7 @@ const AdvertisingComponent = () => {
     }
 
     return (
-        <Container className="advertising-container" ref={ref}>
+        <Container className="advertising-container align-items-center" ref={ref}>
             <Row className="align-items-center justify-content-center text-center">
                 <Col xs={12} className="ad-label">
                     Our Sponsor
@@ -71,40 +71,43 @@ const AdvertisingComponent = () => {
                         <img src={adData.imageUrl} alt={adData.altText} className="advertising-image img-fluid" />
                     </a>
                 </Col>
-                <Col xs="auto" className="text-col">
-                    <div className="advertising-text">
+                <Col xs="auto" className="text-col ">
+                    <div className="advertising-text ">
                         <h4>{adData.title}</h4>
-                        <div className="stats-container">
+                       <div className="stats-container ">
                             {startCount && (
                                 <>
                                     <div className="countup">
                                         <i className="fas fa-smile"></i>
-                                        <CountUp start={0} end={5000} duration={2.5} />
-                                        &nbsp;Happy Customers
+                                        <CountUp start={0} end={2000} duration={2.5} />
+                                        &nbsp;+ Happy Customers
                                     </div>
-                                    <div className="countup">
-                                        <i className="fas fa-box"></i>
-                                        <CountUp start={0} end={1000} duration={2.5} />
-                                        &nbsp;Plus Products
-                                    </div>
+                                    {/* <div className="countup"> */}
+                                        {/* <i className="fas fa-box"></i> */}
+                                        {/* <CountUp start={0} end={100} duration={2.5} /> */}
+                                        {/* &nbsp;Plus Products */}
+                                    {/* </div> */}
                                 </>
-                            )}
+                            )} 
                         </div>
                     </div>
                 </Col>
-                <Col xs="auto" className="button-col">
-                    <Button
-                        href={adData.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size="sm"
-                        className="adv-button"
-                        onClick={handleButtonClick}
-                    >
-                        Learn More
-                    </Button>
-                </Col>
+       
+               
+               
             </Row>
+            <Col xs="auto" className="button-col">
+     <Button
+         href={adData.linkUrl}
+         target="_blank"
+         rel="noopener noreferrer"
+         size="sm"
+         className="adv-button"
+         onClick={handleButtonClick}
+     >
+         Learn More
+     </Button>
+ </Col>
         </Container>
     );
 };

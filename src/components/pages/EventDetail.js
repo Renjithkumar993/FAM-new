@@ -159,7 +159,7 @@ const EventDetail = () => {
                 </EventDescription>
                 <RegisterButtons className="register-buttons">
                   <Row>
-                    <Col xs={12} sm={6} className="mb-2">
+                    <Col xs={12} sm={12} className="mb-2">
                       {event.formIframe ? (
                         <Button block onClick={() => handleModalShow('form')}>
                           Register for Event
@@ -170,7 +170,7 @@ const EventDetail = () => {
                         </Button>
                       )}
                     </Col>
-                    <Col xs={12} sm={6}>
+                    <Col xs={12} sm={12}>
                       {event.performanceIframe ? (
                         <Button block onClick={() => handleModalShow('performance')}>
                           Register for Performances
