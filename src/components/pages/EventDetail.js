@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment-timezone';
 import HelmetWrapper from '../HelmetWrapper';
 import Breadcrumbs from '../Breadcrumbs';
-import { LocationOn, Event, AccessTime } from '@mui/icons-material';
+import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaTicketAlt, FaInfoCircle, FaClipboardList } from 'react-icons/fa';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -15,13 +15,19 @@ const Loading = lazy(() => import('../Loading'));
 
 const EventDetailWrapper = styled.div`
   padding-top: 30px;
+  padding-bottom: 30px;
+  min-height: 100vh;
 `;
 
 const EventTitle = styled.h1`
   font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
 `;
 
 const LocationInfo = styled.p`
+  color: #666;
+
   a {
     color: #007bff;
     text-decoration: none;
@@ -34,22 +40,54 @@ const LocationInfo = styled.p`
 
 const EventDescription = styled.div`
   margin-top: 20px;
+  color: #555;
+
+  h3 {
+    margin-top: 20px;
+    color: #333;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  ul {
+    margin-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
 `;
 
 const RegisterButtons = styled.div`
   margin-top: 20px;
+  text-align: center;
 
-  .btn {
-    padding: 12px 20px;
-    font-size: 1.2rem;
-    background: linear-gradient(135deg, #ff6341, #ff9a41);
+  .btn-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     border: none;
     color: #fff;
     transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 30px;
+    margin: 10px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      background: linear-gradient(135deg, #ff9a41, #ff6341);
-      transform: translateY(-2px);
+      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+      transform: translateY(-3px);
+    }
+
+    svg {
+      margin-right: 8px;
     }
   }
 `;
@@ -123,31 +161,29 @@ const EventDetail = () => {
                   src={`${event.image}`}
                   alt={event.title}
                   effect="blur"
+                  style={{ borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
                 />
               </Col>
               <Col lg={6}>
                 <EventTitle className="event-title">{event.title}</EventTitle>
                 <div className="event-date-time">
-                  <div className="event-date">
-                    <Event />
-                    {eventDate.format('MMMM Do, YYYY')}
+                  <div className="event-date" style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                    <FaCalendarAlt style={{ marginRight: '8px' }} /> {eventDate.format('MMMM Do, YYYY')}
                   </div>
-                  <div className="event-time">
-                    <AccessTime />
-                    {event.time}
+                  <div className="event-time" style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                    <FaClock style={{ marginRight: '8px' }} /> {event.time}
                   </div>
                 </div>
                 <LocationInfo className="location-info">
-                  <LocationOn />
-                  <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">{event.location}</a>
+                  <FaMapMarkerAlt style={{ marginRight: '8px' }} /> <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">{event.location}</a>
                 </LocationInfo>
                 <EventDescription className="event-description">
-                  <h3>About the Event</h3>
+                  <h3><FaInfoCircle style={{ marginRight: '8px' }} /> About the Event</h3>
                   <p>{event.details}</p>
                   <p>Learn more about Onam <a href="https://en.wikipedia.org/wiki/Onam" target="_blank" rel="noopener noreferrer">here</a>.</p>
                   {event.extraDetails && (
                     <>
-                      <h3>Activities</h3>
+                      <h3><FaClipboardList style={{ marginRight: '8px' }} /> Activities</h3>
                       <ul>
                         {event.extraDetails.activities.map((activity, index) => (
                           <li key={index}>{activity}</li>
@@ -161,23 +197,23 @@ const EventDetail = () => {
                   <Row>
                     <Col xs={12} sm={12} className="mb-2">
                       {event.formIframe ? (
-                        <Button block onClick={() => handleModalShow('form')}>
-                          Register for Event
+                        <Button className="btn-ticket" block onClick={() => handleModalShow('form')}>
+                          <FaTicketAlt /> Get Tickets
                         </Button>
                       ) : (
-                        <Button block disabled>
-                          Event Registration - available soon
+                        <Button className="btn-ticket" block disabled>
+                          <FaTicketAlt /> Tickets Coming Soon
                         </Button>
                       )}
                     </Col>
                     <Col xs={12} sm={12}>
                       {event.performanceIframe ? (
-                        <Button block onClick={() => handleModalShow('performance')}>
-                          Register for Performances
+                        <Button className="btn-ticket" block onClick={() => handleModalShow('performance')}>
+                          <FaTicketAlt /> Register to Perform
                         </Button>
                       ) : (
-                        <Button block disabled>
-                          Performance Registration - available soon
+                        <Button className="btn-ticket" block disabled>
+                          <FaTicketAlt /> Performance Registration Soon
                         </Button>
                       )}
                     </Col>
