@@ -22,7 +22,7 @@ const JoinComponent = lazy(() => import('./components/JoinComponent'));
 const Gallery = lazy(() => import('./components/pages/Gallery'));
 const MissionVision = lazy(() => import('./components/MissionVision'));
 const AboutUs = lazy(() => import('./components/AboutUs'));
-const FacebookPageEmbed = lazy(() => import('./components/FacebookPageEmbed'))
+const FacebookPageEmbed = lazy(() => import('./components/FacebookPageEmbed'));
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -86,10 +86,7 @@ const MainPage = React.memo(() => {
   return (
     <>
       <Suspense fallback={<Loading loading={true} />}>
-
-
         <Element name="home" id="home"><LandingPage /></Element>
-   
         <Element name="about" id='about'><AboutUs /></Element>
         <Element name="mission" id="mission"><MissionVision /></Element>
         <AdvertisingComponent />
@@ -106,15 +103,14 @@ const App = () => {
   return (
     <div>
       <ScrollToTop />
-
       <NavigationBar />
       <ErrorBoundary>
         <Suspense fallback={<Loading loading={true} />}>
           <Routes>
-            <Route path="/" element={<PageWithHelmet pageTitle="Welcome to FAM - Fredericton Association of Malayalees" Component={MainPage} />} />
+            <Route path="/" element={<PageWithHelmet pageTitle="Fredericton Association of Malayalees" Component={MainPage} />} />
             <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
             <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
-            <Route path="/:eventId" element={<PageWithHelmet pageTitle="Event Detail" Component={EventDetail} />} />
+            <Route path="/:eventId" element={<PageWithHelmet Component={EventDetail} />} />
             <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
             <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
             <Route path="/gallery" element={<PageWithHelmet pageTitle="Gallery" Component={Gallery} />} />
