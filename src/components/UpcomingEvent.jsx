@@ -88,14 +88,17 @@ const UpcomingEvent = () => {
   return (
     <Container fluid className="mv-notification-container">
       <Row className="align-items-center justify-content-center">
-        <Col xs={12} md={6} className="event-image-container order-1 order-md-2">
-          <img src={image} alt={title} className="event-image img-fluid" />
-        </Col>
+       
+       
+       
         <Col xs={12} md={6} className="event-info">
           <Row className="justify-content-center">
             <Col xs={12} className="text-center">
               <img src={UpcomingBanner} alt={title} className="img-fluid" />
             </Col>
+            <Col xs={12} md={6} className="event-image-container order-1 order-md-2">
+   <img src={image} alt={title} className="event-image img-fluid" />
+ </Col>
           </Row>
           <h4 className="event-title">{title}</h4>
           <p className="event-description text-black">{description}</p>
