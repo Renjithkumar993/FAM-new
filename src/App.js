@@ -7,6 +7,7 @@ import ScrollToTop from './helpers/ScrollToTop';
 import Footer from './components/Footer';
 import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
+import FullWidthImage from './components/FullWidthImage';
 import { Element } from 'react-scroll';
 import AdvertisingComponent from './components/AdvertisingComponent';
 
@@ -88,12 +89,14 @@ const MainPage = React.memo(() => {
       <Suspense fallback={<Loading loading={true} />}>
         <Element name="home" id="home"><LandingPage /></Element>
         <Element name="about" id='about'><AboutUs /></Element>
-        <Element name="mission" id="mission"><MissionVision /></Element>
         <AdvertisingComponent />
+        <Element name="mission" id="mission"><MissionVision /></Element>
+     
         <FacebookPageEmbed />
         <Steps />
         <JoinComponent />
         <UpcomingEvent />
+        <FullWidthImage />
       </Suspense>
     </>
   );

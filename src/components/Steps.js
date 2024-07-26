@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Steps.css';
 import WhatWeDo from './WhatWeDo';
-import FullWidthImage from './FullWidthImage';
+
 
 const eventIcon = (`${process.env.PUBLIC_URL}/images/icons/event.png`);
 const volunteeringIcon = (`${process.env.PUBLIC_URL}/images/icons/Volunteering.png`);
@@ -41,7 +41,6 @@ const Steps = () => {
           </Col>
         </Row>
       </Container>
-      <FullWidthImage />
     </section>
   );
 };

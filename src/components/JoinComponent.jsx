@@ -11,7 +11,7 @@ const JoinComponent = () => {
 
   return (
     <motion.div
-      className="join-container mb-5"
+      className="join-container mb-5 mt-5"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
