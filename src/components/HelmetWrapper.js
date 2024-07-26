@@ -12,7 +12,7 @@ const HelmetWrapper = ({ pageTitle, description, structuredData }) => {
       <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content="Fredericton Association of Malayalees" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={pageTitle} />
+      <meta property="og:title" content="Fredericton Association of Malayalees" />
       <meta property="og:description" content={description} />
       <meta property="og:url" content="https://famnb.ca/" />
       <meta property="og:image" content="https://famnb.ca/images/logofam.jpg" />
