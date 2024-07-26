@@ -209,7 +209,7 @@ const EventDetail = () => {
                     <Col xs={12} sm={12}>
                       {event.performanceIframe ? (
                         <Button className="btn-ticket" block onClick={() => handleModalShow('performance')}>
-                          <FaTicketAlt /> Register to Perform
+                          Performance Registration
                         </Button>
                       ) : (
                         <Button className="btn-ticket" block disabled>

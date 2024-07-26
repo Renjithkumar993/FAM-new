@@ -88,7 +88,7 @@ const EventSection = () => {
         <h1 className="event-heading">Our Events</h1>
         <Alert variant="info" className="membership-alert">
           <h4>FAM – Membership</h4>
-          <p>Make sure you take full advantage of all the membership benefits available! As a new member, you can contest/participate in the election process to choose the office bearers for FAM. Also, you get discount on booking all events conducted by FAM.</p>
+          <p>For any membership details please reach out to info@famnb.ca</p>
         </Alert>
         <Row className="filter-row mb-4 mt-5">
           <Col md={6}>

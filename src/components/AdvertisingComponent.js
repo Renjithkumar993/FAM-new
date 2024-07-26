@@ -77,11 +77,11 @@ const AdvertisingComponent = () => {
                        <div className="stats-container ">
                             {startCount && (
                                 <>
-                                    <div className="countup">
-                                        <i className="fas fa-smile"></i>
-                                        <CountUp start={0} end={2000} duration={2.5} />
-                                        &nbsp;+ Happy Customers
-                                    </div>
+                                    {/* <div className="countup"> */}
+                                        {/* <i className="fas fa-smile"></i> */}
+                                        {/* <CountUp start={0} end={2000} duration={2.5} /> */}
+                                        {/* &nbsp;+ Happy Customers */}
+                                    {/* </div> */}
                                     {/* <div className="countup"> */}
                                         {/* <i className="fas fa-box"></i> */}
                                         {/* <CountUp start={0} end={100} duration={2.5} /> */}
