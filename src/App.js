@@ -1,4 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import './Typography.css';
@@ -53,6 +54,21 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+
+const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background-image: url(${bgImage}) !important;
+  }
+`;
+
+
+
 const MainPage = React.memo(() => {
   const [loading, setLoading] = useState(true);
 
@@ -87,6 +103,7 @@ const MainPage = React.memo(() => {
   return (
     <>
       <Suspense fallback={<Loading loading={true} />}>
+      <GlobalStyle />
         <Element name="home" id="home"><LandingPage /></Element>
         <Element name="about" id='about'><AboutUs /></Element>
         <AdvertisingComponent />
@@ -105,6 +122,7 @@ const MainPage = React.memo(() => {
 const App = () => {
   return (
     <div>
+      <GlobalStyle />
       <ScrollToTop />
       <NavigationBar />
       <ErrorBoundary>

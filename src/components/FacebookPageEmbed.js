@@ -4,6 +4,9 @@ import { FaFacebookF } from 'react-icons/fa';
 import WaveBackground from './WaveBackground';
 
 // Keyframes for animations
+
+const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -17,12 +20,16 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   animation: ${fadeIn} 0.6s ease-out;
+  background: transparent;
+  background-repeat: repeat;
+  background-image: url(${bgImage}) !important;
+
 `;
 
 const Card = styled.div`
@@ -104,6 +111,22 @@ const LoadingIndicator = styled.div`
   color: #4267b2;
 `;
 
+const FallbackLink = styled.a`
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #4267b2;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  &:hover {
+    background-color: #365899;
+    transform: translateY(-5px);
+  }
+`;
+
 const FacebookPageEmbed = () => {
   const [loading, setLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);
@@ -158,8 +181,9 @@ const FacebookPageEmbed = () => {
 
   return (
     <>
-      <WaveBackground />
+   
       <Container>
+  
         <Card>
           <Header>
             <IconContainer>
@@ -172,22 +196,31 @@ const FacebookPageEmbed = () => {
             {loading ? (
               <LoadingIndicator>Loading...</LoadingIndicator>
             ) : (
-              <div 
-                className="fb-page" 
-                data-href="https://www.facebook.com/profile.php?id=61552104893247" 
-                data-tabs="timeline" 
-                data-width="" 
-                data-height="" 
-                data-small-header="false" 
-                data-adapt-container-width="true" 
-                data-hide-cover="false" 
-                data-show-facepile="true">
-                <blockquote 
-                  cite="https://www.facebook.com/profile.php?id=61552104893247" 
-                  className="fb-xfbml-parse-ignore">
-                  <a href="https://www.facebook.com/profile.php?id=61552104893247">Fredericton Association of Malayalees - FAM</a>
+              <div
+                className="fb-page"
+                data-href="https://www.facebook.com/profile.php?id=61552104893247"
+                data-tabs="timeline"
+                data-width=""
+                data-height=""
+                data-small-header="false"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="true"
+              >
+                <blockquote
+                  cite="https://www.facebook.com/profile.php?id=61552104893247"
+                  className="fb-xfbml-parse-ignore"
+                >
+                  <a href="https://www.facebook.com/profile.php?id=61552104893247">
+                    Fredericton Association of Malayalees - FAM
+                  </a>
                 </blockquote>
               </div>
+            )}
+            {retryCount >= maxRetries && (
+              <FallbackLink href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
+                Visit our Facebook Page
+              </FallbackLink>
             )}
           </IframeContainer>
         </Card>

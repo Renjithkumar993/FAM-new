@@ -15,6 +15,7 @@ const pages = [
 ];
 
 const logo = `${process.env.PUBLIC_URL}/images/logofam.avif`;
+const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,14 +43,20 @@ const NavigationBar = () => {
   }, [location.pathname]);
 
   return (
-    <AppBar position="fixed" className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} elevation={0}>
+    <AppBar
+      position="fixed"
+      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
+      elevation={0}
+      style={{
+        backgroundImage: scrolled ? `url(${bgImage})` : 'none',
+      }}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
               <img src={logo} alt="FAM Logo" className={`logo ${scrolled ? 'logo-scrolled' : ''}`} loading="lazy" />
               <Typography variant="h6" component="div" sx={{ display: { xs: 'none', md: 'block' } }}>
-                {/* Add your title or logo text here */}
               </Typography>
             </RouterLink>
           </Box>
@@ -96,7 +103,7 @@ const NavigationBar = () => {
               sx={{
                 ml: 2,
                 backgroundColor: '#ff5722',
-                borderRadius: "25px",
+                borderRadius: '25px',
                 color: 'white',
                 fontSize: '0.9rem',
                 transition: 'transform 0.3s ease',
@@ -121,7 +128,7 @@ const NavigationBar = () => {
           </IconButton>
         </Toolbar>
       </Container>
-      <Drawer anchor="left" open={menuOpen} onClose={toggleMenu} sx={{ '& .MuiDrawer-paper': { backgroundColor: 'white', color: 'black' } }}>
+      <Drawer anchor="left" open={menuOpen} onClose={toggleMenu} classes={{ paper: 'drawer-paper' }}>
         <List>
           {pages.map((page) => (
             <ListItem button key={page.name} component={RouterLink} to={page.path} onClick={toggleMenu} sx={{ '&:hover': { backgroundColor: '#ff5722', color: 'white' } }}>

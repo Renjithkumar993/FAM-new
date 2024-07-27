@@ -22,7 +22,7 @@ const initialCardData = [
     title: "Join Facebook Group",
     description: "Join our Facebook group to stay connected with the community.",
     icon: <FaFacebook />,
-    link: "https://www.facebook.com/profile.php?id=61552104893247",
+    link: "https://www.facebook.com/share/3BRkpFoRkYSc1fVm/?mibextid=WUal2a",
     color: '#3b5998'
   },
   {

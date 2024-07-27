@@ -3,13 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 /* Apply base styles for the entire body */
-body {
-  margin: 0;
-  padding: 0;
-  color: #333;
-  line-height: 1.6;
-  background-color: #f9f9f9; /* Light background for a modern look */
-}
 
 /* Apply styles to all heading elements */
 h1, h2, h3, h4, h5, h6  {
