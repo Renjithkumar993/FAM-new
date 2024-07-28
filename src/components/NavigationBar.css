@@ -9,17 +9,17 @@
 
 
 .logo {
-  height: 100px;
-  width: 100px;
+   height: 50px;
+   width: 50px;
   border-radius: 50%;
   margin-right: 10px;
   transition: height 0.3s ease, width 0.3s ease;
 }
 
-.logo-scrolled {
-  height: 50px;
-  width: 50px;
-}
+
+
+
+
 
 .navbar button, .navbar .MuiIconButton-root {
   color: white;

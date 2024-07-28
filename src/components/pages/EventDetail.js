@@ -162,7 +162,7 @@ const EventDetail = () => {
                   src={`${event.image}`}
                   alt={event.title}
                   effect="blur"
-                  style={{ borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+            
                 />
               </Col>
               <Col lg={6}>

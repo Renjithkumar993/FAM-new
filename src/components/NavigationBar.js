@@ -51,9 +51,11 @@ const NavigationBar = () => {
 
   useEffect(() => {
     if (location.pathname === '/') {
+      setScrolled(window.scrollY > 50);
       window.addEventListener('scroll', handleScroll);
     } else {
       setScrolled(true);
+      window.removeEventListener('scroll', handleScroll);
     }
 
     return () => {
@@ -61,9 +63,13 @@ const NavigationBar = () => {
     };
   }, [location.pathname]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   return (
     <>
-      <AppBar position="fixed" className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} elevation={0}  style={{
+      <AppBar position="fixed" className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} elevation={0} style={{
         backgroundImage: scrolled ? `url(${bgImage})` : 'none',
       }}>
         <Container maxWidth="lg">

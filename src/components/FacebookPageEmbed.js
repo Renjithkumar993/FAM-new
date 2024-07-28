@@ -1,10 +1,6 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaFacebookF } from 'react-icons/fa';
-import WaveBackground from './WaveBackground';
-
-// Keyframes for animations
-
 const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
 
 const fadeIn = keyframes`
@@ -20,7 +16,7 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-   height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +25,6 @@ const Container = styled.div`
   background: transparent;
   background-repeat: repeat;
   background-image: url(${bgImage}) !important;
-
 `;
 
 const Card = styled.div`
@@ -131,6 +126,7 @@ const FacebookPageEmbed = () => {
   const [loading, setLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);
   const maxRetries = 3; // Max retries for loading the SDK
+  const iframeRef = useRef(null);
 
   const loadFacebookSDK = useCallback(() => {
     if (!document.getElementById('facebook-jssdk')) {
@@ -165,13 +161,13 @@ const FacebookPageEmbed = () => {
     if (retryCount < maxRetries) {
       loadFacebookSDK();
     } else {
-      setLoading(false); // Stop loading after max retries
+      setLoading(false); 
     }
   }, [loadFacebookSDK, retryCount, maxRetries]);
 
   useEffect(() => {
     return () => {
-      // Cleanup script tag and FB SDK on unmount
+  
       const script = document.getElementById('facebook-jssdk');
       if (script) {
         script.remove();
@@ -179,53 +175,72 @@ const FacebookPageEmbed = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && retryCount < maxRetries) {
+            loadFacebookSDK();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (iframeRef.current) {
+      observer.observe(iframeRef.current);
+    }
+
+    return () => {
+      if (iframeRef.current) {
+        observer.unobserve(iframeRef.current);
+      }
+    };
+  }, [loadFacebookSDK, retryCount, maxRetries]);
+
   return (
-    <>
-   
-      <Container>
-  
-        <Card>
-          <Header>
-            <IconContainer>
-              <FaFacebookF size={30} />
-            </IconContainer>
-            <Title>Follow Us on Facebook</Title>
-            <Description>Stay updated with our latest news</Description>
-          </Header>
-          <IframeContainer>
-            {loading ? (
-              <LoadingIndicator>Loading...</LoadingIndicator>
-            ) : (
-              <div
-                className="fb-page"
-                data-href="https://www.facebook.com/profile.php?id=61552104893247"
-                data-tabs="timeline"
-                data-width=""
-                data-height=""
-                data-small-header="false"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="true"
+    <Container>
+      <Card>
+        <Header>
+          <IconContainer>
+            <FaFacebookF size={30} />
+          </IconContainer>
+          <Title>Follow Us on Facebook</Title>
+          <Description>Stay updated with our latest news</Description>
+        </Header>
+        <IframeContainer ref={iframeRef}>
+          {loading ? (
+            <LoadingIndicator>Loading...</LoadingIndicator>
+          ) : (
+            <div
+              className="fb-page"
+              data-href="https://www.facebook.com/profile.php?id=61552104893247"
+              data-tabs="timeline"
+              data-width=""
+              data-height=""
+              data-small-header="false"
+              data-adapt-container-width="true"
+              data-hide-cover="false"
+              data-show-facepile="true"
+            >
+              <blockquote
+                cite="https://www.facebook.com/profile.php?id=61552104893247"
+                className="fb-xfbml-parse-ignore"
               >
-                <blockquote
-                  cite="https://www.facebook.com/profile.php?id=61552104893247"
-                  className="fb-xfbml-parse-ignore"
-                >
-                  <a href="https://www.facebook.com/profile.php?id=61552104893247">
-                    Fredericton Association of Malayalees - FAM
-                  </a>
-                </blockquote>
-              </div>
-            )}
-            {retryCount >= maxRetries && (
-              <FallbackLink href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
-                Visit our Facebook Page
-              </FallbackLink>
-            )}
-          </IframeContainer>
-        </Card>
-      </Container>
-    </>
+                <a href="https://www.facebook.com/profile.php?id=61552104893247">
+                  Fredericton Association of Malayalees - FAM
+                </a>
+              </blockquote>
+            </div>
+          )}
+          {retryCount >= maxRetries && (
+            <FallbackLink href="https://www.facebook.com/profile.php?id=61552104893247" target="_blank">
+              Visit our Facebook Page
+            </FallbackLink>
+          )}
+        </IframeContainer>
+      </Card>
+    </Container>
   );
 };
 
