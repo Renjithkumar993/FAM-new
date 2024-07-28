@@ -10,6 +10,7 @@
     "isOpen": true,
     "formIframe": "https://www.zeffy.com/ticketing/63199576-2e24-49e2-9fe1-499849096770",
     "performanceIframe": "https://forms.office.com/r/3wuM4y4ayE",
+    "upcomingEvent": true,
     "extraDetails": {
       "about": "Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.",
       "activities": [
@@ -18,7 +19,14 @@
         "Marvel at intricate floral decorations known as 'Athapookkalam' or 'Onappookkalam'.",
         "Participate in cultural programs and games that bring our community together."
       ]
-    }
+    },
+    "extraLinks": [
+      {
+        "text": "Learn more about Onam",
+        "url": "https://en.wikipedia.org/wiki/Onam"
+      }
+      
+    ]
   },
   {
     "title": "Christmas and New Year Celebration",
@@ -30,7 +38,8 @@
     "location": "Fredericton, NB",
     "isOpen": false,
     "formIframe": "https://www.zeffy.com/embed/ticketing/12345678-9abc-def0-1234-56789abcdef0",
-    "performanceIframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.274308336435!2d-66.64458378446987!3d45.96358997910885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca43ae1f0f3b7a5%3A0x32a4958fdbb5a905!2sFredericton%2C%20NB!5e0!3m2!1sen!2sca!4v1605295357034!5m2!1sen!2sca"
+    "performanceIframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.274308336435!2d-66.64458378446987!3d45.96358997910885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca43ae1f0f3b7a5%3A0x32a4958fdbb5a905!2sFredericton%2C%20NB!5e0!3m2!1sen!2sca!4v1605295357034!5m2!1sen!2sca",
+    "upcomingEvent": false
   },
   {
     "title": "FAM Family Picnic",
@@ -42,7 +51,8 @@
     "location": "Fredericton, NB",
     "isOpen": false,
     "formIframe": "https://www.zeffy.com/embed/ticketing/09876543-21f0-edcb-5432-1fedcba98765",
-    "performanceIframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.274308336435!2d-66.64458378446987!3d45.96358997910885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca43ae1f0f3b7a5%3A0x32a4958fdbb5a905!2sFredericton%2C%20NB!5e0!3m2!1sen!2sca!4v1605295357034!5m2!1sen!2sca"
+    "performanceIframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.274308336435!2d-66.64458378446987!3d45.96358997910885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca43ae1f0f3b7a5%3A0x32a4958fdbb5a905!2sFredericton%2C%20NB!5e0!3m2!1sen!2sca!4v1605295357034!5m2!1sen!2sca",
+    "upcomingEvent": false
   },
   {
     "title": "FAM Logo Contest",
@@ -54,6 +64,7 @@
     "location": "Fredericton, NB",
     "isOpen": false,
     "formIframe": "",
-    "performanceIframe": ""
+    "performanceIframe": "",
+    "upcomingEvent": false
   }
 ]

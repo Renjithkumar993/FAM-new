@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Button, Container } from 'react-bootstrap';
+import { Container, Grid, Typography, Button, Alert, Box } from '@mui/material';
 import Countdown from 'react-countdown';
-import './UpcomingEvent.css';
 import moment from 'moment-timezone';
-import { useNavigate } from 'react-router-dom';
-import Loading from './Loading'; 
+import { useNavigate, Link } from 'react-router-dom';
+import Loading from './Loading';
+import './UpcomingEvent.css';
 
 const UpcomingEvent = () => {
   const [updatedEvents, setUpdatedEvents] = useState([]);
@@ -15,12 +15,13 @@ const UpcomingEvent = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`); 
+        const response = await fetch(`${process.env.PUBLIC_URL}/config/events.json`);
         if (!response.ok) {
           throw new Error('Failed to fetch events');
         }
         const eventsData = await response.json();
-        const updatedEventsData = eventsData.map((event) => ({
+        const upcomingEventsData = eventsData.filter(event => event.upcomingEvent);
+        const updatedEventsData = upcomingEventsData.map((event) => ({
           ...event,
           eventId: event.title.replace(/\s+/g, '').toLowerCase(),
         }));
@@ -36,45 +37,65 @@ const UpcomingEvent = () => {
   }, []);
 
   if (loading) {
-    return <Loading />; 
+    return <Loading />;
   }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
+  const UpcomingBanner = `${process.env.PUBLIC_URL}/images/events/upcoming-banner.png`;
+
   if (updatedEvents.length === 0) {
-    return <div>No upcoming events.</div>;
+    return (
+      <Container maxWidth="md" style={{ textAlign: 'center', padding: '2rem 0' }}>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={12}>
+            <img src={UpcomingBanner} alt="Upcoming Events" style={{ width: '100%', height: 'auto' }} />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h4" component="div" gutterBottom>
+              Stay Tuned!
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              We are working on exciting new events. Check back soon for updates!
+            </Typography>
+            <Alert severity="info" style={{ marginTop: '1rem' }}>
+              Check out our <Link to="/events">Past Events</Link>
+            </Alert>
+          </Grid>
+        </Grid>
+      </Container>
+    );
   }
 
-  const UpcomingBanner = `${process.env.PUBLIC_URL}/images/events/upcoming-banner.png`;
   const event = updatedEvents[0]; // Assuming the first event is the upcoming event
   const { eventId, title, description, date, isOpen, image } = event;
   const eventDate = moment.tz(date, 'UTC');
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
-      return <span>The event has started!</span>;
+      return <Typography variant="body1">The event has started!</Typography>;
     } else {
       return (
-        <div className="mv-statistics">
-          <div className="stat-box">
-            <h3>{days}</h3>
-            <p>Days</p>
-          </div>
-          <div className="stat-box">
-            <h3>{hours}</h3>
-            <p>Hours</p>
-          </div>
-          <div className="stat-box">
-            <h3>{minutes}</h3>
-            <p>Minutes</p>
-          </div>
-          <div className="stat-box">
-            <h3>{seconds}</h3>
-            <p>Seconds</p>
-          </div>
-        </div>
+        <Grid container spacing={2} justifyContent="center" style={{ marginTop: '1rem' }}>
+          <Grid item>
+            <Typography variant="h5" style={{ color: '#ff6341' }}>{days}</Typography>
+            <Typography variant="body2" style={{ color: '#ff6341' }}>Days</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" style={{ color: '#ff6341' }}>{hours}</Typography>
+            <Typography variant="body2" style={{ color: '#ff6341' }}>Hours</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" style={{ color: '#ff6341' }}>{minutes}</Typography>
+            <Typography variant="body2" style={{ color: '#ff6341' }}>Minutes</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" style={{ color: '#ff6341' }}>{seconds}</Typography>
+            <Typography variant="body2" style={{ color: '#ff6341' }}>Seconds</Typography>
+          </Grid>
+        </Grid>
       );
     }
   };
@@ -86,33 +107,44 @@ const UpcomingEvent = () => {
   };
 
   return (
-    <Container fluid className="mv-notification-container">
-      <Row className="align-items-center justify-content-center">
-       
-       
-       
-        <Col xs={12} md={6} className="event-info">
-          <Row className="justify-content-center">
-            <Col xs={12} className="text-center">
-              <img src={UpcomingBanner} alt={title} className="img-fluid" />
-            </Col>
-            <Col xs={12} md={6} className="event-image-container order-1 order-md-2">
-   <img src={image} alt={title} className="event-image img-fluid" />
- </Col>
-          </Row>
-          <h4 className="event-title">{title}</h4>
-          <p className="event-description text-black">{description}</p>
-          <h5 className="event-date-upcoming">{eventDate.format('MMMM D, YYYY')}</h5>
-          <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
-          <Button
-            className="mv-register-btn mt-3 mb-3"
-            variant="primary"
-            onClick={() => handleRegister(eventId, isOpen)}
-          >
-            Register
-          </Button>
-        </Col>
-      </Row>
+    <Container maxWidth="md">
+      <Grid container spacing={4} justifyContent="center" >
+        <Grid item xs={12}>
+          <img src={UpcomingBanner} alt="Upcoming Events" style={{ width: '100%', height: 'auto'}} />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <img src={image} alt={title} className="event-image" />
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h4" component="h1" className='text-center bold-text '>
+            {title}
+          </Typography>
+          <Typography variant="body1" color="text.secondary" paragraph style={{ textAlign: 'center' }}>
+            {description}
+          </Typography>
+          <Typography variant="h6" color="text.primary" gutterBottom style={{ color: 'rgb(240, 21, 21)', textAlign: 'center' }}>
+            {eventDate.format('MMMM D, YYYY')}
+          </Typography>
+          <Box display="flex" justifyContent="center" marginTop={2}>
+            <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
+          </Box>
+          <Box display="flex" justifyContent="center" marginTop={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ backgroundColor: '#ff6341', borderRadius: '25px' }}
+              onClick={() => handleRegister(eventId, isOpen)}
+            >
+              Register
+            </Button>
+          </Box>
+        </Grid>
+        <Grid item xs={12} style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <Alert severity="info">
+            Check out our <Link to="/events">Past Events</Link>
+          </Alert>
+        </Grid>
+      </Grid>
     </Container>
   );
 };

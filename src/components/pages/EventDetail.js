@@ -180,7 +180,9 @@ const EventDetail = () => {
                 <EventDescription className="event-description">
                   <h3><FaInfoCircle style={{ marginRight: '8px' }} /> About the Event</h3>
                   <p>{event.details}</p>
-                  <p>Learn more about Onam <a href="https://en.wikipedia.org/wiki/Onam" target="_blank" rel="noopener noreferrer">here</a>.</p>
+                  {event.extraLinks && event.extraLinks.map((link, index) => (
+                    <p key={index}><a href={link.url} target="_blank" rel="noopener noreferrer">{link.text}</a></p>
+                  ))}
                   {event.extraDetails && (
                     <>
                       <h3><FaClipboardList style={{ marginRight: '8px' }} /> Activities</h3>

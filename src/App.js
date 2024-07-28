@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import './Typography.css';
 import NavigationBar from './components/NavigationBar';
-import ScrollToTop from './helpers/ScrollToTop';
 import Footer from './components/Footer';
 import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
@@ -123,7 +122,7 @@ const App = () => {
   return (
     <div>
       <GlobalStyle />
-      <ScrollToTop />
+   
       <NavigationBar />
       <ErrorBoundary>
         <Suspense fallback={<Loading loading={true} />}>

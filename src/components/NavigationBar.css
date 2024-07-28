@@ -4,14 +4,8 @@
 }
 
 .navbar-scrolled {
- background-repeat: repeat;
- 
- 
+  background-repeat: repeat;
 }
- 
- 
- 
-
 
 
 .logo {
@@ -58,6 +52,16 @@
 
 .navbar .MuiIconButton-root {
   font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-scrolled {
+    background-color: white !important;
+  }
+
+  .navbar .MuiDrawer-paper {
+    background-color: white !important;
+  }
 }
 
 a {
