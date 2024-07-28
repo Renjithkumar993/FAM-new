@@ -67,6 +67,12 @@ const NavigationBar = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
+  const handleHomeClick = () => {
+    if (location.pathname === '/') {
+      scrollToTop();
+    }
+  };
+
   return (
     <>
       <AppBar position="fixed" className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} elevation={0} style={{
@@ -75,7 +81,7 @@ const NavigationBar = () => {
         <Container maxWidth="lg">
           <Toolbar disableGutters>
             <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-              <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+              <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }} onClick={handleHomeClick}>
                 <img src={logo} alt="FAM Logo" className={`logo ${scrolled ? 'logo-scrolled' : ''}`} loading="lazy" />
                 <Typography variant="h6" component="div" sx={{ display: { xs: 'none', md: 'block' } }}>
                   
@@ -114,6 +120,7 @@ const NavigationBar = () => {
                     },
                   }}
                   startIcon={<FontAwesomeIcon icon={page.icon} />}
+                  onClick={page.path === '/' ? handleHomeClick : undefined}
                 >
                   {page.name}
                 </Button>

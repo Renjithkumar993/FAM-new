@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaFacebookF } from 'react-icons/fa';
+import { CircularProgress } from '@mui/material';
+
 const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
 
 const fadeIn = keyframes`
@@ -97,7 +99,7 @@ const IframeContainer = styled.div`
   }
 `;
 
-const LoadingIndicator = styled.div`
+const LoadingContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,7 +169,6 @@ const FacebookPageEmbed = () => {
 
   useEffect(() => {
     return () => {
-  
       const script = document.getElementById('facebook-jssdk');
       if (script) {
         script.remove();
@@ -210,7 +211,9 @@ const FacebookPageEmbed = () => {
         </Header>
         <IframeContainer ref={iframeRef}>
           {loading ? (
-            <LoadingIndicator>Loading...</LoadingIndicator>
+            <LoadingContainer>
+              <CircularProgress />
+            </LoadingContainer>
           ) : (
             <div
               className="fb-page"
