@@ -23,6 +23,7 @@ const EventTitle = styled.h1`
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
+  font-size: 50px;
 `;
 
 const LocationInfo = styled.p`
